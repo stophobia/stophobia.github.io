@@ -14,7 +14,7 @@
 */
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Meyryo, 'Malgun Gothic' sans-serif;
 }
 
 html, body {
@@ -106,7 +106,7 @@ body {
 
 .post-link .post-title {
   margin-top: 0;
-  font-weight: 600;
+  font-weight: 400;
   color: #333;
 }
 
@@ -230,7 +230,7 @@ h1,
 h2,
 h3 {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   margin-top: 3rem;
 }
 
@@ -313,7 +313,7 @@ h6 {
 @media screen and (min-width: 64em) {
   .h1,
   h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     line-height: 6rem;
   }
 
