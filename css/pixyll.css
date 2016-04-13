@@ -22,8 +22,8 @@ html, body {
 }
 
 #logo{
-  width: 60px;
-  vertical-align: middle;
+  width: 30px;
+  vertical-align: text-top;
 }
 
 img {
