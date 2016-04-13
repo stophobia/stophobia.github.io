@@ -22,7 +22,7 @@ html, body {
 }
 
 #logo{
-  width: 30px;
+  width: 40px;
   vertical-align: text-top;
 }
 
@@ -74,7 +74,7 @@ body {
 .site-header nav a:hover {
   color: #444;
   opacity: 1;
-  border-bottom: 2px solid #444;
+  /*border-bottom: 2px solid #444;*/
 }
 
 .site-nav a + a {
