@@ -26,6 +26,10 @@ html, body {
   vertical-align: text-top;
 }
 
+#contact{
+  width: 20px;
+}
+
 img {
   width: 100%;
 }
