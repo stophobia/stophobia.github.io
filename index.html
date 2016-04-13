@@ -3,7 +3,6 @@ layout: default
 ---
 
 <div class="home">
-
   <div class="posts">
     {% for post in paginator.posts %}
       <div class="post">
@@ -15,8 +14,6 @@ layout: default
       </div>
     {% endfor %}
   </div>
-
   {% include pagination.html %}
-
-  <!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 </div>
