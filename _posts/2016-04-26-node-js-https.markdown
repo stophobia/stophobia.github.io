@@ -53,11 +53,11 @@ Error: error:0906A068:PEM routines:PEM_do_header:bad password read
     at Module.load (module.js:349:32)
     at Function.Module._load (module.js:305:12)
 </pre>
-<p></p>
+<p>これでいける。</p>
 <pre class="brush: js;">
 openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
 </pre>
-<p></p>
+<p>これは、以前失敗した例。参考にするため保存。</p>
 <pre class="brush: js;">
 $ openssl genrsa 2048 > server.key<br>
 $ openssl req -new -key server.key > server.csr<br>
