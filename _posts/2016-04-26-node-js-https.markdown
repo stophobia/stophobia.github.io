@@ -56,6 +56,8 @@ Error: error:0906A068:PEM routines:PEM_do_header:bad password read
 <pre class="brush: js;">
 openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
 </pre>
+<pre class="brush: js;">
 $ openssl genrsa 2048 > server.key<br>
 $ openssl req -new -key server.key > server.csr<br>
 $ openssl x509 -req -in server.csr -signkey server.key -out server.crt
+</pre>
