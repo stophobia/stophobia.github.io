@@ -6,14 +6,14 @@ tags: [nodejs, expressjs, javascript, https, security]
 categories: [nodejs, expressjs]
 ---
 <p>まず自分の署名を作る</p>
-<pre>
+<pre class="brush: Javascript;">
 <code>
 $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 </code>
 </pre>
 <p>Windowsの場合はGit ShellやGit Bashを使う。<br>
 いくつかの質問に答えて進むと、自分の署名ファイルが作れる。例文では365日だけ使える例文になっている。</p>
-<pre>
+<pre class="brush: Javascript;">
 <code>
     var fs = require('fs'),
     https = require('https'),
@@ -34,7 +34,7 @@ $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 <p>
 これで、HTTPSが稼働できるようになった。
 </p>
-<pre>
+<pre class="brush: Javascript;">
 <code>
 $ node index.js
 </code>
@@ -43,7 +43,7 @@ $ node index.js
 通常通り実行すると署名を作った際に入力したパスワードを聞かれるので、それに応える。<br>
 もし下のようなエラーが出たら、パスを削除する。
 </p>
-<pre>
+<pre class="brush: Javascript;">
 <code>
 mgechev → MinBook Pro ~/Desktop/test Thu Apr 30 11:56:03
  $ node index.js
@@ -63,7 +63,7 @@ Error: error:0906A068:PEM routines:PEM_do_header:bad password read
     at Function.Module._load (module.js:305:12)
 </code>
 </pre>
-<pre>
+<pre class="brush: Javascript;">
 <code>
 openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
 </code>
