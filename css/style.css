@@ -325,7 +325,11 @@ h6 {
     line-height: 3.5rem;
   }
 
-  .post-link .post-title {
+  xx.posts .post-meta {
+    padding-bottom: .25rem;
+  }
+
+  xx.post-link .post-title {
     margin-top: .25rem;
   }
 
