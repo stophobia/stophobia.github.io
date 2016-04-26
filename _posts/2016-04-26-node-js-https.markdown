@@ -4,11 +4,14 @@ title: Node.jsでHTTPSを使うための署名発行
 layout: post
 ---
 <p>まず自分の署名を作る</p>
+
 <pre class="brush: js;">
 $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 </pre>
+
 <p>Windowsの場合はGit ShellやGit Bashを使う。<br>
 いくつかの質問に答えて進むと、自分の署名ファイルが作れる。例文では365日だけ使える例文になっている。</p>
+
 <pre class="brush: js;">
     var fs = require('fs'),
     https = require('https'),
@@ -25,16 +28,20 @@ $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
       return res.end('Hello, Secure World!');
     });
 </pre>
+
 <p>
 これで、HTTPSが稼働できるようになった。
 </p>
+
 <pre class="brush: js;">
 $ node index.js
 </pre>
+
 <p>
 通常通り実行すると署名を作った際に入力したパスワードを聞かれるので、それに応える。<br>
 もし下のようなエラーが出たら、パスを削除する。
 </p>
+
 <pre class="brush: js;">
 mgechev → MinBook Pro ~/Desktop/test Thu Apr 30 11:56:03
  $ node index.js
@@ -53,11 +60,15 @@ Error: error:0906A068:PEM routines:PEM_do_header:bad password read
     at Module.load (module.js:349:32)
     at Function.Module._load (module.js:305:12)
 </pre>
+
 <p>これでいける。</p>
+
 <pre class="brush: js;">
 openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
 </pre>
+
 <p>これは、以前失敗した例。参考にするため保存。</p>
+
 <pre class="brush: js;">
 $ openssl genrsa 2048 > server.key<br>
 $ openssl req -new -key server.key > server.csr<br>
