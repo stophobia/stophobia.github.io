@@ -1,13 +1,9 @@
 ---
 layout: default
 ---
-<div class="home">
-  <div class="posts">
-      <div class="post">
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <h3 class="h2 post-title">{{ post.title }}</h3>
-      </div>
-  </div>
+<div class="post">
+  <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+  <h3 class="h2 post-title">{{ post.title }}</h3>
 </div>
 <article class="post-content">
   {{ content }}
