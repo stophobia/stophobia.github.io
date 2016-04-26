@@ -27,7 +27,7 @@ $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 
     app.get('/', function (req, res) {
       res.header('Content-type', 'text/html');
-      return res.end('<h1>Hello, Secure World!</h1>');
+      return res.end('Hello, Secure World!&lt;');
     });
 </code>
 </pre>
