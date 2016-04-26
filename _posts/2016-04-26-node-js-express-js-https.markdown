@@ -1,6 +1,6 @@
 ---
 published: true
-title: Node.js + Express.jsでHTTPSを使うための証明発行
+title: Node.js + Express.jsでHTTPSを使うための証明
 layout: post
 ---
 <p>まず自分の署名を作る</p>
