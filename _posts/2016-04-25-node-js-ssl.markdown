@@ -5,13 +5,13 @@ layout: post
 tags: [node.js, openssl, https, security]
 categories: [nodejs]
 ---
-<h3>まず自分の署名を作る</h3>
-<pre>
+<p>まず自分の署名を作る</p>
+<code>
 $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
-</pre>
+</code>
 <p>Windowsの場合はGit ShellやGit Bashを使う。<br>
 いくつかの質問に答えて進むと、自分の署名ファイルが作れる。例文では365日だけ使える例文になっている。</p>
-<pre>
+<code>
     var fs = require('fs'),
     https = require('https'),
     express = require('express'),
@@ -26,18 +26,18 @@ $ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
       res.header('Content-type', 'text/html');
       return res.end('<h1>Hello, Secure World!</h1>');
     });
-</pre>
+</code>
 <p>
 これで、HTTPSが稼働できるようになった。
 </p>
-<pre>
+<code>
 $ node index.js
-</pre>
+</code>
 <p>
 通常通り実行すると署名を作った際に入力したパスワードを聞かれるので、それに応える。<br>
 もし下のようなエラーが出たら、パスを削除する。
 </p>
-<pre>
+<code>
 mgechev → MinBook Pro ~/Desktop/test Thu Apr 30 11:56:03
  $ node index.js
 _tls_common.js:67
@@ -54,10 +54,10 @@ Error: error:0906A068:PEM routines:PEM_do_header:bad password read
     at Object.Module._extensions..js (module.js:467:10)
     at Module.load (module.js:349:32)
     at Function.Module._load (module.js:305:12)
-</pre>
-<p>
+</code>
+<code>
 openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
-</p>
+</code>
 $ openssl genrsa 2048 > server.key<br>
 $ openssl req -new -key server.key > server.csr<br>
 $ openssl x509 -req -in server.csr -signkey server.key -out server.crt
