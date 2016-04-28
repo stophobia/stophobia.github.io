@@ -33,7 +33,7 @@ herokuには、<a href="https://toolbelt.heroku.com/">heroku toolbelt</a>をイ�
 <pre class="brush: js;">
 $ heroku login
 </pre>
-ここまでしたら、heroku上のnode.js環境でmongodbを使える環境にはなる。<br>
+ここまでしたら、heroku上のnode.js環境でmongodbを使える環境になる。<br>
 <br>
 <address>
 <p>参考</p>
