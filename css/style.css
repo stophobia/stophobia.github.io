@@ -31,7 +31,7 @@ html, body {
 }
 
 img {
-  width: 100%;
+  border: none;
 }
 
 .site-wrap {
