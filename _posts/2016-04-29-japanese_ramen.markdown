@@ -1,6 +1,6 @@
 ---
 published: true
-title: [맛블] 자라스프맛 컵라면
+title: 맛블 - 자라스프맛 컵라면
 layout: post
 tags: [ramen, cupnoodle, food]
 ---
