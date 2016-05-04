@@ -709,12 +709,12 @@ a:hover {
 
 .button-gray {
   color: #444;
-  background-color: #fafafa;
+  background-color: #f3f3f3;
   border: 1px thin #f3f3f3;
 }
 .button-gray:hover {
   color: #444;
-  background-color: #fafafa;
+  background-color: #f3f3f3;
   border: 1px thin #f3f3f3;
 }
 

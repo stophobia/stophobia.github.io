@@ -146,12 +146,12 @@ address * {
 }
 
 .pagination a:hover, .pagination a:focus {
-  background: white;
+  background: #f3f3f3;
   color: #444;
 }
 
 .pagination a:active {
-  background: #fafafa;
+  background: #f3f3f3;
 }
 
 .wrap .measure {
