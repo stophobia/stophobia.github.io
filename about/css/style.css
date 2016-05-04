@@ -173,10 +173,10 @@ input:checked + label {
 
 @media screen and (min-width: 48em) and (max-width: 64em) {
 	h1{
-		margin-left:0rem;
+		margin-left:1.5rem;
 	}
 	nav{
-		margin-right:0rem;
+		margin-right:1.5rem;
 	}
 	div.wrap{
 		margin: 0 5rem;
