@@ -167,3 +167,12 @@ input:checked + label {
 		margin-right:1.5rem;
 	}
 }
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+	h1{
+		margin-left:3rem;
+	}
+	nav{
+		margin-right:3rem;
+	}
+}
