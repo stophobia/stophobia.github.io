@@ -76,7 +76,7 @@ address * {
 
 .site-header nav a {
   font-size: 16px;
-  color: #666;
+  color: #444;
 }
 
 .site-header nav a:hover {
@@ -108,7 +108,7 @@ address * {
 .posts .post {
   margin-bottom: 1rem;
   padding-bottom: .5rem;
-  border-bottom: thin solid #f3f3f3;
+  border-bottom: thin solid #aaa;
 }
 
 .posts .post:last-child {
@@ -120,7 +120,7 @@ address * {
 .post-link .post-title {
   margin-top: 0;
   font-weight: 400;
-  color: #333;
+  color: #444;
 }
 
 .pagination,
@@ -137,7 +137,7 @@ address * {
   background: #fafafa;
   border-radius: 0.1875em;
   border: 1px solid #f3f3f3;
-  color: #333333;
+  color: #444;
   padding: 1rem 1.5rem;
 }
 
@@ -147,11 +147,11 @@ address * {
 
 .pagination a:hover, .pagination a:focus {
   background: white;
-  color: #477dca;
+  color: #444;
 }
 
 .pagination a:active {
-  background: #f7f7f7;
+  background: #fafafa;
 }
 
 .wrap .measure {
@@ -165,7 +165,7 @@ address * {
   font-weight: 300;
   margin: 0;
   padding: .25rem 0;
-  color: #7a7a7a;
+  color: #444;
   font-style: italic;
 }
 
@@ -184,7 +184,7 @@ address * {
 .button-disabled:active,
 .button-disabled:focus {
   cursor: not-allowed;
-  background-color: #999;
+  background-color: #fafafa;
 }
 
 form {
@@ -199,7 +199,7 @@ textarea.input {
 p {
   font-weight: 300;
   line-height: 1.95rem;
-  color: #333;
+  color: #444;
 }
 
 pre, code {
@@ -207,7 +207,7 @@ pre, code {
 }
 
 code {
-  color: #7a7a7a;
+  color: #444;
 }
 
 pre {
@@ -226,9 +226,9 @@ pre {
 blockquote {
   padding: 1rem;
   font-style: italic;
-  border-left: 5px solid #7a7a7a;
+  border-left: 5px solid #aaa;
 }
-
+/*
 blockquote footer {
   font-size: .856rem;
   font-style: normal;
@@ -236,7 +236,7 @@ blockquote footer {
   color: #7a7a7a;
   border-color: transparent;
 }
-
+*/
 h1,
 h2,
 h3 {
@@ -356,7 +356,7 @@ footer {
 
 footer,
 footer .wrap {
-  color: #7a7a7a;
+  color: #444;
   background-color: #fafafa;
   font-weight: 300;
   clear: both;

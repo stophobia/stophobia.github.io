@@ -20,7 +20,7 @@ a{
 }
 h1 a{
 	float: left;
-	color: #333;
+	color: #444;
 	font-size: 1.5rem;
 	font-weight: 300;
 }
@@ -60,7 +60,7 @@ header.wrap{
 	clear: both;
 }
 .content b{
-	color:#333;
+	color:#444;
 	opacity: 0.88;
 	font-size: 1.2rem;
 	font-weight: 400;
@@ -68,7 +68,7 @@ header.wrap{
 	line-height: 3.5rem;
 }
 #line article span{
-	color: #7a7a7a;
+	color: #aaa;
 	font-size: 1rem;
 	font-style: italic;
 	line-height: 2.25rem;
@@ -82,7 +82,7 @@ header.wrap{
 #line article em br{
 	font-size: 0.75rem;
 	line-height: 1px;
-	color:#bbb;
+	color:#aaa;
 }
 #line .now{
 	background: url(../img/ico_now.jpg) top left no-repeat;
@@ -111,12 +111,12 @@ header.wrap{
 	display: inline-block;
 	padding: 2px 5px;
 	margin-left: 0.5rem;
-	background-color: #efefef;
+	background-color: #aaa;
 	border-radius: 6px;
 }
 footer{
 	margin-top: 20px;
-	color: #7a7a7a;
+	color: #444;
 	background-color: #fafafa;
 	font-weight: 300;
 	clear: both;
@@ -129,7 +129,7 @@ footer{
 
 .content {
 	background: #fff;
-	color: #373737;
+	color: #444;
 	clear: both;
 }
 .content > div {
@@ -149,7 +149,7 @@ label {
 	width: 33.3%
 }
 input:checked + label {
-	border-bottom: 2px #ddd solid;
+	border-bottom: 2px #aaa solid;
 }
 
 #tab1:checked ~ .content #content1,

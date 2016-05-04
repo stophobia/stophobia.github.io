@@ -675,16 +675,16 @@ strong, .bold {
 }
 
 body {
-  color: #333333;
+  color: #444;
   background-color: #fff;
 }
 
 a {
-  color: #0096cc;
+  color: #444;
   text-decoration: none;
 }
 a:hover {
-  color: #007199;
+  color: #444;
 }
 
 .button {
@@ -708,25 +708,27 @@ a:hover {
 }
 
 .button-gray {
-  color: #fff;
-  background-color: #777777;
+  color: #444;
+  background-color: #fafafa;
+  border: 1px thin #f3f3f3;
 }
 .button-gray:hover {
-  color: #fff;
-  background-color: #444444;
+  color: #444;
+  background-color: #fafafa;
+  border: 1px thin #f3f3f3;
 }
 
 .form-light .input,
 .form-light .textarea,
 .form-light .select {
   xxtransition: box-shadow .2s ease;
-  border-color: #aaaaaa;
+  border-color: #f3f3f3;
 }
 .form-light .input:focus,
 .form-light .textarea:focus,
 .form-light .select:focus {
   outline: none;
-  border-color: #0096cc;
+  border-color: #f3f3f3;
   xxbox-shadow: 0 0 0.125rem rgba(0, 150, 204, 0.5);
 }
 .form-light .radio input,
@@ -753,7 +755,7 @@ a:hover {
 }
 
 .border-light-gray {
-  border-color: #eeeeee;
+  border-color: #f3f3f3;
 }
 
 .rounded {
