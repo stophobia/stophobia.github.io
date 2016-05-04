@@ -508,7 +508,7 @@ strong, .bold {
   height: 3rem;
   line-height: 2rem;
   padding: .5rem;
-  border-radius: .25rem;
+  border-radius: 3px;
 }
 
 .select {
@@ -516,14 +516,14 @@ strong, .bold {
   height: 3rem;
   margin-right: 0;
   margin-left: 0;
-  border-radius: .25rem;
+  border-radius: 3px;
 }
 
 .textarea {
   box-sizing: border-box;
   padding: 1rem;
   line-height: 1.5rem;
-  border-radius: .25rem;
+  border-radius: 3px;
 }
 
 .form-stacked label,
@@ -688,7 +688,7 @@ a:hover {
 }
 
 .button {
-  border-radius: .25rem;
+  border-radius: 3px;
   transition-duration: .2s;
   transition-timing-function: ease;
   xxtransition-property: box-shadow , background-color;
@@ -720,7 +720,7 @@ a:hover {
 .form-light .textarea,
 .form-light .select {
   xxtransition: box-shadow .2s ease;
-  xxborder-color: #777777;
+  border-color: #aaaaaa;
 }
 .form-light .input:focus,
 .form-light .textarea:focus,
@@ -739,7 +739,7 @@ a:hover {
   xxbox-shadow: 0 0 0 2px white, 0 0 1px 4px rgba(0, 150, 204, 0.5);
 }
 .form-light .radio input {
-  border-radius: 50%;
+  border-radius: 3px;
 }
 
 .border {
@@ -757,7 +757,7 @@ a:hover {
 }
 
 .rounded {
-  border-radius: .25rem;
+  border-radius: 3px;
 }
 
 .transition-all {
