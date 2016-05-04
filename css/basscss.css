@@ -524,6 +524,7 @@ strong, .bold {
   padding: 1rem;
   line-height: 1.5rem;
   border-radius: 3px;
+  resize: none;
 }
 
 .form-stacked label,
