@@ -734,7 +734,7 @@ a:hover {
 }
 .form-light .radio input,
 .form-light .checkbox input {
-  transition: box-shadow .2s ease;
+  xxtransition: box-shadow .2s ease;
 }
 .form-light .radio input:focus,
 .form-light .checkbox input:focus {
