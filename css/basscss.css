@@ -691,11 +691,11 @@ a:hover {
   border-radius: .25rem;
   transition-duration: .2s;
   transition-timing-function: ease;
-  transition-property: box-shadow , background-color;
+  xxtransition-property: box-shadow , background-color;
 }
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 1px 4px rgba(0, 150, 204, 0.5);
+  xxbox-shadow: 0 0 0 2px white, 0 0 1px 4px rgba(0, 150, 204, 0.5);
 }
 
 .button-blue {
@@ -719,15 +719,15 @@ a:hover {
 .form-light .input,
 .form-light .textarea,
 .form-light .select {
-  transition: box-shadow .2s ease;
-  border-color: #777777;
+  xxtransition: box-shadow .2s ease;
+  xxborder-color: #777777;
 }
 .form-light .input:focus,
 .form-light .textarea:focus,
 .form-light .select:focus {
   outline: none;
   border-color: #0096cc;
-  box-shadow: 0 0 0.125rem rgba(0, 150, 204, 0.5);
+  xxbox-shadow: 0 0 0.125rem rgba(0, 150, 204, 0.5);
 }
 .form-light .radio input,
 .form-light .checkbox input {
@@ -736,7 +736,7 @@ a:hover {
 .form-light .radio input:focus,
 .form-light .checkbox input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white, 0 0 1px 4px rgba(0, 150, 204, 0.5);
+  xxbox-shadow: 0 0 0 2px white, 0 0 1px 4px rgba(0, 150, 204, 0.5);
 }
 .form-light .radio input {
   border-radius: 50%;
