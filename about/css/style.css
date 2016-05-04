@@ -126,6 +126,30 @@ footer{
 	line-height: 1.5rem;
 }
 
+
+  h1{
+	margin-left: 1.5em;
+  }
+  nav{
+	margin-right: 1.5rem;
+  }
+@media screen and (min-width: 48em) and (max-width: 64em) {
+  h1{
+	margin-left: 3rem;
+  }
+  nav{
+	margin-right: 3rem;
+  }
+}
+@media screen and (min-width: 64em) {
+  h1{
+	margin-left: 4em;
+  }
+  nav{
+	margin-right: 4rem;
+  }
+}
+
 .content {
 	background: #fff;
 	color: #373737;
