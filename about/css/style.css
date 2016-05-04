@@ -37,13 +37,10 @@ h1 img{
 }
 .wrap{
 	position: relative;
-	margin: 3.5rem;
+	margin: 0 auto;
 	width: auto;
 	max-width: 768px;
 	height: 100%;
-}
-div.wrap{
-	margin: 3.5rem;
 }
 header.wrap{
 	margin: 0.95rem auto 4rem !important;
@@ -131,21 +128,18 @@ footer{
 }
 
 
-  h1{
+h1{
 	margin-left: 1.5em;
-  }
-  nav{
+}
+nav{
 	margin-right: 1.5rem;
-  }
+}
 @media screen and (min-width: 48em) and (max-width: 64em) {
   h1{
 	margin-left: 3rem;
   }
   nav{
 	margin-right: 3rem;
-  }
-  div.wrap{
-  	margin: 0 auto;
   }
 }
 @media screen and (min-width: 64em) {
@@ -154,9 +148,6 @@ footer{
   }
   nav{
 	margin-right: 4rem;
-  }
-  div.wrap{
-  	margin: 0 auto;
   }
 }
 
