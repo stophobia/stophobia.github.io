@@ -158,3 +158,12 @@ input:checked + label {
 #tab4:checked ~ .content #content4 {
 	display: block;
 }
+
+@media screen and (max-width: 48em) {
+	h1{
+		margin-left:1.5rem;
+	}
+	nav{
+		margin-right:1.5rem;
+	}
+}
