@@ -166,6 +166,9 @@ input:checked + label {
 	nav{
 		margin-right:1.5rem;
 	}
+	div.wrap{
+		margin: 0 3.5rem;
+	}
 }
 
 @media screen and (min-width: 48em) and (max-width: 64em) {
@@ -174,5 +177,8 @@ input:checked + label {
 	}
 	nav{
 		margin-right:1rem;
+	}
+	div.wrap{
+		margin: 0 5rem;
 	}
 }
