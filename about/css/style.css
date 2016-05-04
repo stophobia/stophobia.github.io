@@ -30,6 +30,7 @@ nav{
 nav a{
 	float: right;
 	margin-left: 1rem;
+	font-weight: 300;
 }
 h1 img{
 	border-radius: 3px;
@@ -43,6 +44,7 @@ h1 img{
 }
 header.wrap{
 	margin: 0.95rem auto 4rem !important;
+	padding: 0 3rem;
 	overflow: hidden;
 }
 #line{
