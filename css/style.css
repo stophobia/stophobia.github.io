@@ -256,7 +256,7 @@ h6 {
   }
 
   .site-header .site-nav {
-    width: 20%;
+    width: auto;
     float: right;
     text-align: center;
   }
