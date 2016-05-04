@@ -42,6 +42,9 @@ h1 img{
 	max-width: 768px;
 	height: 100%;
 }
+div.wrap{
+	margin-right: 3.5rem;
+}
 header.wrap{
 	margin: 0.95rem auto 4rem !important;
 	overflow: hidden;
