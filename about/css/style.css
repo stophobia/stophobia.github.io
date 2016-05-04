@@ -39,7 +39,7 @@ h1 img{
 	position: relative;
 	margin: 0 auto;
 	width: auto;
-	max-width: 768px;
+	max-width: auto;
 	height: 100%;
 }
 header.wrap{
@@ -183,5 +183,11 @@ input:checked + label {
 	}
 	div.wrap{
 		margin: 0 5rem;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	.wrap{
+		max-width: 768px;
 	}
 }
