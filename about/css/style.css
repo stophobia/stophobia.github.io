@@ -1,111 +1,160 @@
 @charset "UTF-8";
-* {
-  font-family: 'Helvetica Neue', Helvetica, 'Meiryo', 'Malgun Gothic', sans-serif;
-  line-height: 1.5;
-  color:#444;
-  font-size: 1rem;
+*
+{
+	font-family: 'Helvetica Neue', Helvetica, 'Meiryo', 'Malgun Gothic', sans-serif;
+	line-height: 1.5;
+	color:#444;
+	font-size: 1rem;
 }
 
-body {
-          box-sizing: border-box;
-     -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+body
+{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
-img {
-  border: none;
+img
+{
+	border: none;
 }
+
 a{
 	text-decoration: none;
 }
-h1 a{
+
+h1 a
+{
 	float: left;
 	color: #444;
 	font-size: 1.5rem;
 	font-weight: 300;
 }
-nav{
+nav
+{
 	padding-top: 9px;
 }
-nav a{
+
+nav a
+{
 	float: right;
 	margin-left: 1rem;
 	font-weight: 300;
 }
-h1 img{
+
+h1 img
+{
 	border-radius: 3px;
 }
-.wrap{
+input,button,textarea,select
+{
+	min-width: 210px;
+	padding: 0;
+	margin:2px 5px;
+	background-color: #fafafa;
+	border: thin solid #f3f3f3;
+	border-radius: 3px;
+}
+
+.wrap
+{
 	position: relative;
 	margin: 0 auto;
 	width: auto;
 	max-width: auto;
 	height: 100%;
 }
-header.wrap{
+
+header.wrap
+{
 	margin: 0.95rem auto 4rem !important;
 	overflow: hidden;
 }
-#line{
+
+#line
+{
 	margin-bottom: 4rem;
 	background: url(../img/ico_line.jpg) center left repeat-y;
 	background-size:50px;
 }
-#line article{
+
+#line article
+{
 	margin-left: 60px;
 }
-#line section{
+
+#line section
+{
 	position: relative;
 	min-height: 60px;
 	clear: both;
 }
-.content b{
+
+.content b
+{
 	color:#444;
 	opacity: 0.88;
 	font-size: 1.2rem;
 	font-weight: 400;
-	font-size: 1.75rem;
 	line-height: 3.5rem;
 }
-#line article span{
+
+#line article span
+{
 	color: #aaa;
 	font-size: 1rem;
 	font-style: italic;
 	line-height: 2.25rem;
 }
-#line article p{
+
+#line article p
+{
 	font-size: 0.9rem;
 	padding-left:1rem;
 	text-indent: -0.5rem;
 }
+
 #line article em,
-#line article em br{
+#line article em br
+{
 	font-size: 0.75rem;
 	line-height: 1px;
 	color:#aaa;
 }
-#line .now{
+
+#line .now
+{
 	background: url(../img/ico_now.jpg) top left no-repeat;
 	background-size:50px;
 }
-#line .in{
+
+#line .in
+{
 	background: url(../img/ico_in.jpg) bottom left no-repeat;
 	background-size:50px;
 }
-#line .out{
+
+#line .out
+{
 	background: url(../img/ico_out.jpg) bottom left no-repeat;
 	background-size:50px;
 	min-height: 60px;
 }
-#line .start{
+
+#line .start
+{
 	background: url(../img/ico_start.jpg) bottom left no-repeat;
 	background-size:50px;
 }
-#line div{
+
+#line div
+{
 	width: auto;
 	margin-bottom: 20px;
 }
-#line div em{
+
+#line div em
+{
 	line-height: 1;
 	height: 12px;
 	display: inline-block;
@@ -115,7 +164,29 @@ header.wrap{
 	border-radius: 6px;
 	color: #fff;
 }
-footer{
+.btn
+{
+	display: block;
+	background-color: #fafafa;
+	border: thin solid #f3f3f3;
+	border-radius: 3px;
+}
+
+hr
+{
+	margin: 0.5rem 0;
+	border: none;
+	border-bottom: thin #f3f3f3 solid;
+}
+
+.title
+{
+	color: #aaa;
+	border-bottom: thin #f3f3f3 solid;
+}
+
+footer
+{
 	margin-top: 20px;
 	color: #444;
 	background-color: #fafafa;
@@ -128,14 +199,16 @@ footer{
 	line-height: 1.5rem;
 }
 
-.content {
+.content
+{
 	background: #fff;
 	color: #444;
 	clear: both;
 }
-.content > div {
+
+.content > div
+{
 	display: none;
-	xxpadding: 20px 25px 5px;
 }
 
 input[name="tabs"] {
@@ -161,37 +234,311 @@ input:checked + label {
 }
 
 @media screen and (max-width: 48em) {
-	h1{
+	h1
+	{
 		margin-left:1.5rem;
 	}
-	nav{
+	nav
+	{
 		margin-right:1.5rem;
 	}
-	div.wrap{
+	div.wrap
+	{
 		margin: 0 3.5rem;
 	}
-	#line{
+	#line
+	{
 		margin: 0;
 	}
 }
 
-@media screen and (min-width: 48em) and (max-width: 64em) {
-	h1{
+@media screen and (min-width: 48em) and (max-width: 64em)
+{
+	h1
+	{
 		margin-left:0;
 	}
-	nav{
+	nav
+	{
 		margin-right:0;
 	}
-	.wrap{
+	.wrap
+	{
 		max-width: 48rem;
 	}
-	div.wrap{
+	div.wrap
+	{
 		margin: 0 5rem;
 	}
 }
 
-@media screen and (min-width: 64em) {
-	.wrap{
+@media screen and (min-width: 64em)
+{
+	.wrap
+	{
 		max-width: 768px;
 	}
 }
+
+/* css apm basic elements */
+
+.apm h1,
+.apm h1 *
+{
+	font-size: 2.2rem;
+	font-weight: 600;
+}
+.apm h2,
+.apm h2 *
+{
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+.apm h3,
+.apm h3 *
+{
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+.apm h4,
+.apm h4 *
+{
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+.apm h5,
+.apm h5 *
+{
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+.apm h6,
+.apm h6 *
+{
+	font-size: 1rem;
+	font-weight: 200;
+}
+
+/* css apm input=radio */
+.apm input[type=radio]
+{
+	display: none;
+}
+.apm input#apm_input_radio + label
+{
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	width: auto;
+	margin: 0;
+	padding: 0 0 0 1.2rem;
+	font-size: 1rem;
+}
+.apm input#apm_input_radio + label:before
+{
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	background-color: #aaa;
+}
+.apm input#apm_input_radio:checked + label
+{
+	border-bottom: none;
+}
+.apm input#apm_input_radio:checked + label:before
+{
+	content: "\2022";
+	color: #f3f3f3;
+	font-size: 2rem;
+	text-align: center;
+	line-height: 1rem;
+}
+
+/* css apm input=checkbox */
+.apm input[type=checkbox]
+{
+	display: none;
+}
+.apm input#apm_input_checkbox + label
+{
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	width: auto;
+	margin: 0;
+	padding: 0 0 0 1.2rem;
+	font-size: 1rem;
+}
+.apm input#apm_input_checkbox + label:before
+{
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 3px;
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	background-color: #aaa;
+}
+.apm input#apm_input_checkbox:checked + label
+{
+	border-bottom: none;
+}
+.apm input#apm_input_checkbox:checked + label:before
+{
+    content: "\2713";
+    color: #f3f3f3;
+	font-size: 1rem;
+    text-align: center;
+	line-height: 1.2rem;
+}
+
+/* css apm tabs */
+
+.apm div.tabs_apm
+{
+	display: block;
+	width: auto;
+	margin: 0 auto;
+	padding: 0.5rem;
+	border: thin #f3f3f3 solid;
+	border-radius: 3px;
+}
+
+.apm div.tabs_apm input[name="tabs_apm"]
+{
+	display: none;
+}
+
+.apm div.tabs_apm label
+{
+	display: block;
+	padding: 0.5rem 0;
+	text-align: center;
+	float: left;
+	margin-bottom: 15px;
+}
+.apm div.tabs_apm label h4
+{
+	padding: 0;
+	margin: 0;
+}
+.apm div.tabs_apm.div2 label
+{
+	width: 50%
+}
+.apm div.tabs_apm.div3 label
+{
+	width: 33.3%
+}
+.apm div.tabs_apm.div4 label
+{
+	width: 25%
+}
+.apm div.tabs_apm input:checked + label
+{
+	background-color: #fafafa;
+	border: none;
+}
+
+.apm div.tabs_apm #tab1_apm:checked ~ .content #content1_apm,
+.apm div.tabs_apm #tab2_apm:checked ~ .content #content2_apm,
+.apm div.tabs_apm #tab3_apm:checked ~ .content #content3_apm,
+.apm div.tabs_apm #tab4_apm:checked ~ .content #content4_apm,
+.apm div.tabs_apm #tab5_apm:checked ~ .content #content5_apm,
+.apm div.tabs_apm #tab6_apm:checked ~ .content #content6_apm
+{
+	display: block;
+}
+
+.apm div.tabs_apm label:target
+{
+	display: block;
+}
+
+/* css apm accordion */
+
+.apm div.accordion_apm
+{
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	border: thin #f3f3f3 solid;
+	border-radius: 3px;
+}
+
+.apm div.accordion_apm section
+{
+	display: block;
+	width: auto;
+	height: 2rem;
+	margin: 0.5rem;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.apm div.accordion_apm section h4
+{
+	font-size: 1.2rem;
+	font-weight: 300;
+	width: 100%;
+	padding: 0.5rem;
+	margin: 0;
+	background-color: #fafafa;
+}
+
+.apm div.accordion_apm section h4 a
+{
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	outline: 0 none;
+}
+
+.apm div.accordion_apm p{
+	width: auto;
+	padding: 0.5rem;
+	font-size: 0.9rem;
+}
+.apm div.accordion_apm p.accnav
+{
+	text-align: right;
+}
+
+.apm div.accordion_apm p.accnav a
+{
+	text-decoration: none;
+}
+
+.apm div.accordion_apm section:target
+{
+	height: auto;
+}
+
+.apm div.accordion_apm section:target h4
+{
+	border-bottom:thin #f3f3f3 solid;
+}
+
+.apm div.accordion_apm .nav
+{
+	float: right;
+	width: auto;
+	margin: 0 10px 10px 0;
+	padding: 2px 5px;
+	font-size: 0.75rem;
+	float: right;
+}
+.apm div.accordion_apm .nav a
+{
+	font-size: 0.75rem;
+}
+
