@@ -254,6 +254,10 @@ input:checked + label {
 	{
 		margin: 0;
 	}
+	input[type=submit],input[type=date],input[type=range],input[type=month],input[type=week],input[type=time],input[type=datetime],input[type=datetime-local],input[type=tel],input[type=url],input[type=search],button,textarea,select
+	{
+		width: 100%;
+	}
 }
 
 @media screen and (min-width: 48em) and (max-width: 64em)
