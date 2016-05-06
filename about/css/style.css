@@ -49,7 +49,7 @@ h1 img
 input,button,textarea,select
 {
 	min-width: 210px;
-	padding: 0;
+	padding: 5px;
 	margin:2px 5px;
 	background-color: #fafafa;
 	border: thin solid #f3f3f3;
