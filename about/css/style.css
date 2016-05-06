@@ -239,6 +239,9 @@ input:checked + label {
 	{
 		margin-left:1.5rem;
 	}
+	.apm h1{
+		margin-left: 0rem;
+	}
 	nav
 	{
 		margin-right:1.5rem;
