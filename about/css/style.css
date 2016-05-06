@@ -54,6 +54,7 @@ input,button,textarea,select
 	background-color: #fafafa;
 	border: thin solid #f3f3f3;
 	border-radius: 3px;
+	-webkit-appearance: none;
 }
 
 .wrap
