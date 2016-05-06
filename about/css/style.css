@@ -256,7 +256,7 @@ input:checked + label {
 	}
 	input[type=submit],input[type=date],input[type=range],input[type=month],input[type=week],input[type=time],input[type=datetime],input[type=datetime-local],input[type=tel],input[type=url],input[type=search],button,textarea,select
 	{
-		width: 100%;
+		width: auto;
 	}
 }
 
