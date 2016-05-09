@@ -22,31 +22,6 @@ img
 a{
 	text-decoration: none;
 }
-
-h1 a
-{
-	float: left;
-	color: #444;
-	font-size: 1.5rem;
-	font-weight: 300;
-}
-nav
-{
-	padding-top: 9px;
-}
-
-nav a
-{
-	float: right;
-	margin-left: 1rem;
-	font-weight: 300;
-}
-
-h1 img
-{
-	border-radius: 3px;
-}
-
 li{
 	color: #aaa;
 }
@@ -76,12 +51,6 @@ select
 	width: auto;
 	max-width: auto;
 	height: 100%;
-}
-
-header.wrap
-{
-	margin: 0.95rem auto 4rem !important;
-	overflow: hidden;
 }
 
 #line
@@ -210,18 +179,6 @@ footer
 	text-align: center;
 	font-size: 0.875rem;
 	line-height: 1.5rem;
-}
-
-.content
-{
-	background: #fff;
-	color: #444;
-	clear: both;
-}
-
-.content > div
-{
-	display: none;
 }
 
 input[name="tabs"] {
