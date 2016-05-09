@@ -148,7 +148,6 @@ input,button,textarea,select
 {
 	margin-bottom: 1rem;
 	padding-bottom: .5rem;
-	border-bottom: thin solid #aaa;
 }
 
 .posts .post:last-child
