@@ -244,6 +244,10 @@ blockquote footer
 	border-color: transparent;
 }
 */
+ul li
+{
+	float: left;
+}
 h1,
 h2,
 h3
