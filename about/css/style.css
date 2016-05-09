@@ -46,7 +46,15 @@ h1 img
 {
 	border-radius: 3px;
 }
-input,button,textarea,select
+
+li{
+	color: #aaa;
+}
+
+input,
+button,
+textarea,
+select
 {
 	min-width: 210px;
 	padding: 5px;
@@ -331,6 +339,15 @@ input:checked + label {
 	font-weight: 200;
 }
 
+section ul li
+{
+	float: left;
+	clear: both;
+	display: block;
+	margin: 5px 0;
+	list-style: none;
+}
+
 /* css apm input=radio */
 .apm input[type=radio]
 {
@@ -491,7 +508,7 @@ input:checked + label {
 {
 	display: block;
 	width: auto;
-	height: 2rem;
+	height: 2.5rem;
 	margin: 0.5rem;
 	overflow: hidden;
 	border-radius: 3px;
