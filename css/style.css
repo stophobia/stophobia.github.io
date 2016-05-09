@@ -1,18 +1,4 @@
 @charset "UTF-8";
-/*
-
-Pixyll
-
-A simple, beautiful theme for Jekyll that emphasizes content rather than
-aesthetic fluff.
-
-Best served with BASSCSS (http://jxnblk.github.io/basscss)
-
-Crafted with <3 by John Otander (@4lpine) - ©2014 John Otander
-MIT License http://opensource.org/licenses/MIT
-
-*/
-
 *
 {
 	font-family: 'Helvetica Neue', Helvetica, 'Meiryo', 'Malgun Gothic', sans-serif;
@@ -20,12 +6,10 @@ MIT License http://opensource.org/licenses/MIT
 	color:#444;
 	font-size: 1rem;
 }
-
 html, body
 {
 	height: 100%;
 }
-
 h1 a
 {
 	float: left;
@@ -33,54 +17,44 @@ h1 a
 	font-size: 1.5rem;
 	font-weight: 300;
 }
-
 #logo
 {
 	width: 40px;
 	vertical-align: text-top;
 }
-
 #contact
 {
 	width: 20px;
 }
-
 img
 {
 	border: none;
 }
-
 .site-wrap
 {
 	min-height: 100%;
 	margin-bottom: -100px;
 }
-
 .site-wrap:after
 {
 	content: "";
 	display: block;
 }
-
 .footer, .site-wrap:after
 {
 	height: 100px;
 }
-
 body
 {
 	font-size: 1.5rem;
-
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
-
 address *
 {
 	font-size:0.75rem !important;
 }
-
 input,button,textarea,select
 {
 	-webkit-appearance: none;
@@ -89,37 +63,31 @@ input,button,textarea,select
 	-webkit-box-sizing:content-box; 
 	box-sizing:content-box;
 }
-
 .gist,
 .gist .highlight .p
 {
 	font-size: .75rem;
 }
-
 .gist .lines
 {
 	width: 100%;
 }
-
 .site-header a
 {
 	color: #333;
 	font-weight: 300;
 }
-
 .site-header nav a
 {
 	font-size: 16px;
 	color: #444;
 }
-
 .site-header nav a:hover
 {
 	color: #444;
 	opacity: 1;
 	/*border-bottom: 2px solid #444;*/
 }
-
 .site-nav a + a
 {
 	margin-left: 1rem;
@@ -130,7 +98,6 @@ input,button,textarea,select
 	margin: 0;
 	padding: 0;
 }
-
 .site-header a:hover,
 .posts .post a:hover .post-meta,
 .posts .post a:hover .post-title,
@@ -138,32 +105,27 @@ input,button,textarea,select
 {
 	opacity: 0.88;
 }
-
 .posts
 {
 	margin: 0;
 }
-
 .posts .post
 {
 	margin-bottom: 1rem;
 	padding-bottom: .5rem;
 }
-
 .posts .post:last-child
 {
 	border-bottom: none;
 	margin-bottom: .5rem;
 	padding-bottom: 0;
 }
-
 .post-link .post-title
 {
 	margin-top: 0;
 	font-weight: 400;
 	color: #444;
 }
-
 .pagination,
 .button
 {
@@ -171,7 +133,6 @@ input,button,textarea,select
 	font-weight: 300;
 	text-align: center;
 }
-
 .pagination a, .pagination .disabled
 {
 	-webkit-transition: all 0.2s ease-in-out;
@@ -183,28 +144,23 @@ input,button,textarea,select
 	color: #444;
 	padding: 1rem 1.5rem;
 }
-
 .pagination .disabled
 {
 	opacity: 0.5;
 }
-
 .pagination a:hover, .pagination a:focus
 {
 	background: #f3f3f3;
 	color: #444;
 }
-
 .pagination a:active
 {
 	background: #f3f3f3;
 }
-
 .wrap .measure
 {
 	margin: 0 auto;
 }
-
 .meta,
 .post-meta
 {
@@ -216,20 +172,17 @@ input,button,textarea,select
 	color: #444;
 	font-style: italic;
 }
-
 .pagination .button
 {
 	font-size: 1rem;
 	font-weight: 300;
 	letter-spacing: 1px;
 }
-
 .button-disabled
 {
 	opacity: 0.55;
 	background-color: #999;
 }
-
 .button-disabled:hover,
 .button-disabled:active,
 .button-disabled:focus
@@ -237,36 +190,31 @@ input,button,textarea,select
 	cursor: not-allowed;
 	background-color: #fafafa;
 }
-
 form
 {
 	font-weight: 300;
 	font-size: 1rem;
 }
-
 textarea.input
 {
 	height: 8rem;
 }
-
 p
 {
 	float: left;
+	font-size: 0.8rem;
 	font-weight: 300;
 	line-height: 1.95rem;
 	color: #444;
 }
-
 pre, code
 {
 	font-family: Menlo, Monaco, "Courier New", monospace
 }
-
 code
 {
 	color: #444;
 }
-
 pre
 {
 	padding: 1rem;
@@ -275,13 +223,11 @@ pre
 	overflow-x: scroll;
 	margin-bottom: 1rem;
 }
-
 .highlight .p
 {
 	font-size: 1.125rem;
 	line-height: 1.125rem;
 }
-
 blockquote
 {
 	padding: 1rem;
@@ -306,7 +252,6 @@ h3
 	width: 100%;
 	font-weight: 400;
 }
-
 h4,
 h5,
 h6
@@ -316,30 +261,24 @@ h6
 	font-weight: 900;
 	margin-top: 1rem;
 }
-
 /* line */
-
-
-
 #line
 {
+	float: left;
 	margin-bottom: 4rem;
 	background: url(../img/ico_line.jpg) center left repeat-y;
 	background-size:50px;
 }
-
 #line article
 {
 	margin-left: 60px;
 }
-
 #line section
 {
 	position: relative;
 	min-height: 60px;
 	clear: both;
 }
-
 #line article span
 {
 	color: #aaa;
@@ -347,14 +286,12 @@ h6
 	font-style: italic;
 	line-height: 2.25rem;
 }
-
 #line article p
 {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	padding-left:1rem;
 	text-indent: -0.5rem;
 }
-
 #line article em,
 #line article em br
 {
@@ -362,39 +299,33 @@ h6
 	line-height: 1px;
 	color:#aaa;
 }
-
 #line .now
 {
 	background: url(../img/ico_now.jpg) top left no-repeat;
 	background-size:50px;
 }
-
 #line .in
 {
 	background: url(../img/ico_in.jpg) bottom left no-repeat;
 	background-size:50px;
 }
-
 #line .out
 {
 	background: url(../img/ico_out.jpg) bottom left no-repeat;
 	background-size:50px;
 	min-height: 60px;
 }
-
 #line .start
 {
 	background: url(../img/ico_start.jpg) bottom left no-repeat;
 	background-size:50px;
 }
-
 #line div
 {
 	float: left;
 	width: auto;
 	margin-bottom: 20px;
 }
-
 #line div em
 {
 	line-height: 1;
@@ -406,9 +337,7 @@ h6
 	border-radius: 6px;
 	color: #fff;
 }
-
 /* tbb */
-
 input[name="tabs"]
 {
 	display: none;
@@ -436,9 +365,7 @@ input:checked + label
 {
 	display: block;
 }
-
 /* accordion */
-
 div.accordion
 {
 	display: block;
@@ -448,7 +375,6 @@ div.accordion
 	border-radius: 3px;
 	overflow: hidden;
 }
-
 div.accordion section
 {
 	display: block;
@@ -458,7 +384,6 @@ div.accordion section
 	overflow: hidden;
 	border-radius: 3px;
 }
-
 div.accordion section h4
 {
 	font-size: 1.2rem;
@@ -468,7 +393,6 @@ div.accordion section h4
 	margin: 0;
 	background-color: #fafafa;
 }
-
 div.accordion section h4 a
 {
 	display: block;
@@ -476,7 +400,6 @@ div.accordion section h4 a
 	text-decoration: none;
 	outline: 0 none;
 }
-
 div.accordion p{
 	width: auto;
 	padding: 0.5rem;
@@ -486,22 +409,18 @@ div.accordion p.accnav
 {
 	text-align: right;
 }
-
 div.accordion p.accnav a
 {
 	text-decoration: none;
 }
-
 div.accordion section:target
 {
 	height: auto;
 }
-
 div.accordion section:target h4
 {
 	border-bottom:thin #f3f3f3 solid;
 }
-
 div.accordion .nav
 {
 	float: right;
@@ -515,14 +434,12 @@ div.accordion .nav a
 {
 	font-size: 0.75rem;
 }
-
 @media screen and (max-width: 48em)
 {
 	.site-header
 	{
 		text-align: center;
 	}
-
 	.site-header .site-nav
 	{
 		width: auto;
@@ -530,7 +447,6 @@ div.accordion .nav a
 		text-align: center;
 	}
 }
-
 @media screen and (min-width: 48em)
 {
 	.meta,
@@ -540,28 +456,24 @@ div.accordion .nav a
 		padding: 0;
 		font-size: 1rem;
 	}
-
 	.h1,
 	h1
 	{
 		font-size: 3.25rem;
 		line-height: 4.5rem;
 	}
-
 	.h2,
 	h2
 	{
 		font-size: 2rem;
 		line-height: 2.5rem;
 	}
-
 	.h3,
 	h3
 	{
 		font-size: 1.25rem;
 		line-height: 2rem;
 	}
-
 	.p,
 	p,
 	li
@@ -569,24 +481,15 @@ div.accordion .nav a
 		font-size: 1rem;
 		line-height: 2.25rem;
 	}
-
 	.small
 	{
 		font-size: 0.4rem;
 	}
-
-	xx.post-link .post-title
-	{
-		margin-top: 1rem;
-	}
-
 	.posts .post
 	{
 		margin-bottom: 2rem;
 		padding-bottom: 1rem;
-		border-bottom: thin solid #f3f3f3;
 	}
-
 	.posts .post:last-child
 	{
 		border-bottom: none;
@@ -594,7 +497,6 @@ div.accordion .nav a
 		padding-bottom: 0;
 	}
 }
-
 @media screen and (min-width: 64em)
 {
 	.h1,
@@ -603,31 +505,17 @@ div.accordion .nav a
 		font-size: 1.75rem;
 		line-height: 3.5rem;
 	}
-
 	.h2,
 	h2
 	{
 		font-size: 1.75rem;
 		line-height: 3.5rem;
 	}
-
-	xx.posts .post-meta
-	{
-		padding-bottom: .25rem;
-	}
-
-	xx.post-link .post-title
-	{
-		margin-top: .25rem;
-	}
-
 	.posts .post
 	{
 		margin-bottom: 4rem;
 		padding-bottom: 2rem;
-		border-bottom: thin solid #f3f3f3;
 	}
-
 	.posts .post:last-child
 	{
 		border-bottom: none;
@@ -635,12 +523,10 @@ div.accordion .nav a
 		padding-bottom: 0;
 	}
 }
-
 footer
 {
 	border-top: thin solid #f3f3f3;
 }
-
 footer,
 footer .wrap
 {
@@ -649,7 +535,6 @@ footer .wrap
 	font-weight: 300;
 	clear: both;
 }
-
 footer:after
 {
 	content: "";
