@@ -208,7 +208,7 @@ input:checked + label {
 	{
 		margin-left:1.5rem;
 	}
-	.apm h1{
+	h1{
 		margin-left: 0rem;
 	}
 	nav
@@ -259,38 +259,38 @@ input:checked + label {
 
 /* css apm basic elements
 
-.apm h1,
-.apm h1 *
+h1,
+h1 *
 {
 	font-size: 2.2rem;
 	font-weight: 600;
 }
-.apm h2,
-.apm h2 *
+h2,
+h2 *
 {
 	font-size: 1.8rem;
 	font-weight: 400;
 }
-.apm h3,
-.apm h3 *
+h3,
+h3 *
 {
 	font-size: 1.4rem;
 	font-weight: 400;
 }
-.apm h4,
-.apm h4 *
+h4,
+h4 *
 {
 	font-size: 1.2rem;
 	font-weight: 300;
 }
-.apm h5,
-.apm h5 *
+h5,
+h5 *
 {
 	font-size: 1.2rem;
 	font-weight: 300;
 }
-.apm h6,
-.apm h6 *
+h6,
+h6 *
 {
 	font-size: 1rem;
 	font-weight: 200;
@@ -305,12 +305,11 @@ section ul li
 	list-style: none;
 }
  */
-/* css apm input=radio
-.apm input[type=radio]
+/* css apm input=radioinput[type=radio]
 {
 	display: none;
 }
-.apm input#apm_input_radio + label
+input#apm_input_radio + label
 {
 	display: inline-block;
 	cursor: pointer;
@@ -320,7 +319,7 @@ section ul li
 	padding: 0 0 0 1.2rem;
 	font-size: 1rem;
 }
-.apm input#apm_input_radio + label:before
+input#apm_input_radio + label:before
 {
 	content: "";
 	display: inline-block;
@@ -333,11 +332,11 @@ section ul li
 	bottom: 2px;
 	background-color: #aaa;
 }
-.apm input#apm_input_radio:checked + label
+input#apm_input_radio:checked + label
 {
 	border-bottom: none;
 }
-.apm input#apm_input_radio:checked + label:before
+input#apm_input_radio:checked + label:before
 {
 	content: "\2022";
 	color: #f3f3f3;
@@ -346,12 +345,13 @@ section ul li
 	line-height: 1rem;
 }
  */
+
 /* css apm input=checkbox
-.apm input[type=checkbox]
+input[type=checkbox]
 {
 	display: none;
 }
-.apm input#apm_input_checkbox + label
+input#apm_input_checkbox + label
 {
 	display: inline-block;
 	cursor: pointer;
@@ -361,7 +361,7 @@ section ul li
 	padding: 0 0 0 1.2rem;
 	font-size: 1rem;
 }
-.apm input#apm_input_checkbox + label:before
+input#apm_input_checkbox + label:before
 {
 	content: "";
 	display: inline-block;
@@ -374,11 +374,11 @@ section ul li
 	bottom: 2px;
 	background-color: #aaa;
 }
-.apm input#apm_input_checkbox:checked + label
+input#apm_input_checkbox:checked + label
 {
 	border-bottom: none;
 }
-.apm input#apm_input_checkbox:checked + label:before
+input#apm_input_checkbox:checked + label:before
 {
     content: "\2713";
     color: #f3f3f3;
@@ -389,7 +389,7 @@ section ul li
  */
 /* css apm tabs
 
-.apm div.tabs_apm
+div.tabs_apm
 {
 	display: block;
 	width: auto;
@@ -399,12 +399,12 @@ section ul li
 	border-radius: 3px;
 }
 
-.apm div.tabs_apm input[name="tabs_apm"]
+div.tabs_apm input[name="tabs_apm"]
 {
 	display: none;
 }
 
-.apm div.tabs_apm label
+div.tabs_apm label
 {
 	display: block;
 	padding: 0.5rem 0;
@@ -412,47 +412,47 @@ section ul li
 	float: left;
 	margin-bottom: 15px;
 }
-.apm div.tabs_apm label h4
+div.tabs_apm label h4
 {
 	padding: 0;
 	margin: 0;
 }
-.apm div.tabs_apm.div2 label
+div.tabs_apm.div2 label
 {
 	width: 50%
 }
-.apm div.tabs_apm.div3 label
+div.tabs_apm.div3 label
 {
 	width: 33.3%
 }
-.apm div.tabs_apm.div4 label
+div.tabs_apm.div4 label
 {
 	width: 25%
 }
-.apm div.tabs_apm input:checked + label
+div.tabs_apm input:checked + label
 {
 	background-color: #fafafa;
 	border: none;
 }
 
-.apm div.tabs_apm #tab1_apm:checked ~ .content #content1_apm,
-.apm div.tabs_apm #tab2_apm:checked ~ .content #content2_apm,
-.apm div.tabs_apm #tab3_apm:checked ~ .content #content3_apm,
-.apm div.tabs_apm #tab4_apm:checked ~ .content #content4_apm,
-.apm div.tabs_apm #tab5_apm:checked ~ .content #content5_apm,
-.apm div.tabs_apm #tab6_apm:checked ~ .content #content6_apm
+div.tabs_apm #tab1_apm:checked ~ .content #content1_apm,
+div.tabs_apm #tab2_apm:checked ~ .content #content2_apm,
+div.tabs_apm #tab3_apm:checked ~ .content #content3_apm,
+div.tabs_apm #tab4_apm:checked ~ .content #content4_apm,
+div.tabs_apm #tab5_apm:checked ~ .content #content5_apm,
+div.tabs_apm #tab6_apm:checked ~ .content #content6_apm
 {
 	display: block;
 }
 
-.apm div.tabs_apm label:target
+div.tabs_apm label:target
 {
 	display: block;
 }
  */
-/* css apm accordion
+/* css apm accordion */
 
-.apm div.accordion_apm
+div.accordion_apm
 {
 	display: block;
 	width: 100%;
@@ -461,7 +461,7 @@ section ul li
 	border-radius: 3px;
 }
 
-.apm div.accordion_apm section
+div.accordion_apm section
 {
 	display: block;
 	width: auto;
@@ -471,7 +471,7 @@ section ul li
 	border-radius: 3px;
 }
 
-.apm div.accordion_apm section h4
+div.accordion_apm section h4
 {
 	font-size: 1.2rem;
 	font-weight: 300;
@@ -481,7 +481,7 @@ section ul li
 	background-color: #fafafa;
 }
 
-.apm div.accordion_apm section h4 a
+div.accordion_apm section h4 a
 {
 	display: block;
 	width: 100%;
@@ -489,32 +489,32 @@ section ul li
 	outline: 0 none;
 }
 
-.apm div.accordion_apm p{
+div.accordion_apm p{
 	width: auto;
 	padding: 0.5rem;
 	font-size: 0.9rem;
 }
-.apm div.accordion_apm p.accnav
+div.accordion_apm p.accnav
 {
 	text-align: right;
 }
 
-.apm div.accordion_apm p.accnav a
+div.accordion_apm p.accnav a
 {
 	text-decoration: none;
 }
 
-.apm div.accordion_apm section:target
+div.accordion_apm section:target
 {
 	height: auto;
 }
 
-.apm div.accordion_apm section:target h4
+div.accordion_apm section:target h4
 {
 	border-bottom:thin #f3f3f3 solid;
 }
 
-.apm div.accordion_apm .nav
+div.accordion_apm .nav
 {
 	float: right;
 	width: auto;
@@ -523,7 +523,8 @@ section ul li
 	font-size: 0.75rem;
 	float: right;
 }
-.apm div.accordion_apm .nav a
+div.accordion_apm .nav a
 {
 	font-size: 0.75rem;
-} */
+}
+
