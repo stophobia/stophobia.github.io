@@ -181,10 +181,12 @@ footer
 	line-height: 1.5rem;
 }
 
-input[name="tabs"] {
+input[name="tabs"]
+{
 	display: none;
 }
-label {
+label
+{
 	display: block;
 	padding: 0 0 15px;
 	text-align: center;
@@ -192,18 +194,21 @@ label {
 	margin-bottom: 15px;
 	width: 33.3%
 }
-input:checked + label {
+input:checked + label
+{
 	border-bottom: 2px #aaa solid;
 }
 
 #tab1:checked ~ .content #content1,
 #tab2:checked ~ .content #content2,
 #tab3:checked ~ .content #content3,
-#tab4:checked ~ .content #content4 {
+#tab4:checked ~ .content #content4
+{
 	display: block;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 48em)
+{
 	h1
 	{
 		margin-left:1.5rem;
