@@ -257,7 +257,7 @@ input:checked + label {
 	}
 }
 
-/* css apm basic elements */
+/* css apm basic elements
 
 .apm h1,
 .apm h1 *
@@ -304,8 +304,8 @@ section ul li
 	margin: 5px 0;
 	list-style: none;
 }
-
-/* css apm input=radio */
+ */
+/* css apm input=radio
 .apm input[type=radio]
 {
 	display: none;
@@ -345,8 +345,8 @@ section ul li
 	text-align: center;
 	line-height: 1rem;
 }
-
-/* css apm input=checkbox */
+ */
+/* css apm input=checkbox
 .apm input[type=checkbox]
 {
 	display: none;
@@ -386,8 +386,8 @@ section ul li
     text-align: center;
 	line-height: 1.2rem;
 }
-
-/* css apm tabs */
+ */
+/* css apm tabs
 
 .apm div.tabs_apm
 {
@@ -449,8 +449,8 @@ section ul li
 {
 	display: block;
 }
-
-/* css apm accordion */
+ */
+/* css apm accordion
 
 .apm div.accordion_apm
 {
@@ -526,5 +526,4 @@ section ul li
 .apm div.accordion_apm .nav a
 {
 	font-size: 0.75rem;
-}
-
+} */
