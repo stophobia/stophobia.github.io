@@ -372,6 +372,10 @@ strong, .bold {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+
+.mobile-block {
+  width: 100%;
+}
 /*
 @media screen and (min-width: 48em) and (max-width: 64em) {
   .p-responsive {
@@ -456,10 +460,6 @@ strong, .bold {
   .mobile-show,
   .mobile-block {
     display: block;
-  }
-
-  .mobile-block {
-    width: 100%;
   }
 
   .mobile-hide {
