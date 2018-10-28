@@ -5,7 +5,7 @@
     "lint": "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,json,css,scss,vue,md}\"",
     "dev": "vuepress dev",
     "docs:build": "vuepress build",
-    "deploy": "vuepress build && cd .vuepress/dist/ && git add -A && git commit -m 'deploy' && git push -f https://github.com/stophobia/stophobia.github.io.git origin/master"
+    "deploy": "vuepress build && cd .vuepress/dist/ && git add -A && git commit -m 'deploy' && git push -f https://github.com/stophobia/stophobia.github.io.git master"
   },
   "gitHooks": {
     "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
