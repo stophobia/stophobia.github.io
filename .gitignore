@@ -11,6 +11,14 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+selenium-debug.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
 # Runtime data
 pids
@@ -24,6 +32,8 @@ lib-cov/
 # testing
 coverage/
 dist/
+/test/unit/coverage
+/test/e2e/reports
 
 # production
 build/

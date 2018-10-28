@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+* {
+  font: normal 14px/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, 'Helvetica Neue', 'Segoe UI', 'Malgun Gothic', 'Yu Gothic', sans-serif !important;
+  font-kerning: normal;
+  font-feature-settings: 'palt' 1;
+  text-align: justify;
+  color: #444;
+  margin: 0;
+  padding: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-appearance: none;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
