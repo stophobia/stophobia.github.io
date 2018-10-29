@@ -1,3 +1,88 @@
+<style>
+  img[alt=profile]{
+    width: 30%;
+  }
+.text_center{
+  width: 100%;
+  text-align: center;
+}
+a.home-link.router-link-active:before{
+  content: '';
+  display: block;
+  float: left;
+  margin-top: 6px;
+  width: 24px;
+  height: 24px;
+  background-image: url(//stophobia.github.io/assets/img/profile_stophobia.c0301556.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 24px;
+}
+span.site-name{
+  margin-left: 6px;
+}
+.tab{
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  overflow: hidden;
+}
+.tab input{
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.tab label{
+  position: relative;
+  display: block;
+  padding: 0;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+}
+.tab input:checked + label > .tab-content{
+  max-height: 100vh;
+}
+.tab input:checked + label::after{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+.tab input[type=checkbox] + label::after, input[type=radio] + label::after{
+  content: "+";
+}
+.tab input[type=checkbox]:checked + label::after, input[type=radio]:checked + label::after{
+  transform: rotate(315deg)
+}
+ul li{
+  list-style: none;
+}
+ul li:first-of-type{
+  margin-top: 1em;
+}
+ul li:last-of-type{
+  margin-bottom: 1em;
+}
+.tab-content{
+  display: block;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid $borderColor;
+}
+.tab-content p{
+  margin: 1em;
+}
+</style>
+
 # Good Coding
 
 ## 이해하기 쉬운 코드
