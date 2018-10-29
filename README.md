@@ -1,9 +1,5 @@
 # Stophobia
 
-<div class="text_center">
-  <img src="./static/img/profile_stophobia.png" alt="profile">
-</div>
-
 ## Who am I?
 
 멈추는 것(stop)을 두려워한다(phobia)는 의미의 단어를 조합한 조어입니다. 현재의 상태에서 머물러 있는 것을 두려워하며 항상 성장하고자 노력하고 있는 인격을 의미합니다.
