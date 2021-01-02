@@ -1,10 +1,11 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap");
 * {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+  font-family: "Gaegu", sans-serif;
   line-height: 1.5;
   color: #444;
-  font-size: 16px;
+  font-size: 20px;
   -webkit-appearance: none;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -19,7 +20,7 @@ h1 a {
   float: left;
   color: #444;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 700;
 }
 a {
   text-decoration: none;
@@ -72,7 +73,7 @@ address * {
 }
 .site-header a {
   color: #333;
-  font-weight: 300;
+  font-weight: 400;
 }
 .site-header nav a {
   font-size: 16px;
@@ -116,13 +117,13 @@ address * {
 }
 .post-link .post-title {
   margin-top: 0;
-  font-weight: 400;
+  font-weight: 700;
   color: #444;
 }
 .pagination,
 .button {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
 }
 .pagination a,
@@ -162,7 +163,7 @@ address * {
 }
 .pagination .button {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 .button-disabled {
@@ -176,7 +177,7 @@ address * {
   background-color: #fafafa;
 }
 form {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
 }
 textarea.input {
@@ -184,8 +185,8 @@ textarea.input {
 }
 p {
   float: left;
-  font-size: 12px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 24px;
   color: #444;
 }
@@ -234,18 +235,18 @@ h2,
 h3 {
   float: left;
   width: 100%;
-  font-weight: 400;
+  font-weight: 700;
 }
 h4,
 h5,
 h6 {
   float: left;
   width: 100%;
-  font-weight: 900;
+  font-weight: 700;
   margin-top: 16px;
 }
 /* line */
-#line {
+/* #line {
   float: left;
   margin-bottom: 32px;
 }
@@ -284,6 +285,11 @@ h6 {
   background-color: #aaa;
   border-radius: 6px;
   color: #fff;
+} */
+article,
+section {
+  width: 100%;
+  overflow: hidden;
 }
 /* tbb */
 input[name="tabs"] {
@@ -296,7 +302,7 @@ label {
   float: left;
   margin: 15px 0;
   width: 25%;
-  font-size: 14px;
+  font-size: 20px;
   color: #888;
   cursor: pointer;
 }
@@ -314,7 +320,7 @@ input:checked + label {
   width: 50%;
   border-bottom: 2px #aaa solid;
 	color: #444; */
-  font-weight: bold;
+  font-weight: 700;
   border-bottom: 2px #aaa solid;
 }
 /* input:checked + label:hover {
@@ -350,7 +356,7 @@ div.accordion section {
 }
 div.accordion section h4 {
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 700;
   width: 100%;
   padding: 8px;
   margin: 0;
@@ -405,27 +411,27 @@ div.accordion .nav a {
   .post-meta {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 20px;
   }
   .h1,
   h1 {
-    font-size: 32px;
+    font-size: 36px;
     line-height: 48px;
   }
   .h2,
   h2 {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 28px;
   }
   .h3,
   h3 {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 24px;
   }
   .p,
   p,
   li {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
   }
   .small {
