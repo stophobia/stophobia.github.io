@@ -337,6 +337,12 @@ input:checked + label {
 #tab3:checked ~ .content #content3 {
   display: block;
 }
+
+input#search {
+  width: 100%;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
 @media screen and (max-width: 48em) {
   .site-header {
     text-align: center;
