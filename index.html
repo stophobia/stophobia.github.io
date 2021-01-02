@@ -72,7 +72,7 @@
           <input id="tab2" type="radio" name="tabs">
           <label for="tab2">History</label>
           <input id="tab3" type="radio" name="tabs">
-          <label for="tab3">Study</label>
+          <label for="tab3">References</label>
           <div class="content">
             <div id="content1">
               <article>
@@ -1067,9 +1067,10 @@
         return '<div class="autocomplete-suggestion" data-langname="' + item[1] + '" data-lang="' + item[0] + '" data-val="' + search + '">' + item[1].replace(re, "<b>$1</b>") + '</div>';
       },
       onSelect: function (e, term, item) {
-        console.log('Item "' + item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')" selected by ' + (e.type == 'keydown' ? 'pressing enter' : 'mouse click') + '.');
-        document.getElementById('search').value = item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')';
-        document.getElementById('selectedlink').innerHTML = '<a href="' + item.getAttribute('data-lang') + '">' + item.getAttribute('data-lang') + "</a>";
+        // console.log('Item "' + item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')" selected by ' + (e.type == 'keydown' ? 'pressing enter' : 'mouse click') + '.');
+        // document.getElementById('search').value = item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')';
+        document.getElementById('search').value = item.getAttribute('data-langname');
+        document.getElementById('selectedlink').innerHTML = '<a href="' + item.getAttribute('data-lang') + '" target="_blank">' + item.getAttribute('data-lang') + "</a>";
       }
     });
   </script>
