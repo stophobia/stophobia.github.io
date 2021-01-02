@@ -337,65 +337,6 @@ input:checked + label {
 #tab3:checked ~ .content #content3 {
   display: block;
 }
-/* accordion */
-div.accordion {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  border: thin #f3f3f3 solid;
-  border-radius: 3px;
-  overflow: hidden;
-}
-div.accordion section {
-  display: block;
-  width: auto;
-  height: 32px;
-  margin: 8px;
-  overflow: hidden;
-  border-radius: 3px;
-}
-div.accordion section h4 {
-  font-size: 20px;
-  font-weight: 700;
-  width: 100%;
-  padding: 8px;
-  margin: 0;
-  background-color: #fafafa;
-}
-div.accordion section h4 a {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  outline: 0 none;
-}
-div.accordion p {
-  width: auto;
-  padding: 8px;
-  font-size: 8px;
-}
-div.accordion p.accnav {
-  text-align: right;
-}
-div.accordion p.accnav a {
-  text-decoration: none;
-}
-div.accordion section:target {
-  height: auto;
-}
-div.accordion section:target h4 {
-  border-bottom: thin #f3f3f3 solid;
-}
-div.accordion .nav {
-  float: right;
-  width: auto;
-  margin: 0 10px 10px 0;
-  padding: 2px 5px;
-  font-size: 12px;
-  float: right;
-}
-div.accordion .nav a {
-  font-size: 12px;
-}
 @media screen and (max-width: 48em) {
   .site-header {
     text-align: center;
