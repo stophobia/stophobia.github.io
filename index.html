@@ -161,7 +161,11 @@
                 <form onsubmit="return false;" class="pure-form">
                   <input id="search" autofocus type="text" name="q" placeholder="Language, library, framework...">
                 </form>
-                <div id="selectedlink"></div>
+                <div>
+                  <div id="selectedlink"></div>
+                  <div id="selectedtitle"></div>
+                  <div id="selecteddescription"></div>
+                </div>
             </div>
           </div>
         </div>
@@ -1071,6 +1075,55 @@
         // document.getElementById('search').value = item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')';
         document.getElementById('search').value = item.getAttribute('data-langname');
         document.getElementById('selectedlink').innerHTML = '<a href="' + item.getAttribute('data-lang') + '" target="_blank">' + item.getAttribute('data-lang') + "</a>";
+        // fetch('https://svelte.dev/tutorial/basics')
+        //   .then(function (res) {
+        //     var body = res.text();
+        //     var title = body.split('<title>')[1].split('</title>')[0]
+        //     console.log(title)
+        //   })
+        //   .catch(callback);
+        const getTitle = (url) => {
+          return fetch(`https://cors-anywhere.herokuapp.com/${url}`)
+            .then((response) => response.text())
+            .then((html) => {
+              const doc = new DOMParser().parseFromString(html, "text/html");
+              const title = doc.querySelectorAll('title')[0] || 'No title';
+              // const description = getMeta('description');
+              // const description = doc.querySelector('meta[name="description"]').content;
+              // const description = doc.getElementsByName('description').item(0).content;
+              const description = doc.querySelector('meta[name="description"]').getAttribute("content") || 'No description';
+              console.log(title.innerText)
+              console.log(description)
+              document.getElementById('selectedtitle').innerHTML = title.innerText
+              document.getElementById('selecteddescription').innerHTML = description
+              return title.innerText;
+            });
+        };
+        getTitle(item.getAttribute('data-lang'))
+        function getMeta(metaName) {
+          const metas = document.getElementsByTagName('meta');
+          console.log(metaName);
+          for (let i = 0; i < metas.length; i++) {
+            if (metas[i].getAttribute('name') === metaName) {
+              console.log(metas[i].getAttribute('content'))
+              return metas[i].getAttribute('content');
+            }
+          }
+          return '';
+        }
+        // var urls = [
+        //   'https://medium.com/@unakravets/the-sad-state-of-entitled-web-developers-e4f314764dd',
+        //   'http://frontendnewsletter.com/issues/1#start',
+        //   'https://groups.google.com/forum/#!topic/v8-users/PInzACvS5I4',
+        //   'https://www.youtube.com/watch?v=9kJVYpOqcVU',
+        // ]
+
+        // This one keeps the order the same as the URL list.
+        // Promise.all(
+        //   urls.map((url) => getTitle(url))
+        // ).then((titles) => {
+        //   console.log(titles);
+        // });
       }
     });
   </script>
