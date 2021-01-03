@@ -162,9 +162,9 @@
                   <input id="search" autofocus type="text" name="q" placeholder="Language, library, framework...">
                 </form>
                 <div>
-                  <div id="selectedlink"></div>
-                  <div id="selectedtitle"></div>
-                  <div id="selecteddescription"></div>
+                  <div id="selectedlink">URL</div>
+                  <div id="selectedtitle">Title</div>
+                  <div id="selecteddescription">Description</div>
                 </div>
             </div>
           </div>
@@ -1058,6 +1058,11 @@
           ['https://flutter-study.dev/', 'flutter app jp'],
           ['https://flutterstudio.app/', 'flutter online ide'],
           ['https://flutlab.io/ide', 'flutter online ide'],
+          ['https://qiita.com/07JP27/items/0923cbe3b6435c19d761', 'vue web api design pattern architecture jp'],
+          ['https://qiita.com/lucaspoppy/items/a081beb8fdd7746a8c05', 'nuxt axios repository vue factory architecture design pattern jp'],
+          ['https://qiita.com/RikutoYamaguchi/items/7d265c58cb1a37969921', 'javascript vue react clean architecture design pattern jp'],
+          ['https://qiita.com/uu4k/items/1eefa6c9892b8a9bd8f2', 'javascript vue typescript clean architecture design pattern jp'],
+          ['https://qiita.com/uu4k/items/d8cfff0f9fefe62da356', 'javascript vue component clean architecture design pattern jp'],
           ['https://svelte.dev/tutorial/basics', 'javascript svelte tutorial']
         ];
         var suggestions = [];
@@ -1087,7 +1092,7 @@
             .then((response) => response.text())
             .then((html) => {
               const doc = new DOMParser().parseFromString(html, "text/html");
-              const title = doc.querySelectorAll('title')[0] || 'No title';
+              const title = doc.querySelectorAll('title')[0];
               // const description = getMeta('description');
               // const description = doc.querySelector('meta[name="description"]').content;
               // const description = doc.getElementsByName('description').item(0).content;

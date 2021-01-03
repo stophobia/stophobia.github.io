@@ -340,8 +340,14 @@ input:checked + label {
 
 input#search {
   width: 100%;
+  padding: 12px;
   border: 1px solid #ddd;
   box-shadow: none;
+}
+#selectedlink,
+#selectedtitle,
+#selecteddescription {
+  padding: 12px;
 }
 @media screen and (max-width: 48em) {
   .site-header {
