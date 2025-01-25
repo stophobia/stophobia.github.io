@@ -1,0 +1,132 @@
+A {
+	text-decoration: none;
+	color: #222222;
+	background-color: #ffffff;
+}
+
+A:link {
+	text-decoration: none;
+	color: #222222;
+	background-color: #ffffff;
+}
+
+A:active {
+	text-decoration: none;
+} 
+
+A:visited {
+	text-decoration: none;
+} 
+
+A:hover {
+	text-decoration: none;
+}
+
+body {
+	font-family: "‚l‚r ‚oƒSƒVƒbƒN", Meiryo, "ƒqƒ‰ƒMƒmŠpƒS Pro W3", sans-serif;
+	font-size: medium;
+	font-style: normal;
+	line-height: normal;
+	font-weight: lighter;
+	font-variant: normal;
+	text-decoration: none;
+	color: #222222;
+	background-color: #eeeeee;
+	background-image: url(../images/bg4.jpg);
+	width: 97.5%;
+	vertical-align: middle;
+}
+
+img {
+	border: none;
+}
+
+.button {
+	border: none;
+	padding: 0;
+	margin: 0 10px;
+}
+
+#warp {
+	margin: 20px auto;
+	padding: 0;
+	width: 800px;
+}
+
+#header {
+	margin: 0 auto;
+	padding: 0;
+	border: #222222 1px solid;
+	border-bottom: none;
+	width: 800px;
+	height: auto;
+	background-color: #ffffff;
+}
+
+#title-right {
+	font-size: 0.8em;
+	position: relative;
+	float: right;
+	top: 47px;
+	right: 18px;
+}
+
+#logo {
+	padding: 0;
+	margin: 10px;
+}
+
+#FloatSlideShow {
+	margin: 0 auto;
+	padding: 0;
+	border: #222222 1px solid;
+	border-bottom: none;
+	width: 800px;
+	height: 650px;
+	background-color: #ffffff;
+}
+
+#menu {
+	width: 800px;
+	height: 30px;
+	padding: 10px 0;
+	margin: 0 auto;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 1em;
+	font-weight: lighter;
+	clear: both;
+	background-color: #ffffff;
+	/*background-image: url(../images/menu-bg.jpg);*/
+	border: #222222 1px solid;
+	border-bottom: none;
+}
+
+#menu ul {
+	width: 608px;
+	text-align: center;
+	list-style: none;
+	margin: 0 auto;
+	padding: 15px 30px;
+	overflow: hidden;
+}
+
+#menu li {
+	text-align: center;
+	float: left;
+	margin: 5px;
+	padding: 0;
+}
+
+#footer {
+	margin: 0 auto;
+	padding: 1em 0;
+	font-size: 0.8em;
+	text-align: center;
+	vertical-align: middle;
+	border: #222222 1px solid;
+	width: 800px;
+	height: 20px;
+	background-color: #eeeeee;
+	background-position: center;
+}

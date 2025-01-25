@@ -1,0 +1,257 @@
+﻿/* COMMON TAG ELEMENTS */
+* {
+	color: #555;
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+	color: #6ebCC4;
+}
+a:hover {
+	text-decoration: none;
+	font-weight: bold;
+	color: #6ebCC4;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Trebuchet MS", Arial, Helvetica, Gulim, sans-serif;
+	background-color: #e7e7e7;
+	text-align: center;
+}
+
+/* TOP HEAD STYLE */
+#topBack {
+	height: 200px;
+	margin: auto;
+	background: url(image/losemymindheader.jpg) no-repeat top;
+}
+#head {
+	text-align: center;
+	margin: auto;
+	width: 760px;
+}
+#viewTitle {
+	height: 110px;
+	padding-top: 40px;
+	padding-left: 20px;
+}
+#viewTitle a {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 32px;
+	color: #6ebCC4;
+	text-transform: lowercase;
+}
+#viewTitle a:hover {
+	text-decoration: none;
+	color: #000;
+}
+#viewBtns ul {
+	margin: 0;
+	padding: 5px 25px 0 0;
+	list-style: none;
+	text-align: right;
+}
+#viewBtns li {
+	display: inline;
+	padding-left: 18px;
+}
+#viewBtns a {
+	font-size: 16px;
+	font-weight: bold;
+	color: #6ebCC4;
+}
+#viewBtns a:hover {
+	color: #000;
+}
+#head span {
+	font-size: 16px;
+	font-family: "Trebuchet MS", Arial, Helvetica, Gulim, sans-serif;
+	color: #fff;
+}
+
+/* MAIN CONTENTS */
+#mainFrame {
+	margin: auto;
+	width: 760px;
+	background: url(image/losemymindbgwide.jpg) repeat-y;
+}
+
+/* Content - post list - title(subject)s */
+#content .list .title {
+	vertical-align: middle;
+	line-height: 130%;
+	padding: 10px 25px 5px 25px;
+	color: #5d5f53;
+	text-align: left;
+}
+#content .list .title span {
+	font-size: 11px;
+	color: #ccc;
+	font-family: Georgia, sans-serif;
+	vertical-align: middle;
+}
+#content .list .space {
+	float: left;
+	margin-left: 12px;
+	width: 50px;
+	height: 50px;
+}
+#content .list .miniCal {
+	float: left;
+	margin-left: 12px;
+	width: 50px;
+	height: 50px;
+	background: url(image/losemyminddate.gif) no-repeat top;
+}
+#content .list .miniCal .top {
+	color: #fff;
+	margin-top: -1px;
+	padding: 0 0 5px 11px;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+#content .list .miniCal .day {
+	font-weight: bold;
+	width: 42px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	margin-top: -2px;
+	color: #888;
+}
+#content .list .title .titleBox {
+	width: 600px;
+	float: left;
+	margin-left: 5px;
+	font-size: 12pt;
+	font-family: Dotum, sans-serif;
+	line-height: 120%;
+	letter-spacing: -1px;
+}
+#content .list .title .titleBox a {
+	color: #6ebCC4;
+}
+
+/* Content - post list - comment contents/reply */
+#content .list .co_content {
+	padding: 10px;
+	color: #777;
+	line-height: 170%;
+	margin: 0px 20px 0px 20px;
+}
+#content .commentBox {
+	margin: 10px 60px 10px 90px;
+	border: #eee 3px solid;
+}
+#content .commentBox .co_list {
+	border-bottom: #eee 1px dotted;
+}
+#content .commentBox .co_name {
+	float: left;
+	text-align: right;
+	width: 90px;
+	padding: 5px 15px 5px 0;
+}
+#content .commentBox .co_memo {
+	float: left;
+	text-align: left;
+	width: 380px;
+	padding: 5px;
+}
+#writeBox {
+	padding: 30px;
+}
+.replyBox {
+	padding: 25px 0 15px 0;
+}
+#writeBox textarea, .replyBox textarea {
+	height: 50px;
+	width: 600px;
+	border: #ccc 2px solid;
+	padding: 3px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.replyBox textarea {
+	width: 390px;
+}
+#writeBox textarea:hover, .replyBox textarea:hover {
+	background-color: #f7f7f7;
+}
+#writeBox textarea:focus, .replyBox textarea:focus {
+	background-color: #f7f7f7;
+}
+#writeBox input, .replyBox input.s {
+	margin-left: -5px;
+	height: 60px;
+	width: 80px;
+	padding: 3px;
+	background-color: #ccc;
+	color: #fff;
+	border-left: 0 none;
+	border-top: #ccc 2px solid;
+	border-right: #ccc 2px solid;
+	border-bottom: #ccc 2px solid;
+	vertical-align: middle;
+}
+.replyBox input.i {
+	vertical-align: top;
+	border: #ddd 2px solid;
+	padding: 2px 2px 2px 18px;
+	width: 70px;
+	background: url(image/openid.gif) no-repeat left;
+}
+
+/* BOTTOM COMMENT WRITE */
+#prevNextPost {
+	padding-top: 50px;
+	width: 760px;
+	background: url(image/losemymindbgwide.jpg) repeat-y;
+}
+#prevNextPost .prev {
+	float: left;
+	height: 30px;
+	width: 365px;
+	text-align: left;
+	padding-left: 25px;
+}
+#prevNextPost .next {
+	float: left;
+	width: 350px;
+	height: 30px;
+	text-align: right;
+}
+#prevNextPost a {
+	color: #999;
+}
+#prevNextPost span {
+	color: #999;
+}
+
+/* Bottom - copyright */
+#foot {
+	margin: auto;
+	width: 760px;
+	background: url(image/losemymindfooter.jpg) no-repeat top;
+	padding-top: 20px;
+	height: 43px;
+	font-size: 10px;
+	color: #ccc;
+}
+#foot a { 
+	color: #ccc;
+	font-size: 10px;
+	font-family: verdana, sans-serif;
+}
+
+div.clr { clear: both; }

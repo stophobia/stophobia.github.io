@@ -1,0 +1,435 @@
+
+/* RED Color scheme inspiration with thanks from - Cameron Moll's http://authenticjobs.com/ */
+
+body {
+	background: #443b34 url(img/body-bg_red.png) repeat;
+	color: #555;
+}
+img {
+	border: none;
+	background: none;
+}
+hr {
+	color: #fff;
+	border-top: 1px dotted #D3D3D3;
+}
+blockquote{
+	background: url(img/quote.gif) no-repeat;
+	color: #666666;
+	}
+/*************************************
+	Links
+**************************************/
+a {
+	color: #b30000;
+	}
+	
+a:hover{
+	color: #333;
+	}
+/*************************************
+	Headings
+**************************************/
+h1, h3 {
+	color: #570e00;
+	}
+h1 a, h3 a{
+	color: #333;
+}
+h1 a:hover, h3 a:hover {
+	color: #b30000;
+}
+h2 {
+	color: #570e00;
+}
+	
+h2 a{
+	color: #570e00;
+}
+h2 a:hover {
+	color: #333;
+	}
+h3 a{
+	color: #333;
+}
+#sidebar h2 {
+	color: #b30000;
+}
+#sidebar #popular h2 {
+	color: #333;
+}
+h6 {
+	color: #000;
+}
+/*************************************
+	Header
+**************************************/
+#header { 
+	background:url(img/headerbg_red.png) repeat-x;}
+#header-in .title a {
+	color: #e8e5cc;
+}
+#header-in .title a:hover {
+	color: #FFF;
+}
+#header-in .description {
+	color: #d27318;
+}
+/*************************************
+	Subscribe form 
+**************************************/
+.subscribe {
+	background:url(img/subscribebg_red.png) bottom left no-repeat;
+}
+	
+.subscribeform p { 
+	color:#fff; }
+	
+.subscribeform .input{
+	 background:url(img/sinputbg.png) no-repeat;
+	 border:none;} 
+.sbutton {
+	background:url(img/b_subscribebg_red.png) no-repeat;
+	border:none;
+	}
+
+ 
+/*************************************
+	Top Search Form
+**************************************/
+/*Search box Rounded Corner start */
+#xsnazzy {background: transparent; }
+.xtop, .xbottom { background:transparent; }
+.xb2, .xb3, .xb4 {background:#f4f3e8; border-left:1px solid #bdbcb6; border-right:1px solid #bdbcb6;}
+.xb1 {background:#bdbcb6;}
+.xb2 {border-width:0 2px;}
+.xboxcontent {background:#f4f3e8; border:0 solid #bdbcb6; border-width:0 1px;}
+/*Search box Rounded Corner End */
+#searchform .s {
+	background: #fff;
+	color: #333;
+	border:1px solid #443b34;
+}
+
+
+ul.tablist { 	
+	color:#333;}
+ul.tablist li  { 
+	border-bottom:1px dotted #959595; 
+	color: #333;
+	background:url(img/bullet-arrow3.gif) no-repeat;
+	background-position:3px 8px;}
+ul.tablist li a         { 
+	color: #333; 
+}
+ul.tablist li a:hover 	{ 
+	color: #b30000;}
+
+
+
+ 
+#searchform .s {
+	border: none;
+	background: #fff;
+	color: #333;
+	border:1px solid #443b34;
+}
+
+
+#nav li {
+	background: url(img/nav_red.png) top left no-repeat;
+	}
+#nav ul li:hover, #nav ul li.hover, #nav ul li.current_page_item {
+	background: url(img/nav-active_red.png) top left no-repeat; color: #ff4e2c ;
+	}
+#nav ul li:hover a, #nav ul li.hover a, #nav ul li.current_page_item a {
+	color: #fff;	
+	background: url(img/nav-active_red.png) top right no-repeat;
+	}
+#nav ul li a {
+	color: #560e00;
+	background: url(img/nav_red.png) top right no-repeat;
+	}
+#nav ul li a:hover {
+	color: #fff ;
+	background: url(img/nav-active_red.png) top right no-repeat;
+	}
+
+/*************************************
+	Main Container
+**************************************/
+#container { 
+	background:url(img/container-cbg_red.gif) top repeat-y;
+	border: 0px solid black;
+	}
+.container-top {
+	background:url(img/container-bg_red.gif) top left no-repeat;
+}
+.container-bottom {
+	background: url(img/container-bottom_red.gif) no-repeat;
+}
+/*************************************
+	Content
+**************************************/
+#content .post-meta-top {
+	color: #8E8F91;
+}
+#content .post-bottom {
+	border-top: 1px solid #DFE3E6;
+	border-bottom: 1px solid #DFE3E6;
+	color: #535353;
+}
+.post-bottom a {
+	color: #535353;
+}
+.cat span {
+	background: url(img/i_categories.png) 0px 3px no-repeat;
+}
+.comm {
+	background:url(img/comment_black.png) no-repeat;
+}
+.auth span {
+	background: url(img/i_author.png) 0px 1px no-repeat;
+}
+
+.nav-next	{ background:url(img/arrow-right.gif) no-repeat right; }
+.nav-previous { background:url(img/arrow-left.gif) no-repeat left; }
+
+/*************************************
+**************************************
+	Comments
+**************************************
+**************************************/
+
+.textarea { border:1px solid #ababab;}
+.Cbutton { 
+	border:none; 
+	background:#434343;
+	color:#fff;}
+
+
+/*	Comments	*/
+
+.comment-body {
+	background:url(img/quote.png) no-repeat left top;
+	background-position:0 0px;
+}
+.comment-metadata {
+	background: #fff;
+	color: #ca5433;
+}
+.comment-metadata a{
+	color: #333333;
+}
+.comment-metadata a:hover {
+	color: #FF8800;
+}
+.authorcomment {
+	border-bottom:1px solid #ccc;
+	overflow: hidden;
+}
+.authorcomment .comment-body {
+	border: none;	
+}
+.authorcomment .comment-metadata {
+	background: #fff;
+	color: #333333;
+}
+.authorcomment .comment-metadata a {
+	color: #b30000;
+}
+.authorcomment .comment-metadata a:hover {
+	color: #333;
+}
+
+
+/*************************************
+	Popular Posts Section
+**************************************/
+
+ /*popular box Rounded Corner start */
+#pxsnazzy {background: transparent; }
+
+.pxtop, .pxbottom { background:transparent; }
+.pxb2, .pxb3, .pxb4 {background:#d8d7cc; border-left:1px solid #bdbcb6; border-right:1px solid #bdbcb6;}
+.pxb1 {background:#bdbcb6;}
+.pxb2 {border-width:0 2px;}
+.pxboxcontent { background:#d8d7cc; border:0 solid #bdbcb6; border-width:0 1px;}
+
+
+
+/*************************************
+	Sidebar
+**************************************/
+ #sidebar .advertise img {
+	border:none;
+}
+
+
+/*popular box Rounded Corner End */
+
+#popular ul li ul {
+	border-top: 1px solid #9c9c9c;
+}
+#popular ul li ul li {
+	border-bottom: 1px dotted #333;
+	background: url(img/bullet-arrow3.gif) 5px 9px no-repeat;
+}
+#popular ul li ul li a{
+	color: #333;
+}
+#popular ul li ul li a:hover {
+	color:#b30000;
+}
+
+/*************************************
+	Left Sidebar
+**************************************/
+#l_sidebar ul li ul {
+	border-top: 1px solid #9c9c9c;
+}
+#l_sidebar ul li ul li {
+	border-bottom: 1px dotted #333;
+	background: url(img/bullet-arrow3.gif) 5px 9px no-repeat;
+}
+#l_sidebar ul li ul li a{
+	color: #333;
+}
+#l_sidebar ul li ul li a:hover {
+	color:#b30000;
+}
+#l_sidebar ul li ul li ul li {
+	border-bottom: 1px solid #EAF4FF; /*IE Bug Fix */
+	border-top: 1px dotted #333;
+	background: none;
+}
+#l_sidebar ul li ul li ul li a{
+	color: #333;
+}
+#l_sidebar ul li ul li ul {
+	border: none;
+}
+#l_sidebar ul li ul li ul li a:hover {
+}
+
+/*************************************
+	Right Sidebar
+**************************************/
+#r_sidebar ul li ul {
+	border-top: 1px solid #333;
+}
+#r_sidebar ul li ul li {
+	border-bottom: 1px dotted #333;
+	background: url(img/bullet-arrow3.gif) 5px 9px no-repeat;
+}
+#r_sidebar ul li ul li a{
+	color: #333;
+}
+#r_sidebar ul li ul li a:hover {
+	color: #b30000;
+	text-decoration: underline;
+}
+#r_sidebar ul li ul li ul li {
+	border-bottom: 1px solid #333; /*IE Bug Fix */
+	border-top: 1px dotted #333;
+	background: none;
+}
+#r_sidebar ul li ul li ul li a{
+	color: #333;
+}
+#r_sidebar ul li ul li ul {
+	border: none;
+}
+#r_sidebar ul li ul li ul li a:hover {
+	color: #b30000;
+}
+
+/*************************************
+	Footer
+**************************************/
+#footer { 
+	color: #787878;
+	}
+
+  .copyright a 	{ color: #787878; }
+  .copyright a:hover {color: #000; }
+		
+  ul#nav-footer li a 		{ color: #b30000; }
+  ul#nav-footer li a:hover 	{ color: #333;   }
+ 
+ 
+  
+/*  Tabber  Style start -------------------- */
+ 
+
+ul.tabbernav li a
+{
+ border-bottom: none;
+ background: #f4f3e8;
+}
+
+ul.tabbernav li a:link { color: #b30000; }
+
+ul.tabbernav li a:hover
+{
+ color: #fff;
+ background: #333;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #d8d7cc;
+ border-bottom: 1px solid #d8d7cc;
+ color:#30261e;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*---- tabbertab = the tab content---------------------*/
+.tabberlive .tabbertab {
+ border-top:0;
+ background:#d8d7cc;
+}
+
+
+ 
+/*
+P.I.E. FLOAT CLEARING
+See http://www.positioniseverything.net/easyclearing.html 
+--------------------- */
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix {
+  display: inline-block; /* Fixes IE/Mac */
+}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */		
+
+
+
+/* If you wish to have Sidebar on left, Simple remove the code comment from below - /* */
+
+/*
+#container { 
+	background:#fff url(img/container-cbg_red_m.gif) top repeat-y;
+	}
+.container-top {
+	background:url(img/container-bg_red_m.gif) top left no-repeat;
+}
+.container-bottom {
+	background: url(img/container-bottom_red_m.gif) no-repeat;
+}
+*/

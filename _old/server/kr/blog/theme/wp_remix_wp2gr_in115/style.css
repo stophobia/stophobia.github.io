@@ -1,0 +1,658 @@
+/*  
+Theme Name: WP Premium
+Author URI: http://www.wpremix.com/
+Version: 1.0
+Author: R.Bhavesh
+Description: Wp Bliss is a free theme by <a href="http://cssace.com/">R.Bhavesh</a> and <a href="http://hostwordpress.com/">Best Wordpress Hosts</a>.
+--
+Modify for GR Blog by sirini (http://sirini.net)
+*/
+
+body {
+	font: 12px Arial, Helvetica, Sans-Serif;
+	margin: 0px 0px 0px 0px;
+}
+body * {
+	margin: 0px; 
+	padding: 0px;
+}
+code {
+	display: block;
+	font-family: "Lucida Console", sans-serif;
+	color: #bbb;
+	background-color: #000;
+	margin: 10px;
+	padding: 5px;
+	line-height: 160%;
+	font-size: 12px;
+	border: #aaa 2px solid;
+	height: 250px;
+	overflow: auto;
+}
+hr {
+	height: 5px;
+	margin: 10px 0px;
+	border: none;
+}
+blockquote{
+	margin: 10px 0px 10px 5px;
+	padding: 8px 25px 5px 40px;
+	color: #888;
+	font-size: 12px;
+	}
+blockquote p{
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	}
+.clearboth {
+	clear: both;
+}
+a { text-decoration: none; outline:none; }
+a:hover{ text-decoration: none; }
+h1  {
+	font-size: 26px;
+	font-weight: normal;
+	font-family: "Malgun Gothic", Times, serif;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px;
+	}
+h3.h1 { font-size: 18pt; font-family: "Malgun Gothic", Dotum, Times, serif; line-height: 135%; margin: 0 0 15px 0; }
+h1 a, h3 a, h1 a:visited, h3 a:visited  {
+	text-decoration: none;
+}
+h2 {
+	font-size: 24px;
+	font-family: "Malgun Gothic", Dotum, Times, serif;
+	font-weight: normal;
+	padding: 10px 0px;
+	line-height: 150%;
+	margin: 0px;
+}
+	
+h2 a, h2 a:visited  {
+	color: #666;
+	text-decoration: underline;
+}
+h2 a:hover {
+	text-decoration: none;
+	}
+h3 {
+	font-size: 22px;
+	font-weight: normal;
+	font-family: "Malgun Gothic", Dotum, Times, serif;
+}
+#sidebar h3 {
+	font-size: 22px; 
+}
+h3 a, h3 a:visited {
+	text-decoration: none;
+}
+#sidebar h2 {
+	margin: 0px 0; padding: 5px 0px;
+	font-size: 16px;
+	font-family: "Malgun Gothic", Dotum, Times, serif;
+	font-weight: bold;
+}
+#sidebar h2 a {
+	text-decoration: none;
+}
+#sidebar h2 a:hover {
+	color: #fff;
+}
+h6 {
+	font-size: 24px;
+	font-family: "Malgun Gothic", Dotum, Times, serif;
+	font-weight: normal;
+	padding: 0px 0 10px 0px;
+	line-height: 150%;
+	margin: 0px;
+}
+
+#header { 
+	 }
+#header-in {
+	width: 960px;
+	padding: 0px;
+	height:132px;
+	position: relative;
+	margin:  0px auto;}
+	
+#header-in .title {
+	margin: 0px;
+	padding: 15px 10px 5px 10px;
+	width:  590px;
+	float:  left;
+}
+#header-in .title a {
+	text-decoration: none;
+	font-family: "Malgun Gothic", Dotum, Times, serif;
+	font-size: 33px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+#header-in .title a:hover {
+	 
+}
+#header-in .description {
+	clear:  both;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px 10px 4px 15px;
+	width:  850px;
+}
+
+.subscribe {
+	width:383px;
+	height:60px;
+	float: right;
+ 	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.subscribeform {
+	float:left;
+	padding:5px 0 0 18px;
+	overflow:hidden;}
+.subscribeform select {
+	background-color: transparent;
+	color: #aaa;
+	border: 0 none;
+	font-size: 12px;
+	position: absolute;
+	right: 18px;
+}
+.subscribeform p { 
+	margin:0 0 0 15px;
+	padding:0;
+ 	font:bold 14px Arial, Helvetica, sans-serif; 
+	color:#fff; }
+	
+.subscribeform .input{
+	 width:198px;
+	 height:21px;
+	 padding:12px 5px 0 5px;
+	 border: 0 none;} 
+.sbutton {
+	width:74px;
+	padding:5px 0 5px 0;
+	text-align:center;
+	font:bold 11px Arial, Helvetica, sans-serif;
+	cursor:pointer;
+	border:none;
+	}
+
+ .rss {
+ 	float:left;
+	padding: 8px 0 0 20px; margin: 0px;
+}
+
+/*Search box Rounded Corner start */
+#xsnazzy {margin:0 0 10px 0;}
+
+.xtop, .xbottom {display:block; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb1 {margin:0 5px;}
+.xb2 {margin:0 3px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+.xboxcontent {display:block; padding:5px;}
+/*Search box Rounded Corner End */
+
+.searchform {
+	padding: 10px;
+}
+.searchform .s {
+	border: none;
+	color: #333;
+	font-family: Arial, Helvetica, Sans-Serif;
+	padding: 5px;
+	margin-right:5px;
+	width: 213px;
+	float: left;
+}
+#nav li {
+	float: left;
+	list-style-type: none;
+	margin: 28px -4px 0px 4px;
+	padding: 0px;
+	}
+#nav ul li a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	text-decoration: none;
+	display: block;
+	padding: 6px 20px 6px 0px;
+	margin: 0px 0px 0px 15px;
+	text-transform:uppercase;
+	}
+#nav ul li a:hover {
+	text-decoration: none;
+	}
+
+#container { 
+	width:940px;
+	text-align: left; 
+	margin: 0 auto;
+	padding: 0px 10px;
+	border: 0px solid black;
+	clear: both;
+	overflow:hidden;
+	height:100%;
+	}
+.container-top {
+	clear: both;
+	height: 17px;
+	width: 960px;
+	display: block;
+	margin: 12px auto 0 auto;
+}
+.container-bottom {
+	clear: both;
+	height: 17px;
+	width: 960px;
+	display: block;
+	margin: 0px auto;
+}
+
+#content {
+	width: 555px;
+	float: left; 
+	padding: 5px 8px 20px 12px;
+	display: block;
+	color: #555;
+	line-height: 165%;
+	font-size: 10pt;
+	}
+.contentBody h1 { font-size: 28pt; font-family: Malgun Gothic, sans-serif; padding: 22px 0 22px 0; border-bottom: #ccc 1px solid; font-weight: normal; color: #343e47; }
+.contentBody h2 { font-size: 22pt; font-family: Malgun Gothic, sans-serif; padding: 18px 0 10px 0; border-bottom: #ccc 1px solid; font-weight: normal; color: #343e47; }
+.contentBody h3 { font-size: 18pt; font-family: Malgun Gothic, sans-serif; padding: 10px 0 8px 0; margin-bottom: 8px; border-bottom: #ddd 1px solid; font-weight: normal; color: #343e47; }
+
+#content p{
+	margin: 0px;
+	line-height: 18px;
+	padding: 0px 0px 10px 0px;
+	}
+#content p img{
+	border: none;
+	padding: 0px 5px 15px 0px;
+	}
+#content ol {
+	list-style-type: decimal;
+	line-height: 18px;
+	margin: 0px;
+	padding: 0px 0px 10px 35px;
+	}
+#content ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px 0px 10px 0px;
+	}
+	
+#content li {
+	margin: 0px;
+	padding: 0px;
+	}
+	
+#content ul li {
+	list-style: disc outside;
+	margin: 0px 30px 0px 30px;
+	padding: 5px 0px 0px 0;
+	}
+#content .post-meta-top {
+	display: block;
+	margin: 0px 0px 15px 0px;
+	padding: 5px 0px;
+	float:left;
+}
+#content .post-bottom {
+	display: block;
+	margin: 20px 0px 20px 0px;
+	padding: 10px;
+	clear: both;
+	overflow:hidden;
+	height:100%;
+	background-color: #fcfcfc;
+	font-size: 11px;
+}
+.post-bottom a {
+	color: #999;
+	text-decoration: none;
+}
+.comm {
+	float: right;
+	width: 38px;
+	height:39px;
+	font-size:24px;
+	line-height:30px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+.comm span {	
+	 text-align:center;
+	 padding:3px;
+}
+.auth {
+	float: left;
+ 	padding:0 0px 0 0;
+	text-align: left;
+	font-size: 11px;
+}
+.auth span {
+	padding: 0px 0px 0px 15px;
+}
+.auth a {
+	text-decoration: none;
+}
+.date {
+	float: left;
+	text-align: left;
+	padding:0 0 0 5px;
+	font-size: 11px;
+}
+
+.page-nav {
+	clear: both; /* To clear any floats */
+	margin: 10px;
+	width: 545px;
+}
+.nav-previous {
+	width: 255px; 
+	float: left; 
+	text-align: left;
+	margin: 2px 0 0 10px;
+}
+.nav-next {
+	width: 255px; 
+	float: right; 
+	text-align: right;
+	margin: 2px 0 0 0;
+}
+.page-nav a {
+	text-decoration: none;
+	font-weight: normal;
+	color: #888;
+	font-size: 11px;
+	font-family: Dotum, 돋움, sans-serif;
+}
+.nav-previous a {
+	padding-left: 10px;
+}
+.nav-next a {
+	padding-right: 10px;
+}
+
+.textarea {}
+.Cbutton { 
+	border:none; 
+	font:bold 11px Arial, Helvetica, sans-serif;
+	padding:4px;}
+
+/*	Headers	*/
+#comments-wrap h6 {
+	font-size: 20px;
+}
+
+/*	Comments	*/
+.commentlist {	
+}
+.thecomment {
+	margin: 0px 0px 0px 0px;
+	overflow: hidden;
+}
+.comment-body {
+	margin: 0px; padding:5px 10px 20px 30px;
+}
+.comment-metadata {
+	padding:5px 10px;
+}
+.authorcomment {
+	margin: 0px 0px 10px 0px;
+	font-size:12px;
+	overflow: hidden;
+	height:100%;
+}
+.authorcomment .comment-body {
+	border: none;
+}
+.authorcomment .comment-metadata {
+	padding: 11px 10px;
+}
+
+.nav-next	  { padding-right:8px; font-weight:bold;}
+.nav-previous { padding-left:8px; font-weight:bold;}
+
+/*	Comment Form	*/
+ 
+#sidebar {
+	float: right;
+	display: block;
+	width: 350px;
+	margin: 0;
+	padding: 0px 3px 0px 0px;
+	font-family: Dotum, 돋움, sans-serif;
+}
+
+#sidebar .sidebar-bot {
+	display: block;
+	height: 20px;
+	clear: both;
+}
+#sidebar ul {
+	list-style-type: none;
+}
+#sidebarwrap {
+ 	padding: 15px 0px 0px 5px;
+	margin: 0px;
+	border: none;
+}
+
+#l_sidebar {
+	float: left;
+	display: block;
+	width: 165px;
+	font-size: 11px;
+	margin: 0; padding: 0;
+}
+#l_sidebar ul, #l_sidebar ul li {
+	margin: 0px 0 15px 0;  padding: 0px;
+}
+#l_sidebar ul li ul {
+	border-top: 1px solid #333;
+}
+#l_sidebar ul li ul li {
+	margin: 0; padding: 0;
+}
+#l_sidebar ul li ul li a, #l_sidebar ul li ul li a:visited {
+	display: block;
+	padding: 5px 3px;
+	margin: 0px;
+	text-decoration: none;
+}
+#l_sidebar ul li ul li ul li {
+	margin:  0px; padding: 0px;
+}
+#l_sidebar ul li ul li ul {
+	border: none;
+	padding: 0px; margin: 0px;
+}
+
+#r_sidebar {
+	float: right;
+	display: block;
+	width: 165px;
+	font-size: 11px;
+	margin: 0px; 
+	padding: 0px 5px 0px 10px;
+}
+#r_sidebar ul, #r_sidebar ul li {
+	margin: 0px 0 15px 0; padding: 0px;
+}
+#r_sidebar ul li ul {
+	border-top: 1px solid #333;
+}
+#r_sidebar ul li ul li {
+	margin: 0;
+	padding: 0;
+}
+#r_sidebar ul li ul li a, #r_sidebar ul li ul li a:visited {
+	display: block;
+	padding: 5px 3px;
+	margin: 0px;
+	text-decoration: none;
+}
+#r_sidebar ul li ul li ul li {
+	margin:  0; padding: 0;
+}
+#r_sidebar ul li ul li ul {
+	padding: 0px; margin: 0px;
+}
+
+#footer { 
+	padding:  10px 0px 20px 0px;
+	text-align: center;
+	height:25px;
+	clear: both;
+	font-size:11px;
+	}
+
+#footer-wrap {
+	width: 950px;
+	margin: 0px auto;
+}
+#footer .copyright 		{ float:left; text-align:left;}
+.copyright a 	{  text-decoration:none;}
+.copyright a:hover {text-decoration:none; }
+		
+ul#nav-footer 				{ margin: 0 0 0 0; padding:0; float:right;  
+								  font-size: 11px; font-weight:bold; text-align: right; text-transform:uppercase;}
+ul#nav-footer li 			{ padding: 5px 8px 5px 12px; list-style:none;  float:left; }
+ul#nav-footer li.nobg 		{ padding: 5px 8px 0px 12px;    }
+ul#nav-footer li a 			{ text-decoration:none; }
+
+/**********************
+ * for GR Blog ONLY 
+ **********************/
+.tiny { font-size: 11px; font-family: Dotum, 돋움, sans-serif; color: #999; }
+.term { margin-bottom: 15px; }
+li.cate { position: relative; }
+li.cate span { position: absolute; margin-top: -17px; right: 5px; color: #555; }
+.nowConn { color: #555; }
+.chooseEnterType {
+	border-top: #ddd 1px solid;
+	border-bottom: #ddd 1px solid;
+	padding: 10px;
+	background-color: #fafafa;
+	margin: 10px 0 20px 0;
+}
+p input.text {
+	border: #ddd 2px solid;
+	padding: 3px;
+	font-size: 12px;
+	vertical-align: middle;
+}
+p img { vertical-align: middle; }
+p input.text:focus {
+	border: #aaa 2px solid;
+	padding: 3px;
+	background-color: #ffffe5;
+}
+#sidebar .photolog img {
+	border: #555 3px solid;
+}
+#myTwitter a {
+	color: #4e4e4e;
+}
+#searchForm select {
+	background-color: transparent;
+	color: #797a67;
+	border: 0 none;
+	font-size: 11px;
+}
+#articleListPage {
+	font-family: "Malgun Gothic", sans-serif;
+}
+#articleListPage ul {
+	margin: 0;
+	padding: 0;
+}
+#content .articleHead { 
+	padding: 10px;
+	margin: 0;
+	border-bottom: #eee 5px solid;
+	font-family: "Malgun Gothic", sans-serif;
+	font-size: 14pt;
+	text-align: center;
+}
+#content .articleHead a {
+	font-family: "Malgun Gothic", sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+}
+#content .articleList {
+	list-style: none;
+	background: url(list_arrow.gif) no-repeat left;
+	padding: 7px 0px 7px 20px;
+	vertical-align: middle;
+	border-bottom: dotted 1px #ddd;
+	margin: 0px;
+}
+#content .articleList:hover {
+	background-color: #ffffe5;
+}
+#content .articleList a {
+	font-family: Gulim, 굴림, sans-serif;
+}
+#content .articleList a:hover,
+#content .articleHead a:hover {
+	color: #c872b0;
+	text-decoration: none;
+	font-weight: bold;
+}
+#content .articleList span {
+	color: #999;
+	font-size: 11px;
+}
+/* 
+ * SIDEBAR or ETC TAG / Style 
+ */
+a.lv0 { color: #ccc; }
+a.lv1 { color: #bbb; }
+a.lv2 { color: #aaa; }
+a.lv3 { color: #999; }
+a.lv4 { color: #777; font-weight: bold; }
+a.lv5 { color: #555; font-size: 14px; }
+a.lv6 { color: #eee; background-color: #414141; font-size: 16px; }
+a.lv7 { font-weight: bold; background-color: #4c4c4c; font-size: 18px; }
+a.lv8 { font-weight: bold; font-size: 20px; background-color: #535353; }
+a.lv9 { font-weight: bold; font-size: 22px; background-color: #5a5a5a; }
+a.lv10 { font-weight: bold; font-size: 24px; background-color: #616161; }
+a.lv11 { font-weight: bold; font-size: 28px; background-color: #6d6d6d; }
+a.lv12 { font-weight: bold; font-size: 32px; background-color: #737373; }
+a.lv13 { font-weight: bold; font-size: 36px; background-color: #7c7c7c; }
+a.lv14 { font-weight: bold; font-size: 40px; background-color: #848484; }
+a.lv14 { font-weight: bold; font-size: 45px; background-color: #8f8f8f; }
+a.lv15 { font-weight: bold; font-size: 52px; background-color: #999; }
+a.readAll { background-color: #f5f5f5; letter-spacing: -1px; }
+span.findMe { background-color: yellow; color: red; }
+span.more { cursor: pointer; color: #2074bb; padding-right: 20px; }
+span.more:hover { background: url(../../image/icon_more_all.gif) no-repeat right; }
+div.trackback { text-align: right; position: absolute; right: 0; }
+div.clr { clear: both; }
+div.alert { text-align: center; font-family: Dotum, 돋움, sans-serif; font-size: 12pt; font-weight: bold; padding-top: 100px; }
+img.gravatar { margin: 0 8px 8px 0; padding: 5px 0 0 0; float: left; }
+img.preview { margin: 0 8px 8px 0; padding: 5px 0 0 0; float: left; }
+.enterPass { border: #aaa 10px solid; padding: 30px; background-color: #fff; position: absolute; }
+
+/* 
+ * Tag Clouds 
+ */
+#tagClouds {
+	padding: 10px;
+	line-height: 190%;
+}

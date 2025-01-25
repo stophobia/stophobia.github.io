@@ -1,0 +1,341 @@
+<?
+$eventNo= 1;
+?>
+
+<script>
+function reply2View(no) {
+	obj = eval(document.getElementById('viewReply_'+no));
+	obj2	= eval(document.getElementById('reply_arrow_'+no));
+	if(obj.style.display == "") {
+		obj.style.display = "none";
+		obj2.src = String(obj2.src).replace('_down_','_up_');
+	} else {
+		obj.style.display = "";
+		obj2.src = String(obj2.src).replace('_up_','_down_');
+	}
+}
+function replyDel(no) {
+	if(confirm('삭제하시겠습니까?')) hidden_frame.location.href="/pages/u01/eventPro.php?proMode=del&eCmtNo="+no;
+}
+function frmCheckFun(frm) {
+
+	<?=!$row_member[id] ? "return false;" : NULL;?>
+
+	if(!frm.eCmtContent.value) {
+		alert('댓글을 입력하세요.');
+		frm.eCmtContent.focus();
+		return false;
+	}
+
+	return true;
+}
+function topImgShow(obj) {
+	obj.src = String(obj.src).replace('_off_','_on_');
+}
+function topImgHide(obj) {
+	obj.src = String(obj.src).replace('_on_','_off_');
+}
+</script>
+<style>
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+</style>
+
+			<span id="inputBox" style="display:none">
+			<form name="form" action="/pages/u01/eventPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+			<input type="hidden" name="eventNo" value="<?=$eventNo?>">
+			<input type="hidden" name="eCmtID" value="<?=$row_member[id]?>">
+			<input type="hidden" name="eCmtName" size=10 value="<?=$row_member[name]?>">
+			<input type="hidden" name="eCmtSNo" value="">
+			<input type="hidden" name="eCmtIsReply" value="1">
+			<input type="hidden" name="proMode" value="ins">
+			<table width=100% border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td width=100%>
+						<input type="text"name="eCmtContent" style="width:97%;font-size:12px;border:1px solid #cccccc;" >
+					</td>
+					<td >
+						<input type="image" src="/images/poll2_10.gif" >
+					</td>
+				</tr>
+			</table>
+			</form>
+			</span>
+
+			<iframe name="hidden_frame" src="about:blank" width=100px height=100px style="display:none"></iframe>
+			<!-- 2depth 메뉴 -->
+			<table width="960" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height=8></td>
+				</tr>
+        <tr> 
+          <td style="padding-left:190px"><table border=0 cellpadding=0 cellspacing=0>
+						<tr>	
+							<td width=580 height=2 background="/images/event_03.gif" colspan=3></td>
+						</tr>
+						<tr>
+							<td width=8 height=24 background="/images/event_05.gif"></td>
+							
+          <td width=564 bgcolor="11afff" align=center><a href="/?Pid=u01b01"><img src="/images/hope_10_on_.gif" border=0></a><a href="/?Pid=u01b02"><img src="/images/hope_08_off_.gif" border=0 onmouseover="topImgShow(this)"  onmouseout="topImgHide(this)"></a><a href="/?Pid=u01b03"><img src="/images/hope_09_off_.gif" border=0 onmouseover="topImgShow(this)"  onmouseout="topImgHide(this)"></a><a href="/?Pid=u01b04"><img src="/images/hope_07_off_.gif" border=0 onmouseover="topImgShow(this)"  onmouseout="topImgHide(this)"></a></td>
+							<td width=8 background="/images/event_12.gif"></td>
+						</tr>
+						<tr>
+							<td width=580 height=2 background="/images/event_13.gif" colspan=3></td>
+						</tr>
+					</table></td>
+        </tr>
+				<tr>
+					<td height=10></td>
+				</tr>
+      </table>
+			<!-- 2depth 메뉴 끝 -->			
+			<!-- left , body 시작 -->
+			<table width="960" border="0" cellspacing="0" cellpadding="0" height=100%>
+				<tr>
+					<td width=180 valign=top  height=100%>
+					<!-- left -->
+						<table border=0 cellpadding=0 cellspacing=0 height=100%>
+							<tr>
+								<td><a href="/?Pid=u01b01"><img src="/images/event_115.gif" border=0></a></td>
+							</tr>
+							<tr>
+								<td><a href="/?Pid=u01b04"><img src="/images/event_21.gif" border=0></a></td>
+							</tr>
+							<tr>
+								<td><img src="/images/event_26.gif"></td>
+							</tr>
+							<tr>
+								<td height=198 background="/images/event_28.gif" style="padding-top:18px" valign=top height=100%><table border=0 cellpadding=0 cellspacing=0 height=100%>
+									<!-- 루프 -->
+<?
+$i=0;
+$que = "select * from odtBoard where boardkind='1' order by wdate desc limit 6";
+$res = mysql_query($que);
+while($row = mysql_fetch_array($res)) {
+?>
+									<tr>
+										<td width="12"></td>
+										<td width="6"><img src="/images/ico_arrow.gif"></td>
+										<td height="24" class="main_notice"><a href="/odprogram/odboard/odboardcount.php?board=1&page=1&serialnum=<?=$row[serialnum]?>"><font color="<?=$i++ < 3 ? "#FF6600" : NULL;?>">[공지] <?=cut_str_short($row[title],11,'..')?></font></a></td>
+									</tr>
+									<tr>
+										<td height=1 width=180 colspan=3 background="/images/event_30.gif"></td>
+									</tr>
+<?
+}
+?>
+									<tr>
+										<td height=28px></td>
+									<tr>
+									<!-- 루프 -->
+								</table></td>
+							</tr>
+							<tr>
+								<td><img src="/images/img_ban_cs1.gif"></td>
+						
+							<tr>
+								<td><a href="/?Pid=u02b02"><img src="/images/img_ban_account1.gif" border=0></a></td>
+							</tr>
+							<tr>
+								<td height=100% background="/images/event_28.gif"></td>
+							</tr>
+							<tr>
+								<td width=180 height=30 background="/images/event_43.gif"></td>
+							</tr>
+						</table>
+					<!-- left 끝 -->
+					</td>
+      <input type="hidden" name="pollProCode2" value="<?=$proCode?>"> <input type="hidden" name="pollID2" value="<?=$row_member[id]?>"> 
+      <input type="hidden" name="pollName2" value="<?=$row_member[name]?>"> <input type="hidden" name="proMode2" value="ins"> 
+  
+					<td width=780 valign=top>
+					<!-- body -->
+						<table border=0 cellspacing=0 cellpadding=0>
+							<tr>
+								<td width=780 height=295 background="/images/hope_14.gif"></td>
+							</tr>
+						</table>
+						
+      <!-- 이벤트 내용 시작 -->
+      <table height=145 border=0 cellpadding=0 cellspacing=0>
+        <tr> 
+          <td width=978 height=60 ><img src="/images/img_hope_titop.gif" width="780" height="96"></td>
+        </tr>
+        <tr> 
+          <td height=62 background="/images/bg_hope_mid.gif" style="padding:7px 0 0 65px"><table border=0 cellpadding=0 cellspacing=0>
+              <tr> 
+                <td width=33 height="62"></td>
+                <?
+if($row_member[id]) {
+?>
+                <td><textarea name="pollContent" style="width:530px;height:62px;border:1px solid #b1b1b1;"></textarea></td>
+                <td width=4></td>
+                <td><input name="image" type="image" src="/images/hope_22.gif" border=0></td>
+                <?
+} else {
+?>
+                <td onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');"><textarea name="textarea" style="width:530px;height:62px;border:1px solid #b1b1b1" disabled>로그인 후 이용해주세요.</textarea></td>
+                <td width=4></td>
+                <td><input name="image" type="image" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');" src="/images/hope_22.gif" border=0></td>
+                <?
+}
+?>
+                <td width=25></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td height=40 valign=bottom background="/images/bg_hope_mid.gif" ><img src="/images/img_hope_tibtm.gif" width="780" height="31"></td>
+        </tr>
+      </table>
+      </form>
+      <!--
+						<table border=0 cellspacing=0 cellpadding=0>
+							<tr>
+								<td width=780 style="padding-left:316px"><img src="/images/event_40.gif" border=0></td>
+							</tr>
+						</table>
+						-->
+      <table border=0 cellspacing=0 cellpadding=0>
+							<tr>
+								<td height=37></td>
+							</tr>
+						</table>
+						
+
+						<table border=0 cellspacing=0 cellpadding=0>
+							<tr>
+								<td width=780 height=30 background="/images/event_63.gif"></td>
+							</tr>
+						</table>
+						<!-- 이벤트 내용 끝 -->
+
+					<!-- body 끝 -->
+					</td>
+				</tr>
+			</table>
+			<!-- left , body 끝 -->
+			<table border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td height=30></td>
+				</tr>
+			</table>
+
+<script>
+
+inputBoxHtml = document.getElementById('inputBox').innerHTML;
+var showNo;
+
+function replyBoxShow() {
+	document.getElementById('inputBox').innerHTML = inputBoxHtml;
+}
+
+function replyBoxHidden() {
+	document.getElementById('inputBox').innerHTML = "";
+}
+
+function replyBoxChange(pollNo) {
+	if(!showNo) {
+		replyBoxHidden();
+	} else if(showNo != pollNo) {
+		obj = eval(document.getElementById('reply_'+showNo));
+		obj.innerHTML = "";
+	}
+}
+
+
+function showReply(pollNo) {
+	replyBoxChange(pollNo);		// 현재 열려있는 박스 삭제
+	showNo = pollNo;					// 현재 열려있는 박스 넘버 저장
+
+	obj = eval(document.getElementById('reply_'+pollNo));
+	obj.innerHTML = inputBoxHtml;
+
+	// 리플에 필요한 값 저장
+	frm = document.form;
+	frm.pollSNo.value = pollNo;
+	frm.proMode.value	=	"ins";
+	frm.isReply.value = 1;
+
+}
+</script>
+<script>
+	// request 객체 생성
+	var req = null;
+	function create_request() {
+			var request = null;
+			try {
+					request = new XMLHttpRequest();
+			} catch (trymicrosoft) {
+					try {
+							request = new ActiveXObject("Msxml12.XMLHTTP");
+					} catch (othermicrosoft) {
+							try {
+									request = new ActiveXObject("Microsoft.XMLHTTP");
+							} catch (failed) {
+									request = null;
+							}
+					}
+			}
+			if (request == null)
+					alert("Error creating request object!");
+			else
+					return request;
+	}
+
+	// 아작스 호출
+	function pollAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&proCode=<?=$proCode?>";
+		req = create_request();
+		req.open("POST", "/pages/u01/odpollAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML3();
+		}
+
+	}
+
+	function printHTML3() {
+		if (req.readyState == 4 && req.status == 200) {
+			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('pollAjax').innerHTML = req.responseText;
+			}
+		}
+	}
+
+	pollAjaxLoad()
+	</script>

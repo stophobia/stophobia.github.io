@@ -1,0 +1,20 @@
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="images/company_img_07.jpg" width="171" height="33" /></td>
+                    </tr>
+                  </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td><?=nl2br(stripslashes(mysql_result(mysql_query("select privacyinfo from odtCompany limit 1"),0)))?></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>

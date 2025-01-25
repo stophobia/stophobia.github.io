@@ -1,0 +1,45 @@
+#loginField {
+	text-align: center;
+	margin: 100px 0 100px 0;
+}
+
+#loginFrame {
+	width: 350px;
+	table-layout: fixed;
+	font-size: 12px;
+	margin: auto;
+}
+
+#loginFrame input {
+	font-size: 12px;
+}
+
+#loginFrame .opt {
+	background-color: #f7f7f7;
+	text-align: center;
+	border-bottom: #fff 1px solid;
+}
+
+#loginFrame .var {
+	padding: 5px;
+}
+
+#loginFrame .var input {
+	border-width: 0px;
+	border-bottom: #ddd 1px solid;
+	background-color: transparent;
+	font-family: verdana, sans-serif;
+	font-size:12px;
+}
+
+#loginFrame .btn {
+	text-align: center;
+	padding-top: 15px;
+}
+
+#loginFrame .btn input {
+	border: 0 none;
+	background-color: #5e5e5e;
+	color: #fff;
+	padding: 5px;
+}

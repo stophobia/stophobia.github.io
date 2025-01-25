@@ -1,0 +1,198 @@
+body { background: #eee url(../image/admin_background.gif) no-repeat bottom right fixed; }
+img { vertical-align: middle; }
+select, option { font-weight: normal; vertical-align: middle; }
+#adminTop {
+	height: 70px;
+	padding-top: 20px;
+	text-align: center;
+	background: url(../image/top_background.gif) repeat-x top;
+}
+#adminTop a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #2a712d;
+	font-size: 30px;
+}
+#adminMenu {
+	float: left;
+	width: 150px;
+	margin-right: 5px;
+	border-width: 0px 1px 1px 1px; 
+	border-color: #ddd; 
+	border-style: solid; 
+	background-color: #fff;
+}
+#adminMenu div.n {
+	padding: 7px;
+	text-align: left;
+	border-top: #ddd 1px dotted;
+}
+#adminMenu div.n a {
+	padding-top: 5px;
+	text-decoration: none;
+	font-weight: normal;
+	color: #2a712d;
+}
+#adminMenu div.m {
+	padding: 7px;
+	text-align: left;
+	border-top: #ddd 1px dotted;
+	background-color: #ebfaed;
+}
+#adminMenu div.m a {
+	padding-top: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #2a712d;
+}
+#adminControl {
+	float: left; 
+	width: 800px;
+	border-width: 0px 1px 1px 1px; 
+	border-color: #ddd; 
+	border-style: solid;
+	background-color: #fff;
+}
+#adminControl #setTop {
+	background: url(../image/mv_top.gif) repeat-x top; 
+	height: 21px;
+	padding-top: 7px;
+	font-weight: bold;
+	color: #2a712d;
+}
+#adminControl #all {
+	text-align: left;
+}
+#adminControl #all div.msg {
+	margin: 10px;
+	padding: 10px;
+	border: #ddd 3px solid;
+	font-family: Georgia, 굴림, sans-serif;
+	background: url(../image/top_help_back.gif) repeat-x top;
+}
+#adminControl #all table {
+	margin: auto;
+	width: 98%;
+}
+#adminControl #all th {
+	height: 40px;
+	text-align: center;
+}
+#adminControl #all td {
+	height: 34px;
+}
+#adminControl #all td.l {
+	border-top: #ddd 1px solid;
+	text-align: center;
+}
+#adminControl #all td.l strong {
+	color: #2a712d;
+}
+#adminControl #all td.l span.s {
+	color: #2a712d;
+	font-family: Georgia, sans-serif;
+	font-size: 16pt;
+}
+#adminControl #all td.r {
+	border-top: #eee 1px solid;
+	color: #777;
+}
+#adminControl #all input.btnS {
+	font-weight: bold;
+	width: 50px;
+	background-color: #2a712d;
+	color: #fff;
+	vertical-align: middle;
+	height: 23px;
+	border: #2a712d 1px solid;
+}
+#adminControl #all input.t {
+	border: #ddd 1px solid;
+	color: #2a712d;
+	width: 150px;
+	height: 23px;
+	vertical-align: middle;
+	font-weight: normal;
+	padding-left: 3px;
+}
+#adminControl #all td input.t:focus {
+	background-color: #f0f0f0;
+	border: #aaa 1px solid;
+}
+#adminControl #all td select {
+	width: 200px;
+}
+#adminControl #all td.b {
+	height: 50px;
+	text-align: center;
+}
+#adminControl #all td.b input {
+	border: #ccc 3px solid;
+	padding: 3px;
+	background-color: #f0f0f0;
+	width: 100%;
+	font-weight: bold;
+}
+div.clr { clear: both; }
+div.boxTitle {
+	background: url(../image/mv_top.gif) repeat-x top; 
+	color: #2a712d; 
+	text-align: center;
+	font-weight: bold;
+	height: 34px;
+	padding-top: 7px; 
+}
+div.normalTitle {
+	height: 34px;
+	padding-top: 7px;
+	color: #2a712d; 
+	text-align: center;
+	font-weight: bold;
+}
+div.bar {
+	background-color: #64ad8c;
+	text-align: right;
+	color: #fff;
+	font-size: 11px;
+	border-right: #649c83 1px solid;
+	border-bottom: #649c83 1px solid;
+	padding-right: 2px;
+}
+div.bar strong { color: #fff; }
+div.graph {
+	border-top: #eee 5px solid;
+	border-left: #eee 5px solid;
+	border-right: #eee 5px solid;
+	border-bottom: #eee 4px solid;
+	padding: 5px;
+}
+div.i {
+	color: #2a712d;
+	font-size: 11pt;
+	letter-spacing: -1px;
+	font-family: Dotum, sans-serif;
+	text-align: center;
+	padding: 10px;
+}
+ol.urlList {
+	margin: 5px 10px 10px 30px;
+	padding: 10px;
+}
+ol.urlList li {
+	border-bottom: #eee 1px dotted;
+	padding: 3px;
+}
+tr.hover:hover {
+	background-color: #f0f0f0;
+}
+
+/* search engine result mark */
+span.naver { color: #4ba300; font-weight: bold; }
+span.daum { color: #657afd; font-weight: bold; }
+span.paran { color: #4f8ede; font-weight: bold; }
+span.yahoo { color: red; font-weight: bold; }
+span.google { color: #0000cc; font-weight: bold; }
+span.empas { color: #ffa100; font-weight: bold; }
+span.altavista { color: #950000; font-weight: bold; }
+span.live { color: #34565d; font-weight: bold; }
+span.unknown { color: #ddd; }

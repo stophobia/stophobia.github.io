@@ -1,0 +1,283 @@
+/*
+	GR Paper 관리자 패널 스타일시트 디자인
+	작성자: 박희근 (http://sirini.net)
+	수정일: 2008-12-7
+	내  용: 관리자 화면 디자인 정의. 설치화면과 유사함.
+*/
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #3e3e3e;
+	color: #666;
+	font-family: Dotum, 돋움, 은돋움, sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+img {
+	border: 0 none;
+}
+
+a {
+	color: #4376bb;
+	text-decoration: none;
+}
+
+hr {
+	border: #ddd 1px dotted;
+	height: 5px;
+	margin: 10px 0 10px 0;
+	clear: both;
+}
+
+#logo {
+	padding: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	color: #eee;
+	font-family: verdana, sans-serif;
+}
+
+#logo strong {
+	color: #aaa;
+}
+
+#panelLayout {
+	margin: auto;
+	width: 600px;
+	border: #5e5e5e 5px solid;
+	background-color: #fff;
+}
+
+#panelLayout select {
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+#panelLayout input.i {
+	border: #ddd 1px solid;
+	font-size: 12px;
+	padding: 3px;
+	width: 120px;
+	vertical-align: middle;
+}
+
+#panelLayout input.s {
+	border: #aaa 2px solid;
+	background-color: #3e3e3e;
+	color: #fff;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+#panelLayout .title {
+	background-color: #5e5e5e;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 3px;
+	text-align: left;
+	cursor: pointer;
+}
+
+#panelLayout .body {
+	line-height: 165%;
+	text-align: left;
+	padding: 10px;
+}
+
+#panelLayout dt {
+	width: 140px;
+	background-color: #f0f0f0;
+	border-bottom: #fff 1px solid;
+	padding: 5px;
+	height: 20px;
+	margin: 0;
+	float: left;
+	font-size: 11px;
+}
+
+#panelLayout dd {
+	height: 32px;
+}
+
+#panelLayout dd.i {
+	margin: 0;
+	float: left;
+	padding: 3px 0 0 5px;
+	width: 415px;
+	height: 27px;
+	border-bottom: #eee 1px solid;
+}
+
+#panelLayout dd span {
+	color: green;
+}
+
+#importOPML {
+	margin: 10px;
+	text-align: center;
+	background-color: #fdf8e7;
+	padding: 10px;
+}
+
+#addFeed {
+	margin: 10px;
+	text-align: center;
+	background-color: #fdf4ff;
+	padding: 10px;
+}
+
+#addFeedLogo {
+	text-align: center;
+	font-size: 22px;
+	font-family: Verdana, sans-serif;
+	color: #999;
+	margin: 30px 0;
+}
+
+#addFeedPopup {
+	margin: 40px 10px;
+	text-align: center;
+	background-color: #5e5e5e;
+	padding: 25px 10px;
+	color: #ddd;
+}
+
+#addFeedPopup a { color: #888; }
+
+#addFeedPopupInfo { margin-top: 25px; font-weight: bold; }
+
+#addFeedPopup .i {
+	border: #888 1px solid;
+	background-color: #888;
+	color: #fff;
+	vertical-align: middle;
+	width: 220px;
+	font-size: 12px;
+}
+
+#addFeedPopup .i:focus { border: #bbb 1px solid; }
+
+#addFeedPopup .s {
+	border: 0 none;
+	background-color: #3e3e3e;
+	color: #fff;
+	vertical-align: middle;
+	font-size: 12px;
+	height: 20px;
+}
+
+#addFeedGuide {
+	text-align: left;
+	margin: 10px;
+	padding: 10px;
+	color: #8e8e8e;
+	font-size: 11px;
+}
+
+#groupSetting {
+	margin: 10px;
+	padding: 10px;
+	border: #eee 2px solid;
+	text-align: center;
+}
+
+#addGroup {
+	width: 250px;
+	float: left;
+	background-color: #f3f3f3;
+	padding: 15px 0 15px 15px;
+}
+
+#addGroup ul {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+#addGroup li {
+	list-style: none;
+	padding-bottom: 3px;
+	text-align: left;
+}
+
+#addGroup li input.i {
+	width: 150px;
+}
+
+#manageGroup {
+	width: 250px;
+	float: left;
+	text-align: left;
+}
+
+#manageGroup ol {
+	margin: 0 0 0 35px;
+	padding: 0;
+}
+
+#manageGroup li {
+	padding: 3px;
+	border-bottom: #eee 1px solid;
+}
+
+#manageGroup li:hover {
+	background-color: #f0f0f0;
+}
+
+#feedList li {
+	padding: 3px;
+	border-bottom: #eee 1px solid;
+}
+
+#feedList li:hover {
+	background-color: #f0f0f0;
+}
+
+#feedBox {
+	height: 450px;
+	overflow: auto;
+}
+
+#copy {
+	font-size: 11px;
+	padding: 15px;
+	color: #666;
+}
+
+#copy a {
+	text-decoration: none;
+	color: #888;
+	cursor: help;
+}
+
+#logList ol {
+	margin: 0 10px 10px 35px;
+	padding: 0;
+}
+
+#logList li {
+	padding: 3px;
+	border-bottom: #eee 1px solid;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+#logList li.start {
+	color: green;
+	text-align: right;
+	list-style: none;
+}
+
+#logList li:hover {
+	background-color: #f7f7f7;
+}
+
+div.clear { clear: both; }
+div.info { background-color: #f3f3f3; padding: 10px; margin: 0 0 10px 0; border: #eee 1px solid; }
+span.recommand { color: green; cursor: help; }
+span.delete { color: red; font-size: 11px; cursor: pointer; }
+span.delete:hover { background-color: red; color: #fff; }
+span.modify { color: blue; font-size: 11px; cursor: pointer; }
+span.modify:hover { background-color: blue; color: #fff; }
+span.group { color: #888; cursor: help; }
+span.lost { color: red; font-size: 11px; cursor: help; }

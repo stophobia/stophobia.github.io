@@ -1,0 +1,1 @@
+<div style="text-align: center; padding: 100px">로그아웃 하였습니다.</div>

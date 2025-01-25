@@ -1,0 +1,1135 @@
+@charset "Shift-JIS";
+<?header("Content-type: text/css");?>
+/* 
+------------------------------------------------------------
+file name: common.css
+Author: H.Park 
+last updated: 2007.06.02
+
+======================= contents ===========================
+
+   1: Browser-style reset
+   2: aid for non-CSS-compliant Browser
+   3: column settings (layout only)
+     : main 3-colimn
+     : main 2-colimn
+   4: common image item
+   5: common item
+     : list and list item
+     : message bar[round corner]
+     : message bar[square corner]
+     : message bar position adjustment
+     : cursor
+   6: button
+     : mini button
+     : mym remocon
+     : unit edit box
+     : blog-tag tab button
+     : column move button
+     : mym remote control
+     : profile box
+   7: contents box (mym_box)
+     : title bar
+     : title tools
+     : box body
+     : box bottom
+   8: unit item control box [hidden box]
+     : view-item control
+     : unit edit box
+   9: header[global navi](including buttons)
+     : sub navi
+     : global navi
+     : global navi hover
+     : global navi sub navi
+     : [sub navi] position adjustment
+     : [global navi] position adjustment[Hack]
+     : navi bottom image
+  10: footer
+  11: profile box
+     : quick link[pull down]
+     : position adjustment
+  12: mym remocon
+  13: contents box unit
+     : tag
+     : banner
+     : photo comment
+  14: PR space
+  15: positioning
+  16: The Holly Hack;
+
+============================================================
+*/
+html {
+filter:expression(document.execCommand("BackgroundImageCache", false, true));
+}
+/* Browser-style reset
+------------------------------------------------------------ */
+html{
+	margin: 0;
+	padding: 0;
+	}
+body,th,td {
+	font:12px/1.3em "‚l‚r ‚oƒSƒVƒbƒN", Osaka, "ƒqƒ‰ƒMƒmŠpƒS Pro W3", sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #555;
+	}
+body {
+	text-align: center;/* for ie6 bug */
+	}
+table {
+	border-collapse: collapse;
+	}
+form {
+	margin: 0;
+	padding: 0;
+	}
+a,label{
+	cursor: pointer;
+	}
+img {
+	border:none;
+	}
+a:link {
+	color: #06f;
+	text-decoration: none;
+	}
+a:visited {
+	color: #606;
+	text-decoration: none;
+	}
+a:hover {
+	color: #06f;
+	text-decoration: underline;
+	}
+
+/* aid for non-CSS-compliant Browser
+------------------------------------------------------------ */
+.aid {
+	position: absolute;
+	left: -9999px;
+	overflow: hidden;
+	width: 0;
+	}
+
+/* column settings (layout only)
+------------------------------------------------------------ */
+div#all{
+	text-align: left;
+	width:980px;
+	margin: 0 auto 0 auto;
+	}
+div#all div#header {
+	width: 900px;
+	}
+div.column_space {
+	width: 12px;
+	text-align: center;
+	float: left;
+	overflow: hidden;
+	}
+div#all div#footer {
+	clear: both;
+	width: 900px;
+	height: 100px;
+	padding-top: 10px;
+	}
+div#all div#pr_space {
+	width: 70px;
+	float: right;
+	margin-top:10px;
+	}
+
+/* main 3-colimn */
+div#all div#main_3column{
+	clear: both;
+	width: 900px;
+	margin: 10px 0;
+	float: left;/*  for FireFox bug */
+	}
+div#all div#main_3column div#left_column {
+	width: 296px;
+	float: left;
+	}
+div#all div#main_3column div#center_column {
+	width: 290px;
+	float: left;
+	}
+div#all div#main_3column div#right_column {
+	width: 290px;
+	float: right;
+	}
+div#all div#main_3column div#left_column div.box_body {
+	width: 274px;
+	}
+div#all div#main_3column div#center_column div.box_body {
+	width: 268px;
+	}
+div#all div#main_3column div#right_column div.box_body {
+	width: 268px;
+	}
+/* main 2-colimn */
+div#all div#main_2column{
+	clear: both;
+	width: 900px;
+	margin: 10px 0;
+	float: left;/*  for FireFox bug */
+	}
+div#all div#main_2column div#left_column {
+	width: 444px;
+	float: left;
+	}
+div#all div#main_2column div#right_column {
+	width: 444px;
+	float: right;
+	}
+div#all div#main_2column div#left_column div.box_body {
+	width: 422px;
+	}
+div#all div#main_2column div#right_column div.box_body {
+	width: 422px;
+	}
+
+/* common image item
+------------------------------------------------------------ */
+div#all div#footer {
+	background: url(../images/common/bg_footer.gif) no-repeat;
+	}
+.line_v {
+	background: url(../images/common/dotted_line_vertical.gif) repeat-y;
+	}
+.line_hr {
+	background: url(../images/common/dotted_line_hr.jpg) repeat-x;
+	}
+div#header #logo {
+	background: url(../images/common/logo.gif) no-repeat;
+	}
+div#footer div.left_side {
+	background: url(../images/common/dotted_line_vertical.gif) repeat-y  106px 0;
+	}
+div#footer div.right_side {
+	float: left;
+	}
+div#footer div.caution_spec {
+	background: url(../images/common/footer_caution_spac.gif) no-repeat;
+	}
+div#footer div.credit {
+	background: url(../images/common/footer_credit.gif) no-repeat;
+	}
+div#footer div.nav a {
+	background: url(../images/common/point.gif) no-repeat left center;
+	}
+
+
+/* common item
+------------------------------------------------------------ */
+.reflesh {
+	clear: both;
+	}
+/* list and list item */
+ul.mgame_list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	}
+ul.mgame_list li {
+	padding: 3px 0 3px 7px;
+	}
+ul.mgame_list li img{
+	vertical-align: middle;
+	margin-right: 3px;
+	}
+ul.mgame_list li div.date,
+ul.mgame_list li div.right_item {
+	float: right;
+	}
+ul.mgame_list li div.right_item {
+	width: 50%;
+	padding-left: 10px;
+	}
+ul.list_line li {
+	border-bottom: 1px dotted #ccc;
+	}
+/* message bar[round corner] */
+div.message_oneline {
+	height: 19px;
+	width: 100%;
+	margin: 10px 0;
+	overflow: hidden;
+	}
+div.message_oneline div.left {
+	width: 8px;
+	height: 19px;
+	float: left;
+	}
+div.message_oneline div.right {
+	width: 8px;
+	height: 19px;
+	float: right;
+	}
+div.message_oneline div.body {
+	margin-top: 2px;
+	}
+/* message bar[square corner] */
+div.notice {
+	width: 100%;
+	overflow: hidden;
+	margin: 10px 0;
+	}
+div.notice div.left {
+	width: 25px;
+	height: 22px;
+	float: left;
+	}
+div.notice div.book {
+	}
+div.notice div.mail {
+	}
+div.notice div.right {
+	width: 10px;
+	height: 22px;
+	float: right;
+	}
+div.notice div.body {
+	margin-top: 3px;
+	}
+/* message bar position adjustment */
+div.top_item {
+	margin: 0 0 10px 0;
+	}
+/* cursor */
+div.column_space a.btn_column_move {
+	cursor: w-resize;
+	}
+div.mym_box div.title_bar div.title {
+	cursor: move;
+	}
+
+/* button
+------------------------------------------------------------ */
+a.btn_confirm,
+a.btn_add_rss,
+a.btn_admin,
+a.btn_tab_blog_on,
+a.btn_tab_blog_off,
+a.btn_tab_guild_on,
+a.btn_tab_guild_off,
+div.column_space a.btn_column_move,
+a.btn_mym_remocon,
+div#profile div.btn_link01 div.left,
+div#profile div.btn_link01 div.right,
+div#profile div.btn_link01 div.mid,
+div#profile a.btn_prof,
+div#profile a.btn_mymail,
+div#profile a.btn_mym,
+div#profile a.btn_buymint,
+div.unit_edit_box a.btn_close,
+div.unit_edit_box a.btn_send,
+div.unit_edit_box a.btn_add,
+div.unit_edit_box a.btn_delete,
+div.unit_edit_box a.btn_arrow_up,
+div.unit_edit_box a.btn_arrow_down,
+div.unit_edit_box a.btn_save,
+div.unit_edit_box a.btn_select_delete,
+div#mym_remocon a.btn_mym_delete,
+div#mym_remocon .btn_mym_delete_gray,
+div#mym_remocon a.btn_mym_add,
+div#mym_remocon .btn_mym_add_gray,
+div#mym_remocon a.btn_mym_layout,
+div#mym_remocon a.btn_mym_skin {
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	}
+/* mini button */
+a.btn_confirm {
+	width: 36px;
+	height: 17px;
+	}
+a.btn_add_rss {
+	width: 54px;
+	height: 17px;
+	}
+a.btn_admin {
+	width: 36px;
+	height: 17px;
+	}
+div.item_ctrl_pcs a.btn_confirm,
+div.item_ctrl a.btn_add_rss,
+div.item_ctrl a.btn_admin {
+	float: right;
+	}
+div.item_ctrl_pcs a.btn_confirm {
+	position: relative;
+	top: 3px;
+	}
+div.box_bottom div.mid img.more_long {/* - Add by H.Park - */
+	position: relative;
+	left: 50%;
+	margin: 0 0 0 -20px;
+	}
+*html div.box_bottom div.mid img.more_long {/* - Add by H.Park - */
+	position: relative;
+	left: 50%;
+	margin: 0 0 0 -20px;
+	text-align: center;
+	}
+div.btn_detail {/* - Add by H.Park - */
+	height: 17px;
+	float: right;
+	text-align: right;
+	}
+/* mym remocon */
+div#mym_remocon a.btn_mym_delete,
+div#mym_remocon .btn_mym_delete_gray,
+div#mym_remocon a.btn_mym_add,
+div#mym_remocon .btn_mym_add_gray {
+	width: 32px;
+	height: 15px;
+	}
+div#mym_remocon a.btn_mym_layout {
+	width: 67px;
+	height: 15px;
+	}
+div#mym_remocon a.btn_mym_skin {
+	width: 67px;
+	height: 15px;
+	}
+div#mym_remocon a.btn_mym_delete,
+div#mym_remocon .btn_mym_delete_gray,
+div#mym_remocon a.btn_mym_add,
+div#mym_remocon .btn_mym_add_gray,
+div#mym_remocon a.btn_mym_layout,
+div#mym_remocon a.btn_mym_skin {
+	float: right;
+	margin-left: 3px;
+	}
+/* unit edit box */
+div.unit_edit_box a.btn_close {
+	width: 17px;
+	height: 16px;
+	float: right;
+	}
+div.unit_edit_box a.btn_send {
+	width: 32px;
+	height: 15px;
+	margin: 2px 0 0 2px;
+	float: left;
+	}
+div.unit_edit_box a.btn_add {
+	width: 32px;
+	height: 15px;
+	float: right;
+	}
+div.unit_edit_box a.btn_delete {
+	width: 32px;
+	height: 15px;
+	float: right;
+	}
+div.unit_edit_box ul.list li a.btn_add,
+div.unit_edit_box ul.list li a.btn_delete {
+	margin-left: 3px;
+	}
+div.unit_edit_box div.bottom_btns div.left_btn a {
+	margin-right: 3px;
+	}
+div.unit_edit_box a.btn_arrow_up {
+	width: 15px;
+	height: 15px;
+	float: left;
+	}
+div.unit_edit_box a.btn_arrow_down {
+	width: 15px;
+	height: 15px;
+	float: left;
+	}
+div.unit_edit_box a.btn_select_delete {
+	width: 54px;
+	height: 15px;
+	}
+div.unit_edit_box a.btn_save {
+	width: 54px;
+	height: 15px;
+	float: right;
+	}
+/* blog-tag tab button */
+a.btn_tab_blog_on,
+a.btn_tab_blog_off {
+	width: 70px;
+	height: 25px;
+	}
+a.btn_tab_guild_on,
+a.btn_tab_guild_off {
+	width: 68px;
+	height: 25px;
+	}
+a.btn_tab_blog_on,
+a.btn_tab_blog_off,
+a.btn_tab_guild_on,
+a.btn_tab_guild_off {
+	float: left;
+	}
+/* column move button */
+div.column_space a.btn_column_move {
+	width: 6px;
+	height: 30px;
+	margin: 0 auto;
+	}
+/* mym remote control */
+a.btn_mym_remocon {
+	width: 295px;
+	height: 39px;
+	float: right;
+	}
+/* profile box */
+div#profile a.btn_prof,
+div#profile a.btn_mymail,
+div#profile a.btn_mym,
+div#profile a.btn_buymint {
+	float: right;
+	}
+div#profile a.btn_prof,
+div#profile a.btn_mymail,
+div#profile a.btn_mym {
+	width: 56px;
+	height: 48px;
+	}
+div#profile a.btn_prof {
+	margin-bottom: 4px;
+	}
+div#profile a.btn_mymail {
+	text-indent: 0;
+	text-align: center;
+	margin-bottom: 4px;
+	color: #555;
+	}
+div#profile a.btn_mymail:hover {
+	text-decoration: none;
+	}
+div#profile a.btn_buymint {
+	width: 56px;
+	height: 15px;
+	}
+div#profile div.btn_link01 {
+	width: 100%;
+	max-width: 280px;
+	height: 21px;
+	overflow: hidden;
+	margin: 0 auto 10px auto;
+	position: relative;
+	}
+div#profile div.btn_link01 div.left {
+	width: 18px;
+	height: 21px;
+	float: left;
+	}
+div#profile div.btn_link01 div.right {
+	width: 10px;
+	height: 21px;
+	float: right;
+	}
+div#profile div.btn_link01 div.mid {
+	width: 64px;
+	height: 21px;
+	position: absolute;
+	left: 50%;
+	margin-left: -32px;
+	}
+
+/* contents box (mym_box)
+------------------------------------------------------------ */
+div.mym_box {
+	margin-bottom: 10px;
+	}
+/* title bar */
+div.mym_box div.title_bar,
+div.mym_box div.title_bar div.left_corner,
+div.mym_box div.title_bar div.right_corner,
+div.mym_box div.title_bar div.title {
+	height: 30px;
+	overflow: hidden;
+	}
+div.mym_box div.title_bar div.left_corner {
+	width: 10px;
+	float: left;
+	}
+div.mym_box div.title_bar div.right_corner {
+	width: 10px;
+	float: right;
+	}
+div.mym_box div.title_bar div.title {
+	padding: 7px 0 0 10px;
+	font-weight: bold;
+	float: left;
+	}
+div.mym_box div.title_bar div[class="title"] {/* for not-IE */
+	float: none;
+	}
+/* title tools */
+div.mym_box div.title_bar div.title div.tool {
+	float: right;
+	}
+div.mym_box div.title_bar div.title div.tool a.btn_edit,
+div.mym_box div.title_bar div.title div.tool a.btn_close {
+	display: block;
+	height: 17px;
+	text-indent: -9999px;
+	overflow: hidden;
+	float: left;
+	}
+div.mym_box div.title_bar div.title div.tool a.btn_edit {
+	width: 39px;
+	}
+div.mym_box div.title_bar div.title div.tool a.btn_close {
+	width: 17px;
+	}
+/* box body */
+div.mym_box div.box_body {
+	padding: 10px 10px 0 10px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	overflow: hidden;
+	}
+/* box bottom */
+div.mym_box div.box_bottom,
+div.mym_box div.box_bottom div.left_corner,
+div.mym_box div.box_bottom div.right_corner,
+div.mym_box div.box_bottom div.mid {
+	height: 10px;
+	overflow: hidden;
+	}
+div.mym_box div.box_bottom div.left_corner {
+	width: 10px;
+	float: left;
+	}
+div.mym_box div.box_bottom div.right_corner {
+	width: 10px;
+	float: right;
+	}
+div.mym_box div.box_bottom div.mid {
+	float: left;	
+	}
+*html div.mym_box div.box_bottom div.mid {
+	position: absolute;
+	float: left;
+	width: 95.4%;
+	}
+div.mym_box div.box_bottom div[class="mid"] {/* for not-IE */
+	float: none;
+	}
+div.mym_box div.box_bottom img.spacer {
+	float: right;
+	}
+
+/* unit item control box [hidden box]
+------------------------------------------------------------ */
+/* view-item control */
+div.item_ctrl_pcs,/* radio button area */
+div.item_ctrl {
+	background: #eee;
+	padding: 10px;
+	}
+div.item_ctrl {
+	margin-bottom: 10px;
+	}
+div.item_ctrl_pcs {
+	margin-bottom: 10px;
+	}
+div.item_ctrl_pcs div.title {
+	padding-left: 7px;
+	}
+/* unit edit box */
+div.unit_edit_box {
+	width: 213px;
+	}
+div.unit_edit_box div.title {
+	/* width: 199px; */
+	height: 20px;
+	font-weight: bold;
+	padding: 9px 7px 0 7px;
+	}
+div.unit_edit_box div.body {
+	padding: 7px 7px 0 7px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	}
+div.unit_edit_box div.text {
+	padding-left: 5px;
+	}
+div.unit_edit_box div.body input.input_text {
+	width: 150px;
+	height: 13px;
+	margin-bottom: 10px;
+	float: left;
+	}
+input.input_text2 {/* - Add by H.Park - */
+	width: 120px;
+	height: 13px;
+	margin: 0 5px 0 0;
+	float: left;
+	}
+div.text2 {/* - Add by H.Park - */
+	width: 165px;
+	background: url(../images/skin_green/ico_rss.gif) no-repeat top left;
+	padding: 0 0 0 25px;
+	margin: 5px 0 0 0;
+	}
+div[class="text2"] {/* for not-IE *//* - Add by H.Park - */	
+	width: 165px;
+	height: 20px;
+	background: url(../images/skin_green/ico_rss.gif) no-repeat top left;
+	padding: 0 0 0 25px;
+	margin: 5px 0 0 0;
+	}
+div.unit_edit_box div.body div.inner_body {
+	clear: both;
+	height: 100px;
+	border: 1px solid;
+	padding: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	}
+*:first-child+html div.unit_edit_box div.body div.inner_body {/* for IE7 */
+	padding-right: 20px;
+	}
+div.unit_edit_box div.body div.inner_body ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	}
+div.unit_edit_box div.body div.inner_body ul li {
+	margin-bottom: 7px;
+	}
+div.unit_edit_box div.body div[class="inner_body"] ul li {/* for not-IE */
+	width: 100%;
+	}
+div.unit_edit_box div.body ul.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+div.unit_edit_box div.body ul.list li {
+	padding: 3px 0 3px 5px;
+	}
+*html div.unit_edit_box div.body ul.list li {
+	padding: 6px 0 0 5px;
+	}
+div.unit_edit_box div.body div.bottom_btns {
+	padding-top: 5px;
+	}
+div.unit_edit_box div.body div.left_btn {
+	float: left;
+	}
+div.unit_edit_box div.bottom {
+	width: 213px;
+	height: 10px;
+	}
+
+/* header[global navi](including buttons)
+------------------------------------------------------------ */
+div#header #logo {
+	width: 210px;
+	height: 90px;
+	padding-top: 10px;
+	float: left;
+	}
+div#header #logo a {
+	display: block;
+	width: 165px;
+	height: 60px;
+	margin: 0 0 0 40px;
+	text-indent: -9999px;
+	overflow: hidden;
+	}
+/* sub navi */
+div#header div#submenu {
+	width: 690px;
+	height: 24px;
+	float: right;
+	background: #fff;
+	}
+div#header div#submenu a{
+	display: block;
+	text-indent: -9999px;
+	height: 16px;
+	overflow: hidden;
+	margin: 5px;
+	float: left;
+	}
+div#header div#submenu span.line_v {
+	height: 14px;
+	float: left;
+	margin: 5px;
+	}
+div#header div#submenu a.menu01 {
+	width: 50px;
+	}
+div#header div#submenu a.menu02 {
+	width: 80px;
+	}
+div#header div#submenu a.menu03 {
+	width: 28px;
+	}
+div#header div#submenu a.menu04 {
+	width: 60px;
+	}
+div#header div#submenu a.menu05 {
+	width: 55px;
+	}
+div#header div#submenu a.menu06 {
+	width: 57px;
+	}
+/* global navi */
+div#header div#nav {
+	width: 690px;
+	height: 76px;
+	float: right;
+	}
+div#header div#nav div#global_nav a {
+	display: block;
+	text-indent: -9999px;
+	height: 37px;
+	overflow: hidden;
+	float: left;
+	}
+div#header div#nav div#global_nav a.menu01 {
+	width: 82px;
+	}
+div#header div#nav div#global_nav a.menu02 {
+	width: 82px;
+	}
+div#header div#nav div#global_nav a.menu03 {
+	width: 128px;
+	}
+div#header div#nav div#global_nav a.menu04 {
+	width: 81px;
+	}
+div#header div#nav div#global_nav a.menu05 {
+	width: 82px;
+	}
+div#header div#nav div#global_nav a.menu06 {
+	width: 81px;
+	}
+div#header div#nav div#global_nav a.menu07 {
+	width: 77px;
+	}
+/* global navi hover */
+div#header div#nav div#global_nav a.menu01:hover,
+div#header div#nav div#global_nav a.menu02:hover,
+div#header div#nav div#global_nav a.menu03:hover,
+div#header div#nav div#global_nav a.menu04:hover,
+div#header div#nav div#global_nav a.menu05:hover,
+div#header div#nav div#global_nav a.menu06:hover,
+div#header div#nav div#global_nav a.menu07:hover {
+	background-position: 0 -37px;
+	}
+/* global navi sub navi */
+div#header div#nav div#sub_nav a {
+	display: block;
+	text-indent: -9999px;
+	height: 20px;
+	overflow: hidden;
+	float: left;
+	margin: 5px;
+	}
+html>body div#header div#nav div#sub_nav a {/* for not-IE */
+	margin: 5px 10px;
+	}
+*:first-child+html div#header div#nav div#sub_nav a {/* for IE7 */
+	margin: 5px 10px;
+	}
+/* [sub navi] position adjustment */
+div#header div#submenu div.contents {
+	margin-left: 220px;
+	}
+/* [global navi] position adjustment[Hack] */
+div#header div#nav div#global_nav a.menu01 {
+	margin-left: 25px;
+	}
+div#header div#nav div#global_nav a[class=menu01] {/* for not-IE */
+	margin-left: 50px;
+	}
+*:first-child+html div#header div#nav div#global_nav a.menu01 {/* for IE7 */
+	margin-left: 50px;
+	}
+/* navi bottom image */
+div#header div.nav_bottom {
+	width: 210px;
+	height: 10px;
+	float: left;
+	position: relative;
+	top: 20px;
+	}
+
+/* footer
+------------------------------------------------------------ */
+div#footer div.footer_contents {
+	width: 600px;
+	margin: 30px auto 0 auto;
+	}
+html>body div#footer div.footer_contents {/* for not-IE */
+	margin: 20px auto;
+	}
+*:first-child+html div#footer div.footer_contents {/* for IE7 */
+	margin: 30px auto 0 auto;
+	}
+div#footer div.left_side {
+	width: 107px;
+	float: left;
+	padding: 10px 10px 10px 0;
+	}
+div#footer div.right_side {
+	float: left;
+	}
+div#footer div.caution_spec {
+	width: 424px;
+	height: 13px;
+	text-indent: -9999px;
+	}
+div#footer div.credit {
+	clear: both;
+	width: 264px;
+	height: 12px;
+	text-indent: -9999px;
+	}
+div#footer div.nav {
+	padding: 7px 0;
+	}
+div#footer div.nav a {
+	padding: 0 12px;
+	}
+
+/* profile box
+------------------------------------------------------------ */
+div#profile div.tools01,
+div#profile div.tools02 {
+	clear: both;
+	margin: 0 auto;
+	}
+div#left_column div#profile div.tools01,
+div#left_column div#profile div.tools02 {
+	width: 180px;
+	}
+div#left_column div#profile div.common_tools {
+	max-width: 280px;
+	border: 1px solid #ccc;
+	padding: 5px 0 0 0;
+	margin: 0 auto 7px auto;
+	overflow: hidden;
+	}
+div#left_column div#profile img.myphoto {
+	border: 1px solid #ccc;
+	float: left;
+	}
+/* quick link[pull down] */
+div#profile div.quick_link {
+	height: 30px;
+	width: 100%;
+	max-width: 280px;
+	margin: 0 auto;
+	}
+div.quick_link div.left {
+	width: 10px;
+	height: 30px;
+	float: left;
+	}
+div.quick_link div.right {
+	width: 10px;
+	height: 30px;
+	float: right;
+	}
+div#profile div.quick_link form {
+	float: left;
+	}
+div#profile div[class="quick_link"] form {/* for not-IE *//* Add by H.Park */
+	float: left;
+	width: 92%;
+	}
+div#profile div.quick_link form select {
+	width: 100%;
+	height: 18px;
+	margin: 5px 0;
+	}
+/* position adjustment */
+div#profile div.tools02 div.mymint {
+	padding: 5px 0;
+	float: left;
+	}
+div#profile div.tools02 a.btn_buymint {
+	margin: 5px 1px 0 1px;
+	}
+
+/* mym remocon
+------------------------------------------------------------ */
+div#mym_remocon {
+	clear: both;
+	width: 295px;
+	}
+div#mym_remocon div.head {
+	width: 295px;
+	height: 10px;
+	overflow: hidden;
+	}
+div#mym_remocon div.foot {
+	clear: both;
+	width: 295px;
+	height: 10px;
+	overflow: hidden;
+	}
+div#mym_remocon div.body {
+	padding: 0 10px;
+	}
+div#mym_remocon div.body ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+div#mym_remocon div.body ul li {
+	padding: 5px 0 5px 10px;
+	border-bottom: 1px dotted;
+	}
+div#mym_remocon div.body ul li.skin {
+	background: none;
+	}
+div#mym_remocon div.body li div.radio {
+	float: right;
+	}
+div#mym_remocon div.body li div.skin_color a {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid;
+	margin-right: 3px;
+	float: left;
+	}
+
+/* contents box unit
+------------------------------------------------------------ */
+/* tag */
+div#tag div.tag_text {
+	clear: both;
+	word-break: keep-all;
+	padding: 10px;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+	}
+div#tag div.tag_text a {
+	display: block;
+	padding: 0 7px;
+	margin: 3px 0;
+	float: left;
+	}
+div#tag div.tag_text a.hot {
+	color: #fff;
+	}
+div#tag div.tag_box {
+	clear: both;
+	height: 10px;
+	overflow: hidden;
+	}
+div#tag div.tag_box div.left {
+	width: 69px;
+	height: 10px;
+	float: left;
+	}
+div#tag div.tag_box div.right {
+	width: 10px;
+	height: 10px;
+	float: right;
+	}
+div#tag div#tag_guild div.tag_box div.left {
+	width: 1px;
+	height: 10px;
+	float: left;
+	}
+div#tag div#tag_guild div.tag_box div.mid {
+	width: 66px;
+	height: 10px;
+	float: left;
+	position: relative;
+	left: 70px;
+	}
+/* banner */
+div#banner div.box_body img {
+	display: block;
+	margin: 3px auto;
+	}
+/* photo comment */
+div#photo_comment div.box_body table.photo {
+	width: 100%;
+	}
+div#photo_comment div.box_body table.photo td {
+	width: 25%;
+	padding: 1px 0;
+	text-align: center;
+	}
+
+/* PR space
+------------------------------------------------------------ */
+div#all div#pr_space img {
+	margin-bottom: 10px;
+	}
+
+/* positioning
+------------------------------------------------------------ */
+/* category box */
+div#right_column,
+div#rss_reader,
+div#news,
+div#game_favorite,
+div#game_news {
+	position: relative;
+	}
+/* mym remocon */
+div#mym_remocon {
+	position: absolute;
+	top: -10px;
+	right: 0;
+	z-index: 3;
+	}
+/* edit unit */
+div#unit_rss_add,
+div#unit_news_add {
+	position: absolute;
+	top: 70px;
+	right: 65px;
+	z-index: 1;
+	}
+div#unit_rss_edit,
+div#unit_news_edit {
+	position: absolute;
+	top: 70px;
+	right: 20px;
+	z-index: 2;
+	}
+div#unit_game_favorite_edit,
+div#unit_game_news_edit {
+	position: absolute;
+	top: 25px;
+	right: 28px;
+	z-index: 1;
+	}
+/* set hidden */
+div#mym_remocon,
+div#unit_rss_add,
+div#unit_news_add,
+div#unit_rss_edit,
+div#unit_news_edit,
+div#unit_game_favorite_edit,
+div#unit_game_news_edit,
+div#myblog_ctrl,
+div#myphoto_ctrl,
+div#tag_guild {
+	display: none;
+	}
+
+/* The Holly Hack
+------------------------------------------------------------ */
+/* Hides from IE5-mac \*/
+*html div.item_ctrl {height: 1%;}
+*html div#tag div.tag_text {height: 1%;}
+/* end Hides from IE5-mac */
+
+*:first-child+html div#tag div.tag_text {height: 1%;}

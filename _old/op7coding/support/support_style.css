@@ -1,0 +1,334 @@
+<?header("Content-type:text/css");?>
+@charset"Shift_JIS";
+/* Resetting --------------------------------------------------------------- */
+*{
+	margin:0;
+	padding:0;
+}
+*{
+	margin:0;
+	padding:0;
+}
+.aid {
+	text-align:left;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+body {
+	font:12px/16px ƒƒCƒŠƒI, Meiryo, Sans-serif;
+	color:#fff;
+}
+table {
+	border-collapse:collapse;
+	width:555px;
+}
+h1 {
+	text-align:left;
+	text-indent:-9999px;
+	overflow:hidden;
+	line-height:0px;
+	height:0;
+}
+img {
+	border:0;
+}
+a,a:link {
+	color:#fff;
+	text-decoration:none;
+}
+a:hover,a:visited {
+	color:#678;
+	text-decoration:none;
+}
+/* Common -------------------------------------------------------------------- */
+#all {
+	width:640px;
+	height:525px;
+	overflow:hidden;
+}
+/* support_inner.html */
+#all .top {
+	float:left;
+	clear:both;
+	width:640px;
+	height:50px;
+}
+#all .contents {
+	float:left;
+	width:640px;
+	height:455px;
+	margin:0 auto;
+}
+*html div#all .contents {
+	margin:-3px 0 0;
+}
+#all .contents .iframe_inner {
+	margin:0 10px;
+}
+#all .contents span {
+	display:none;
+}
+#all .contents .alarm {
+	width:575px;
+	height:40px;
+	margin:10px auto 0;
+	padding:0;
+}
+#all .contents .alarm select {
+	margin:5px 0 0 450px;
+}
+#all .contents table {
+	width:640px;
+	margin:0 auto;
+}
+#all .contents td {
+	padding:5px 0;
+	border-top:1px #444 solid;
+}
+#all .contents table td img {
+	margin:0 10px 0 0;
+	vertical-align:text-bottom;
+}
+#all .contents table td p {
+	margin:0 10px 0 0;
+	text-align:center;
+}
+#all .contents table td p a.thispage {
+	font-weight:bold;
+}
+#all .end {
+	float:left;
+	width:595px;
+	height:20px;
+}
+.header_support {
+	height:70px;
+}
+.middle {
+	height:70px;
+	background:url(http://image.mgame.jp/new_rpg/op7/support/bg_support.jpg) no-repeat;
+}
+.middle table {
+	margin:0 0 0 210px;
+}
+.middle table th {
+	height:19px;
+	text-align:left;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+*html .middle table th {
+	height:18px;
+}
+.middle table input {
+	width:200px;
+	height:12px;
+	background-color:#cbe0ff;
+	border:1px #888 solid;
+}
+.bottom_support table {
+	width:640px;
+	border-collapse:collapse;
+	border:1px #444 solid;
+	margin:10px 0 0;
+}
+.bottom_support table td {
+	padding:5px 0;
+	border-bottom:1px #444 solid;
+}
+.bottom_support table td#FAQCategory1 {
+	padding:5px 0;
+	border:none;
+}
+.bottom_my table {
+	width:640px;
+	border-collapse:collapse;
+	margin:10px 0 0;
+	text-align:center;
+}
+.bottom_my td {
+	padding:5px 0;
+}
+.bottom_my td p {
+	text-align:center;
+}
+.bottom_my a {
+	width:555px;
+	border-collapse:collapse;
+	margin:10px 0 0;
+}
+.bottom_my th {
+	height:22px;
+	background:#213300 url(http://image.mgame.jp/new_rpg/op7new/bg_th.gif) top left repeat-x;
+}
+html>/**/body td.bottom_my table td {
+	height:27px;
+}
+.bottom_my table th.select {
+	width:40px;
+}
+.bottom_my table th.title {
+	width:400px;
+}
+.bottom_my table td.title {
+	width:400px;
+	margin:0;
+	padding:0 0 0 10px;
+	text-align:left;
+}
+.bottom_my table th.date {
+	width:80px;
+}
+.bottom_my table th.status {
+	width:50px;
+}
+.bottom_my table td {
+	padding:3px;
+	border-top:1px #444 solid;
+}
+.bottom_my p {
+	margin:20px 0 0;
+	text-align:center;
+}
+.bottom_support table th {
+	width:100px;
+	height:26px;
+	background:#213300 url(http://image.mgame.jp/new_rpg/op7new/bg_th.gif) top left repeat-x;
+	color:#fff;
+}
+.bottom_support table th.longbar {
+	background:#213300 url(http://image.mgame.jp/new_rpg/op7new/bg_th.gif) top left repeat-x;
+	width:100%;
+	height:22px;
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	border-top:1px #444 solid;
+}
+.bottom_support table th,
+.bottom_support table td {
+	padding:3px 5px;
+}
+input.id,input.mail {
+	width:200px;
+	height:12px;
+}
+input.char {
+	width:200px;
+	height:12px;
+	margin:0 10px 0 0;
+}
+input.radio {
+	vertical-align:text-bottom;
+}
+input.title {
+	 width:200px;
+	 height:12px;
+}
+table#inner {
+	width:640px;
+	table-layout:fixed;
+	overflow:hidden;
+}
+td.mycontents p {
+	text-align:left;
+	margin:0;
+	padding:10px 20px 10px;
+}
+th.mytitle {
+	color:#fff;
+}
+th.mytitle2 {
+	color:#fff;
+	text-align:left;
+}
+th.mytitle2 p {
+	color:#fff;
+	float:right;
+	text-align:left;
+	margin:0px 10px 0 0;
+}
+.thispage {
+	font-weight:bold;
+}
+td textarea {
+	width:520px !important;
+}
+a.submit {
+	float:left;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 0 0 100px;
+	background:url(../images/btn/btn_submit.gif) left bottom no-repeat;
+}
+a.modify {
+	float:right;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 100px 0 0;
+	background:url(../images/btn/btn_modify.gif) left bottom no-repeat;
+}
+a.totop {
+	float:left;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 0 0 100px;
+	background:url(../images/btn/btn_totop.gif) left bottom no-repeat;
+}
+a.tomyask {
+	float:right;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 100px 0 0;
+	background:url(../images/btn/btn_tomyask.gif) left bottom no-repeat;
+}
+a.tolist2 {
+	float:left;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 0 0 100px;
+	background:url(../images/btn/btn_tolist2.gif) left bottom no-repeat;
+}
+a.todelete {
+	float:right;
+	display:block;
+	width:150px;
+	height:40px;
+	margin:20px 100px 0 0;
+	background:url(../images/btn/btn_todelete.gif) left bottom no-repeat;
+}
+a:hover {
+	background-position:left top;
+}
+.pagecontrol {
+	clear:both;
+	margin:30px auto 0;
+	padding:10px 0 0;
+	border-top:1px #444 solid;
+	text-align:center;
+}
+.pagecontrol a {
+	display:inline !important;
+	margin:0 !important;
+	padding:0 !important;
+	width:0 !important;
+}
+.pagecontrol a.active {
+	color:#678;
+	font-weight:bold;
+}
+.pagecontrol a.tolist {
+	display:block;
+	width:230px;
+	height:40px;
+	margin:0 auto 30px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn/btn_tolist.gif) left bottom no-repeat;
+}
+.pagecontrol a.tolist:hover {
+	background-position:left top;
+}

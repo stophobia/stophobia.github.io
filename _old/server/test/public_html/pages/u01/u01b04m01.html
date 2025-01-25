@@ -1,0 +1,142 @@
+<?
+if(!$row_member[Mlevel] > 8) {
+	error_msgall('관리자페이지입니다.');
+	exit;
+}
+
+$iljiDate = $iljiDate ? $iljiDate : date('Y-m-d');
+
+$que = "select * from odtIlji where iljiRegidate like '".$iljiDate."%'";
+$res = mysql_query($que);
+$iInfo = mysql_fetch_array($res);
+
+?>
+<style>
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+</style>
+
+		<iframe name="hidden_frame" src="about:blank" width=100px height=100px style="display:none"></iframe>
+
+
+<?
+# SUB TOP 메뉴
+include_once dirname(__FILE__)."/head.sub.html";
+?>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="180" valign="top">
+<?
+# LEFT 메뉴
+include_once $_SERVER[DOCUMENT_ROOT]."/pages/mainLeft2.html";
+?>	
+										</td>
+                    <td width="20" valign="top">&nbsp;</td>
+                    <td valign="top">
+
+					<!-- 운영일지 시작 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="900" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td><img src="/img/year_img_01.jpg" width="761" height="229" /></td>
+                          </tr>
+                        </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="17"></td>
+                            </tr>
+                          </table>
+						<!-- 날짜 시작 -->
+<script>
+function iljiFun(frm) {
+
+
+}
+function changeDate(obj) {
+	location.href="/?Pid=u01b04m01&iljiDate="+obj.value;
+}
+</script>
+													<form name="ilji_form" action="/pages/u01/iljiod_inputPro.php" method="post" target="hidden_frame" onsubmit="return iljiFun(this)" enctype="multipart/form-data" style="display:inline">
+													<input type="hidden" name="iljiNo" value="<?=$iInfo[iljiNo]?>">
+													<input type="hidden" name="subMode" value=<?=$iInfo[iljiNo] ? "edt" : "ins";?>>
+													<table width=700 border=0 cellpadding=0 cellspacing=0 align=center style="border:1px solid #dcdcdc">
+														<tr>
+															<td width=85 height=35 style="border-right:1px solid #dcdcdc" bgcolor="f9f9f9" align=center>날짜</td>
+															<td width=615 style="color:ff528f;padding-left:15px;">
+															
+															<input type="text" class="border" size=10 name="iljiDate" id=ipt01 onchange="changeDate(this)" readonly style="cursor:hand" value="<?=$iljiDate?>" >
+															<script>var cal1 = new jsCalendar(document.getElementById('ipt01'));</script>
+															</td>
+														</tr>
+														<tr>
+															<td  height=35 style="border-top:1px solid #dcdcdc;border-right:1px solid #dcdcdc" bgcolor="f9f9f9" align=center>제목</td>
+															<td style="color:ff528f;padding-left:15px;border-top:1px solid #dcdcdc;"><input type="text" name="iljiTitle" style="width:418px;height:16;border:1px solid #c9c9c9;" class="cs_input" value="<?=$iInfo[iljiTitle]?>"></td>
+														</tr>
+														<tr>
+															<td  style="color:ff528f;padding-left:15px;border-top:1px solid #dcdcdc;" colspan=2> 
+															<textarea name="iljiContent" class="border" rows="30" cols="100" geditor><?=stripslashes($iInfo[iljiContent])?></textarea>
+															</td>
+														</tr>
+													</table>
+
+													<table width=700 border=0 cellpadding=0 cellspacing=0 align=center >
+														<tr>
+															<td colspan=2 height=50 align=center><input type="submit" value="확인"> <input type="button" value="삭제" onclick="if(confirm('삭제하시겠습니까?')) {hidden_frame.location.href='/pages/u01/iljiod_inputPro.php?subMode=del&iljiNo=<?=$iInfo[iljiNo]?>'}"></td>
+														</tr>
+													</table>
+													</form>
+						
+						
+						<table border=0 cellspacing=0 cellpadding=0>
+							<tr>
+								<td width=780 height=30 background="/images/event_63.gif"></td>
+							</tr>
+						</table>
+						<!-- 댓글 내용 끝 -->
+
+					<!-- body 끝 -->
+
+					</td>
+				</tr>
+			</table>
+					</td>
+				</tr>
+			</table>
+			<!-- left , body 끝 -->
+			<table border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td height=30></td>
+				</tr>
+			</table>
+		<script language="Javascript" src="/odprogram/geditor/geditor.js"></script>

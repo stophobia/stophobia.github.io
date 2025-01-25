@@ -1,0 +1,15 @@
+#DaumUI__minidaum { text-align: center; line-height: 26px; font-family: 'Dotum', 'gulim', 'Helvetica', 'Apple-Gothic'; }
+#DaumUI__minidaum a { text-decoration: none;}
+#DaumUI__minidaum a:hover { text-decoration: underline; }
+#Mobile__list { white-space: nowrap; }
+#Mobile__list a, #Mobile__stat .Mobile__Daum, #Mobile__stat .Mobile__tistory { font-weight: bold; font-size: 13px; letter-spacing: -1px; }
+#Mobile__list a { color: #000; padding: 0 4px 0 7px; background: url('http://img.mobile.daum.net/static_img/iphone/common/btn_login.gif') no-repeat left 1px; }
+#Mobile__list .Mobile__list0 { background: none; }
+
+#Mobile__stat { padding-top: 0px; white-space: nowrap; }
+#Mobile__stat .Mobile__Daum, #Mobile__stat .Mobile__tistory { color: #3C528E; padding: 0 6px 0 6px; }
+#Mobile__stat .Mobile__nick, #Mobile__stat .Mobile__info { font-size: 13px;  color: #3A407F; font-weight: bold; padding-left: 8px; padding-right: 5px; background: none; }
+#Mobile__stat .Mobile__tistory,	#Mobile__stat .Mobile__nick, #Mobile__stat .Mobile__info { background: url('http://img.mobile.daum.net/static_img/iphone/common/btn_login.gif') no-repeat left 1px;	}
+#Mobile__stat .Mobile__in, #Mobile__stat .Mobile__out, #Mobile__stat .Mobile__PC  { margin-top: 0;}
+#Mobile__stat .Mobile__out { width: 53px; height: 19px; background: url('http://img.mobile.daum.net/static_img/iphone/common/btn_login.gif') no-repeat -43px -22px; }
+#Mobile__stat .Mobile__in { width: 43px; height: 19px; background: url('http://img.mobile.daum.net/static_img/iphone/common/btn_login.gif') no-repeat left -22px; margin-left: 5px; }

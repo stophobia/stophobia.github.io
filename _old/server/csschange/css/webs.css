@@ -1,0 +1,367 @@
+@charset "utf-8";
+
+/* 
+------------------------------------------------------------
+file name: webs.css
+Author: H.Park
+last updated: 2007.08.10
+
+======================= INDEX ===========================
+
+   1: Style Changing Setting
+   2: Browser-style reset
+   3: aid for non-CSS-compliant Browser
+   4: Background & Layout
+   5: Entry
+   6: Side Navigation
+      Common
+	  Search
+	  Category/Archive
+   7: Calendar
+   8: Footer
+
+============================================================
+*/
+
+/* 1: Style Changing Setting
+---------------------------------------------*/
+#styleSwitch {
+	position: absolute;
+	top: 20px;
+	right: 11px;
+	width: 200px;
+	text-align: center;
+	}
+#styleSwitch h2 {
+	color: #fc3;
+	font-weight: normal;
+	font-family: "Segoe UI", "Helvetica", sans-serif;
+	}
+#styleSwitch li {
+	display: inline;
+	padding-right: 2px !important;
+	padding /**/: 0;
+	}
+
+/* 2: Browser-style reset
+---------------------------------------------*/
+* {list-style: none; margin: 0; padding: 0; font-size: 100%;}
+body {
+	color: #333;
+	font: normal 75% "Segoe UI", "Helvetica", sans-serif;
+	line-height: 1.4;
+	/*\*/
+	letter-spacing: 0.1em;
+	/**/
+	}
+html:first-child body {font-size: 80%;}
+img {border: none;}
+a {color: #333;}
+	/* Font Setting
+	----------------------------------------*/
+	#entry-103, #entry-100 {font-family: "Malgun Gothic", "Apple Gothic", sans-serif;}
+	#entry-102 {font-family: "Meiryo", "Hiragino Kaku Gothic Pro", sans-serif;}
+	#entry-101 {font-family: "Segoe UI", "Helvetica", sans-serif;}
+
+/* 3: aid for non-CSS-compliant Browser
+------------------------------------------------------------ */
+.aid {position: absolute; left: -9999px; overflow: hidden; width: 0;}
+
+/* 4: Background & Layout
+---------------------------------------------*/
+
+
+body {
+	background: #191919;
+	text-align: center;
+	}
+#container {
+	position: relative;
+	width: 820px;
+	margin: 0 auto;
+	text-align: left;
+	}
+#banner-header {
+	position: relative;
+	top: 10px;
+	width: 400px;
+	background: none;
+	}
+#banner-header a {
+	display: block;
+	width: 100%;
+	height: 100px;
+	padding-top: 50px;
+	background: url(../images/webs/logo.gif) no-repeat top left;
+	}
+#banner-description {
+	position: absolute;
+	top: 60px;
+	right: 50px;
+	width: 460px;
+	color: #666;
+	text-align: right;
+	}
+#pagebody {
+	position: absolute;
+	top: 200px;
+	width: 100%;
+	}
+#contents, #menu {
+	position: relative;
+	height: 1400px;
+	padding-bottom: 20px;
+	}
+#contents {
+	position: relative;
+	float: left;
+	width: 50%;
+	padding: 0 0 0 5%;
+	}
+#menu {
+	position: relative;
+	float: right;
+	width: 40%;
+	padding: 0 5% 0 0;
+	background: #fff url(../images/webs/bg_menu.gif) repeat-x top;
+	}
+
+/* 5: Entry
+---------------------------------------------*/
+.date-header {
+	position: relative;
+	top: 30px;
+	margin: 10px 0 0 75px;
+	color: #fff;
+	font-weight: 900;
+	font-size: 120%;
+	line-height: 12px;
+	z-index: 2;
+	}
+.entry {
+	position: relative;
+	width: 470px !important;
+	width /**/: 470px;
+	margin: -5px 0 -10px 20px;
+	padding: 43px 0 0 0;
+	background: none;
+	z-index: 1;
+	}
+.entry a {
+	color: #fc3;
+	font-weight: bold;
+	}
+.entry-header {
+	padding: 3px 0 3px 15px;
+	border: none;
+	background: none;
+	color: #fc3;
+	font-size: 116%;
+	text-indent: 10px;
+	}
+.entry-body {
+	padding: 5px 10px;
+	background: none;
+	}
+.entry-body p {
+	margin: 1em 0;
+	color: #fff;
+	}
+.entry-body blockquote {
+	margin: 1em;
+	padding: 0 0 0 10px;
+	border-left: 1px single #666;
+	color: #eee;
+	}
+.entry-body p.entry-footer {
+	padding: 3px 10px 0;
+	margin-bottom: 0px;
+	border: none;
+	font-size: 90%;
+	}
+.entry-body p.entry-footer a {
+	color: #fc3;
+	}
+
+/* 6: Side Navigation
+---------------------------------------------*/
+
+	/* Common
+	---------------------------------------------*/
+	.module-header {
+		padding: 10px 20px 0;
+		font-weight: bold;
+		font-size: 100%;
+		line-height: 14px;
+		letter-spacing:-1px;
+		}
+	.module-content {
+		padding: 5px 20px;
+		font-size: 90%;
+		}
+	.module {
+		margin: 0;
+		border: none;
+		}
+	/* Search
+	---------------------------------------------*/
+	.module-search {
+		position: absolute;
+		top: -45px;
+		left: -1000px;
+		width: 2000px;
+		height: 100px;
+		background: url(../images/webs/bg_search.gif) repeat-x top left;
+		color: #191919;
+		}
+	.module-search .module-content {
+		position: absolute;
+		top: 8px;
+		right: 1105px;
+		background: none;
+		}
+	.module-search .module-header {
+		display: none;
+		}
+	.module-search .module-content input {
+		vertical-align: middle;
+		}
+	.module-search .module-content #search {
+		width: 110px;
+		border: 1px solid #ad8a22;
+		background: #fff;
+		}
+	
+	/* Category/Archive
+	---------------------------------------------*/
+	.module-categories, .module-archives {
+		display: block;
+		position: relative;
+		float: left;
+		width: 50%;
+		background: none;
+		}
+	.module-categories .module-content,
+	.module-archives .module-content {
+		margin-bottom: 10px;
+		background: none;
+		}
+	.module-list {
+		border-top: none;
+		}
+	.module-list li {
+		border-bottom: none;
+		}
+	.module-list li a {
+		display: block;
+		margin: 0 !important;
+		.margin: 0 0 -8px 0;
+		margin /**/: 4px 0 -10px;
+		padding: 0 0 0 12px;
+		background: none;
+		color: #333;
+		text-decoration: none;
+		}
+	.module-list li a:hover {
+		background: none;
+		color: #090;
+		}
+
+/* 7: Calendar
+---------------------------------------------*/
+#calendar {
+	display: block;
+	position: relative;
+	float: right;
+	width: 50%;
+	height: 195px !important;
+	height /**/: 200px;
+	margin: 30px 0 0 0 !important;
+	margin /**/: 30px 0 10px 0;
+	padding-top: 10px !important;
+	padding-top /**/: 15px;
+	background: none;
+	text-align: center;
+	}
+#calendar table {
+	width: 90%;
+	margin: 0 auto;
+	font-size: 90%;
+	}
+#calendar th, #calendar td {
+	width: 10px;
+	padding: 3px;
+	text-align: center;
+	}
+#calendar th {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #e0e0e0 url(../images/naver/th_bg.gif) repeat-x bottom left;
+	font-weight: normal;
+	font-size: 0.9em;
+	}
+#calendar th#sun {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f00 url(../images/naver/th_sun_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar th#sat {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #00f url(../images/naver/th_sat_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar td {
+	border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff url(../images/naver/td_bg.gif) repeat-x bottom left;
+	}
+#calendar td a {
+	display: block;
+	width: 100%;
+	background-color: #75bf26;
+	color: #fff;
+	text-decoration: none;
+	}
+#calendar td a:hover {
+	background-color: #d4ed71;
+	color: #75bf26;
+	}
+
+/* 8: Footer
+---------------------------------------------*/
+#footer {
+	position: relative;
+	bottom: 0;
+	float: left;
+	width: 100%;
+	height: 75px;
+	padding: 0;
+	text-align: center;
+	}
+#footer a {
+	color: #444;
+	text-decoration: none;
+	}
+#footer a:hover {
+	color: #75bf26;
+	}
+#footer .module {
+	position: relative;
+	float: left;
+	margin: 10px 0 -10px 0;
+	padding: 0;
+	}
+.copyright {
+	position: relative;
+	float: left;
+	width: 100%;
+	border-top: 1px solid #aaa;
+	text-align: center;
+	}
+#footer .copyright a {
+	color: #039;
+	font-weight: bold;
+	text-decoration: none;
+	}

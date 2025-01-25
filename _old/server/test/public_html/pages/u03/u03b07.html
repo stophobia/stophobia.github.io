@@ -1,0 +1,112 @@
+<?
+	include dirname(__FILE__)."/myPostInclude.php";
+	if(!$row_member[id]) {
+		error_msgall("회원전용 페이지 입니다.","/odprogram/odlogon/od_login.php");
+		exit;
+	}
+
+	$myPostType = $myPostType ? $myPostType : "talktalk";
+
+?>
+<style type="text/css">
+<!--
+.style1 {
+	color: #85a8ff;
+	font-weight: bold;
+}
+.style2 {color: #ff6600}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+-->
+</style>
+		<script>
+			function openorderdelete(ordernum,mode) {
+				window.open('pwd.php?ordernum='+ordernum+'&mode='+mode,'del','width=330,height=142');
+			}
+		</script>
+
+					<!-- body 시작 -->
+<script>
+function error_loc(obj) {
+	location.href='/?Pid=u03b07&myPostType='+obj.value;
+}
+</script>
+
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td height="23"></td>
+                                      </tr>
+                                    </table>
+                                    <table width="716" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="530"><img src="/img/modify_img_58.jpg" width="97" height="32" /></td>
+                                              <td width="51"></td>
+                                            </tr>
+                                          </table>
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td height="5"></td>
+                                            </tr>
+                                          </table>
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                  <tr>
+                                                    <td height="2" bgcolor="#666666"></td>
+                                                  </tr>
+                                                </table>
+                                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                      <td height="31" background="/img/modify_img_24.jpg"><table width="744" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                          <td width=140><div align="center">분류</div></td>
+                                                          <td><div align="center">내용</div></td>
+                                                          <td width=100><div align="center">상품</div></td>
+                                                          <td width=100><div align="center">추천수</div></td>
+                                                        </tr>
+                                                      </table></td>
+                                                    </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table>
+<?
+switch($myPostType) {
+	case "talktalk" :
+		myPostFun1($row_member[id]);
+		break;
+	case "aftertalk" :
+		myPostFun2($row_member[id]);
+		break;
+	case "poll2" :
+		myPostFun3($row_member[id]);
+		break;
+	case "event" :
+		myPostFun4($row_member[id]);
+		break;
+	case "ilji" :
+		myPostFun5($row_member[id]);
+		break;
+
+}
+?>
+
+																					</td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                              </table>
+
+
+
+					<!-- body 끝 -->

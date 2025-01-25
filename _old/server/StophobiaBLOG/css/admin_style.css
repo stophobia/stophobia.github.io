@@ -1,0 +1,163 @@
+﻿#adminTop {
+	height: 70px;
+	padding-top: 20px;
+	text-align: center;
+}
+#adminTop a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #666;
+	font-size: 30px;
+}
+#adminTop a span {
+	color: #999;
+	font-family: Georgia;
+}
+#adminMenu {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+	background-color: #fff;
+}
+#adminMenu div.n {
+	padding: 7px;
+	text-align: left;
+	border-bottom: #ddd 1px dotted;
+	color: #666;
+}
+#adminMenu div.n a {
+	text-decoration: none;
+	font-weight: normal;
+	color: #666;
+}
+#adminMenu div.m {
+	padding: 7px;
+	text-align: left;
+	background-color: #ddeaf5;
+}
+#adminMenu div.m a {
+	padding-top: 5px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #2777fb;
+}
+#setting td input.t {
+	border: #aaa 1px solid;
+	color: #666;
+	width: 200px;
+	height: 19px;
+	padding-left: 5px;
+	background: url(../image/input_back.gif) no-repeat top left;
+}
+#adminControl {
+	float: left; 
+	width: 780px;
+	border-width: 5px 5px 5px 5px; 
+	border-color: #ccc; 
+	border-style: solid;
+	background: #fff url(../image/darkgray/top.background.gif) repeat-x top; 
+}
+#all {
+	text-align: left;
+}
+div.clr { clear: both; }
+div.boxTitle {
+	background: url(../image/darkgray/top.adminPanel.background.gif) repeat-x top;
+	color: #fff; 
+	text-align: center;
+	font-weight: bold;
+	height: 30px;
+	padding-top: 7px; 
+	cursor: move;
+}
+div.normalTitle {
+	height: 34px;
+	padding-top: 7px;
+	color: #666; 
+	text-align: center;
+	font-weight: bold;
+	cursor: move;
+}
+input.input { border: #ddd 1px solid; width: 50px; }
+
+/* admin theme modify */
+#chooseFile, #fileModify {
+	padding: 10px;
+}
+#fileModify textarea {
+	width: 95%;
+	padding: 10px;
+	background: #fff url(../image/white_dot_back.gif);
+}
+#fileModify .sendBox {
+	text-align: center;
+	padding: 15px;
+}
+#chooseFile select {
+	font-size: 16pt;
+	height: 34px;
+	width: 450px;
+}
+#chooseFile option {
+	font-size: 14pt;
+	padding: 5px 5px 0px 5px;
+}
+#helpBox {
+	margin: 10px;
+	padding: 5px;
+	border: #ddd 3px solid;
+	background-color: #f5f5f5;
+}
+#helpBox ol {
+	margin: 0px 10px 10px 10px;
+	padding: 10px 20px 10px 20px;
+}
+#helpBox span {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* for TABLE */
+#adminAll table {
+	width: 100%;
+}
+#adminAll th {
+	height: 40px;
+	background: url(image/darkgray/top.background.gif) repeat-x bottom;
+	text-align: center;
+}
+#adminAll td {
+	height: 34px;
+}
+#adminAll td.l {
+	border-bottom: #ddd 1px dotted;
+	text-align: center;
+}
+#adminAll td.r {
+	padding-left: 10px;
+	border-bottom: #ddd 1px dotted;
+	color: #777;
+}
+#adminAll td input.t {
+	border: #ddd 1px solid;
+	color: #666;
+	width: 200px;
+	height: 19px;
+}
+#adminAll td input.t:hover {
+	border: #666 1px solid;	
+}
+#adminAll td input.t:focus {
+	border: #666 2px solid;
+}
+#adminAll td select {
+	width: 200px;
+}
+#adminAll td.b {
+	padding: 20px;
+	text-align: center;
+}
+#adminAll textarea {
+	border: #ddd 1px solid;
+	width: 95%;
+}

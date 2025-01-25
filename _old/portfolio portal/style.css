@@ -1,0 +1,50 @@
+@charset "utf-8";
+body {
+	margin:0;
+	padding:0;
+}
+h1 {
+	display:none;
+}
+#main {
+	position:absolute;
+	width:810px;
+	height:160px;
+	top:50%;
+	left:50%;
+	margin:-80px 0 0 -405px;
+	background:url(index.jpg) top left no-repeat;
+}
+a.stophobia {
+	position:relative;
+	float:left;
+	margin:15px 0 0 340px;
+	display:block;
+	width:150px;
+	height:120px;
+}
+a:hover.stophobia {
+	background:url(btn_stophobia.jpg) top left no-repeat;
+}
+a.erofessional {
+	position:relative;
+	float:left;
+	margin:15px 0 0 0px;
+	display:block;
+	width:150px;
+	height:120px;
+}
+a:hover.erofessional {
+	background:url(btn_erofessional.jpg) top left no-repeat;
+}
+a.minibox {
+	position:relative;
+	float:left;
+	margin:15px 0 0 0px;
+	display:block;
+	width:150px;
+	height:120px;
+}
+a:hover.minibox {
+	background:url(btn_minibox.jpg) top left no-repeat;
+}

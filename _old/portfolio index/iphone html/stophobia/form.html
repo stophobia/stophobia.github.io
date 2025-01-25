@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<title>Forms</title>
+<link rel="stylesheet" href="stylesheets/iphone.css" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<script type="text/javascript">
+	function clickclear(thisfield, defaulttext) {
+	if (thisfield.value == defaulttext) {
+	thisfield.value = "";
+	}
+	}
+	function clickrecall(thisfield, defaulttext) {
+	if (thisfield.value == "") {
+	thisfield.value = defaulttext;
+	}
+	}
+	
+	</script>
+<script type="text/javascript" charset="utf-8">
+		window.onload = function() {
+		  setTimeout(function(){window.scrollTo(0, 1);}, 100);
+		}
+	</script>
+</head>
+<body>
+<div id="header">
+	<h1>Contact Me</h1>
+	<a href="index.html" id="backButton">Back</a> </div>
+<h1>Mail to Stophobia</h1>
+<ul class="form">
+	<li><input type="text" name="name" value="Name" id="some_name" onclick="clickclear(this, 'Name')" onblur="clickrecall(this,'Name')" /></li>
+	<li class="error"><input type="text" name="Address" value="Mail Address" id="some_name" onclick="clickclear(this, 'Address')" onblur="clickrecall(this,'Address')" /></li>
+	<li><input type="text" name="cc" value="CC" id="some_name" onclick="clickclear(this, 'CC')" onblur="clickrecall(this,'CC')"  /></li>
+	<li><input type="text" name="title" value="Title" id="some_name" onclick="clickclear(this, 'Title')" onblur="clickrecall(this,'Title')" /></li>
+	<li><textarea onclick="clickclear(this, 'Contents')" onblur="clickrecall(this,'Contents')">Contents</textarea></li>
+</ul>
+<p><a href="index.html" class="button white">Send this mail</a></p>
+<ul class="data">
+	<li>
+		<p>Stophobia makes a paradigm which leads the next web.</p>
+	</li>
+</ul>
+<p><strong>Best enjoyed on a real iPhone</strong></p>
+</body>
+</html>

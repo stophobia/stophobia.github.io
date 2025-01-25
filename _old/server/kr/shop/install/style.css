@@ -1,0 +1,55 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: #3e3e3e;
+	font-family: Gulim, sans-serif;
+	font-size: 12px;
+}
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+input {
+	font-size: 12px;
+}
+
+#main {
+	margin: auto;
+	width: 800px;
+}
+
+#logo {
+	padding: 20px;
+}
+
+#license {
+	border: #222 1px solid;
+	background-color: #555;
+	color: #ccc;
+	padding: 10px;
+	line-height: 165%;
+	text-align: left;
+}
+
+#license .i {
+	border: #222 1px solid;
+	padding: 3px;
+}
+
+#next {
+	padding-top: 15px;
+}
+
+#next input {
+	background-color: #222;
+	border: 0 none;
+	border: #2e2e2e 3px double;
+	padding: 10px;
+	color: #aaa;
+}
+
+.cursor {
+	cursor: pointer;
+	color: #2a85a3;
+}

@@ -1,0 +1,160 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+/* sub category */
+.submenu {
+	position:relative;
+	float:left;
+	width:230px;
+	margin:0 0 10px;
+}
+.submenu h2 {
+	width:230px;
+	height:40px;
+}
+/* sub category */
+	.submenu h2.news {
+		background:url(../images/sub/bg_news.gif) left top no-repeat;
+	}
+.submenu ul li {
+	position:relative;
+	float:left;
+}
+.submenu ul li a {
+	display:block;
+	width:224px;
+	height:29px;
+	margin:0 0 1px;
+	background-repeat:no-repeat;
+}
+/* sub category inner */
+.submenu ul li a.news {
+	background:url(../images/sub/btn_news-news.gif) 2px -58px no-repeat;
+}
+.submenu ul li a.event {
+	background:url(../images/sub/btn_news-event.gif) 2px -58px no-repeat;
+}
+.submenu ul li a.maintenance {
+	background:url(../images/sub/btn_news-maintenance.gif) 2px -58px no-repeat;
+}
+.submenu ul li a.active {
+	background-position:2px -29px;
+}
+.submenu ul li a:hover {
+	background-position:2px 0;
+}
+.submenu ul li ul {
+	position:relative;
+	float:left;
+	width:224px;
+	background:url(../images/bg_sub_leftline.gif) left bottom no-repeat;
+}
+.submenu ul li ul li a {
+	display:block;
+	position:relative;
+	float:right;
+	width:224px;
+	height:24px;
+	background:url(../images/btn-subsub_sample.gif) right bottom no-repeat;
+}
+.submenu ul li ul li a:hover,
+.submenu ul li ul li a.active {
+	background-position:right top;
+}
+#main {
+	position:relative;
+	float:right;
+	width:660px;
+	margin:0;
+	background:url(../images/bg_contents.png) left top no-repeat;
+}
+#main h2 {
+	position:relative;
+	float:left;
+	width:640px;
+	height:70px;
+	margin:10px;
+}
+/* h2 */
+	#main h2.news {
+		background:url(../images/bg_h2news.gif) left top no-repeat;
+	}
+#main .breadcrumbs {
+	position:absolute;
+	top:55px;
+	left:25px;
+}
+#main .inner2 {
+	position:relative;
+	float:left;
+	width:610px;
+	margin:20px 25px 20px !important;
+}
+/* table */
+.inner2 table {
+	position:relative;
+	float:left;
+	border-collapse:separate;
+	width:606px;
+	border:1px #323333 solid;
+	padding:1px;
+}
+.inner2 table th {
+	text-align:center;
+	background:url(../images/bg_th.gif) left top repeat-x;
+}
+.inner2 table th,
+.inner2 table td {
+	padding:7px 5px 3px;
+	border:1px #000 solid;
+}
+.inner2 table td {
+	border-top:1px #323333 solid;
+}
+.inner2 table .no {
+	width:50px;
+	text-align:center;
+}
+.inner2 table .title {
+	width:480px;
+	text-align:left;
+	text-indent:1em;
+}
+.inner2 table .date {
+	width:80px;
+	text-align:center;
+}
+.inner2 table td.inners {
+	width:300px;
+	padding:20px 10px;
+}
+.inner2 .pagecontrol {
+	position:relative;
+	float:left;
+	width:610px;
+	margin:20px 0;
+}
+.inner2 .pagecontrol p {
+	text-align:center;
+}
+.inner2 .pagecontrol p a.active {
+	color:#678;
+	font-weight:bold;
+}
+.inner2 .pagecontrol p a.tolist {
+	display:block;
+	width:230px;
+	height:40px;
+	margin:0 auto;
+	background:url(../images/btn/btn_tolist.gif) left bottom no-repeat;
+}
+.inner2 .pagecontrol p a.tolist:hover {
+	background:url(../images/btn/btn_tolist.gif) left top no-repeat;
+}

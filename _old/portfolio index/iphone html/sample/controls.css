@@ -1,0 +1,64 @@
+/* wide, mid-page buttons */
+
+.btnMid {
+	height: 40px;
+	cursor: pointer;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+.midLeft {
+	background: url(../images/controls/bm-left-gray.png) no-repeat;
+	padding-right: 10px;
+}
+.midMid {
+	width: 100%;
+	background: url(../images/controls/bm-mid-gray.png) repeat-x;
+	vertical-align: top;
+	padding-top: 9px;
+	text-align: center;
+	font-size: 20px;
+	text-shadow: #000 2px 2px 3px;
+	color: #fff;
+}
+.midRight {
+	background: url(../images/controls/bm-right-gray.png) no-repeat;
+	padding-right: 10px;
+}
+/* alternates */
+.half.btnMid {
+	width: 48% !important;
+}
+
+.pink .midLeft {
+	background-image: url(../images/controls/bm-left-pink.png);
+}
+.pink .midMid {
+	background-image: url(../images/controls/bm-mid-pink.png);
+}
+.pink .midRight {
+	background-image: url(../images/controls/bm-right-pink.png);
+}
+
+.olive .midLeft {
+	background-image: url(../images/controls/bm-left-olive.png);
+}
+.olive .midMid {
+	background-image: url(../images/controls/bm-mid-olive.png);
+}
+.olive .midRight {
+	background-image: url(../images/controls/bm-right-olive.png);
+}
+
+.steel .midLeft {
+	background-image: url(../images/controls/bm-left-steel.png);
+}
+.steel .midMid {
+	background-image: url(../images/controls/bm-mid-steel.png);
+}
+.steel .midRight {
+	background-image: url(../images/controls/bm-right-steel.png);
+}
+
+

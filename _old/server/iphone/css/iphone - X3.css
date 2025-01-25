@@ -1,0 +1,242 @@
+/*
+Author:Park Hyunmyung. wis1674@gmail.com
+Date:2009.07.01
+*/
+/* reset */
+html {
+	-webkit-auto-text-size-adjust:none;
+	width:100% !important;
+}
+body {
+	background:#fff url(../images/stripes.png);
+	font:36px/1.6 "Segoe UI", sans-serif;
+	margin:0;
+	padding:0;
+	overflow-x:hidden;
+	-webkit-user-select:none;
+	-webkit-text-size-adjust:none;
+	width:100% !important;
+}
+ul {
+	list-style:none;
+}
+a {
+	color:#5b2;
+	text-decoration:none;
+}
+a:hover,
+a:focus,
+a:active {
+	color:#260;
+	text-shadow:#ddd 0 1px 0;
+}
+h3 {
+	font-size:42px;
+}
+/* common */
+div#header {
+	position:relative;
+	float:left;
+	width:100%;
+	height:210px;
+	margin:30px 0;
+	padding:0 30px;
+	background:url(../images/pic_logoip.png) 30px 0px no-repeat;
+}
+div#header h1 {
+	position:absolute;
+	top:-45px;
+	left:225px;
+	font-size:54px;
+}
+div#header h1:after {
+	font-size:36px;
+	line-height:20px;
+	color:#888;
+	content:"in iPhone / iPod Touch";
+}
+.tagxhtml,.tagcss {
+	display:none;
+}
+div#header p#jobtitle {
+	position:absolute;
+	font-size:30px;
+	line-height:36px;
+	top:75px;
+	left:225px;
+}
+/* navigation */
+ul#navigation {
+	position:relative;
+	float:left;
+	width:900px;
+	height:300px;
+}
+ul#navigation li {
+	float:left;
+	display:block;
+	border-top:#ddd 3px solid;
+	border-bottom:#ddd 9px solid;
+	border-right:#ddd 3px solid;
+	background:url(../images/bg_ipmenu.png) 0 3px repeat-x;
+}
+ul#navigation li a {
+	display:block;
+	float:left;
+	width:190px;
+	height:105px;
+	padding:30px 15px;
+	overflow:hidden;
+	text-align:center;
+	font-weight:bold;
+	font-size:33px;
+}
+ul#navigation li:first-child {
+	border-left:3px solid #ddd;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+}
+ul#navigation li:last-child {	
+	-webkit-border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+}
+ul#navigation li:hover {
+	border-top:#ddd 9px solid;
+	border-bottom:#ddd 3px solid;
+	background:none;
+}
+.top_border {
+	position:relative;
+	float:left;
+	width:100%;
+	height:15px;
+	background:url(../images/bg_top.gif) bottom left repeat-x;
+}
+/* contents */
+#content {
+	width:100% !important;
+	margin:0 !important;
+	padding:0 !important;
+}
+div.wrap {
+	position:relative;
+	float:left;
+	width:100%;
+	height:100%;
+	background:url(../images/bg_content.gif);
+	overflow:hidden;
+}
+#profile,#logo,#website,#website2 {
+	width:800px;
+	margin:60px;
+	padding:0px 30px;
+	background:url(../images/bg_ipcontent.png);
+	border:#fff 6px solid;
+	-webkit-border-radius: 15px;
+}
+#profile img {
+	width:540px;
+}
+#logo img,#website img,#website2 img {
+	width:800px !important;
+	margin:0 auto;
+}
+#logo li,#website li,#website2 li {
+	margin:60px auto;
+}
+#logo li a,#website li a,#website2 li a {
+	font-size:36px;
+	font-style:normal;
+}
+/* profile */
+#profile li li a {
+	display:block;
+	font-size:36px;
+	padding:6px 0 0 90px;
+	background-repeat: no-repeat;
+}
+#profile li li.name {
+	height:72px;
+	padding:6px 0 0 90px;
+	font-size:36px;
+	background:url(../images/ico_iip.png) no-repeat;
+	font-weight:bold;
+}
+#profile li li.email a { 
+	height:72px;
+	background-image:url(../images/ico_mailip.png);
+}
+#profile li li.tel a { 
+	height:72px;
+	background-image:url(../images/ico_telip.png);
+}
+#profile li li.url a { 
+	height:72px;
+	background-image:url(../images/ico_webip.png);
+}
+#profile ul.link li a { 
+	height:72px;
+	background-image:url(../images/ico_linkip.png);
+}
+/* footer */
+.bottom_border {
+	position:relative;
+	float:left;
+	width:100%;
+	height:15px;
+	background:url(../images/bg_bottom.gif) top left repeat-x;
+}
+#footer {
+	position:relative;
+	float:left;
+}
+#footer p {
+	margin:30px 300px 60px;
+	text-align:center;
+	color:#888;
+	font-size:30px;
+}
+/* Selector */
+#JT_close_left {
+	font-size:30px;
+}
+#JT_copy p, #JT_copy ul {
+	font-size:30px;
+}
+/* Base */
+#contentPad {
+	margin:60px;
+}
+/* Tooltip */
+#JT {
+	position:absolute;
+	left:210px !important;
+	z-index:100;
+}
+#JT_copy {
+	position:absolute;
+	left:0;
+	bottom:54px;
+	width:660px;
+	padding:15px 30px;
+	border:6px #ccc solid;
+	background:#fff;
+	color:#333;
+}
+.JT_loader {
+	width:100%;
+	height:36px;
+	background-image:url(../images/loader.gif) center center no-repeat;
+}
+#JT_close_left {
+	width:705px;
+	margin:-6px 0 0 0;
+	padding:6px 0 15px 30px;
+	background:#ccc;
+	color:#444;
+	text-align:left;
+	font-weight:bold;
+}
+#JT_copy p {
+margin:9px 0;
+}

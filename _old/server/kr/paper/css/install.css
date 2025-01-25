@@ -1,0 +1,78 @@
+/*
+ * GR Paper 설치화면 디자인
+ * 작성자: 박희근 (http://sirini.net)
+ * 수정일: 2008-08-22
+ * 내  용: 설치화면의 전체 디자인을 이 곳에서 처리
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Dotum, 돋움, 은돋움, sans-serif;
+	background-color: #3e3e3e;
+	color: #666;
+	text-align: center;
+	font-size: 12px;
+	line-height: 165%;
+}
+
+img {
+	border: 0 none;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+#logo {
+	padding: 15px;
+	font-size: 26px;
+	font-weight: bold;
+	color: #eee;
+	font-family: verdana, sans-serif;
+}
+
+#logo strong {
+	color: #aaa;
+}
+
+#boxLayout {
+	text-align: left;
+	width: 600px;
+	margin: auto;
+	border: #ddd 5px solid;
+	background-color: #fff;
+	padding: 10px;
+}
+
+#boxLayout input.i {
+	border: #ddd 1px solid;
+	background-color: #fff;
+	font-size: 12px;
+	padding: 3px;
+}
+
+#boxLayout li {
+	padding-bottom: 3px;
+}
+
+#welcome {
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #f5f5f5;
+}
+
+#welcome strong {
+	font-size: 16px;
+	display: block;
+}
+
+#btn {
+	text-align: center;
+	padding: 10px;
+}
+
+span.recommand { color: green; }
+span.alert { color: red; }
+input.next { background-color: #4e4e4e; color: #f0f0f0; padding: 5px; border: #666 2px solid; font-size: 12px; }

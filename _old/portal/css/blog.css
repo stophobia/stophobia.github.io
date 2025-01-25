@@ -1,0 +1,464 @@
+<?header("Content-type: text/css");?>
+@charset "utf-8";
+/*
+----------------------------------------
+M-game portal advanced
+file name:blog.css
+author:H.Park
+create:2007.11.01.
+
+=================contents===============
+1 :style reset
+2 :site (top)
+	global
+	category
+	category hover
+3 :about (left)
+4 :original (right)
+	game
+	blog, circle
+========================================
+*/
+/* 1 :style reset
+---------------------------------------- */
+html {
+filter:expression(document.execCommand("BackgroundImageCache", false, true));
+}
+a,a:link {
+color:#8b0;
+text-decoration:none;
+}
+a:hover {
+color:#f80;
+}
+body {
+background:#f7f0d0 url(../images/blog/bgAll.gif) repeat-x top center;
+}
+/* 2 :site (top)
+---------------------------------------- */
+#site {
+background:url(../images/blog/bgTop.jpg) no-repeat;
+}
+/* global */
+li.manage a {
+width:64px;
+background:url(../images/blog/btnManage.gif) no-repeat;
+}
+li.mint a {
+width:94px;
+background:url(../images/blog/btnMint.gif) no-repeat;
+}
+li.help a {
+width:45px;
+background:url(../images/blog/btnHelp.gif) no-repeat;
+}
+li.contact a {
+width:124px;
+background:url(../images/blog/btnContact.gif) no-repeat;
+}
+li.sitemap a {
+width:68px;
+background:url(../images/blog/btnSitemap.gif) no-repeat;
+}
+li.logout a {
+width:55px;
+background:url(../images/blog/btnLog.gif) no-repeat;
+}
+/* category */
+li.top a {
+width:67px;
+background:url(../images/blog/btnTop.gif);
+}
+li.game a {
+width:71px;
+background:url(../images/blog/btnGame.gif);
+}
+li.auction a {
+width:157px;
+background:url(../images/blog/btnAuction.gif);
+}
+li.blog a {
+width:69px;
+background:url(../images/blog/btnBlog.gif);
+}
+li.circle a {
+width:85px;
+background:url(../images/blog/btnCircle.gif);
+}
+li.guild {
+width:70px;
+}
+li.mym a {
+width:113px;
+background:url(../images/blog/btnMym.gif);
+}
+/* category hover */
+li.top a:hover {
+background:url(../images/blog/btnTopOn.gif);
+}
+li.game a:hover {
+background:url(../images/blog/btnGameOn.gif);
+}
+li.auction a:hover {
+background:url(../images/blog/btnAuctionOn.gif);
+}
+li.blog a:hover {
+background:url(../images/blog/btnBlog.gif);
+}
+li.circle a:hover {
+background:url(../images/blog/btnCircleOn.gif);
+}
+li.mym a:hover {
+background:url(../images/blog/btnMymOn.gif);
+}
+/* local */
+li.popBlog a {
+background:url(../images/blog/btnPopblog.gif) no-repeat;
+width:93px;
+}
+li.popArticle a {
+background:url(../images/blog/btnPoparticle.gif) no-repeat;
+width:80px;
+}
+li.popPhoto a {
+background:url(../images/blog/btnPopphoto.gif) no-repeat;
+width:91px;
+}
+li.newBlog a {
+background:url(../images/blog/btnNewblog.gif) no-repeat;
+width:93px;
+}
+li.pickup a {
+background:url(../images/blog/btnPickup.gif) no-repeat;
+width:140px;
+}
+/* local hover */
+li.popBlog a:hover {
+background:url(../images/blog/btnPopblogOn.gif) no-repeat;
+}
+li.popArticle a:hover {
+background:url(../images/blog/btnPoparticleOn.gif) no-repeat;
+}
+li.popPhoto a:hover {
+background:url(../images/blog/btnPopphotoOn.gif) no-repeat;
+}
+li.newBlog a:hover {
+background:url(../images/blog/btnNewblogOn.gif) no-repeat;
+}
+li.pickup a:hover {
+background:url(../images/blog/btnPickupOn.gif) no-repeat;
+}
+/* local here */
+li.popBlog a.stay {
+background:url(../images/blog/btnPopblogHere.gif) no-repeat;
+}
+li.popArticle a.stay {
+background:url(../images/blog/btnPoparticleHere.gif) no-repeat;
+}
+li.popPhoto a.stay {
+background:url(../images/blog/btnPopphotoHere.gif) no-repeat;
+}
+li.newBlog a.stay {
+background:url(../images/blog/btnNewblogHere.gif) no-repeat;
+}
+li.pickup a.stay {
+background:url(../images/blog/btnPickupHere.gif) no-repeat;
+}
+/* 3 :about (left)
+---------------------------------------- */
+#page .master {
+background:url(../images/blog/bgLogin.gif) no-repeat;
+}
+#page .name {
+background:url(../images/blog/bgName.gif) no-repeat;
+}
+#page .panel {
+background:url(../images/blog/bgPanel.gif) no-repeat;
+}
+#page .photo {
+background:url(../images/blog/bgPhoto.gif) no-repeat;
+}
+#page .toProfile {
+background:url(../images/blog/btnToProfile.gif);
+}
+#page .toMail {
+background:url(../images/blog/btnToMail.gif);
+}
+#page .toMym {
+background:url(../images/blog/btnToMym.gif);
+}
+#page .confirmMint {
+background:url(../images/blog/bgMint.gif) no-repeat;
+}
+#page .buyMint {
+background:url(../images/blog/btnBuyMint.gif);
+}
+#page .toMyBlog {
+background:url(../images/blog/btnToMyBlog.gif);
+}
+#page .toOtherBlog {
+background:url(../images/blog/bgToOtherBlog.gif) no-repeat;
+}
+#page .news {
+background:url(../images/blog/bgNewsContents.gif) bottom;
+}
+#page .news h2 {
+background:url(../images/blog/ttlNews.gif);
+}
+#page .news .contents li {
+margin:0 0 1px;
+border-bottom:1px solid #8b0;
+}
+#page .news .contents li.lastline {
+border-bottom:none;
+}
+#page .category {
+background:url(../images/blog/bgCategory.gif) bottom;
+width:210px;
+}
+#page .category h2 {
+display:block;
+width:210px;
+height:50px;
+background:url(../images/blog/ttlCategory.gif);
+}
+#page .category ul {
+padding:0 10px 5px;
+}
+#page .category ul li.games p,#page .category ul li.general p {
+display:block;
+width:30px;
+height:20px;
+margin:0 0px -5px;
+}
+#page .category ul li.general {
+border-top:#ddd 1px solid;
+}
+#page .category ul li.games {
+width:190px;
+background:url(../images/blog/ttlGame.gif) no-repeat;
+}
+#page .category ul li.games li a {
+background:none;
+}
+#page .category ul li.general {
+width:190px;
+background:url(../images/blog/ttlGeneral.gif) no-repeat;
+}
+#page .category ul li.general li a {
+background:none;
+}
+/* 4 :original (right)
+---------------------------------------- */
+#page .original {
+float:right;
+width:680px;
+}
+#page .index {
+float:left;
+width:470px;
+}
+#page .search h2 {
+width:1px;
+height:1px;
+}
+#page .search {
+width:470px;
+height:40px;
+margin:0 0 10px;
+background:url(../images/blog/bgSearchbar.gif) no-repeat;
+}
+#page .search select {
+margin:8px 0 0 100px;
+}
+#page .search input {
+width:180px;
+}
+#page .search input.button {
+width:62px;
+margin:0 0 0 5px;
+vertical-align:bottom;
+}
+#page .popArticle {
+display:block;
+width:470px;
+margin:0 0 10px;
+background:url(../images/blog/bgPop.gif) bottom;
+}
+#page .popArticle h2 {
+display:block;
+width:470px;
+height:50px;
+background:url(../images/blog/ttlPopArticle.gif);
+}
+#page .popArticle table {
+width:430px;
+margin:0 20px 10px;
+}
+#page .popArticle td {
+border-bottom:#ccc 1px dotted;
+}
+#page .popArticle thead {
+display:none;
+}
+#page .popPhoto,#page .popTag {
+display:block;
+width:470px;
+margin:0 0 10px;
+}
+#page .popPhoto h2,#page .popTag h2 {
+display:block;
+float:left;
+width:100px;
+height:160px;
+}
+#page .popPhoto h2 {
+background:url(../images/blog/ttlPopPhoto.gif);
+}
+#page .popTag h2 {
+background:url(../images/blog/ttlPopTag.gif);
+}
+#page .popPhoto ul,#page .popTag ul {
+display:block;
+float:left;
+width:355px;
+height:120px;
+padding:20px 0px 20px 15px;
+margin:0 0 10px;
+background:url(../images/blog/bgPopPhoto.gif);
+}
+#page .popPhoto ul li {
+display:block;
+float:left;
+width:115px;
+}
+#page .popPhoto ul li dl {
+text-align:center;
+}
+#page .pickups {
+display:block;
+clear:left;
+width:470px;
+overflow:hidden;
+margin:0 0 10px;
+background:url(../images/blog/bgPop.gif) bottom;
+}
+#page .pickups h2 {
+display:block;
+width:470px;
+height:50px;
+background:url(../images/blog/ttlPickup.gif);
+}
+#page .pickups ul {
+display:block;
+width:450px;
+padding:0 0 5px 20px;
+}
+#page .pickups ul li {
+float:left;
+}
+#page .pickups ul li dl {
+width:205px;
+margin:0 10px 0 0;
+float:left;
+}
+#page .pickups ul li dd {
+float:left;
+width:100px;
+height:100px;
+}
+#page .pickups ul li dt {
+float:right;
+width:100px;
+height:100px;
+text-align:center;
+}
+#page .pickups ul li dt a {
+font-weight:700;
+}
+#page .pickups ul li dt p {
+border-top:1px #8b0 solid;
+}
+#page .popTag ul li {
+float:left;
+margin:3px 5px;
+}
+#page .popTag a.pop1 {
+font-weight:700;
+}
+#page .popTag a.pop2 {
+color:#fff;
+background:#8b0;
+padding:1px;
+}
+#page .popTag a.pop3 {
+color:#fff;
+background:#0ba;
+padding:1px;
+font-weight:700;
+}
+#page .rank {
+float:right;
+width:200px;
+margin:0 0 10px;
+background:url(../images/blog/bgPopularRank.gif) bottom;
+}
+#page .rank h2 {
+display:block;
+width:200px;
+height:45px;
+background:url(../images/blog/ttlPopularRank.gif);
+}
+#page .rank.bookmark h2 {
+background:url(../images/blog/ttlBookmark.gif);
+}
+#page .rank.blogger h2 {
+background:url(../images/blog/ttlBlogger.gif);
+}
+#page .rank a.more {
+display:block;
+width:20px;
+height:20px;
+margin:-30px 0 15px 150px;
+background:url(../images/blog/btnTogo.gif);
+}
+#page .rank ol {
+width:180px;
+padding:0 0 0 15px;
+list-style:none;
+}
+#page .rank ol li {
+line-height:1em;
+margin:0 0 10px;
+padding:0 0 0 20px;
+}
+#page .rank ol li.num1 {
+background:url(../images/blog/01.gif) no-repeat left;
+}
+#page .rank ol li.num2 {
+background:url(../images/blog/02.gif) no-repeat left;
+}
+#page .rank ol li.num3 {
+background:url(../images/blog/03.gif) no-repeat left;
+}
+#page .rank ol li.num4 {
+background:url(../images/blog/04.gif) no-repeat left;
+}
+#page .rank ol li.num5 {
+background:url(../images/blog/05.gif) no-repeat left;
+}
+#page .rank ol li.num6 {
+background:url(../images/blog/06.gif) no-repeat left;
+}
+#page .rank ol li.num7 {
+background:url(../images/blog/07.gif) no-repeat left;
+}
+#page .rank ol li.num8 {
+background:url(../images/blog/08.gif) no-repeat left;
+}
+#page .rank ol li.num9 {
+background:url(../images/blog/09.gif) no-repeat left;
+}
+#page .rank ol li.num10 {
+background:url(../images/blog/10.gif) no-repeat left;
+}

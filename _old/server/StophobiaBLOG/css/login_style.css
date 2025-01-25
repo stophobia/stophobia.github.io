@@ -1,0 +1,58 @@
+﻿body {
+	text-align: center;
+}
+#userLogin div.loginTop {
+	padding-top: 7px;
+	height: 32px;
+	color: #2777fb;
+	font-weight: bold;
+	border-top: #ccc 5px solid;
+	border-left: #ccc 5px solid;
+	border-right: #ccc 5px solid;
+	background: url(../image/darkgray/top.background.gif) repeat-x bottom;
+}
+#userLogin div.loginBody {
+	text-align: left;
+	border-bottom: #ccc 5px solid;
+	border-left: #ccc 5px solid;
+	border-right: #ccc 5px solid;
+	background-color: #fff;
+}
+div.loginBody #setting {
+	padding-top: 20px;
+}
+div.option {
+	padding: 5px;
+	color: #999;
+}
+div.value {
+	padding: 5px;
+}
+div.value input {
+	border: #aaa 1px solid;
+	width: 90%;
+	background: url(../image/input_back.gif) no-repeat top left;
+	height: 28px;
+	padding-left: 5px;
+	font-size: 18px;
+}
+div.ok {
+	padding: 5px;
+	text-align: center;
+}
+div.ok input {
+	cursor: pointer;
+}
+input.ok {
+	width: 80px;
+	font-weight: bold;
+	padding: 10px;
+	color: #2777fb;
+	background-color: #fff;
+}
+#userLogin {
+	margin: auto;
+	width: 250px;
+	height: 300px;
+	cursor: move;
+}

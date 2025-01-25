@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>ModGuitars.com Chord Library</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+	<meta name="viewport" content="width=320">
+	
+	<style type="text/css">
+		@import url(chords.css);
+	</style>
+
+	<script type="text/javascript" src="chords.js"></script>
+	<script type="application/x-javascript">
+	addEventListener("load", function()
+	{
+		setTimeout(hideAddressbar, 0);
+		labelFrets(1);
+		curRoot = 'C';
+		curChord = 'maj';
+		switchRoot('C');
+		switchChord('maj');
+	}, false);
+	
+	function hideAddressbar()
+	{
+		window.scrollTo(0, 1);
+	}	
+	</script>
+
+</head>
+
+<body>
+
+<div id="main">
+
+	<div id="toolbar">
+	
+		<div style="position: absolute; top: 0px; left: 0px; width: 320px; height: 44px" onclick="document.location = 'http://www.modguitars.com'"></div>		
+			
+	</div>
+	
+	<div id="fretboard">
+	
+		
+			
+	</div>
+	
+	<div id="roots">
+		<div style="padding: 1px;">
+			<div class="root" onclick="switchRoot('C');" id="bC">C</div>
+			<div class="split root" onclick="switchRoot('Cs');" id="bCs">C#/Db</div>
+			<div class="root" onclick="switchRoot('D');" id="bD">D</div>
+			<div class="split root" onclick="switchRoot('Ds');" id="bDs">D#/Eb</div>
+			<div class="root" onclick="switchRoot('E');" id="bE">E</div>
+			<div class="root" onclick="switchRoot('F');" id="bF">F</div>
+			<div class="split root" onclick="switchRoot('Fs');" id="bFs">F#/Gb</div>
+			<div class="root" onclick="switchRoot('G');" id="bG">G</div>
+			<div class="split root" onclick="switchRoot('Gs');" id="bGs">G#/Ab</div>
+			<div class="root" onclick="switchRoot('A');" id="bA">A</div>
+			<div class="split root" onclick="switchRoot('As');" id="bAs">A#/Bb</div>
+			<div class="root" onclick="switchRoot('B');" id="bB">B</div>
+		</div>
+			
+	</div>
+	
+	<div id="chords">
+		<div style="padding: 1px; float: left; clear: both">
+			<div class="chord" onclick="switchChord('maj');" id="cmaj">maj</div>		
+			<div class="chord" onclick="switchChord('m');" id="cm">m</div>		
+			<div class="chord" onclick="switchChord('dim');" id="cdim">dim</div>		
+			<div class="chord" onclick="switchChord('sus4');" id="csus4">sus4</div>		
+			<div class="chord" onclick="switchChord('6');" id="c6">6</div>		
+			<div class="chord" onclick="switchChord('7');" id="c7">7</div>		
+			<div class="chord" onclick="switchChord('7+');" id="c7qq">7+</div>		
+			<div class="chord" onclick="switchChord('7b5');" id="c7b5">7b5</div>		
+			<div class="chord" onclick="switchChord('7#9');" id="c7zz9">7#9</div>		
+			<div class="chord" onclick="switchChord('9');" id="c9">9</div>		
+			<div class="chord" onclick="switchChord('11');" id="c11">11</div>		
+			<div class="chord" onclick="switchChord('13');" id="c13">13</div>		
+			<div class="chord" onclick="switchChord('m6');" id="cm6">m6</div>		
+			<div class="chord" onclick="switchChord('m7');" id="cm7">m7</div>		
+			<div class="chord" onclick="switchChord('m7+');" id="cm7qq">m7+</div>		
+			<div class="chord" onclick="switchChord('m7b5');" id="cm7b5">m7b5</div>					
+			
+			<img src="images/link.png" onclick="document.location = 'http://www.modguitars.com'"/>
+		</div>	
+	</div>
+	
+	<div id="marks">
+		
+	</div>
+	
+	<div id="overlays">
+		<div id="frets">
+			
+		</div>
+		<img src="images/strings.png" style="position: absolute; top: 57px; left: 2px;" />
+	</div>
+
+</div>
+	
+</body>
+
+</html>

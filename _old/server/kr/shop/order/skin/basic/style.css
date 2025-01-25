@@ -1,0 +1,95 @@
+/* Common Element */
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	color: #606060;
+	text-align: center;
+}
+
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+
+a {
+	color: #195d89;
+	text-decoration: none;
+}
+
+a:hover {
+	font-weight: bold;
+}
+
+#orderField h2 {
+	font-size: 16pt;
+	font-family: Malgun Gothic, sans-serif;
+	padding: 0 0 10px 0;
+	margin: 0 0 15px 0;
+	font-weight: normal;
+	border-bottom: #ddd 1px solid;
+	color: #666;
+	text-align: left;
+}
+
+#orderField table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+#orderField th {
+	text-align: center;
+	height: 36px;
+	background: url(mv_top.gif) repeat-x;
+}
+
+#orderField td {
+	border-bottom: #eee 1px solid;
+	padding: 5px;
+	line-height: 165%;
+	text-align: center;
+}
+
+#orderField td span {
+	font-size: 11px;
+	font-family: Dotum, µ¸¿ò, sans-serif;
+	color: #999;
+}
+
+/* Order Skin Class Style */
+#orderField .infoBox {
+	border: #ccc 1px dotted;
+	background-color: #f7f7f7;
+	line-height: 165%;
+	padding: 10px;
+	text-align: left;
+	margin: 0 0 15px 0;
+	display: none;
+}
+
+#orderField td.done {
+	background-color: #f3f7fd;
+}
+
+#orderField td.cancel {
+	background-color: #fdf3f3;
+}
+
+#orderField td.paging {
+	background-color: #fcfcfc;
+	padding: 20px;
+}
+
+#orderField td.paging a {
+	border: #eee 1px solid;
+	padding: 5px 7px 5px 7px;
+	background-color: #fff;
+}
+
+#orderField td.paging a:hover {
+	border: #aaa 1px solid;
+}
+
+#orderField td.paging strong {
+	padding: 5px 7px 5px 7px
+}

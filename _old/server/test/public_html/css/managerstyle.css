@@ -1,0 +1,164 @@
+BODY {
+	font-size: 12px;
+	scrollbar-face-color:#DDDDDD;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#DBDBDB;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-shadow-color:#6E6E6E;
+	scrollbar-arrow-color:#717171;
+	scrollbar-track-color:#F0F0F0;
+}
+td {
+	font-size: 12px;
+	line-height: 140%;
+	color: 0C0C0C;
+	text-decoration: none;
+	FONT-FAMILY: Tahoma;
+
+}
+.border {
+	BACKGROUND-COLOR: #ffffff;
+	FONT-SIZE: 9pt;
+	border: 1px solid #CACACA;
+	color: 000000;
+	FONT-FAMILY: 돋움
+}
+select {
+	font-family: 돋움;
+	FONT-SIZE: 12px; 
+}
+
+.style1 {
+	color: #ff7304;
+	font-weight: bold;
+}
+.style2 {
+	color: #ff7304;
+	font-weight: bold;
+}
+.style3 {
+	color: #076ca7;
+	font-weight: bold;
+}
+.style4 {
+	color: #615b55
+}
+
+.num {
+	font-size: 12px;
+	color: 313D7D;
+	text-decoration: none;
+	line-height: 150%;
+	FONT-FAMILY: Verdana
+}
+.num A {
+	font-size: 12px;
+	color: 313D7D;
+	text-decoration: none;
+}
+.num A:link {
+	color: 313D7D;
+	text-decoration: none;
+}
+.num A:hover {
+	color: D87B48;
+	text-decoration: none;
+}
+.cate {
+	font-size: 12px;
+	line-height: 140%;
+	color: 313D7D;
+	text-decoration: none;
+	FONT-FAMILY: 돋움
+}
+.cate A {
+	color: 606060;
+	text-decoration: none;
+}
+.cate A:link {
+	color: 606060;
+	text-decoration: none;
+}
+.cate A:hover {
+	color: 606060;
+	text-decoration: none;
+}
+.imgborder {
+	border: 1px solid D3D3D3;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: D3D3D3;
+	border-right-color: D3D3D3;
+	border-bottom-color: D3D3D3;
+	border-left-color: D3D3D3;
+}
+.pro {
+	font-size: 12px;
+	color: CD5E14;
+	text-decoration: none;
+}
+.pro A {
+	font-size: 12px;
+	color: CD5E14;
+	text-decoration: none;
+}
+.pro A:link {
+	color: CD5E14;
+	text-decoration: none;
+}
+.pro A:hover {
+	color: D68B5A;
+	text-decoration: none;
+}
+.st {
+	font-size: 14px;
+	color: 313D7D;
+	font-weight: bold;
+}
+.white {
+	font-size: 12px;
+	color: 454545;
+	font-weight: bold;
+	LETTER-SPACING: -0.05em;
+	FONT-FAMILY: Tahoma;
+}
+
+.button_tag { background-color:#E7E7E7;border:1 solid #333333;font-size: 12px;FONT-FAMILY: tahoma;}
+
+.proName1 {
+	border-top: 1px solid #9AA0B4;
+	border-right: 1px solid #EEF0F5;
+	border-bottom: 1px solid #EEF0F5;
+	border-left: 1px solid #9AA0B4;
+	BACKGROUND-COLOR: #EEF0F5;
+	font-weight: bold;
+	font-size: 17px;
+	color: #000000;
+	height: 28px;
+	padding:7px;
+	width:200px;
+}
+.proName {
+	BACKGROUND-COLOR: #ffffff;
+	border: 1px solid #CACACA;
+	color: 000000;
+	FONT-FAMILY: verdana;
+	font-weight: bold;
+	font-size: 17px;
+	height: 28px;
+	width:450px;
+}
+.keepTerm {
+	BACKGROUND-COLOR: #ffffff;
+	border: 1px solid #CACACA;
+	color: 000000;
+	FONT-FAMILY: verdana;
+	font-weight: bold;
+	font-size: 17px;
+	height: 28px;
+	width:56px;
+}

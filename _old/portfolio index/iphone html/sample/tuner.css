@@ -1,0 +1,76 @@
+html {
+ margin: 0px;
+ padding: 0px;
+ background-color: #000;
+}
+
+body {
+ background: #000;
+ color: #fff;
+ font: 20px/20px Helvetica, sans-serif;
+ text-shadow: #000 2px 2px 3px;
+ padding: 0px;
+ margin: 0px;
+}
+
+a, a:visited, a:hover, a:link {
+ text-decoration: none;
+ color: #eee;
+}
+
+
+#main {
+	height: 416px;
+}
+
+/* toolbar */
+
+#toolbar {
+	width: 320px;
+	background: url('images/toolbar.png') repeat-x;
+	height: 130px; /* includes shadow */
+	top: 1px;
+	left: 0px;
+}
+
+#strings {
+	position: absolute;
+	width: 320px;
+	height: 330px;
+	top: 64px;
+	left: 0px;
+}
+#strings div {
+	width: 53px;
+	height: 330px;
+	clear: none;
+	float: left;
+}
+
+/* buttons */
+
+.btn, .back {
+	float: left;
+	clear: none;
+	background: url('../apps/images/controls/btn-right-gray.png') no-repeat scroll top right;
+    height: 32px;
+    font-size: 13px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+.btn div, .back div {
+    background: url('../apps/images/controls/btn-left-gray.png') no-repeat;
+    height: 16px;
+    padding: 8px 0px 8px 10px;
+    margin-right: 10px;
+    float: left;
+}
+.btn:active, .back:active {
+    background-position: bottom right;
+    color: #ddd;
+}
+
+.btn:active div {
+    background-position: bottom left;
+    padding: 9px 0px 7px 10px; /* push text down 1px */
+}

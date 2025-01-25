@@ -1,0 +1,188 @@
+/**
+ * Common HTML Element Style
+ **/
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+	font-family: Gulim, sans-serif;
+}
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+/**
+ * Special ID Style
+ **/
+#main {
+	margin: auto;
+	width: 980px;
+}
+#top {
+	padding: 10px 0 10px 0;
+	position: relative;
+}
+#banner1 {
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+#topMenu {
+	background: url(image/topMenu.back.gif) no-repeat;
+	height: 35px;
+	text-align: left;
+}
+#topMenu ul {
+	margin: 0;
+	padding: 0;
+	padding-top: 9px;
+}
+#topMenu li {
+	list-style: none;
+	padding-left: 25px;
+	display: inline;
+}
+#topMenu li a {
+	font-weight: bold;
+	color: #fff;
+}
+#leftSide {
+	float: left;
+	width: 170px;
+	padding-top: 10px;
+}
+#mainCONTENT {
+	float: left;
+	width: 619px;
+	padding: 10px;
+}
+#mainGRBOARD {
+	float: left;
+	width: 799px;
+	padding: 10px 0 0 10px;
+}
+#rightSide {
+	float: left;
+	width: 170px;
+	padding-top: 10px;
+}
+#category {
+	margin: 5px 0 10px 0;
+}
+#category h3 {
+	font-size: 12px;
+	text-align: left;
+}
+#footCopyright {
+	font-size: 11px;
+	font-family: Dotum, 돋움, sans-serif;
+	color: #aaa;
+	text-align: right;
+	margin-top: 25px;
+	padding: 15px;
+	border-top: #ddd 2px solid;
+	background-color: #fcfcfc;
+	line-height: 150%;
+	position: relative;
+}
+#fareTradeMark {
+	position: absolute;
+	top: 10px;
+	left: 45px;
+	width: 80px;
+	height: 68px;
+	background: url(image/fare.trade.mark.gif) no-repeat;
+}
+#bbsInfoBox {
+	border: #fafafa 10px solid;
+	margin: 0 0 10px 0;
+}
+#bbsInfo {
+	border: #ddd 1px solid;
+	padding: 0;
+	text-align: left;
+}
+#bbsInfo h3 {
+	text-align: left;
+	border-bottom: #eee 1px solid;
+	font-family: Malgun Gothic, sans-serif;
+	font-size: 16pt;
+	padding: 10px;
+	margin: 0;
+}
+#bbsInfo h3 span {
+	font-size: 12px;
+	font-family: Gulim, sans-serif;
+	color: #999;
+	font-weight: normal;
+}
+#bbsInfo p {
+	padding-left: 10px;
+}
+#layoutSetting {
+	text-align: right;
+	padding: 30px 0 0 0;
+}
+#layoutSetting a {
+	border: #ddd 1px solid;
+	padding: 10px;
+	background-color: #f0f0f0;
+}
+#layoutSetting a:hover {
+	border: #aaa 1px solid;
+}
+#newMsgCheck {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(image/memo.back.png);
+	border-left: #aaa 1px solid;
+	border-bottom: #aaa 1px solid;
+	padding: 10px;
+}
+#memoIcon {
+	background: url(image/memo.popup.icon.gif) no-repeat;
+	margin-right: 5px;
+}
+
+/**
+ * Common Class Style
+ **/
+.clear {
+	clear: left;
+}
+.sideMenu {
+	padding: 5px;
+	background-color: #57728a;
+	margin: 15px 0 10px 0;
+	color: #fff;
+	font-family: Dotum, 돋움, sans-serif;
+	font-size: 11px;
+}
+.sideList {
+	margin: 0 0 3px 0;
+}
+.subCategory {
+	text-align: left;
+}
+.subCategory p {
+	margin: 0 -15px 5px -15px;
+	padding: 5px;
+	border: #ddd 1px solid;
+	background-color: #f9f9f9;
+}
+.subCategory p:hover {
+	background-color: #ffffe5;
+}
+.subCategory p a {
+	font-size: 12px;
+}
+.subCategory p a:hover {
+	font-weight: bold;
+}

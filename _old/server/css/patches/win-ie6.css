@@ -1,0 +1,28 @@
+/*-  PREVENT BACKGROUND IMAGE FLICKER ON HOVER
+----------------------------------------------------------------------*/
+html {
+    filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+* {
+	zoom:1;
+}
+/* Add "display:inline;" on the floated element. It prevents double-margin and copying last texts. */
+/* If it may occured error caused by zoom, you can fix it with "display:relative;". It may fix the figure of an anchor element. */
+
+/* slidedeck */
+#ie_message {
+	position: relative;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px 0 35px;
+	font-weight: normal;
+	font-size: 11px;
+	color: #333;
+	background: url('../images/alert.gif') 10px 4px no-repeat #ffc;
+	border-bottom: 1px solid #999;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=120, Strength=2);
+}
+#ie_message a, #ie_message a:link, #ie_message a:visited {
+	color: blue;
+	text-decoration: underline;
+}

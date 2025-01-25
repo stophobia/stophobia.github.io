@@ -1,0 +1,39 @@
+/**
+ * Common HTML Element Style
+ **/
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+	font-family: Gulim, sans-serif;
+	line-height: 165%;
+}
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+/**
+ * Common Class Style
+ **/
+.clsright { padding-right:10px; text-align:right; }
+.clsleft { padding-left:10px; text-align:left; }
+.lookme { color: #125da9; }
+.box { margin: 10px; padding: 10px; border: #aaa 1px dotted; background-color: #ffffe5; text-align: left; }
+.title { text-align: center; background: url(mv_top.gif) repeat-x; height: 36px; }
+.must { color: #c90202; }
+.msgbox { border: #f39b9b 1px dotted; background-color: #fef6f6; padding: 10px; margin: 10px; color: #991414; }
+.i { width: 100px; border: #ddd 1px solid; font-size: 12px; }
+.i2 { width: 300px; border: #ddd 1px solid; font-size: 12px; }
+.inputValue td { text-align: left; padding: 3px; }
+.inputValue .clsleft { background-color: #f7f7f7; border-bottom: #fff 1px solid; }
+.copy { font-size: 11px; font-family: Tahoma, sans-serif; color: #ccc; }
+.copy a { color: #aaa; font-size: 11px; }
+.canModify { color: red; }
+.resultView .clsright { background-color: #fafafa; text-align: right; padding: 3px; border-bottom: #fff 1px solid; }
+.resultView .clsleft { padding: 3px; border-bottom: #fafafa 1px solid; }

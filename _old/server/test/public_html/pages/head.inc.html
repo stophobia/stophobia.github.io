@@ -1,0 +1,235 @@
+<?
+include_once dirname(__FILE__)."/../odprogram/odcommon/od_lib.inc.php";
+
+//-----------------------------------------------------------------------------
+// 지역설정
+//-----------------------------------------------------------------------------
+if($cateCode) { $catecode = $cateCode;}
+if (!$catecode)
+{
+    // 기존에 저장되어 있는 쿠키값이 있는지를 확인 ////////////////////////////
+    if( $_COOKIE[Aid] )
+    {
+        // 쿠키의 값이 
+        $Query  = "select catecode from odtCategory where cHidden = 'no' and catecode = '$_COOKIE[Aid]' ";
+        $Result = mysql_query($Query);
+        $RecCnt = mysql_num_rows($Result);
+
+        if ($RecCnt)
+        {
+            $thiscate = $_COOKIE[Aid];
+        }
+        else
+        {
+            $thiscate = mysql_result(mysql_query("select catecode from odtCategory where cHidden = 'no' order by cateidx , catecode asc limit 1"),0);
+        }
+    }
+    else
+    {
+        $Query  = " select A.catecode from odtProduct as A left join odtCategory as B on A.catecode = B.catecode where B.cHidden = 'no' and A.sale_date <= curdate() and A.code = A.parent_code order by B.cateidx , B.catecode asc limit 1";
+        $Result = mysql_query($Query);
+        $Record = mysql_fetch_array($Result);
+        $thiscate = $Record[0] ? $Record[0] : mysql_result(mysql_query("select catecode from odtCategory where cHidden = 'no' order by cateidx , catecode asc limit 1"),0);
+    }
+}
+else
+{
+    $thiscate = $catecode;
+}
+
+
+
+// 미리보기 기능
+$admin = info_admin($row_setup[ranDsum],"00100200300");
+if($_GET[viewCode]) {
+    $que = "select * from odtProduct where cateCode = '".$thiscate."' and code = parent_code and code ='".$_GET[viewCode]."'";
+} else {
+    $que = "select * from odtProduct where code = '".info_nowsale($thiscate)."' and code = parent_code";
+}
+$res = mysql_query($que);
+$row_product = mysql_fetch_array($res);
+
+
+## 상품이 2개이상이고 가겨차이가 있을때  원~ 으로 표기
+$pCountTmp = @mysql_fetch_array(mysql_query("select max(price) as max ,min(price) as min from odtProduct where parent_code='".$row_product[code]."'"));
+if($pCountTmp['max'] != $pCountTmp['min'] ) {
+    $ownImg = "icon_05.jpg";
+} else {
+    $ownImg = "icon_05_empty.jpg";
+}
+
+# 현재 판매상품 총합
+$saleCntSum = mysql_result(mysql_query("select sum(saleCnt) as a from odtProduct where parent_code = '".$row_product[parent_code]."'"),0);
+
+## 상품들중 최저가 추출
+$priceMin = @mysql_result(mysql_query("select price from odtProduct where parent_code ='".$row_product[code]."' order by mainPrice=1 desc, price asc limit 1"),0);
+
+## 로그인 전 페이지로 이동하기 위한 경로 지정 #################################
+$path = eregi_replace("@", "&", $path);
+$_move_path = "$_domain_path_"."$path";
+
+if($_move_path == "$_home_path_/index.php" || !$path) $_move_path = "$_home_path_/";
+else if($_move_path == "$_domain_path_/MemOrder") $_move_path = "$_home_path_/products/order.php";
+else if($_move_path == "$_home_path_/members/membersearch.php?Form=MemberSearch" || $_move_path == "$_home_path_/members/memberinput.php?Form=SingUpFORM") $_move_path = "$_home_path_/members/mypage.php";
+
+//-----------------------------------------------------------------------------
+// 스킨에 따른 head부분 추출
+//-----------------------------------------------------------------------------
+include $_SERVER[DOCUMENT_ROOT]."/pages/skin/$row_setup[P_SKIN]/head.php";
+
+?>
+<script type="text/javascript">
+<!--
+function sendTwitter(title,url) {
+    var wp = window.open("http://twitter.com/home?status=" + encodeURIComponent(title) + " " + encodeURIComponent(url), 'twitter', '');
+    if ( wp ) {
+        wp.focus();
+    }
+}
+function sendMe2Day(title,url,tag) {
+    var wp = window.open("http://me2day.net/posts/new?new_post[body]=" + encodeURIComponent(title) + " " + encodeURIComponent(url) + "&new_post[tags]=" + encodeURIComponent(tag), 'me2Day', '');
+    if ( wp ) {
+        wp.focus();
+    }
+}
+function sendFaceBook(title,url) {
+    var wp = window.open("http://www.facebook.com/sharer.php?u=" + url + "&t=" + encodeURIComponent(title), 'facebook', '');
+    if ( wp ) {
+        wp.focus();
+    }
+}
+function sendCyWorld(no) {
+    
+}
+
+function sendSms(title,code) {
+
+    var wp = window.open("/pages/etc/tosms.php?code="+code+"&title="+encodeURIComponent(title),"","width=445px,height=420px")
+    if ( wp ) {
+        wp.focus();
+    }
+}
+
+function sendMail(title,code) {
+
+    var wp = window.open("/pages/etc/tomail.php?code="+code+"&title="+encodeURIComponent(title),"","width=445px,height=420px")
+    if ( wp ) {
+        wp.focus();
+    }
+}
+
+function goCyWorld(code) {
+    var href = "http://api.cyworld.com/openscrap/post/v1/?xu=http://<?=$_SERVER[HTTP_HOST]?>/cyworldApi.php?code=" + code +"&sid=s0300011";
+    var a = window.open(href, 'cyworld', 'width=450,height=410');
+    if ( a ) {
+        a.focus();
+    }
+}
+    function goYozmDaum(link,prefix,parameter) {
+                    var href = "http://yozm.daum.net/api/popup/prePost?link=" + encodeURIComponent(link) + "&prefix=" + encodeURIComponent(prefix) + "&parameter=" + encodeURIComponent(parameter);
+                    var a = window.open(href, 'yozmSend', 'width=466, height=356');
+                    if ( a ) {
+                        a.focus();
+                    }
+    }
+function feedFunc(frm) {
+
+    if(!frm.emailCheck.checked && !frm.smsCheck.checked) {
+        alert('이메일과 핸드폰중 구독을 원하시는 항목을 선택하여주세요');
+        return false;
+    }
+
+    if(frm.emailCheck.checked) {
+        if(!frm.feedEmail.value) {
+            alert('받으실 이메일을 입력해주시기 바랍니다.');
+            frm.feedEmail.focus();
+            return false;
+        } else {
+            var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+
+            if (!filter.test(frm.feedEmail.value)) { 
+                alert('잘못된 이메일 입니다.');
+                frm.feedEmail.focus();
+                return false; 
+            }
+        }
+    } 
+
+    if(frm.smsCheck.checked) {
+        if(!frm.feedSms.value) {
+            alert('받으실 핸드폰번호를 입력해주시기 바랍니다.');
+            frm.feedSms.focus();
+            return false;
+        } else {
+
+            if(frm.feedSms.value.length > 3) {
+                head = frm.feedSms.value.substr(0,3);
+                if(head != "010" && head != "011" && head != "016" && head != "017" && head != "018" && head != "019") {
+                    alert('핸드폰구독은 010, 011, 016, 017, 018, 019만 서비스가 가능합니다.');
+                    frm.feedSms.focus();
+                    return false;
+                }
+            }
+        }
+    }           
+
+    if(!confirm('구독신청을 하시겠습니까?')) return false;
+
+    return true;
+    
+}
+function toCheck(obj) {
+    if(!obj.value) return;
+
+    var printStr = "";
+    var isAlert = "";
+    strlen = obj.value.length;
+    for(i=0;i<strlen;i++) {
+        strTmp = obj.value.substr(i,1);
+        if((isNaN(strTmp) && strTmp != "-") || strTmp == " ") {
+            if(!isAlert) alert('숫자와 대시(-) 만 입력할수 있습니다.');
+            isAlert = "1";
+        } else {
+            printStr = printStr + String(strTmp);
+        }
+    }
+    
+    if(isAlert) obj.value = printStr;
+
+    return;
+}
+
+// request 객체 생성
+var req = null;
+function create_request() {
+        var request = null;
+        try {
+                request = new XMLHttpRequest();
+        } catch (trymicrosoft) {
+                try {
+                        request = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (othermicrosoft) {
+                        try {
+                                request = new ActiveXObject("Microsoft.XMLHTTP");
+                        } catch (failed) {
+                                request = null;
+                        }
+                }
+        }
+        if (request == null)
+                alert("Error creating request object!");
+        else
+                return request;
+}
+/*
+function setPng24(obj) {
+	obj.width=obj.height=1;
+	obj.className=obj.className.replace(/\bpng24\b/i,''); 
+	obj.style.filter =
+	"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image');"
+	obj.src='about:blank;';
+	return '';
+}
+*/
+-->
+</script>

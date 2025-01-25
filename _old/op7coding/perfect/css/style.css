@@ -1,0 +1,555 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	position:relative;
+	font:12px/1.4 normal Meiryo, メイリオ, sans-serif;
+	color:#fff;
+	background:#000 url(../images/bg_index5.jpg) center top no-repeat;
+	overflow-x:hidden;
+
+}
+input, textarea {
+	font:12px/1.4 normal Meiryo, メイリオ, sans-serif;
+	background:none;
+	border:none;
+	color:#fff;
+}
+img {
+	border:0;
+}
+form {
+	display:block;
+	float:left;
+	overflow:hidden;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+a {
+	color:#fff;
+	text-decoration:none;
+}
+a:hover {
+	color:#3b4;
+}
+ul li {
+	list-style:none;
+}
+.menu li {
+	list-style:none;
+	float:left;
+}
+h2,.aid {
+	text-align:left;
+	text-indent:-99999em;
+	overflow:hidden;
+}
+.header {
+	position:absolute;
+	top:0;
+	left:50%;
+	width:1100px;
+	height:73px;
+	margin:0 0 0 -550px !important;
+	margin:0 0 0 -548px;
+	background:url(../images/bg_nav.png) center top no-repeat;
+}
+.all {
+	position:relative;
+	width:900px;
+	margin:0 auto;
+}
+.nav {
+	position:relative;
+	width:900px;
+	height:67px;
+	margin:0 auto;
+}
+.nav a {
+	position:absolute;
+	display:block;
+	top:0;
+	height:49px;
+}
+.nav .policy {
+	left:2px;
+	width:118px;
+	background:url(../images/bg_nav.png) -100px -73px no-repeat;
+}
+.nav .about {
+	left:120px;
+	width:95px;
+	background:url(../images/bg_nav.png) -218px -73px no-repeat;
+}
+.nav .clan {
+	left:215px;
+	width:132px;
+	background:url(../images/bg_nav.png) -313px -73px no-repeat;
+}
+.nav .guide {
+	left:553px;
+	width:132px;
+	background:url(../images/bg_nav.png) -651px -73px no-repeat;
+}
+.nav .download {
+	left:685px;
+	width:95px;
+	background:url(../images/bg_nav.png) -783px -73px no-repeat;
+}
+.nav .faq {
+	left:780px;
+	width:117px;
+	background:url(../images/bg_nav.png) -878px -73px no-repeat;
+}
+.nav a:hover {
+	background:none;
+}
+.nav .home {
+	left:345px;
+	width:206px;
+	height:75px;
+}
+.inner {
+	position:absolute;
+	top:-125px;
+	left:50%;
+	width:920px;
+	height:200px;
+	margin:0 0 0 -460px !important;
+	padding:0;
+}
+.inner_bg {
+	position:absolute;
+	width:920px;
+	height:200px;
+	margin:0;
+	padding:0;
+	background:url(../images/bg_innermenu.png) 0 0 no-repeat;
+}
+.close {
+	position:absolute;
+	display:block;
+	top:160px;
+	left:400px;
+	width:40px;
+	height:20px;
+	z-index:100;
+}
+.inner_text {
+	position:relative;
+	width:840px;
+	height:160px;
+	margin:20px 40px 0;
+}
+.inner ul {
+	position:relative;
+	float:left;
+	text-align:center;
+	width:90px;
+	height:180px;
+	overflow:hidden;
+	background:url(../images/altpng.gif);
+}
+.inner .policy,.inner .about,.inner .clan {
+	float:left;
+	margin:0 10px 0 0;
+	opacity:0.5;
+}
+.inner .guide,.inner .download,.inner .faq {
+	float:right;
+	margin:0 0 0 10px;
+	opacity:0.5;
+}
+.inner ul li:hover {
+	width:100%;
+	background: url(../images/bg_navli.png) left top no-repeat;
+}
+#index .contents {
+	position:relative;
+	float:left;
+	width:900px;
+	margin:205px 0 10px;
+}
+#index .contents .common {
+	position:relative;
+	float:left;
+	width:230px;
+	margin:0 0 10px;
+}
+#index .contents .common .gamestart{
+	position:relative;
+	float:left;
+	margin:0 0 10px;
+}
+#index .contents .common .gamestart a {
+	display:block;
+	width:230px;
+	height:90px;
+	background: url(../images/bg_start.png) 0 0 no-repeat;
+}
+#index .contents .common .gamestart a:hover {
+	background: url(../images/bg_start.png) 0 -90px no-repeat;
+}
+#index .contents .common .log {
+	position:relative;
+	float:left;
+	width:230px;
+	height:105px;
+	margin:0 0 10px;
+	background:url(../images/bg_login.gif) 0 0 no-repeat;
+}
+#index .contents .common .logged {
+	position:relative;
+	float:left;
+	width:230px;
+	height:105px;
+	margin:0 0 10px;
+	background:url(../images/bg_login.png) 0 -105px no-repeat;
+}
+#index .contents .common .input_frame {
+	position:absolute;
+	top:15px;
+	left:10px;
+	width:155px;
+	height:55px;
+	overflow:hidden;
+}
+#index .contents .common .log .id {
+	position:absolute;
+	top:0;
+	left:165px;
+	width:120px;
+	height:18px;
+	padding:5px 0 2px 35px;
+	background:url(../images/bg_id.png) top left no-repeat;
+}
+#index .contents .common .log .pw {
+	position:absolute;
+	top:30px;
+	left:165px;
+	width:120px;
+	height:18px;
+	padding:5px 0 2px 35px;
+	background:url(../images/bg_pw.png) top left no-repeat;
+}
+#index .contents .common .log .progress {
+	position:absolute;
+	display:none;
+	top:0;
+	left:15px;
+	width:55px;
+	height:55px;
+	padding:5px 0 2px 35px;
+	background:url(../images/img_pr.gif) top left no-repeat;
+}
+#index .contents .common .logged .progress {
+	position:absolute;
+	top:10px;
+	left:15px;
+	width:130px;
+	height:35px;
+	padding:5px 0 2px 35px;
+	background:url(../images/img_pre.gif) top left no-repeat;
+}
+#index .contents .common .log .enc {
+	position:absolute;
+	top:78px;
+	left:18px;
+}
+#index .contents .common .log .login,
+#index .contents .common .logged .logout {
+	position:absolute;
+	top:15px;
+	right:10px;
+	width:55px;
+	height:55px;
+}
+#index .contents .common .log .find {
+	position:absolute;
+	bottom:10px;
+	right:15px;
+	width:100px;
+	height:20px;
+}
+#index .contents .common .banners {
+	position:relative;
+	float:left;
+	width:230px;
+	height:240px;
+	background:url(../images/bg_leftbanners.png) no-repeat;
+}
+#index .contents .common .logged .gotoclan {
+	position:absolute;
+	display:block;
+	top:75px;
+	left:10px;
+	width:210px;
+	height:20px;
+}
+#index .contents .common .logged .welcome {
+	position:absolute;
+	top:0;
+	left:165px;
+	width:145px;
+	height:70px;
+	padding:5px;
+	background:url(../images/bg_logged.png) left top no-repeat;
+}
+#index .contents .common .logged .welcome p {
+	text-align:center;
+	font-size:10px;
+}
+#index .contents .common .logged .welcome p span {
+	color:#f80;
+	font-weight:bold;
+	font-size:12px;
+}
+#index .contents .common .logged .welcome p a {
+	display:block;
+	width:78px;
+	height:15px;
+	margin:2px 0 0 35px;
+}
+#index .contents .common .banners a {
+	display:block;
+	position:relative;
+	float:left;
+	width:220px;
+	height:50px;
+	margin:5px 0 0 5px;
+}
+/* main */
+#index .contents .main {
+	position:relative;
+	float:left;
+	width:460px;
+	height:345px;
+	background:url(../images/bg_center.png) no-repeat;
+	margin:0 5px 10px;
+}
+#index .contents .main .news {
+	position:relative;
+	float:left;
+	width:450px;
+	height:145px;
+	margin:5px 5px 0;
+	background:url(../images/bg_index_news.png) left top no-repeat;
+}
+#index .contents .main .news h2 {
+	position:relative;
+	margin:10px 10px 0;
+	background:url(../images/h2_index_news.gif) left top no-repeat;
+}
+#index .contents .main .news .more {
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:block;
+	width:56px;
+	height:22px;
+	background:url(../images/btn_index_more.gif) left top no-repeat;
+}
+#index .contents .main .news ul {
+	position:absolute;
+	top:6px;
+	left:120px;
+	width:270px;
+	height:20px;
+}
+#index .contents .main .news ul li {
+	margin:0 4px 0 0;
+}
+#index .contents .main .news ul li a.new {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(../images/btn_index_news.gif) 0 0 no-repeat;
+}
+#index .contents .main .news ul li a.new:hover {
+	background:url(../images/btn_index_news.gif) 0 -20px no-repeat;
+}
+#index .contents .main .news ul li a.notice {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(../images/btn_index_news.gif) -63px 0 no-repeat;
+}
+#index .contents .main .news ul li a.notice:hover {
+	background:url(../images/btn_index_news.gif) -63px -20px no-repeat;
+}
+#index .contents .main .news ul li a.event {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(../images/btn_index_news.gif) -126px 0 no-repeat;
+}
+#index .contents .main .news ul li a.event:hover {
+	background:url(../images/btn_index_news.gif) -126px -20px no-repeat;
+}
+#index .contents .main .news ul li a.maintenance {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(../images/btn_index_news.gif) -189px 0 no-repeat;
+}
+#index .contents .main .news ul li a.maintenance:hover {
+	background:url(../images/btn_index_news.gif) -189px -20px no-repeat;
+}
+#index .contents .main .news table {
+	position:absolute;
+	top:35px;
+	left:10px;
+	width:430px;
+	height:105px;
+	table-layout:fixed;
+}
+#index .contents .main .news table tr td {
+	border-top:1px #333 solid;
+}
+#index .contents .main .news table tr:first-child td {
+	border-top:none;
+}
+#index .contents .main .news table td.icon {
+	width:70px;
+	text-align:left;
+}
+#index .contents .main .news table td.day {
+	width:70px;
+	text-align:left;
+	color:#687;
+}
+#index .contents .main .news table td.title {
+	width:290px;
+	text-align:left;
+}
+/* aside */
+#index .contents .aside {
+	position:relative;
+	float:left;
+	width:200px;
+	height:440px;
+	background:url(../images/bg_aside.png) no-repeat;
+	margin:0 0 10px;
+}
+#index .contents .aside a.gmblog {
+	position:relative;
+	display:block;
+	float:left;	
+	width:190px;
+	height:70px;
+	margin:5px 0 0 5px;
+	background:url(../images/bg_gmblog.png) left bottom no-repeat;
+}
+#index .contents .aside a.gmblog:hover {
+	background:url(../images/bg_gmblog.png) left top no-repeat;
+}
+#index .contents .aside .ranking {
+	position:relative;
+	float:left;
+	width:190px;
+	height:170px;
+	margin:5px 0 0 5px;
+	background:url(../images/bg_ranking.png) left bottom no-repeat;
+}
+#index .contents .aside .ranking ul {
+	position:relative;
+	width:190px;
+	height:42px;
+}
+#index .contents .aside .ranking ul li a.crew {
+	position:relative;
+	display:block;
+	float:left;
+	width:95px;
+	height:42px;
+	margin:0;
+}
+#index .contents .aside .ranking ul li a.crew:hover {
+	background:url(../images/bg_ranking.png) 0 0 no-repeat;
+}
+#index .contents .aside .ranking ul li a.clan {
+	position:relative;
+	display:block;
+	float:right;
+	width:95px;
+	height:42px;
+	margin:0;
+}
+#index .contents .aside .ranking ul li a.clan:hover {
+	background:url(../images/bg_ranking.png) -95px 0 no-repeat;
+}
+#index .contents .aside .ranking table {
+	position:absolute;
+	top:41px;
+	left:23px;
+	height:126px;
+	line-height:23px;
+}
+#index .contents .aside .ranking table td.mark {
+	width:22px;
+}
+#index .contents .aside .ranking table td.title {
+	width:90px;
+	overflow:hidden;
+	vertical-align:bottom;
+}
+#index .contents .aside .ranking table td.level {
+	color:#678;
+	font-size:10px;
+	text-align:right;
+	vertical-align:bottom;
+	width:40px;
+}
+#index .contents .aside .banners {
+	position:relative;
+	float:left;
+	width:190px;
+	height:175px;
+	margin:5px 0 0 5px;
+	padding:5px 0 0;
+	background:url(../images/bg_aside_banners.gif) top left no-repeat;
+}
+#index .footer {
+	position:absolute;
+	top:750px;
+	left:50%;
+	width:1100px;
+	height:90px;
+	margin:0 0 20px -550px;
+	background:url(../images/bg_footer.jpg) center 0 no-repeat;
+}
+.ellipsis {
+	position:relative;
+	display:block;
+	width:100%;
+	white-space:nowrap;
+	overflow:hidden;
+	-o-text-overflow:ellipsis;
+	-ms-text-overflow:ellipsis;
+	text-overflow:ellipsis;
+}
+.ellipsis .ellipsis-phantom {
+	position:absolute;
+}
+.ellipsis .ellipsis-phantom,
+.ellipsis .ellipsis-phantom * {
+	color:transparent !important;
+}
+.ellipsis window {
+	width:100%;
+	-moz-user-focus:normal;
+	-moz-user-select:text;
+}
+.ellipsis description {
+	-moz-user-focus:normal;
+	-moz-user-select:text;
+}

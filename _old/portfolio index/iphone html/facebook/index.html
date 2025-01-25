@@ -1,0 +1,83 @@
+<html>
+<head><title>Facebook</title><meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /><link rel="stylesheet" href="fb.css?8:119049" type="text/css"/>
+</head>
+<body home="/home.php">
+  <div class="toolbar1 tops chrome">
+    <u href="/home.php"><img src="images/facebook.png"/></u>
+    <u class="button plain leftButton" href="#status">Status</u>
+    <u class="button plain" href="#search" radio="true">Search</u>
+  </div>
+
+  <div class="tabbar1 tops chrome selectable">
+    <div class="tab set4 t1"><u id="homeTab" href="/home.php" radio="true">Home</u></div>
+    <div class="tab set4 t2"><u id="profileTab" href="profile.php?id=817217909"
+      radio="true">Profile</u></div>
+    <div class="tab set4 t3"><u id="friendsTab" href="/friends.php?v=status"
+      radio="true">Friends</u></div>
+    <div class="tab set4 t4"><u id="inboxTab" href="/inbox.php" radio="true">Inbox</u>
+      <div class="newIcon" disabled="true"><span label="" name="mail" id="counter_mail" count="0"></span>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="friendButtons" class="listMenu chrome">
+    <u id="addButton" onclick="fb.friendRequest('add')" class="listButton">Add Friend</u>
+    <u id="profileButton" onclick="fb.showProfile()" class="listButton">Profile</u>
+    <u onclick="fb.sendMessage()" class="listButton">Message</u>
+
+    <a id="phoneButton" class="listButton">Phone</a>
+    <a id="cellButton" class="listButton">Mobile</a>
+  </div>
+
+  <div id="deleteButtons" class="listMenuOverlay chrome">
+    <u class="listButton deleteButton">Delete</u>
+  </div>
+
+  <div id="messageBox" class="alert chrome"></div>
+
+  <div id="loadingBox" class="progress chrome"></div>
+
+  <div id="search" class="clean formPage" mode="phonebook" onfocusrow="fb.onFocusContact()"
+    onshowing="fb.onSearchShowing(this)" onshow="fb.onSearchShow(this)">
+    <form class="bigTextForm snug editorBar"><input id="searchBox" type="text" name = "q" autocomplete="off" unedited="true" value="Type a person's name...">
+    <img class="clearButton" src="images/blank.gif" onclick="fb.clearSearch()"/>
+  </form>
+    <div id="phonebook">
+      <ul id="phoneResults" class="navList infoList"></ul>
+
+    </div>
+    <div id="searchResults"></div>
+  </div>
+
+  <div id="photoBox" class="fullScreen" onshowing="fbPhoto.showing(arguments[0])"
+      onshow="fbPhoto.show()" onhiding="fbPhoto.hiding()">
+      <img id="photoImg" src="images/blank.gif"/>
+      <img id="photoLoader"/>
+      <div id="photoCaption"></div>
+      <div id="photoPrev" class="photoNav"></div>
+
+      <div id="photoNext" class="photoNav"></div>
+      <div id="photoBack">Album</div>
+  </div>
+
+  <form id="status" class="dialog" method="post" action="/submit_status.php"
+    onrespond="fb.hideStatus()">
+    <div class="toolbar1">
+      <img src="images/facebook.png"/>
+      <u class="button dialogButton leftButton" onclick="fb.hideStatus(true)">Cancel</u>
+
+      <u class="button dialogButton okButton" href="#" type="submit">Update</u>
+    </div>
+
+    <div class="bigTextForm">
+      <div class="label">Wisdom </div>
+      <textarea id="statusBox" name="status" class="plain" unedited="true" resetSearch="true"
+        onblur="fb.postStatus()"></textarea>
+      <input type="hidden" name="post_form_id" value="2148178091e60843d793bcd18ed725a5">
+    </div>
+
+  </form><script type="text/javascript" src="all.js?8:123526"></script>
+  <div id="stretchy" keepAlive="true"></div>
+</body>
+</html>

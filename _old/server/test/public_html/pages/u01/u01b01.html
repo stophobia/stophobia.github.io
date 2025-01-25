@@ -1,0 +1,309 @@
+<?
+$proCode= 1;
+$pollDate = $pollDate ? $pollDate : date('Y-m');
+?>
+<script>
+function good(pollNo) {
+	hidden_frame.location.href='/pages/u01/odpollResult.php?mode=good&pollNo='+pollNo;
+}
+function bad(pollNo) {
+	hidden_frame.location.href='/pages/u01/odpollResult.php?mode=bad&pollNo='+pollNo;
+}
+function reply2View(no) {
+	obj = eval(document.getElementById('viewReply_'+no));
+	obj2	= eval(document.getElementById('reply_arrow_'+no));
+	if(obj.style.display == "") {
+		obj.style.display = "none";
+		obj2.src = String(obj2.src).replace('_down_','_up_');
+	} else {
+		obj.style.display = "";
+		obj2.src = String(obj2.src).replace('_up_','_down_');
+	}
+}
+function replyDel(pollNo) {
+	if(confirm('삭제하시겠습니까?')) hidden_frame.location.href="/pages/u01/odpollPro.php?proMode=del&pollNo="+pollNo;
+}
+function frmCheckFun(frm) {
+
+	<?=!$row_member[id] ? "return false;" : NULL;?>
+
+	if(!frm.pollContent.value) {
+		alert('댓글을 입력하세요.');
+		frm.pollContent.focus();
+		return false;
+	}
+
+	return true;
+}
+</script>
+<style>
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+</style>
+
+			<span id="inputBox" style="display:none">
+			<form name="form" action="/pages/u01/odpollPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+			<input type="hidden" name="pollProCode" value="<?=$proCode?>">
+			<input type="hidden" name="pollID" value="<?=$row_member[id]?>">
+			<input type="hidden" name="pollName" size=10 value="<?=$row_member[name]?>">
+			<input type="hidden" name="pollSNo" value="">
+			<input type="hidden" name="isReply" value="">
+			<input type="hidden" name="proMode" value="ins">
+			<table width=100% border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td width=100%>
+						<input type="text"name="pollContent" style="width:97%;font-size:12px;border:1px solid #cccccc;" >
+					</td>
+					<td >
+						<input type="image" src="/images/poll2_10.gif" >
+					</td>
+				</tr>
+			</table>
+			</form>
+			</span>
+
+			<iframe name="hidden_frame" src="about:blank" width=100px height=100px style="display:none"></iframe>
+			<!-- 2depth 메뉴 -->
+
+<?
+# SUB TOP 메뉴
+include_once dirname(__FILE__)."/head.sub.html";
+?>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="180" valign="top">
+<?
+# LEFT 메뉴
+include_once $_SERVER[DOCUMENT_ROOT]."/pages/mainLeft2.html";
+?>	
+										</td>
+                    <td width="20" valign="top">&nbsp;</td>
+                    <td valign="top">
+
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td><img src="/img/md_img_01.jpg" width="761" height="228" /></td>
+                          </tr>
+                        </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="14"></td>
+                            </tr>
+                          </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="109"><img src="/img/event_img_02.jpg" width="109" height="21" /></td>
+                              <td><select name="pollDate" onchange="pollDate=this.value;ajaxLoading();pollAjaxLoad();">
+<?
+$limit = date('Y-m');
+for($i=0;1;$i++) {
+	$resultDate = date('Y-m',mktime(0,0,0,end(explode("-",$limit))-$i,1,reset(explode("-",$limit))));
+	if($resultDate."-01" < "2009-12-01") break;
+	echo "<option value='".$resultDate."' ".($resultDate == $pollDate ? 'selected' : NULL).">".reset(explode("-",$resultDate))."년 ".end(explode("-",$resultDate))."월 내가 희망하는 상품</option>";
+}
+?>
+											</select></td>
+                            </tr>
+                          </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="14"></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table>
+									<form name="form2" action="/pages/u01/odpollPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+									<input type="hidden" name="pollProCode" value="<?=$proCode?>">
+									<input type="hidden" name="pollID" value="<?=$row_member[id]?>">
+									<input type="hidden" name="pollName" value="<?=$row_member[name]?>">
+									<input type="hidden" name="proMode" value="ins">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top"><table width="682" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td valign="top">
+															
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="436"><img src="/img/md_img_02.jpg" width="556" height="45" /></td>
+                                        <td valign="bottom" background="/img/md_img_03.jpg">&nbsp;
+<?
+if($row_member[id]) {
+?>												
+												<input type="checkbox" name="sms" value="1" <?=$row_member[sms] == "Y" ? "checked" : NULL;?>><span style='font-size:11px;font-family:돋움'>답글 SMS로 받기</span>
+<?
+}
+?>																				
+																				</td>
+                                      </tr>
+                                    </table>
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td height="4" background="/img/md_img_06.jpg">&nbsp;</td>
+                                        </tr>
+                                      </table>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+
+						<?
+						if($row_member[id]) {
+						?>
+													<td width="17" height="44" background="/img/talk_img_04.jpg">&nbsp;</td>
+                          <td width="460" bgcolor="#f9f9f9"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 577px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="pollContent"></textarea></td>
+                          <td width="3" bgcolor="#f9f9f9"></td>
+									        <td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44" border=0 /></td>
+                          <td background="/img/md_img_05.jpg">&nbsp;</td>
+						<?
+						} else {
+						?>
+													<td width="17" height="44" background="/img/talk_img_04.jpg">&nbsp;</td>
+                          <td width="460" bgcolor="#f9f9f9" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 577px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="pollContent" disabled>로그인 후 이용해주세요.</textarea></td>
+                          <td width="3" bgcolor="#f9f9f9"></td>
+									        <td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');"  border=0 /></td>
+                          <td background="/img/md_img_05.jpg">&nbsp;</td>
+						<?
+						}
+						?>
+
+
+																				</tr>
+                                      </table>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td><img src="/img/md_img_04.jpg" width="682" height="17" /></td>
+                                        </tr>
+                                    </table></td>
+                                </tr>
+                              </table>
+															</form>
+
+															<!-- 댓글 출력 -->
+															<span id="pollAjax"></span>
+
+															<span id="pollAjaxLoading" style="display:none">
+															<table width=670 border=0 cellpadding=0 cellspacing=0 align=center>
+																<tr>
+																	<td height=40 align=center valign=bottom>댓글을 불러오고 있습니다. 잠시만 기다려주세요~ ^-^</td>
+																</tr>
+															</table>
+															</span>
+														</td>
+													</tr>
+												</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+                    </tr>
+                </table>
+<script>
+
+inputBoxHtml = document.getElementById('inputBox').innerHTML;
+var showNo;
+
+function replyBoxShow() {
+	document.getElementById('inputBox').innerHTML = inputBoxHtml;
+}
+
+function replyBoxHidden() {
+	document.getElementById('inputBox').innerHTML = "";
+}
+
+function replyBoxChange(pollNo) {
+	if(!showNo) {
+		replyBoxHidden();
+	} else if(showNo != pollNo) {
+		obj = eval(document.getElementById('reply_'+showNo));
+		obj.innerHTML = "";
+	}
+}
+
+
+function showReply(pollNo) {
+	replyBoxChange(pollNo);		// 현재 열려있는 박스 삭제
+	showNo = pollNo;					// 현재 열려있는 박스 넘버 저장
+
+	obj = eval(document.getElementById('reply_'+pollNo));
+	obj.innerHTML = inputBoxHtml;
+
+	// 리플에 필요한 값 저장
+	frm = document.form;
+	frm.pollSNo.value = pollNo;
+	frm.proMode.value	=	"ins";
+	frm.isReply.value = 1;
+
+}
+function ajaxLoading() {
+	document.getElementById('pollAjax').innerHTML = document.getElementById('pollAjaxLoading').innerHTML;
+}
+</script>
+
+	<script>
+	// request 객체 생성
+	var req = null;
+	function create_request() {
+			var request = null;
+			try {
+					request = new XMLHttpRequest();
+			} catch (trymicrosoft) {
+					try {
+							request = new ActiveXObject("Msxml12.XMLHTTP");
+					} catch (othermicrosoft) {
+							try {
+									request = new ActiveXObject("Microsoft.XMLHTTP");
+							} catch (failed) {
+									request = null;
+							}
+					}
+			}
+			if (request == null)
+					alert("Error creating request object!");
+			else
+					return request;
+	}
+	// 아작스 호출
+	var pollDate = '<?=$pollDate?>';
+	function pollAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&proCode=<?=$proCode?>&pollDate="+pollDate;
+		req = create_request();
+		req.open("POST", "/pages/u01/odpollAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML3();
+		}
+
+	}
+
+	function printHTML3() {
+		if (req.readyState == 4 && req.status == 200) {
+			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('pollAjax').innerHTML = req.responseText;
+			}
+		}
+	}
+	ajaxLoading()
+	pollAjaxLoad();
+	</script>

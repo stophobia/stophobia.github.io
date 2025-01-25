@@ -1,0 +1,259 @@
+/* COMMON TAG ELEMENTS */
+* {
+	color: #555;
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+	color: #c5b77d;
+}
+a:hover {
+	text-decoration: none;
+	font-weight: bold;
+	color: #c5b77d;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: verdana, sans-serif;
+	background-color: #e6daa8;
+	text-align: center;
+}
+
+/* TOP HEAD STYLE */
+#topBack {
+	height: 167px;
+	margin: auto;
+	margin-left: 1px;
+	background: url(image/cafe.head.gif) no-repeat top;
+}
+#head {
+	text-align: center;
+	margin: auto;
+	width: 900px;
+}
+#viewTitle {
+	height: 110px;
+	padding-top: 40px;
+	padding-left: 20px;
+	text-align: left;
+}
+#viewTitle a {
+	font-family: verdana, sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	color: #a8964c;
+	text-transform: lowercase;
+}
+#viewTitle a:hover {
+	text-decoration: none;
+	color: #000;
+}
+#viewBtns ul {
+	margin: -35px 0 0 0;
+	padding: 0 0 0 20px;
+	list-style: none;
+	text-align: left;
+}
+#viewBtns li {
+	display: inline;
+	padding-left: 18px;
+}
+#viewBtns a {
+	font-size: 14px;
+	font-weight: bold;
+	color: #c5b77d;
+}
+#viewBtns a:hover {
+	color: #000;
+}
+#head span {
+	font-size: 16px;
+	font-family: "Trebuchet MS", Arial, Helvetica, Gulim, sans-serif;
+	color: #fff;
+}
+
+/* MAIN CONTENTS */
+#mainFrame {
+	margin: auto;
+	width: 900px;
+	background: url(image/cafe.back.gif) repeat-y;
+}
+
+/* Content - post list - title(subject)s */
+#content .list .title {
+	vertical-align: middle;
+	line-height: 130%;
+	padding: 10px 25px 5px 25px;
+	color: #5d5f53;
+	text-align: left;
+}
+#content .list .title span {
+	font-size: 11px;
+	color: #ccc;
+	font-family: Georgia, sans-serif;
+	vertical-align: middle;
+}
+#content .list .space {
+	float: left;
+	margin-left: 12px;
+	width: 50px;
+	height: 50px;
+}
+#content .list .miniCal {
+	float: left;
+	margin-left: 12px;
+	width: 50px;
+	height: 50px;
+	background: url(image/losemyminddate.gif) no-repeat top;
+}
+#content .list .miniCal .top {
+	color: #fff;
+	margin-top: -1px;
+	padding: 0 0 5px 11px;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+#content .list .miniCal .day {
+	font-weight: bold;
+	width: 42px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	margin-top: -2px;
+	color: #888;
+}
+#content .list .title .titleBox {
+	width: 750px;
+	float: left;
+	margin-left: 5px;
+	font-size: 12pt;
+	font-family: Malgun Gothic, sans-serif;
+	line-height: 165%;
+}
+#content .list .title .titleBox a {
+	color: #c5b77d;
+}
+
+/* Content - post list - comment contents/reply */
+#content .list .co_content {
+	padding: 10px;
+	color: #777;
+	line-height: 170%;
+	margin: 0px 20px 0px 20px;
+}
+#content .commentBox {
+	margin: 10px 40px 10px 90px;
+	border: #eee 3px solid;
+}
+#content .commentBox .co_list {
+	border-bottom: #eee 1px dotted;
+}
+#content .commentBox .co_name {
+	float: left;
+	text-align: right;
+	width: 120px;
+	padding: 5px 15px 5px 0;
+}
+#content .commentBox .co_memo {
+	float: left;
+	text-align: left;
+	width: 700px;
+	padding: 5px;
+}
+#writeBox {
+	padding: 30px;
+}
+.replyBox {
+	padding: 15px 0 15px 0;
+	background-color: #fafafa;
+}
+#writeBox textarea, .replyBox textarea {
+	height: 50px;
+	width: 600px;
+	border: #ccc 2px solid;
+	padding: 3px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.replyBox textarea {
+	width: 390px;
+}
+#writeBox textarea:hover, .replyBox textarea:hover {
+	background-color: #f7f7f7;
+}
+#writeBox textarea:focus, .replyBox textarea:focus {
+	background-color: #f7f7f7;
+}
+#writeBox input, .replyBox input.s {
+	margin-left: -5px;
+	height: 60px;
+	width: 80px;
+	padding: 3px;
+	background-color: #ccc;
+	color: #fff;
+	border-left: 0 none;
+	border-top: #ccc 2px solid;
+	border-right: #ccc 2px solid;
+	border-bottom: #ccc 2px solid;
+	vertical-align: middle;
+}
+.replyBox input.i {
+	vertical-align: top;
+	border: #ddd 2px solid;
+	padding: 2px 2px 2px 18px;
+	width: 70px;
+	background: url(image/openid.gif) no-repeat left;
+}
+
+/* BOTTOM COMMENT WRITE */
+#prevNextPost {
+	padding-top: 50px;
+	width: 900px;
+	background: url(image/losemymindbgwide.jpg) repeat-y;
+}
+#prevNextPost .prev {
+	float: left;
+	height: 30px;
+	width: 409px;
+	text-align: left;
+	padding-left: 40px;
+}
+#prevNextPost .next {
+	float: left;
+	width: 409px;
+	height: 30px;
+	text-align: right;
+}
+#prevNextPost a {
+	color: #999;
+}
+#prevNextPost span {
+	color: #999;
+}
+
+/* Bottom - copyright */
+#foot {
+	margin: auto;
+	width: 900px;
+	background: url(image/cafe.foot.gif) no-repeat top;
+	padding-top: 20px;
+	height: 102px;
+	font-size: 10px;
+	color: #ccc;
+}
+#foot a { 
+	color: #ccc;
+	font-size: 10px;
+	font-family: verdana, sans-serif;
+}
+
+div.clr { clear: both; }

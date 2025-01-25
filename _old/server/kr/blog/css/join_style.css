@@ -1,0 +1,17 @@
+﻿body {
+	background: url(../image/white_back.gif);
+}
+a {
+	color: #2777fb;
+	text-decoration: none;
+}
+div.top {
+	padding-top: 7px;
+	height: 28px;
+	color: #2777fb;
+	font-weight: bold;
+	background: url(../image/darkgray/top.background.gif) repeat-x top;
+}
+td.r {
+	text-align: left;
+}

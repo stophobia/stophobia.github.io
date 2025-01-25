@@ -1,0 +1,352 @@
+body { background: #fff; font:12px/1.6 "Segoe UI", sans-serif; padding: 0; margin: 0; color:#444;}
+
+a:link { text-decoration: none; color:#000; border: 0px; -moz-outline-style: none;}
+a:active { text-decoration: none; color:#000; border: 0px; -moz-outline-style: none;}
+a:visited { text-decoration: none; color:#000; border: 0px; -moz-outline-style: none;}
+a:hover	{ text-decoration: underline; color:#000; border: 0px; -moz-outline-style: none;} 
+a:focus { outline: none;-moz-outline-style: none;}
+
+img { padding: 0px; margin: 0px; border: none; text-align: center;}
+hr { border-left:0px solid #abb0b5; border-right:0px solid #abb0b5; border-top:1px dotted #abb0b5; border-bottom:0px solid #abb0b5; height:1px;  }
+
+form { padding: 0px; margin: 0px;}
+input { font-family: "Segoe UI", sans-serif; color: #444; font-size: 11px;}
+textarea { font-family: "Segoe UI", sans-serif; color: #444; font-size: 11px;}
+select { font-family: "Segoe UI", sans-serif; color: #444; font-size: 11px;}
+
+/* BGContainer +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.BGC { width: 1000px; margin: 0 auto; padding: 0px; position: relative; }
+
+/* Header +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/**/ * html .Header { height: 98px;} /* */ 
+.Header { width: 1000px; position: relative; clear: left; padding: 0px; min-height:98px;}
+
+.Header h1 { font-size: 28px; line-height: 28px; letter-spacing: -1px; padding: 27px 5px 0px 100px; margin: 0px; font-weight: normal;}
+.Header h1 a { color:#444; text-decoration: none; }
+.Header h1 a:visited { color:#444; text-decoration: none; }
+.Header h1 a:hover { color:#444; text-decoration: none; }
+.Header .Desc { color:#444; font-size: 14px; line-height: 14px; font-weight: bold; letter-spacing: -1px; padding: 0px; margin: 10px 0px 0px 100px;}
+
+/* Menu +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Menu { width: 1000px; position: relative; float: left; height: 35px;}
+.Menu em { display: none}
+.Menu ul { list-style: none; margin: 0px; padding: 10px 0px 0px 100px;}
+.Menu ul li ul { display: none;}
+.Menu li { padding: 0px; margin: 0px; display: inline; font-size: 11px;}
+.Menu a { padding: 0px 0px 0px 3px; margin-right: 2px; background: url(images/MLeft.png) no-repeat left top; float: left;}
+.Menu a span { padding: 6px 9px 6px 6px; display: block; background: url(images/MRight.png) no-repeat right top; float: right; }
+.Menu a span { float: none; color: #444;}
+.Menu a:hover span { color: #000;}
+.Menu a:hover { background-position: 0% -25px; color:#000; text-decoration: none;}
+.Menu a:hover span { background-position: 100% -25px;  color:#000;}
+/* Container +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.CON { background: #fff url(images/BGC.gif) repeat-y center; width: 1000px; float: left; position: relative; padding: 0px}
+
+/* Side Central Single +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.SCS { width: 420px; float: left; padding: 15px 30px 15px 100px; }
+.SCS h1 { font-size: 18px; font-weight: normal; padding-bottom: 20px; letter-spacing: -1px; }
+.SCS h2 { font-size: 16px; font-weight: normal; }
+.SCS h3 { font-size: 14px; font-weight: bold; }
+
+.SCS p { font-size: 12px; line-height: 17px;}
+.SCS p strong {}
+.SCS img {}
+.SCS ul { padding: 10px 0px; margin: 0px; }
+.SCS li { padding: 2px 0px 2px 15px; list-style-type: none; background: url(images/PostContentLiIco.png) no-repeat left top; font-size: 11px; line-height: 15px; color:#444; }
+.SCS blockquote { padding: 2px 10px; background: #e9f8ff; margin: 0px; color:#444; }
+.SCS blockquote p { font-size: 11px; padding: 5px 0px; margin: 5px 0px; line-height: 15px;}
+.SCS blockquote li { padding: 2px 0px 2px 15px; list-style-type: none; background: url(images/PostContentBlockLiIco.png) no-repeat left top; font-size: 11px; line-height: 15px; color:#444; }
+.SCS blockquote a { color:#000; }
+.SCS blockquote a:visited { color:#000; }
+.SCS blockquote a:hover { color:#000; }
+
+/* Side Central +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.SC { width: 420px; float: left; padding: 15px 30px 15px 100px;}
+.SC h2 { font-weight: normal;}
+.pagetitle { font-size: 20px; font-weight: normal; letter-spacing: -1px; border-bottom: solid 1px #444; padding-bottom: 15px;}
+
+/* Post +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Post {	padding: 0px; position: relative; clear: left;}
+.PostHead { position: relative; clear: left; background: url(images/PostHead.gif) repeat-x bottom; padding-bottom: 10px;}
+.PostHead h1 { font-size: 20px; line-height: 20px; letter-spacing: -1px; font-weight: bold; padding: 0px 0px 17px 0px; margin: 0px; color:#cc6600;}
+.PostHead h1 a { color: #0F6297; text-decoration: none;}
+.PostHead h1 a:visited { color: #007ac8; text-decoration: none;}
+.PostHead h1 a:hover { color:#cc6600; text-decoration: none;}
+
+.PostAuthor { padding: 5px 0px 0px 0px; margin: 0px; font-size: 11px; color:#8a98a2;}
+.PostDate { margin: 0px; position: absolute; top: 0px; left: -70px; text-align: center; background: url(images/PostHead.gif) repeat-x bottom; padding: 0px 10px 6px 10px;}
+.PostDate small { font-size: 10px; color:#8a98a2; font-weight: bold; }
+.PostDate .month { display:block; text-transform: uppercase; font-size: 9px;}
+.PostDate .day { display:block; font-size: 24px; line-height: 24px; letter-spacing: -1px; font-weight: normal; color:#4a5a65;}
+.PostDate .year { display:block;}
+
+.PostContent { padding: 10px 0px 15px 0px; font-size: 10pt; line-height: 165%; background: url(images/PostHead.gif) repeat-x bottom; }
+.PostContent h2 { padding-bottom: 10px; border-bottom: #ddd 1px solid; font-weight: bold; }
+.PostContent p { font-size: 12px; line-height: 17px;}
+.PostContent p strong {}
+.PostContent img {}
+.PostContent ul { padding: 10px 0px; margin: 0px; }
+.PostContent li { padding: 2px 0px 2px 15px; list-style-type: none; background: url(images/PostContentLiIco.png) no-repeat left top; font-size: 11px; line-height: 15px; color:#4c4c4c; }
+.PostContent blockquote { padding: 10px; background: #e9f8ff; margin: 10px 0 10px 0; color:#336699; font-size: 11px; }
+.PostContent blockquote p { font-size: 11px; padding: 5px 0px; margin: 5px 0px; line-height: 15px;}
+.PostContent blockquote li { padding: 2px 0px 2px 15px; list-style-type: none; background: url(images/PostContentBlockLiIco.png) no-repeat left top; font-size: 11px; line-height: 15px; color:#336699; }
+.PostContent blockquote a { color:#0080ca; }
+.PostContent blockquote a:visited { color:#0080ca; }
+.PostContent blockquote a:hover { color:#003399; }
+.PostContent a { text-decoration: none;}
+
+.PostDet { padding-top: 15px;}
+.PostDet ul { padding: 0px; margin: 0px;}
+.PostDet li { padding: 5px 0px 5px 18px; margin: 0px 10px 0px 0px; list-style-type: none; display: inline; color:#336699; font-size: 11px; } 
+.PostDet li a { text-decoration: none; color: #336699; } 
+.PostDet .PostCateg { background: url(images/PostCateg.png) no-repeat left center; color: #A4B6C8; }
+.PostDet .PostCateg a { color: #A4B6C8; }
+.PostDet .PostCom { background: url(images/PostCom.png) no-repeat left center; }
+
+/* Note ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.Note { padding: 0px; margin: 0px;}
+.Note li { padding: 2px 0px 2px 15px; margin: 0px; list-style-type: none; font-size: 11px;}
+.NoteRss { background: url(images/NoteRss.png) no-repeat left top;}
+.PostDet .NoteTrackBack { background: url(images/NoteTrackBack.png) no-repeat left center;}
+.Note li a { color:#cc6600;}
+
+/* Navigation - PlugIn +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Nav { text-align: center; padding: 20px 0; }
+.Nav strong { padding: 2px 7px 2px 0; border-right: solid 1px #ddd; }
+.Nav a { padding: 2px 7px 2px 0; background: #fff; border-right: solid 1px #ddd; font-size: 11px; letter-spacing: -1px;}
+.Nav a:visited { padding: 2px 7px 2px 0; border-right: solid 1px #ddd;}
+.Nav a:hover { padding: 2px 7px 2px 0; border-right: solid 1px #ddd; text-decoration: none;}
+.Nav span { padding: 2px 7px 2px 0; color: #666; border-right: solid 1px #ddd; }
+.Nav .on { padding: 2px 7px 2px 0; border-right: solid 1px #ddd; font-size: 11px; color:#000;}
+
+/* Comments ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Comments { margin: 20px 0px 0px 0px;}
+
+/* Comments List  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Comments .List h3 { font-size: 14px; font-weight: bold; margin: 0px 0px 5px 0px; padding: 5px 0px; color:#000; }
+.Comments .List ol { padding: 0px; margin: 0px;}
+.Comments .List li { position: relative; padding: 15px 5px 10px 5px; margin: 0px 0px 20px 0px; list-style-type: none;}
+.Comments .List .ComListLi { background: #f6f1de url(images/ComListLiBottom.gif) no-repeat left bottom; }
+.Comments .List .ComListLi_response { background: #E5DDC0 url(images/ComListLiBottom_response.gif) no-repeat left bottom; color: #307AA3; }
+/**/ * html .Comments .List .ComListLiTop { left: -5px;} /**/ 
+.Comments .List .ComListLiTop { position: absolute; background: url(images/ComListLiTop.gif) no-repeat left top; height: 15px; width: 420px; left: 0px; top: 0px;}
+.Comments .List .ComListLiTop_response { position: absolute; background: url(images/ComListLiTop_response.gif) no-repeat left top; height: 15px; width: 420px; left: 0px; top: 0px;}
+
+/**/ * html .Comments .List .ListNr { left: -55px;} /**/ 
+.Comments .List .ListNr { color:#bec9d1; position: absolute; top: 15px; font-size: 24px; line-height: 24px; font-weight: normal; letter-spacing: -1px; padding: 0px; left: -55px; }
+
+/**/ * html .Comments .List .ListGrav { left: 10px;} /* */ 
+.Comments .List .ListGrav { position: absolute; top: 15px; left: 15px;}
+.Comments .List .ListGrav img { border: solid 1px #fff;}
+
+.Comments .List big { margin: 0px; padding: 0px 0px 0px 42px; font-size: 11px; line-height: 11px; letter-spacing: -1px; color:#333; font-weight: bold; display: block;}
+.Comments .List small { color:#a19a80; padding: 0px 0px 0px 42px; margin: 0px; font-size: 10px; }
+.Comments .List small a { color:#a19a80; text-decoration: none;}
+.Comments .List small a:visited { text-decoration: none;}
+
+.Comments .List .ListContent { margin: 15px 0px 0px 0px; padding: 5px 10px; font-size: 11px; line-height: 18px; background: #fff url(images/ComListContent.gif) no-repeat left top; display: block;}
+
+
+/* Comments Form ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Comments .Form h3 { font-size: 14px; font-weight: bold; letter-spacing: -1px; margin: 0px; padding: 5px 0px 10px 0px; color:#333;}
+.Comments .Form { background: #bbe9ff url(images/ComFormBottom.gif) no-repeat left bottom; padding: 10px 15px 20px 15px; position: relative;}
+/**/ *html .Comments .FormTop  { left: -15px;} /**/ 
+.Comments .FormTop { background: url(images/ComFormTop.gif) no-repeat left top; position: absolute; top: 0px; left: 0px; width: 504px; height: 7px;}
+.Comments .Form form {margin: 0px; padding: 0px;}
+.Comments .Form a { text-decoration: none;}
+.Comments .Form p { padding: 0px; margin: 0px; font-size: 11px; color:#336699; }
+.Comments .Form p small strong { font-size: 10px; font-weight: bold; color:#FF3300;}
+.Comments .Form p small { font-size: 11px; display: block; padding: 5px 0px;}
+.Comments .Form .TextField { background: #fff; border: solid 1px #9dc0d0; padding: 5px 4px; font-size: 11px; display: block;}
+.Comments .Form .TextArea { background: #fff; border: solid 1px #9dc0d0; padding: 4px; font-size: 12px;}
+
+.Comments .Form input.SubmitComment { width: 257px; height: 26px; background: url(images/SubmitComment.png) no-repeat; margin-top: 8px;}
+.Comments .Form input.SubmitComment:hover { background: url(images/SubmitComment.png) no-repeat 0 -26px; margin-top: 8px;}
+.Comments .Form input.SubmitCommentIE { width: 257px; height: 26px; background: url(images/SubmitComment.png) no-repeat 0 -26px; margin-top: 10px; margin-top: 8px;}
+
+
+/* Side Right +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.SR { width: 450px; float: right; position: relative; }
+.SR h2 { font-size: 14px; letter-spacing: normal; font-weight: bold; color:#fff;}
+
+/* Search ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Search { background: url(images/Search.gif) no-repeat left top; position: absolute; top: -63px; width: 280px; left: -9px;}
+.Search  form { padding: 30px 20px 10px 30px; margin: 0px;}
+.Search  input { border: none; color: #330033; font-size: 11px; }
+.Search  select { border: 0 none; margin-left: 5px; font-size: 11px; }
+.Search  input.search { width: 23px; height: 23px; background: url(images/SearchButton.png) no-repeat top; }
+.Search  input.keyword { background: none; border: none; padding: 5px 0px 5px 8px; width: 125px; border: none; } /**/ * html #buttonsearch { margin: -24px 0px 0px 203px; } /* */ 
+#buttonsearch { padding: 0px; margin: -23px 0px 0px 203px; top: 0px; background: none; }
+
+
+/* Flickr RSS - PlugIn ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Flickr { margin-bottom: 10px;}
+.Flickr h2 { background: url(images/FlickrH3.gif) no-repeat left top; padding: 0px 0px 5px 20px; margin: 0px 0px 10px 0px; }
+.Flickr ul { padding: 0px; margin: 0px;}
+.Flickr li { padding: 0px; margin: 0px 6px 0px 0px; list-style-type: none; display: inline;}
+.Flickr li a img { background: #000; padding: 1px; border: solid 4px #127aae; margin-bottom: 5px;}
+.Flickr li a:hover img { background: #fff; padding: 1px; border: solid 4px #09182a; margin-bottom: 5px;}
+
+/* Syndicate ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Syn { background: #09182a url(images/SynBottom.gif) no-repeat left bottom; margin-bottom: 10px; position: relative; padding: 10px 15px; }
+/**/ * html .SynTop { left: -15px;} /* */ 
+.SynTop { position: absolute; background: url(images/SynTop.gif) no-repeat left top; left: 0px; top: 0px; width: 230px; height: 8px; }
+.Syn ul { margin: 0px; padding: 0px;}
+.Syn li { background: url(images/SynIco.gif) no-repeat left center; margin: 0px; padding: 3px 0px 3px 20px; list-style-type: none; font-size: 12px; color:#0097ca;}
+.Syn li a { color:#fff; font-size: 12px; }
+
+
+/* Side Right Left +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.SR .SRL { width: 230px; float: left; padding: 15px 20px 15px 20px; color:#abcee1;}
+
+.SR .SRL a { color:#FFF; font-size: 11px; }
+.SR .SRL a:visited { color:#FFF; }
+.SR .SRL a:hover { color:#abcee1;}
+
+.SR .SRL .widget { margin-bottom: 20px; color:#fff;}
+.SR .SRL .widget h2 { background: url(images/CategH3.gif) no-repeat left top; padding: 0px 0px 5px 20px; margin: 0px; }
+.SR .SRL .widget ul { margin: 0px; padding: 0px;}
+.SR .SRL .widget li { margin: 0px; padding: 5px 0px 5px 20px; color: #94BBD1; list-style-type: none; font-size: 11px; background: url(images/CategLi.png) no-repeat left top;}
+.SR .SRL .widget li a { color: #94BBD1; }
+
+.SR .SRL .widget_categories .children ul { margin: 2px 0px 0px 0px; padding: 0px; list-style-type: none; }
+.SR .SRL .widget_categories .children li { margin: 0px; padding: 0px; list-style-type: none; border-bottom: none; font-size: 10px; background: none; }
+
+.SR .SRL .widget_tag_cloud { line-height: 18px;}
+
+.SR .SRL .widget_calendar table { width: 100%;}
+.SR .SRL .widget_calendar table td { text-align: center; padding: 3px; }
+.SR .SRL .widget_calendar caption { background: #006dab; padding: 5px 0px;}
+.SR .SRL .widget_calendar #today { background: #006dab;}
+
+.SR .SRL .widget_search #s { width: 160px; border: solid 1px #006dab; padding: 3px; margin-bottom: 5px;}
+
+
+/* Side Right Right +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.SR .SRR { width: 160px; float: right; padding: 10px;}
+
+.SR .SRR .widget { margin-bottom: 10px; color:#7a8fa4;}
+.SR .SRR .widget h2 { background: url(images/SRRH3.gif) repeat-x left bottom; color:#abcee1; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px; }
+.SR .SRR ul { padding: 0px; margin: 0px;}
+.SR .SRR li { padding: 0px 0px 10px 10px; margin: 0px; list-style-type: none; background: url(images/SRRIco.png) no-repeat left top;}
+.SR .SRR li a { color:#546D85; font-size: 11px; letter-spacing: -1px; }
+.SR .SRR li a:visited { color:#7a8fa4; }
+.SR .SRR li a:hover { color:#fff; text-decoration: none;}
+
+
+/* Footer ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.Footer { width: 970px; position: relative; clear: left; padding: 10px 15px;}
+.Footer p { font-size: 10px; color:#92b8cd; padding: 0px; margin: 0px; }
+.Footer a { color:#92b8cd; text-decoration: none;}
+
+/**********************
+ * for GR Blog ONLY 
+ **********************/
+.tiny { font-size: 11px; color: #999; }
+.term { margin-bottom: 15px; }
+li.cate { position: relative; }
+li.cate span { position: absolute; margin-top: -17px; right: 5px; color: #555; }
+.chooseEnterType {
+	border-top: #ddd 1px solid;
+	border-bottom: #ddd 1px solid;
+	padding: 10px;
+	background-color: #fafafa;
+	margin: 10px 0 20px 0;
+}
+#articleListPage {
+}
+#articleListPage ul {
+	margin: 0;
+	padding: 0;
+}
+#content .articleHead { 
+	padding: 10px;
+	margin: 0;
+	border-bottom: #eee 5px solid;
+	font-size: 16px;
+	text-align: center;
+}
+#content .articleHead a {
+	font-size: 14px;
+	font-weight: normal;
+}
+#content .articleList {
+	list-style: none;
+	background: url(images/SRRIco.png) no-repeat left center;
+	padding: 7px 0px 7px 10px;
+	vertical-align: middle;
+	border-bottom: dotted 1px #ddd;
+	margin: 0px;
+}
+#content .articleList:hover {
+	background-color: #ffffe5;
+}
+#content .articleList a {
+}
+#content .articleList a:hover,
+#content .articleHead a:hover {
+	color: #c872b0;
+	text-decoration: none;
+	font-weight: bold;
+}
+#content .articleList span {
+	color: #999;
+	font-size: 11px;
+}
+#tagClouds {
+	padding: 10px;
+	line-height: 190%;
+}
+/* 
+ * SIDEBAR or ETC TAG / Style 
+ */
+a.lv0 { color: #ccc; }
+a.lv1 { color: #bbb; }
+a.lv2 { color: #aaa; }
+a.lv3 { color: #999; }
+a.lv4 { color: #777; font-weight: bold; }
+a.lv5 { color: #555; font-size: 14px; }
+a.lv6 { color: #eee; background-color: #414141; font-size: 16px; }
+a.lv7 { font-weight: bold; background-color: #4c4c4c; font-size: 18px; }
+a.lv8 { font-weight: bold; font-size: 20px; background-color: #535353; }
+a.lv9 { font-weight: bold; font-size: 22px; background-color: #5a5a5a; }
+a.lv10 { font-weight: bold; font-size: 24px; background-color: #616161; }
+a.lv11 { font-weight: bold; font-size: 28px; background-color: #6d6d6d; }
+a.lv12 { font-weight: bold; font-size: 32px; background-color: #737373; }
+a.lv13 { font-weight: bold; font-size: 36px; background-color: #7c7c7c; }
+a.lv14 { font-weight: bold; font-size: 40px; background-color: #848484; }
+a.lv14 { font-weight: bold; font-size: 45px; background-color: #8f8f8f; }
+a.lv15 { font-weight: bold; font-size: 52px; background-color: #999; }
+a.readAll { background-color: #f5f5f5; letter-spacing: -1px; }
+span.findMe { background-color: yellow; color: red; }
+span.more { cursor: pointer; color: #2074bb; padding-right: 20px; }
+span.more:hover { background: url(../../image/icon_more_all.gif) no-repeat right; }
+div.trackback { text-align: right; position: absolute; right: 0; }
+div.clr { clear: both; }
+div.alert { text-align: center; font-size: 12pt; font-weight: bold; padding-top: 100px; }
+img.preview { margin: 0 8px 8px 0; padding: 5px 0 0 0; float: left; }
+.enterPass { border: #09182A 10px solid; padding: 30px; background-color: #fff; position: absolute; margin: -100px 0 0 5px; z-index: 100; }
+.center { text-align: center; }
+.text { border-top: #aaa 1px solid; border-left: #aaa 1px solid; border-bottom: #ddd 1px solid; border-right: #ddd 1px solid; background-color: #fff; width: 100px; }
+.text:hover { background-color: #f7f7f7; }
+.text:focus { background-color: #ffffe7; }
+.regular { font-size: 12px; }

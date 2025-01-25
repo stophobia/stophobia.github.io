@@ -1,0 +1,323 @@
+<?
+if($_GET[no]) {
+	$eres = mysql_query("select * from odtEventData where eNo='".$_GET[no]."'");
+} else {
+	$eres = mysql_query("select * from odtEventData where eOpen='1' order by eNo desc limit 1");
+}
+$erow = mysql_fetch_array($eres);
+$eventNo= $erow[eNo];
+?>
+
+<script>
+function reply2View(no) {
+	obj = eval(document.getElementById('viewReply_'+no));
+	obj2	= eval(document.getElementById('reply_arrow_'+no));
+	if(obj.style.display == "") {
+		obj.style.display = "none";
+		obj2.src = String(obj2.src).replace('_down_','_up_');
+	} else {
+		obj.style.display = "";
+		obj2.src = String(obj2.src).replace('_up_','_down_');
+	}
+}
+function replyDel(no) {
+	if(confirm('삭제하시겠습니까?')) hidden_frame.location.href="/pages/u01/eventPro.php?proMode=del&eCmtNo="+no;
+}
+function frmCheckFun(frm) {
+
+	<?=!$row_member[id] ? "return false;" : NULL;?>
+
+	if(!frm.eCmtContent.value) {
+		alert('댓글을 입력하세요.');
+		frm.eCmtContent.focus();
+		return false;
+	}
+
+	return true;
+}
+function topImgShow(obj) {
+	obj.src = String(obj.src).replace('_off_','_on_');
+}
+function topImgHide(obj) {
+	obj.src = String(obj.src).replace('_on_','_off_');
+}
+</script>
+<style>
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+</style>
+
+			<span id="inputBox" style="display:none">
+			<form name="form" action="/pages/u01/eventPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+			<input type="hidden" name="eventNo" value="<?=$eventNo?>">
+			<input type="hidden" name="eCmtID" value="<?=$row_member[id]?>">
+			<input type="hidden" name="eCmtName" size=10 value="<?=$row_member[name]?>">
+			<input type="hidden" name="eCmtSNo" value="">
+			<input type="hidden" name="eCmtIsReply" value="1">
+			<input type="hidden" name="proMode" value="ins">
+			<table width=100% border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td width=100%>
+						<input type="text"name="eCmtContent" style="width:97%;font-size:12px;border:1px solid #cccccc;" >
+					</td>
+					<td >
+						<input type="image" src="/images/poll2_10.gif" >
+					</td>
+				</tr>
+			</table>
+			</form>
+			</span>
+
+			<iframe name="hidden_frame" src="about:blank" width=100px height=100px style="display:none"></iframe>
+
+
+
+<?
+# SUB TOP 메뉴
+include_once dirname(__FILE__)."/head.sub.html";
+?>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="180" valign="top">
+<?
+# LEFT 메뉴
+include_once $_SERVER[DOCUMENT_ROOT]."/pages/mainLeft2.html";
+?>	
+										</td>
+                    <td width="20" valign="top">&nbsp;</td>
+                    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="900" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td><img src="/img/event_img_01.jpg" width="761" height="228" /></td>
+                          </tr>
+                        </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="14"></td>
+                            </tr>
+                          </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="109"><img src="/img/event_img_02.jpg" width="109" height="21" /></td>
+                              <td><select name="no" onchange="location.href='/?Pid=u01b02&no='+this.value">
+						<?
+						$resTmp = mysql_query("select * from odtEventData where eOpen='1' order by eNo Desc");
+						while($rowTmp = mysql_fetch_array($resTmp)) {
+							echo "<option value='".$rowTmp[eNo]."' ".($rowTmp[eNo] == $_GET[no] ? 'selected' : NULL).">".$rowTmp[eTitle]."</option>";
+						}
+						?>
+								</select></td>
+                            </tr>
+                          </table>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td><div align="center"><?=stripslashes($erow[eImg])?></div></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top"><table width="560" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td height="500" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td valign="top">
+
+																	<!-- 댓글 시작 -->
+																	<form name="eventFrm" action="/pages/u01/eventPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+																	<input type="hidden" name="eventNo" value="<?=$eventNo?>">
+																	<input type="hidden" name="eCmtID" value="<?=$row_member[id]?>">
+																	<input type="hidden" name="eCmtName" value="<?=$row_member[name]?>">
+																	<input type="hidden" name="eCmtSNo" value="">
+																	<input type="hidden" name="eCmtIsReply" value="0">
+																	<input type="hidden" name="proMode" value="ins">																	
+
+																		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td valign="top">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="436"><img src="/img/event_img_04.jpg" width="436" height="45" /></td>
+                                              <td valign="bottom" background="/img/talk_img_02.jpg">&nbsp;
+<?
+if($row_member[id]) {
+?>
+																								<input type="checkbox" name="sms" value="1" <?=$row_member[sms] == "Y" ? "checked" : NULL;?>><span style='font-size:11px;font-family:돋움'>답글 SMS로 받기</span>
+<?
+}
+?>																							
+																							</td>
+                                            </tr>
+																					</table>
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                              <tr>
+                                                <td height="4" background="/img/talk_img_03.jpg"></td>
+                                              </tr>
+                                          </table>
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                              <tr>
+                                                <td width="17" height="44" background="/img/talk_img_04.jpg">&nbsp;</td>
+<?
+if($row_member[id]) {
+?>
+                                                <td width="460" bgcolor="#f9f9f9"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 460px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="eCmtContent"></textarea></td>
+                                                <td width="3" bgcolor="#f9f9f9"></td>
+                                                <td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44" /></td>
+                                                <td background="/img/talk_img_06.jpg">&nbsp;</td>
+<?
+} else {
+?>
+                                                <td width="460" bgcolor="#f9f9f9" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 460px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="eCmtContent" disabled>로그인 후 이용해주세요.</textarea></td>
+                                                <td width="3" bgcolor="#f9f9f9"></td>
+                                                <td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');" /></td>
+                                                <td background="/img/talk_img_06.jpg">&nbsp;</td>
+<?
+}
+?>																						
+                                              </tr>
+                                            </table>
+																						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                              <tr>
+                                                <td><img src="/img/event_img_05.jpg" width="560" height="17" /></td>
+                                              </tr>
+																					  </table>
+																				</td>
+                                      </tr>
+                                    </table>
+																		</form>
+
+																		<!-- 댓글 출력 -->
+																		<span id="eventAjax"></span>
+	
+																	</td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                </table>
+
+<script>
+
+inputBoxHtml = document.getElementById('inputBox').innerHTML;
+var showNo;
+
+function replyBoxShow() {
+	document.getElementById('inputBox').innerHTML = inputBoxHtml;
+}
+
+function replyBoxHidden() {
+	document.getElementById('inputBox').innerHTML = "";
+}
+
+function replyBoxChange(no) {
+	if(!showNo) {
+		replyBoxHidden();
+	} else if(showNo != no) {
+		obj = eval(document.getElementById('reply_'+showNo));
+		obj.innerHTML = "";
+	}
+}
+
+
+function showReply(no) {
+	replyBoxChange(no);		// 현재 열려있는 박스 삭제
+	showNo = no;					// 현재 열려있는 박스 넘버 저장
+
+	obj = eval(document.getElementById('reply_'+no));
+	obj.innerHTML = inputBoxHtml;
+
+	// 리플에 필요한 값 저장
+	frm = document.form;
+	frm.eCmtSNo.value = no;
+	frm.proMode.value	=	"ins";
+	frm.eCmtIsReply.value = 1;
+
+}
+</script>
+
+	<script>
+	// request 객체 생성
+	var req = null;
+	function create_request() {
+			var request = null;
+			try {
+					request = new XMLHttpRequest();
+			} catch (trymicrosoft) {
+					try {
+							request = new ActiveXObject("Msxml12.XMLHTTP");
+					} catch (othermicrosoft) {
+							try {
+									request = new ActiveXObject("Microsoft.XMLHTTP");
+							} catch (failed) {
+									request = null;
+							}
+					}
+			}
+			if (request == null)
+					alert("Error creating request object!");
+			else
+					return request;
+	}
+
+	// 아작스 호출
+	function eventAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&eventNo=<?=$eventNo?>";
+		req = create_request();
+		req.open("POST", "/pages/u01/eventAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML3();
+		}
+
+	}
+
+	function printHTML3() {
+		if (req.readyState == 4 && req.status == 200) {
+			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('eventAjax').innerHTML = req.responseText;
+			}
+		}
+	}
+
+	window.onload = eventAjaxLoad;
+	</script>

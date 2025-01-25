@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width" />
+		<title>Daum모바일</title>
+	<link rel="stylesheet" type="text/css"  href="http://m.cartoon.media.daum.net/css/top/top_ipn.css" />
+		<script type="text/javascript">
+	//<![CDATA[
+		var D2233 = [
+			   [-1,1,"wList_","showBlock",4000,[1,1,1,1,1,1,1,1,1,1,1,1]]
+			   , [-1,1,"cntFin_","showBlock",4000,[1,1,1,1]]
+			   , [-1,1,"photo_","showBlock",12000,[1,1,1,1,1]]
+			   , [-1,1,"newsList_","showBlock",12000,[1,1,1]]
+			   , [-1,1,"tiList_","showBlock",undefined,[1,1]]
+			   , [-1,1,"blgList_","showBlock",undefined,[1,1]]
+		];
+	//]]>
+	</script>
+	<script type="text/javascript" src="http://m.cartoon.media.daum.net/js/top/common.js" charset="utf-8"></script>
+			</head>
+
+<body onload="rollingStart();">
+
+<div id="mobileWrap">
+
+	<div id="topWrap">
+		<h1><a href="mini" title="Dwaum 모바일" class="imbg daum">Daum 모바일화면</a></h1>
+		<a href="http://www.daum.net/?nil_top=mobile" title="PC화면 이동" class="imbg toPC">PC화면 이동</a>
+
+		<hr />
+
+		<div id="topSVC">
+
+			<h2 class="nodp">Daum 모바일 서비스</h2>
+			<ul class="imbg">
+			<li><a href="http://m.mail.daum.net" class="hanmail" title="한메일">한메일</a></li>
+			<li><a href="http://m.media.daum.net/" class="media" title="미디어다음">뉴스</a></li>
+			<li><a href="http://m.stock.daum.net/mobile/topindex.daum" class="stock" title="증권">증권</a></li>
+			<li><a href="http://m.bloggernews.media.daum.net/" class="blogger" title="블로거뉴스">블로거뉴스</a></li>
+
+			</ul>
+		</div>
+
+		<hr />
+
+		<div id="searchArea">
+			<h2 class="nodp">Daum 모바일 검색</h2>
+			<div id="searchBar">
+				<fieldset>
+
+				<legend>통합검색 입력 폼</legend>
+				<form name="search" method="get" onsubmit="searchsubmit(); return false;" action="">
+				<input type="hidden" id="nil_suggest" name="nil_suggest" value="btn" />
+				<input type="hidden" id="nil_ch" name="nil_ch" value="" />
+				<input type="hidden" name="rtupcoll" value="" />
+				<input type="hidden" name="w" value="tot" />
+				<input type="hidden" name="m" value="" />
+				<input type="hidden" name="lpp" value="" />
+
+				<span class="sbar_brd"><span class="sbar_intxt"><input id="q" type="text" value="" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" /></span></span>
+				<input type="submit" value="검색" name="search" class="imbg srch_btn" />
+				</form>
+				</fieldset>
+			</div>
+
+			<div id="hotSearch">
+				<h3 class="nodp">실시간이슈검색어</h3>
+
+				<ul>
+																				<li><a href="http://m.search.daum.net/mobile/search?q=%EC%9D%B4%EB%8B%A4%EC%9D%B8+%EC%8A%A4%ED%86%A0%ED%82%B9" class="imbg fir" title="이다인 스토킹">이다인 스토킹..</a></li>
+																				<li><a href="http://m.search.daum.net/mobile/search?q=%EB%82%98%ED%95%9C%EC%9D%BC" class="imbg" title="나한일">나한일</a></li>
+																				<li><a href="http://m.search.daum.net/mobile/search?q=%EC%97%B0%EA%B8%88%EC%88%A0%EC%82%AC" class="imbg" title="연금술사">연금술사</a></li>
+																				<li><a href="http://m.search.daum.net/mobile/search?q=%EB%AF%B8%EC%9B%8C%EB%8F%84+%EB%8B%A4%EC%8B%9C+%ED%95%9C%EB%B2%88" class="imbg" title="미워도 다시 한번">미워도 다시 ..</a></li>
+												</ul>
+			</div>
+
+		</div>
+
+		<div id="topSpecialArea">
+			<div id="topSpecial">
+				<h3 class="imbg special_head">스페셜 검색어</h3>
+				<ul class="imbg">
+				<li><a href="http://m.search.daum.net/mobile/search?q=%EA%B0%9C%EB%B4%89%EC%98%88%EC%A0%95%EC%9E%91" class="fir" title="개봉예정작">개봉예정작</a></li>
+				<li><a href="http://m.search.daum.net/mobile/search?q=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4" title="박스오피스">박스오피스</a></li>
+
+				<li><a href="http://m.search.daum.net/mobile/search?q=%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%9E%91" title="현재상영작">현재상영작</a></li>
+				<li><a href="http://m.search.daum.net/mobile/search?q=%EB%B2%A0%EC%8A%A4%ED%8A%B8%EC%85%80%EB%9F%AC" title="베스트셀러">베스트셀러</a></li>
+				</ul>
+				<span class="imbg top_bt_left"> </span><span class="imbg top_bt_right"> </span>
+			</div>
+		</div>
+
+	</div><!-- topWrap End -->
+
+	<hr />
+
+	<div id="contentsWrap">
+		<div id="cntMD">
+			<div class="cnt_tit">
+				<h2 class="news"><a href="http://m.media.daum.net" class="imbg md">뉴스</a></h2>
+				<!-- 날씨정보 -->
+
+				<div class="weather_wrap">
+					<span class="date"> 04.16 (목)</span>
+					<h3 class="nodp">지역별 날씨 정보</h3>
+					<ul class="imbg wt_list">
+																									<li id="wList_1" style="display: block"><span>서울/경기 6.5℃</span><em class="w_icon_40">6.5</em></li>
+																									<li id="wList_2" style="display: none"><span>충북 7.7℃</span><em class="w_icon_40">7.7</em></li>
+
+																									<li id="wList_3" style="display: none"><span>충남 7.7℃</span><em class="w_icon_40">7.7</em></li>
+																									<li id="wList_4" style="display: none"><span>영동 6.6℃</span><em class="w_icon_10">6.6</em></li>
+																									<li id="wList_5" style="display: none"><span>울릉/독도 6.1℃</span><em class="w_icon_2">6.1</em></li>
+																									<li id="wList_6" style="display: none"><span>전북 9.5℃</span><em class="w_icon_40">9.5</em></li>
+																									<li id="wList_7" style="display: none"><span>전남 10.9℃</span><em class="w_icon_40">10.9</em></li>
+
+																									<li id="wList_8" style="display: none"><span>제주 11.4℃</span><em class="w_icon_40">11.4</em></li>
+																									<li id="wList_9" style="display: none"><span>경북 10.1℃</span><em class="w_icon_4">10.1</em></li>
+																									<li id="wList_10" style="display: none"><span>경남 10.4℃</span><em class="w_icon_10">10.4</em></li>
+																									<li id="wList_11" style="display: none"><span>서해5도 4.9℃</span><em class="w_icon_2">4.9</em></li>
+																									<li id="wList_12" style="display: none"><span>영서 5.2℃</span><em class="w_icon_2">5.2</em></li>
+
+															</ul>
+				</div> <!-- 날씨정보 end -->
+			</div>
+			<div class="cnt_list">
+				<div id="photoNewsWrap">
+				<ul>
+					<li id="photo_1"><a href="http://m.media.daum.net/view.html?cateid=100000&newsid=20090416083002256&p=hani" class="photo_news" onmouseover="pauseRolling(2)" onmouseout="continueRolling(2)" onfocus="pauseRolling(2)" onblur="continueRolling(2)" title="권위 낮춘 '사장님차' 벤츠 추월할까"><img src="http://icon.daum-img.net/top/cms/news/2009/04/nano56389265595309188.gif" width="108" height="64" alt="권위 낮춘 '사장님차' 벤츠 추월할까" /><span>권위 낮춘 '사장님차' 벤츠 추월할까</span></a></li>
+					<li id="photo_2"><a href="http://m.media.daum.net/view.html?cateid=100000&newsid=20090416060308977&p=nocut" class="photo_news" onmouseover="pauseRolling(2)" onmouseout="continueRolling(2)" onfocus="pauseRolling(2)" onblur="continueRolling(2)" title="사망한 지적장애 A양, 20일간 무슨 일 당했나"><img src="http://icon.daum-img.net/top/cms/news/2009/04/nano56388753339512188.gif" width="108" height="64" alt="사망한 지적장애 A양, 20일간 무슨 일 당했나" /><span>사망한 지적장애 A양, 20일간 무슨 일 당했나</span></a></li>
+
+					<li id="photo_3"><a href="http://m.media.daum.net/view.html?cateid=100000&newsid=20090416060504205&p=yonhap" class="photo_news" onmouseover="pauseRolling(2)" onmouseout="continueRolling(2)" onfocus="pauseRolling(2)" onblur="continueRolling(2)" title="한국 의료관광으로 희망찾은 러시아 소녀"><img src="http://icon.daum-img.net/top/cms/news/2009/04/nano56388391390321188.gif" width="108" height="64" alt="한국 의료관광으로 희망찾은 러시아 소녀" /><span>한국 의료관광으로 희망찾은 러시아 소녀</span></a></li>
+					<li id="photo_4"><a href="http://m.media.daum.net/view.html?cateid=100000&newsid=20090416074242263&p=etimesi" class="photo_news" onmouseover="pauseRolling(2)" onmouseout="continueRolling(2)" onfocus="pauseRolling(2)" onblur="continueRolling(2)" title="물속에서도 음악 듣는다"><img src="http://icon.daum-img.net/top/cms/news/2009/04/nano56388491158710188.gif" width="108" height="64" alt="물속에서도 음악 듣는다" /><span>물속에서도 음악 듣는다</span></a></li>
+					<li id="photo_5"><a href="http://m.media.daum.net/view.html?cateid=100000&newsid=20090416072506534&p=newsen" class="photo_news" onmouseover="pauseRolling(2)" onmouseout="continueRolling(2)" onfocus="pauseRolling(2)" onblur="continueRolling(2)" title="'카벨' 초인, 영지에 "우리 가족 할래요?""><img src="http://icon.daum-img.net/top/cms/news/2009/04/nano56385880825300188.gif" width="108" height="64" alt="'카벨' 초인, 영지에 "우리 가족 할래요?"" /><span>'카벨' 초인, 영지에 "우리 가족 할래요?"</span></a></li>
+				</ul>
+				</div>
+
+				<ul id="newsList_1" style="display: block;">
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085511976&amp;p=ned" class="imbg fir" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="‘외국인매도’ 아직 우려상황 아니다">‘외국인매도’ 아직 우려상황 아니다</a></li>
+
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085509864&amp;p=ned" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="LED 켠 휴대폰, 판매도 ‘파란불’">LED 켠 휴대폰, 판매도 ‘파란불’</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085508723&amp;p=ned" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="초대형 공룡 오픈마켓 탄생 초읽기…이베이, G마켓 인수">초대형 공룡 오픈마켓 탄생 초읽기…이베이, G마켓 인수</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085335390&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="청와대 사이버안보보좌관 국가정보원 직제신설 추진">청와대 사이버안보보좌관 국가정보원 직제신설 추진</a></li>
+												</ul>
+				<ul id="newsList_2" style="display: none;">
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085332720&amp;p=dt" class="imbg fir" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="삼성전자 1분기 흑자 기대높다">삼성전자 1분기 흑자 기대높다</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085330514&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="인텔 1분기 실적 선전">인텔 1분기 실적 선전</a></li>
+
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085329394&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="3월 취업자수 19만5000명 감소">3월 취업자수 19만5000명 감소</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085328575&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="&quot;IPTV 학내망 대기업 특혜(?)">&quot;IPTV 학내망 대기업 특혜(?)</a></li>
+												</ul>
+				<ul id="newsList_3" style="display: none;">
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085326864&amp;p=dt" class="imbg fir" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="고성능 AM OLED 세계 첫 개발">고성능 AM OLED 세계 첫 개발</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085319936&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="쌍용자동차 관리직 대상 희망퇴직 신청">쌍용자동차 관리직 대상 희망퇴직 신청</a></li>
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085131245&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="&quot;IT미래 u헬스케어로 밝혀라&quot;">&quot;IT미래 u헬스케어로 밝혀라&quot;</a></li>
+
+																				<li><a href="http://m.media.daum.net/view.html?cateid=100000&amp;newsid=20090416085117792&amp;p=dt" class="imbg" onmouseover="pauseRolling(3)" onmouseout="continueRolling(3)" onfocus="pauseRolling(3)" onblur="continueRolling(3)" title="&quot;하나로 묶으면 요금이 확 내려갑니다&quot;">&quot;하나로 묶으면 요금이 확 내려갑니다&quot;</a></li>
+												</ul>
+			</div>
+			<div class="move_list_btn">
+				<a href="#" onclick="doBtnClickNext(2,-1,1); doBtnClickNext(3,-1,1); return false;" class="imbg prev" title="이전">이전</a>
+				<a href="#" onclick="doBtnClickNext(2,-1,1); doBtnClickNext(3,-1,1); return false;" class="imbg next" title="다음">다음</a>
+			</div>
+
+		</div><!-- 뉴스 리스트 end -->
+
+		<hr />
+
+		<!--<div class="ad_box"><a href="#" title="가필드가 돌아왔다!"><img src="http://img.mobile.daum.net/static_img/iphone/top/ad.gif" width="279" height="32" alt="가필드가 돌아왔다!"></a></div>-->
+
+		<hr />
+
+		<div id="cntFin">
+			<div>
+				<h3 class="nodp">금융</h3>
+
+				<ul>
+				<li id="cntFin_1" class="imbg stock" style="display: inline;">
+					<a href="http://m.stock.daum.net/mobile/quote/kospi.daum" onmouseover="pauseRolling(1)" onmouseout="continueRolling(1)" onfocus="pauseRolling(1)" onblur="continueRolling(1)" title="코스피">
+					코스피 1333.09
+															<strong class="dn">▼ 9.54</strong>
+					</a>
+				</li>
+				<li id="cntFin_2" class="imbg stock" style="display: none;">
+					<a href="http://m.stock.daum.net/mobile/quote/kosdaq.daum" onmouseover="pauseRolling(1)" onmouseout="continueRolling(1)" onfocus="pauseRolling(1)" onblur="continueRolling(1)" title="코스닥">
+
+					코스닥 502.2
+															<strong class="dn">▼ 6.48</strong></a>
+				</li>
+				<li id="cntFin_3" class="imbg ex_rate" style="display: none;"><a href="#" onmouseover="pauseRolling(1)" onmouseout="continueRolling(1)" onfocus="pauseRolling(1)" onblur="continueRolling(1)" title="미국 (USD)">미국 (USD) 1327.0</a></li>
+				<li id="cntFin_4" class="imbg ex_rate" style="display: none;"><a href="#" onmouseover="pauseRolling(1)" onmouseout="continueRolling(1)" onfocus="pauseRolling(1)" onblur="continueRolling(1)" title="일본 (JPY)">일본 (JPY) 1336.09</a></li>
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="cntUGC">
+			<div class="cnt_tit"> </div>
+			<!-- 티스토리 최근 리스트 -->
+			<h2><a href="#" id="tiTit" onclick="swapPop(1); return false;" class="imbg on">티스토리</a></h2>
+			<div id="tiList" class="cnt_list layout" style="display: block;">
+				<ul id="tiList_1" style="display: block;">
+
+																				<li><a href="http://j4blog.tistory.com/m/1110" class="imbg fir" title="표현의 자유, 실명제, 블로거 그리고 어린양 미네르바">표현의 자유, 실명제, 블로거 그리고 어린양 미네르바</a></li>
+																				<li><a href="http://chjung77.tistory.com/m/1162" class="imbg" title="부산 파라다이스 호텔 이탈리안 식당 "꼴라비니"">부산 파라다이스 호텔 이탈리안 식당 "꼴라비니"</a></li>
+																				<li><a href="http://toyvillage.tistory.com/m/174" class="imbg" title="예쁜여자랑 사귀는 못생긴 남자, 정말 돈이 많아서일까?">예쁜여자랑 사귀는 못생긴 남자, 정말 돈이 많아서일까?</a></li>
+																				<li><a href="http://www.funinside.net/m/782" class="imbg" title="물 속에서 들을 수 있는 음악을 들을 수 있다 아이리버-스피도의 Aquabeat">물 속에서 들을 수 있는 음악을 들을 수 있다 아이리버-스피도의 Aquabeat</a></li>
+												</ul>
+
+				<ul id="tiList_2" style="display: none;">
+
+																				<li><a href="http://khaiyang.tistory.com/m/617" class="imbg fir" title="박태환도 반할 수중 MP3플레이어 스피도 '아쿠아비트'">박태환도 반할 수중 MP3플레이어 스피도 '아쿠아비트'</a></li>
+																				<li><a href="http://dramastory2.tistory.com/m/550" class="imbg" title="결혼 앞둔 김보슬PD 체포와 사라지는 언론자유">결혼 앞둔 김보슬PD 체포와 사라지는 언론자유</a></li>
+																				<li><a href="http://endeva.tistory.com/m/950" class="imbg" title="일본의 인기 헤어스타일 모리헤어">일본의 인기 헤어스타일 모리헤어</a></li>
+																				<li><a href="http://theopen1.tistory.com/m/320" class="imbg" title="내칫솔, 휴대용 칫솔살균기(유비텍 TS-101)로 깨끗하게 치카치카 ! !">내칫솔, 휴대용 칫솔살균기(유비텍 TS-101)로 깨끗하게 치카치카 ! !</a></li>
+												</ul>
+
+				<a href="http://www.tistory.com/m" title="티스토리" class="imbg to_tistory">티스토리 홈으로</a>
+
+			</div>
+			<!--
+			<div class="move_list_btn">
+				<a href="#" onclick="doBtnClickNext(4,-1,0); return false;" class="imbg prev" title="이전">이전</a>
+				<a href="#" onclick="doBtnClickNext(4,-1,0); return false;" class="imbg next" title="다음">다음</a>
+			</div>
+			-->
+			<!-- 블로거뉴스 최근 리스트 -->
+			<h2><a href="#" id="blgTit" onclick="swapPop(2); return false;" class="imbg">블로거뉴스</a></h2>
+			<div id="blgList" class="cnt_list layout" style="display: none;">
+				<ul id="blgList_1" style="display: block;">
+																				<li><a href="http://blog.pdjournal.com/entry/속보‘PD수첩’-김보슬-PD-긴급-체포" target="_blank" class="imbg fir" title="'PD수첩' 김보슬 PD, 결혼 앞두고 긴급 체포">'PD수첩' 김보슬 PD, 결혼 앞두고 긴급 체포</a></li>
+																				<li><a href="http://lalawin.tistory.com/entry/marriage-dilemma" target="_blank" class="imbg" title="결혼은 현실이기만 한 걸까?">결혼은 현실이기만 한 걸까?</a></li>
+
+																				<li><a href="http://jsapark.tistory.com/m/161" target="_blank" class="imbg" title="아내에게 거짓말 청혼 &quot;회사에서 잘렸어&quot;">아내에게 거짓말 청혼 &quot;회사에서 잘렸어&quot;</a></li>
+																				<li><a href="http://blog.pdjournal.com/entry/엄기영-사장-중대발언-“MBC에-있을-필요가-없다”" target="_blank" class="imbg" title="엄기영 사장 중대발언 “MBC에 있을 필요가 없다”">엄기영 사장 중대발언 “MBC에 있을 필요가 없다”</a></li>
+												</ul>
+
+				<ul id="blgList_2" style="display: none;">
+																				<li><a href="http://www.fiancee.pe.kr/m/478" target="_blank" class="imbg fir" title="'패떴', 이제 고인물을 퍼내야 할 때다">'패떴', 이제 고인물을 퍼내야 할 때다</a></li>
+																				<li><a href="http://www.crossposting.co.kr/entry/CROSSPOSTING-인터뷰-충격적-반전-지금-이대로가-좋아요" target="_blank" class="imbg" title="충격적인 반전 '지금, 이대로가 좋아요'">충격적인 반전 '지금, 이대로가 좋아요'</a></li>
+
+																				<li><a href="http://hitting.kr/entry/KIA" target="_blank" class="imbg" title="KIA의 물방망이, 투수들이 불쌍하다">KIA의 물방망이, 투수들이 불쌍하다</a></li>
+																				<li><a href="http://junglish.tistory.com/entry/롯데구단-굿-아이디어-but-허접한-관리" target="_blank" class="imbg" title="롯데구단, 굿 아이디어 but 허접한 관리">롯데구단, 굿 아이디어 but 허접한 관리</a></li>
+												</ul>
+
+				<a href="http://m.bloggernews.media.daum.net" title="블로거뉴스" class="imbg to_blgnews">블로거뉴스 홈으로</a>
+			</div>
+			<div class="move_list_btn">
+				<a href="#" onclick="doBtnClickNext(4,-1,0); doBtnClickNext(5,-1,0); return false;" class="imbg prev" title="이전">이전</a>
+
+				<a href="#" onclick="doBtnClickNext(4,-1,0); doBtnClickNext(5,-1,0); return false;" class="imbg next" title="다음">다음</a>
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="cntCT">
+			<div class="cnt_tit">
+				<h2><a href="http://m.cartoon.media.daum.net/cartoon/main.daum" class="imbg ct">만화속세상</a></h2>
+
+			</div>
+
+			<div id="ctList">
+			<ul id="ctListVP" style="display: block;">
+																<li class="fir">
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1909" title="향연상자"><img src="http://img.mobile.daum.net/cartoon/1909/153133/153133_thumb.jpg" /><br /><span>향연상자</span></a></li>
+																<li>
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1907" title="루아"><img src="http://img.mobile.daum.net/cartoon/1907/153010/153010_thumb.jpg" /><br /><span>루아</span></a></li>
+
+																<li>
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1906" title="미소유희"><img src="http://img.mobile.daum.net/cartoon/1906/153139/153139_thumb.jpg" /><br /><span>미소유희</span></a></li>
+																<li>
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1891" title="R에 관해서"><img src="http://img.mobile.daum.net/cartoon/1891/153148/153148_thumb.jpg" /><br /><span>R에 관해서</span></a></li>
+																<li>
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1917" title="49"><img src="http://img.mobile.daum.net/cartoon/1917/153123/153123_thumb.jpg" /><br /><span>49</span></a></li>
+																<li>
+
+								<a href="http://m.cartoon.media.daum.net/cartoon/list.daum?cartoonId=1915" title="세브리깡"><img src="http://img.mobile.daum.net/cartoon/1915/153149/153149_thumb.jpg" /><br /><span>세브리깡</span></a></li>
+											<br class="clr" />
+			</ul>
+						</div>
+		</div>
+
+	</div><!-- contentsWrap End -->
+
+	<hr />
+
+	<div class="to_pc">
+			<input id="cmode" type="checkbox" name="cmode" onclick="checkCookie(event)" title="PC화면을 시작페이지로" />
+		<label for="cmode" onclick="onClickCheck(cmode);">PC화면을 시작페이지로</label>
+		<a href="http://www.daum.net/?nil_top=mobile" class="imbg" title="PC화면 이동">PC화면 이동</a>
+	</div>
+
+	<hr />
+
+<div id="footerWrap">
+		<div id="footer">
+			<div class="mini_copy">
+				<!-- miniDaum -->
+				<div id="DaumUI__minidaum"></div>
+				<script type="text/javascript" src="http://go.daum.net/bin/minidaum.cgi?minidaum_mobile=y&js_url=minidaumMobile2008" charset="euc-kr"></script>
+				<!--// miniDaum -->
+				<p class="copy">Copyright (c) Daum Communications. All rights reserved</p>
+
+			</div>
+		</div>
+	</div><!-- footerWrap End -->
+
+</div> <!-- Mobile wrap End -->
+
+
+<script type="text/javascript">
+//<![CDATA[
+/* Cookie */
+var cookieObj =
+[
+	{name: "mobile",value: "n", expire: "365"}
+]
+
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+	  ((expires) ? "; expires=" + makeGMT(expires) : "") +
+	  ((path) ? "; path=" + path : "") +
+	  ((domain) ? "; domain=" + domain : "") +
+	  ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+	begin = dc.indexOf(prefix);
+	if (begin != 0) return null;
+  } else
+	begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+	end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+	document.cookie = name + "=" +
+	((path) ? "; path=" + path : "") +
+	((domain) ? "; domain=" + domain : "") +
+	"; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function makeGMT(inputDay)	{
+	var currentTime = new Date();
+	currentTime.setTime(currentTime.getTime() + 60 * 60 * 1000 * 24 * inputDay);
+	return currentTime.toGMTString();
+}
+
+function checkCookie(evt)	{
+	var oElem = window.event ? window.event.srcElement : evt.target;
+	if (oElem.checked) {
+		// Checked
+		for(var i = 0 ; i < cookieObj.length ; i++){
+			setCookie(cookieObj[i].name,cookieObj[i].value,cookieObj[i].expire,"/",".daum.net","");
+		}
+	}else{
+		for(var i = 0 ; i < cookieObj.length ; i++){
+			deleteCookie(cookieObj[i].name,"/",".daum.net");
+		}
+	}
+
+}
+
+var isChecked = getCookie("mobile") == "n" ? true : false;
+
+if (isChecked) {
+	var oCheck = document.getElementById("cmode") || null;
+
+	if(oCheck != null)
+		oCheck.checked = isChecked;
+}
+//]]>
+</script>
+</body>
+</html>

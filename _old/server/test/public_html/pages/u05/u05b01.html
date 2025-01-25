@@ -1,0 +1,293 @@
+<?
+# 예약되어있는 토크를 입력.
+@exec("/usr/local/bin/php ".dirname(__FILE__)."/odprogram/odmanager/odproducts/afterComment2AutoPro.php");
+
+$thisMonth = $thisMonth ? $thisMonth : date('Y-m');
+$nextMonth = date('Y-m',strtotime("+1 months",strtotime($thisMonth."-01")));
+$prevMonth = date('Y-m',strtotime("-1 months",strtotime($thisMonth."-01")));
+
+?>
+<script>
+function topImgShow(obj) {
+	obj.src = String(obj.src).replace('_off_','_on_');
+}
+function topImgHide(obj) {
+	obj.src = String(obj.src).replace('_on_','_off_');
+}
+function encore(code) {
+<?
+	if(!$row_member[id]) { echo "alert('앵콜 투표는 회원만 참여할 수 있습니다.');return false"; }
+?>
+
+
+	if(confirm('앵콜투표에 참여하시겠습니까?')) {
+		hidden_frame.location.href="/pages/u05/encorePro.php?code="+code;
+	}
+}
+</script>
+<style>
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+.style1 {
+	color: #000000;
+	font-weight: bold;
+}
+</style>
+
+			<iframe name="hidden_frame" src="about:blank" width=100px height=100px style="display:none"></iframe>
+
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td height="31">&nbsp;</td>
+									</tr>
+								</table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="180" valign="top">
+<?
+# LEFT 메뉴
+include_once $_SERVER[DOCUMENT_ROOT]."/pages/mainLeft2.html";
+?>	
+										</td>
+                    <td width="20" valign="top">&nbsp;</td>
+                    <td valign="top">
+
+					<!-- 지난상품보기 시작 -->
+
+
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td><img src="/img/last_img_01.jpg" width="761" height="137" /></td>
+                      </tr>
+                    </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><table width="229" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="59"><A 
+															href="/?Pid=u05b01&thisMonth=<?=$prevMonth?>"><img src="/img/year_img_02.jpg" width="59" height="19" border=0 /></a></td>
+                              <td width="111"><div align="center" class="unnamed9"><?=str_replace("-",". ",$thisMonth)?></div></td>
+                              <td><A 
+															href="/?Pid=u05b01&thisMonth=<?=$nextMonth?>"><img src="/img/year_img_03.jpg" width="59" height="19" border=0 /></a></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </table>
+											<form name="oldSearch" method="get" action="/" style="display:inline">
+											<input type="hidden" name="Pid" value="u05b01">
+											<input type="hidden" name="thisMonth" value="<?=$_GET[thisMonth]?>">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="68"><img src="/img/last_img_02.jpg" width="68" height="22" /></td>
+                          <td width="109"><input class="gray_9" size="22" name="oldSearchWord" value="<?=$_GET[oldSearchWord]?>"/></td>
+                          <td width="4"></td>
+                          <td width="43"><input type="image" src="/img/last_img_04.jpg" width="43" height="22" border=0 /></td>
+                          <td width="377">&nbsp;</td>
+                          <td width="64"><img src="/img/last_img_05.jpg" width="64" height="22" /></td>
+                          <td><span style="PADDING-BOTTOM: 1px">
+														<SELECT name="viewCategory" class=input style="FONT-SIZE: 12px; FONT-FAMILY: 굴림" onchange="location.href='/?Pid=u05b01&viewCategory='+this.value+'&thisMonth=<?=$_GET[thisMonth]?>'">
+																			<option value="">전체</option>
+																			<option value="today" <?=$viewCategory == "today"  ? "selected" : NULL;?>>TODAY</option>
+																			<option value="week" <?=$viewCategory == "week"  ? "selected" : NULL;?>>WEEK</option>
+																			<option value="three" <?=$viewCategory == "three"  ? "selected" : NULL;?>>THREE</option>
+																			<option value="five" <?=$viewCategory == "five"  ? "selected" : NULL;?>>FIVE</option>
+																			<option value="five" <?=$viewCategory == "live"  ? "selected" : NULL;?>>MEDIA</option>
+
+																		</SELECT>
+                          </span></td>
+                        </tr>
+                      </table>
+											</form>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="15"></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="34" background="/img/last_img_06.jpg">&nbsp;</td>
+                        </tr>
+                      </table>
+<?
+unset($searchWhere);
+
+$where_  = " code !='".info_nowsale('01')."' and ";
+$where_ .= " code !='".info_nowsale('02')."' and ";
+$where_ .= " code !='".info_nowsale('03')."' and ";
+$where_ .= " code !='".info_nowsale('04')."' and ";
+$where_ .= " code !='".info_nowsale('05')."' and ";
+
+# 상품명검색이면.
+if($oldSearchWord) $searchWhere[] = " name like '%".$oldSearchWord."%' and ";
+
+# 분류검색이면.
+if($viewCategory) $searchWhere[] = " cateCode = '".$array_cate_desc[$viewCategory]."'  and ";
+
+$que = "select * from odtProduct where  ".$where_." ".@implode("",$searchWhere)." sale_date < '".date('Y-m-d')."' and seeDisabled != '1' and code = parent_code and sale_date like '".$thisMonth."%' order by sale_date desc";
+
+$res = mysql_query($que);
+
+if(!mysql_num_rows($res)) {
+?>
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height=30 align=center>
+														검색 결과가 없습니다.
+													</td>
+												</tr>
+											</table>
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="1" bgcolor="#d8d8d8"></td>
+                        </tr>
+                      </table>
+<?
+}
+while($row = mysql_fetch_array($res)) {
+	$row[name] = $oldSearchWord ? str_replace($oldSearchWord,"<span style='color:blue;background:yellow'>".$oldSearchWord."</span>",$row[name]) : $row[name];
+
+	# 앵콜 카운트
+	$enCnt = @mysql_result(mysql_query("select enCnt from odtEncore where enCode = '".$row[code]."'"),0);
+
+	# 사용 후기
+	$atCnt = @mysql_result(mysql_query("select count(*) from odtAfterTalk where afterProCode = '".$row[code]."'"),0);
+?>
+                      <!-- 루프 -->
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody>
+                              <tr>
+                                <td height="109" width="126"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td height="15" width="30"><div align="center"><img src="/img/last_img_07.jpg" width="13" height="12" /></div></td>
+                                        <td height="15"><span class="style1"><?=date('Y. m. d',strtotime($row[sale_date]))?></span></td>
+                                      </tr>
+                                    </tbody>
+                                </table></td>
+                                <td width="344"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td width="16">&nbsp;</td>
+                                        <td width="82"><img style="BORDER: #d1d1d1 1px solid;" src="<?=$row[oldlist_img]?>" width="80" height="80" /></td>
+                                        <td width="22">&nbsp;</td>
+                                        <td><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td colspan="2"><?=$row[name]?></td>
+                                              </tr>
+                                              <tr>
+                                                <td height="5" colspan="2"></td>
+                                              </tr>
+                                              <tr>
+                                                <td width="61"><a href="/?Pid=u05b01m01&code=<?=$row[code]?>"><img src="/img/last_img_09.jpg" width="55" height="19"  border=0 /></a></td>
+                                                <td width="163"><img src="/img/<?=$array_cate_asc[$row[cateCode]]?>_ico.jpg" width="56" height="19" /></td>
+                                              </tr>
+                                            </tbody>
+                                        </table></td>
+                                      </tr>
+                                    </tbody>
+                                </table></td>
+                                <td width="292"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td width="83"><a href="#none"  onclick="window.open('/pages/etc/sellerInfo.php?code=<?=$row[code]?>','','width=480,height=320,scrollbars=no');"><img src="/img/last_img_10.jpg" width="73" height="26" border=0 /></a></td>
+                                        <td style="CURSOR: hand" onclick="encore('<?=$row[code]?>')"  width="73"><table border="0" cellspacing="0" cellpadding="0"  width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="41"><img src="/img/last_img_11.jpg" width="41" height="26" /></td>
+                                                <td background="/img/last_img_12.jpg"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td height="2"></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td style="COLOR: #ff8412" align="middle">(<span id="encoreHTML_<?=$row[code]?>"><?=$enCnt ? $enCnt : 0;?></span>)</td>
+                                                      </tr>
+                                                    </tbody>
+                                                </table></td>
+                                              </tr>
+                                            </tbody>
+                                        </table></td>
+                                        <td width="10">&nbsp;</td>
+                                        <td width="73"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="41"><a href="/?Pid=u05b01m01&code=<?=$row[code]?>&tab=4"><img src="/img/last_img_13.jpg" width="41" height="26" border=0 /></a></td>
+                                                <td background="/img/last_img_14.jpg"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td height="2"></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td style="COLOR: #43bcc7" align="middle">(<?=$atCnt ? $atCnt : 0;?>)</td>
+                                                      </tr>
+                                                    </tbody>
+                                                </table></td>
+                                              </tr>
+                                            </tbody>
+                                        </table></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                </table></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="1" bgcolor="#d8d8d8"></td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table>
+<?
+}
+?>
+											<!-- 루프 끝 -->
+ 
+					<!-- 지난상품보기 끝 -->
+
+		</td>
+	</tr>
+</table>

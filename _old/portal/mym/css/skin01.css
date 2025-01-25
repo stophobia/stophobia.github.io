@@ -1,0 +1,398 @@
+@charset "Shift-JIS";
+<?header("Content-type: text/css");?>
+/* 
+------------------------------------------------------------
+file name: circle_skin01.css[defalt color]
+Author: H.Park 
+last updated: 2007.06.02
+
+======================= contents ===========================
+
+  1: column settings (background only)
+  2: color config
+  3: common item
+    : list and list item
+    : message bar[round corner]
+    : message bar[square corner]
+  4: button
+    : mini button
+    : mym remocon
+    : unit edit box
+    : blog-tag tab button
+    : column move button
+    : mym remote control
+    : profile box
+  5: contents box (mym_box)
+    : title bar
+    : title tools
+    : box body
+    : box bottom
+  6: unit item control box [hidden box]
+    : view-item control
+    : unit edit box
+  7: header
+    : sub navi
+    : global navi
+    : navi bottom image
+  8: profile box
+    : button
+    : quick link[pull down]
+  9: mym remocon
+ 10: contents box unit
+    : tag
+;
+============================================================
+*/
+html {
+filter:expression(document.execCommand("BackgroundImageCache", false, true));
+}
+/* column settings (background only)
+------------------------------------------------------------ */
+body {
+	background: #cee7eb url(../images/skin_green/bg_page.gif) repeat-x;
+	}
+/* color config
+------------------------------------------------------------ */
+.concept_col{
+	color: #060;
+	}
+.option_col {
+	color: #f60;
+	}
+.caution_col {
+	color: #f60;
+	font-weight: bold;
+	}
+
+/* common item
+------------------------------------------------------------ */
+/* list and list item */
+ul.mgame_list li {
+	background: url(../images/skin_green/point_orange.gif) no-repeat left center;
+	}
+/* message bar[round corner] */
+div.message_oneline {
+	color: #fff;
+	background: url(../images/skin_green/bg_roundbar_mid.gif) repeat-x;
+	}
+div.message_oneline div.left {
+	background: url(../images/skin_green/bg_roundbar_left.gif) no-repeat;
+	}
+div.message_oneline div.right {
+	background: url(../images/skin_green/bg_roundbar_right.gif) no-repeat;
+	}
+/* message bar[square corner] */
+div.notice {
+	background: url(../images/skin_green/bg_notice_mid.gif) repeat-x;
+	}
+div.notice div.book {
+	background: url(../images/skin_green/bg_notice_left_book.gif) no-repeat;
+	}
+div.notice div.mail {
+	background: url(../images/skin_green/bg_notice_left_mail.gif) no-repeat;
+	}
+div.notice div.right {
+	background: url(../images/skin_green/bg_notice_right.gif) no-repeat;
+	}
+
+/* button
+------------------------------------------------------------ */
+/* mini button */
+a.btn_confirm {
+	background: url(../images/skin_green/btn_confirm.gif);
+	}
+a.btn_add_rss {
+	background: url(../images/skin_green/btn_add_rss.gif);
+	}
+a.btn_admin {
+	background: url(../images/skin_green/btn_admin.gif);
+	}
+/* mym remocon */
+div#mym_remocon a.btn_mym_delete {
+	background: url(../images/skin_green/btn_mym_delete.gif);
+	}
+div#mym_remocon .btn_mym_delete_gray {
+	background: url(../images/skin_green/btn_mym_delete_gray.gif);
+	}
+div#mym_remocon a.btn_mym_add {
+	background: url(../images/skin_green/btn_mym_add.gif);
+	}
+div#mym_remocon .btn_mym_add_gray {
+	background: url(../images/skin_green/btn_mym_add_gray.gif);
+	}
+div#mym_remocon a.btn_mym_layout {
+	background: url(../images/skin_green/btn_mym_layout.gif);
+	}
+div#mym_remocon a.btn_mym_skin {
+	background: url(../images/skin_green/btn_mym_skin.gif);
+	}
+/* unit edit box */
+div.unit_edit_box a.btn_close {
+	background: url(../images/skin_green/btn_closearrow.gif);
+	}
+div.unit_edit_box a.btn_send {
+	background: url(../images/skin_green/btn_send.gif);
+	}
+div.unit_edit_box a.btn_add {
+	background: url(../images/skin_green/btn_add.gif);
+	}
+div.unit_edit_box a.btn_delete {
+	background: url(../images/skin_green/btn_delete.gif);
+	}
+div.unit_edit_box a.btn_arrow_up {
+	background: url(../images/skin_green/btn_uparrow.gif);
+	}
+div.unit_edit_box a.btn_arrow_down {
+	background: url(../images/skin_green/btn_downarrow.gif);
+	}
+div.unit_edit_box a.btn_select_delete {
+	background: url(../images/skin_green/btn_selectdelete.gif);
+	}
+div.unit_edit_box a.btn_save {
+	background: url(../images/skin_green/btn_settingsave.gif);
+	}
+/* blog-tag tab button */
+a.btn_tab_blog_on {
+	background: url(../images/skin_green/btn_tag_blog_on.gif);
+	}
+a.btn_tab_blog_off {
+	background: url(../images/skin_green/btn_tag_blog_gray.gif);
+	}
+a.btn_tab_guild_on {
+	background: url(../images/skin_green/btn_tag_guild_on.gif);
+	}
+a.btn_tab_guild_off {
+	background: url(../images/skin_green/btn_tag_guild_gray.gif);
+	}
+/* column move button */
+div.column_space a.btn_column_move {
+	background: url(../images/skin_green/btn_width_ctrl.gif);
+	}
+/* mym remote control */
+a.btn_mym_remocon {
+	background: url(../images/skin_green/btn_mym_remocon.gif);
+	}
+/* profile box */
+div#profile div.btn_link01 {
+	background: url(../images/skin_green/btn_bg_myblog_mid.gif) repeat-x;
+	}
+div#profile div.btn_link01 div.left {
+	background: url(../images/skin_green/btn_bg_myblog_left.gif) no-repeat;
+	}
+div#profile div.btn_link01 div.right {
+	background: url(../images/skin_green/btn_bg_myblog_right.gif) no-repeat;
+	}
+div#profile div.btn_link01 div.mid {
+	background: url(../images/skin_green/btn_myblog.gif) no-repeat center 4px;
+	}
+
+/* contents box (mym_box)
+------------------------------------------------------------ */
+/* title bar */
+div.mym_box div.title_bar div.left_corner {
+	background: url(../images/skin_green/bg_title_left.gif) no-repeat;
+	}
+div.mym_box div.title_bar div.right_corner {
+	background: url(../images/skin_green/bg_title_right.gif) no-repeat;
+	}
+div.mym_box div.title_bar div.title {
+	color: #060;
+	background: url(../images/skin_green/bg_title_mid.gif) repeat-x;
+	}
+/* title tools */
+div.mym_box div.title_bar div.title div.tool a.btn_edit {
+	background: url(../images/skin_green/btn_edit.gif) no-repeat;
+	}
+div.mym_box div.title_bar div.title div.tool a.btn_close {
+	background: url(../images/skin_green/btn_close.gif) no-repeat;
+	}
+/* box body */
+div.mym_box div.box_body {
+	border-left-color: #B3D4D2;
+	border-right-color: #B3D4D2;
+	background-color: #fff;
+	}
+/* box bottom */
+div.mym_box div.box_bottom div.left_corner {
+	background: url(../images/skin_green/bg_boxbottom_left.gif) no-repeat;
+	}
+div.mym_box div.box_bottom div.right_corner {
+	background: url(../images/skin_green/bg_boxbottom_right.gif) no-repeat;
+	}
+div.mym_box div.box_bottom div.mid {
+	background: url(../images/skin_green/bg_boxbottom_mid.gif) repeat-x;
+	}
+
+/* unit item control box [hidden box]
+------------------------------------------------------------ */
+/* view-item control */
+div.item_ctrl_pcs div.title {
+	background: url(../images/skin_green/point_orange_triangle.gif) no-repeat left center;
+	}
+/* unit edit box */
+div.unit_edit_box div.title {
+	color: #09f;
+	background: url(../images/skin_green/bg_rss_title.gif) no-repeat;
+	}
+div.unit_edit_box div.body {
+	border-color: #AFC6CF;
+	background-color: #EFF6FB;
+	}
+div.unit_edit_box div.text {
+	background: url(../images/skin_green/point_green.gif) no-repeat left center;
+	}
+div.unit_edit_box div.body div.inner_body {
+	border-color: #AFC6CF;
+	background-color: #fff;
+	}
+div.unit_edit_box div.body ul.list li {
+	background: url(../images/skin_green/point_green.gif) no-repeat left center;
+	}
+div.unit_edit_box div.bottom {
+	background: url(../images/skin_green/bg_rssbox_bottom.gif) no-repeat;
+	}
+
+/* header
+------------------------------------------------------------ */
+/* sub navi */
+div#header div#submenu a.menu01 {
+	background: url(../images/skin_green/btn_subnavi01.gif) no-repeat;
+	}
+div#header div#submenu a.menu02 {
+	background: url(../images/skin_green/btn_subnavi02.gif) no-repeat;
+	}
+div#header div#submenu a.menu03 {
+	background: url(../images/skin_green/btn_subnavi03.gif) no-repeat;
+	}
+div#header div#submenu a.menu04 {
+	background: url(../images/skin_green/btn_subnavi04.gif) no-repeat;
+	}
+div#header div#submenu a.menu05 {
+	background: url(../images/skin_green/btn_subnavi05.gif) no-repeat;
+	}
+div#header div#submenu a.menu06 {
+	background: url(../images/skin_green/btn_subnavi_logout.gif) no-repeat;
+	}
+/* global navi */
+div#header div#nav {
+	background: url(../images/skin_green/bg_navi.gif) no-repeat;
+	}
+div#header div#nav div#global_nav a.menu01 {
+	background: url(../images/skin_green/btn_gmb01_top.gif) no-repeat;
+	}
+div#header div#nav div#global_nav a.menu02 {
+	background: url(../images/skin_green/btn_gmb02_game.gif) no-repeat;
+	}
+div#header div#nav div#global_nav a.menu03 {
+	background: url(../images/skin_green/btn_gmb03_auct.gif) no-repeat;
+	}
+div#header div#nav div#global_nav a.menu04 {
+	background: url(../images/skin_green/btn_gmb04_blog.gif) no-repeat;
+	}
+div#header div#nav div#global_nav a.menu05 {
+	background: url(../images/skin_green/btn_gmb05_circ.gif) no-repeat;
+	}
+/* ギルドのサービスに入る場合は、294行、298行を消してください。 H.Park 
+	div#header div#nav div#global_nav a.menu06 {
+	background: url(../images/skin_yellow/btn_gmb06_guild.gif) no-repeat;
+	}
+*/
+div#header div#nav div#global_nav a.menu07 {
+	background: url(../images/skin_green/btn_gmb07_mym_on.gif) no-repeat;
+	}
+/* navi bottom image */
+div#header div.nav_bottom {
+	background: url(../images/skin_green/bg_logo_bottom.gif) no-repeat;
+	}
+
+/* profile box
+------------------------------------------------------------ */
+/* button */
+div#left_column div#profile a.btn_prof {
+	background: url(../images/skin_green/btn_prof_prof.gif) no-repeat;
+	}
+div#left_column div#profile a.btn_mymail {
+	background: url(../images/skin_green/btn_prof_mail.gif) no-repeat;
+	}
+div#left_column div#profile a.btn_mym {
+	background: url(../images/skin_green/btn_prof_mym.gif) no-repeat;
+	}
+div#left_column div#profile a.btn_buymint {
+	background: url(../images/skin_green/btn_prof_mint.gif) no-repeat;
+	}
+/* quick link[pull down] */
+div#left_column div#profile div.quick_link {
+	background: url(../images/skin_green/bg_green_mid.gif) repeat-x;
+	}
+div.quick_link div.left {
+	background: url(../images/skin_green/bg_green_left.gif) no-repeat;
+	}
+div.quick_link div.right {
+	background: url(../images/skin_green/bg_green_right.gif) no-repeat;
+	}
+
+/* mym remocon
+------------------------------------------------------------ */
+div#mym_remocon {
+	background: url(../images/skin_green/bg_mym_ctrl_mid.gif) repeat-y;
+	}
+div#mym_remocon div.head {
+	background: url(../images/skin_green/bg_mym_ctrl_top.gif) no-repeat;
+	}
+div#mym_remocon div.foot {
+	background: url(../images/skin_green/bg_mym_ctrl_bottom.gif) no-repeat;
+	}
+div#mym_remocon div.body ul li {
+	border-color: #fff;
+	background: url(../images/skin_green/point_mym_ctrl.gif) no-repeat left center;
+	}
+div#mym_remocon div.body li div.skin_color a.mym_skin_green {
+	border-color: #638c0b;
+	background-color: #99CC33;
+	}
+div#mym_remocon div.body li div.skin_color a.mym_skin_gray {
+	border-color: #898989;
+	background-color: #AAAAAA;
+	}
+div#mym_remocon div.body li div.skin_color a.mym_skin_skyblue {
+	border-color: #448AC9;
+	background-color: #79BCDD;
+	}
+div#mym_remocon div.body li div.skin_color a.mym_skin_pink {
+	border-color: #F19C9F;
+	background-color: #F0D0D1;
+	}
+div#mym_remocon div.body li div.skin_color a.mym_skin_yellow {
+	border-color: #B6AA00;
+	background-color: #FFF799;
+	}
+
+/* contents box unit
+------------------------------------------------------------ */
+/* tag */
+div#tag div.tag_text {
+	border-left-color: #d0d3c8;
+	border-bottom-color: #d0d3c8;
+	border-right-color: #d0d3c8;
+	}
+div#tag div.tag_text a {
+	background: url(../images/skin_green/slice_line.gif) no-repeat right center;
+	}
+div#tag div.tag_text a.hot {
+	color: #fff;
+	background: #80b043;
+	}
+div#tag div.tag_box {
+	background: url(../images/skin_green/bg_tagbox_top_mid.gif) repeat-x;
+	}
+div#tag div.tag_box div.left {
+	background: url(../images/skin_green/bg_tagbox_top_left.gif) no-repeat;
+	}
+div#tag div.tag_box div.right {
+	background: url(../images/skin_green/bg_tagbox_top_right.gif) no-repeat;
+	}
+div#tag div#tag_guild div.tag_box div.mid {
+	background: url(../images/skin_green/bg_tagbox_top_guild.jpg);
+	}
+
+

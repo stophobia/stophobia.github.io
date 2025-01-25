@@ -1,0 +1,144 @@
+﻿/** Common style - HTML Tag */
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 12px;
+	background-color: #eee;
+	font-family: Georgia, Gulim, sans-serif;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+input {
+	font-size: 12px;
+	vertical-align: middle;
+}
+a {
+	text-decoration: none;
+	color: #b72b2b;
+}
+
+/** Define style - ID */
+#adminBack {
+	background-color: #fff;
+	margin: 0px 5px 0px 5px;
+	border: #aaa 1px solid;
+	text-align: left;
+}
+#adminTop {
+}
+#menuBar {
+	background: url(images/background.menu.bar.gif) repeat-x top;
+	text-align: right;
+}
+#menuBar img {
+	vertical-align: top;
+}
+#control {
+	padding: 10px;
+	line-height: 160%;
+}
+#copyright {
+	font-size: 10px;
+	color: #999;
+	font-family: verdana, sans-serif;
+	background: #eee url(images/background.foot.gif) repeat-x top;
+	margin: 0px 10px 0px 10px;
+	height: 50px;
+	padding-top: 10px;
+}
+#copyright a {
+	text-decoration: none;
+	color: #777;
+}
+#memberTable {
+	width: 100%;
+}
+#loadBox {
+	position: absolute;
+	top: 27px;
+	right: 25px;
+	text-align: center;
+	width: 400px;
+	height: 80px;
+	background: url(images/background.loading.gif) no-repeat top left;
+	padding-top: 20px;
+	color: #000;
+	font-family: Dotum, sans-serif;
+	font-size: 11pt;
+	letter-spacing: -1px;
+}
+#memberModify {
+	position: absolute;
+	width: 550px;
+	border: #ddd 3px solid;
+	background-color: #fff;
+	padding: 10px;
+}
+#memberModify table {
+	width: 100%;
+	table-layout: fixed;
+}
+#memberModify th.list {
+	background: url(images/background.member.table.th.gif) repeat-x top;
+	height: 34px;
+}
+#memberModify td.list {
+	text-align: left;
+	height: 30px;
+	border-bottom: #ddd 1px dotted;
+}
+#closeWindow {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+}
+
+/** Common define style - class */
+#control input.i {
+	border: #ddd 1px solid;
+}
+#control input.s {
+	vertical-align: middle;
+}
+#control div.dotLine {
+	margin-top: 10px;
+	height: 10px;
+	border-top: #ccc 1px dotted;
+}
+#control span.b {
+	font-weight: bold;
+	border-bottom: #ddd 3px solid;
+	padding: 3px;
+}
+#control table {
+	width: 100%;
+	border: 0 none;
+	font-size: 12px;
+	table-layout: fixed;
+}
+#control th {
+	background: url(images/background.table.th.gif) repeat-x top;
+	height: 34px;
+	text-align: center;
+}
+#control td {
+	height: 30px;
+	text-align: center;
+	border-bottom: #ddd 1px dotted;
+}
+#control select {
+	font-size: 12px;
+	vertical-align: middle;
+}
+span.alert {
+	color: red;
+}

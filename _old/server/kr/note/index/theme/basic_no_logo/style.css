@@ -1,0 +1,517 @@
+/** Common style - HTML Tag */
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 10pt;
+	background-color: #eee;
+	font-family: Georgia, Gulim, sans-serif;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+input {
+	font-size: 12px;
+	vertical-align: middle;
+}
+a {
+	text-decoration: none;
+	color: #b72b2b;
+}
+textarea {
+	width: 99%;
+}
+select, option {
+	font-size: 12px;
+	vertical-align: middle;
+}
+li.a {
+	line-height: 170%;
+	cursor: pointer;
+}
+li.g {
+	line-height: 160%;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: #ddd 1px dotted;
+	background-color: #f9f9f9;
+}
+
+/** Define style - ID */
+#indexBack {
+	background-color: #fff;
+	text-align: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+#indexTop {
+}
+#main {
+	padding: 10px;
+	line-height: 170%;
+	position: relative;
+}
+#menuBar {
+	background: url(images/background.menu.bar.gif) repeat-x top;
+	text-align: right;
+}
+#menuBar img {
+	vertical-align: top;
+}
+#copyright {
+	font-size: 10px;
+	color: #ccc;
+	font-family: verdana, sans-serif;
+	background: #eee url(images/background.foot.gif) repeat-x top;
+	padding-top: 15px;
+	text-align: center;
+}
+#copyright a {
+	text-decoration: none;
+	color: #ccc;
+}
+#loadBox {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	text-align: center;
+	background-color: #fff;
+	padding: 15px;
+	border: #5e5e5e 5px solid;
+	font-family: Dotum, sans-serif;
+}
+#documentTitle {
+	padding: 10px;
+	border-bottom: #ddd 3px solid;
+	margin: 10px 0px 10px 0px;
+	font-size: 20px;
+	font-family: Dotum, sans-serif;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+#wikiWriteTip {
+	margin: 10px;
+	border: #ddd 1px dotted;
+	padding: 10px;
+	background-color: #f7f7f7;
+}
+#submitForm {
+	text-align: center;
+}
+#wikiButton, #projectButton {
+	text-align: right;
+	padding: 10px;
+	margin-top: 100px;
+}
+#wikiContent {
+	font-size: 10pt;
+	position: relative;
+}
+#goalTop {
+	padding: 7px;
+	background: url(images/background.goal.top.gif) repeat-x bottom;
+}
+#ticketTable {
+	width: 100%;
+}
+#ticketTable table {
+	width: 100%;
+	table-layout: fixed;
+}
+#ticketTable th {
+	background: url(images/background.table.th.gif) repeat-x top;
+	height: 34px;
+	text-align: center;
+	font-size: 12px;
+}
+#ticketTable td {
+	height: 30px;
+	text-align: center;
+	border-bottom: #ddd 1px dotted;
+	font-size: 12px;
+}
+#wikiLatestWord {
+	position: absolute;
+	top: 50px;
+	right: 20px;
+	width: 230px;
+	padding: 5px 0px 5px 0px;
+	border: #ddd 2px solid;
+	background-color: #fff;
+	color: #666;
+	cursor: move;
+}
+#wikiCtrl {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 14px;
+	height: 14px;
+}
+#wikiHistory {
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 700px;
+	height: 500px;
+	border: #7e7e7e 10px solid;
+	padding: 15px;
+	text-align: left;
+	overflow: auto;
+	margin: auto;
+	background-color: #fff;
+	cursor: move;
+}
+#historyBottom {
+	margin-top: 50px;
+	border-top: #eee 1px solid;
+	padding: 10px 0px 10px 0px;
+}
+#closeWindow {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+}
+#showTime {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	width: 450px;
+	height: 20px;
+	font-family: Dotum, sans-serif;
+	font-size: 8.5pt;
+	color: #ccc;
+	text-align: right;
+}
+#searchBox {
+	position: absolute;
+	top: 45px;
+	right: 30px;
+	width: 350px;
+	text-align: right;
+	padding: 20px;
+	border: #5e5e5e 5px solid;
+	font-size: 12px;
+	background: #fff url(images/background.wiki.search.gif) no-repeat top left;
+	cursor: move;
+}
+#uploadForm {
+	background-color: #f5f5f5;
+}
+#uploadForm .upload-image {
+	width: 350px;
+}
+#title {
+	background-color: #e9b086;
+	border: #c58251 5px solid;
+	padding: 10px;
+	color: #fff;
+	font-size: 10pt;
+	font-weight: bold;
+}
+#titleComplete {
+	background-color: #69b563;
+	border: #509b4a 5px solid;
+	padding: 10px;
+	color: #fff;
+	font-size: 10pt;
+	font-weight: bold;
+}
+#upload {
+	background-color: #f5f5f5;
+	padding: 20px 0px 20px 0px;
+}
+#uploadContent {
+	padding: 20px;
+}
+
+/** Optimize for Calendar - ePlanner */
+#calendarBox {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+#calendarBox table {
+	margin: auto;
+	width: 100%;
+	font-size: 12px;
+	color: #666;
+	table-layout: fixed;
+}
+#calendarBox th {
+	height: 30px;
+	text-align: center;
+	background: url(images/background.goal.top.gif) repeat-x bottom;
+}
+#calendarBox th.sun {
+	color: #d84343;
+	border: #ddd 1px solid;
+}
+#calendarBox th.n {
+	border-top: #ddd 1px solid;
+	border-right: #ddd 1px solid;
+	border-bottom: #ddd 1px solid;
+}
+#calendarBox th.sat {
+	color: #3a559e;
+}
+#calendarBox td {
+	vertical-align: top;
+	text-align: right;
+	height: 90px;
+}
+#calendarBox td:hover {
+	background-color: #f2f2f2;
+}
+#calendarBox td.today {
+	background-color: #f7f7f7;
+}
+#calendarBox td.today div.number {
+	font-weight: bold;
+	background-color: #f7f7f7;
+}
+#calendarBox td.today div.number a {
+	color: #000;
+}
+#calendarBox td div.number {
+	background-color: #f5f5f5;
+}
+#calendarBox td div.number span {
+	font-family: Dotum, sans-serif;
+	color: #ccc;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+#calendarBox td div.number a {
+	color: #888;
+}
+#calendarBox td div.number a:hover {
+	font-weight: bold;
+	color: #000;
+}
+#calendarBox td div.number span a {
+	color: #adcb9b;
+}
+#calendarBox td div.number span a:hover {
+	color: #498922;
+	font-size: 11px;
+	font-weight: normal;
+}
+#calendarBox td.sat {
+	color: #3a559e;
+}
+#calendarBox td.sun {
+	color: #d84343;
+}
+#calendarBox td.normal,
+#calendarBox td.headSpace,
+#calendarBox td.footSpace {
+	border-right: #eee 1px solid;
+	border-bottom: #eee 1px solid;
+}
+#calendarBox div.memo {
+	position: relative;
+}
+#calendarBox div.memo div.work {
+	position: relative;
+	width: 100%;
+	color: #fff;
+	font-size: 11px;
+	font-family: Dotum, sans-serif;
+	height: 14px;
+	margin-top: 2px;
+	text-align: left;
+	line-height: 120%;
+	overflow: hidden;
+	cursor: pointer;
+}
+#calendarBox div.memo span.more {
+	font-size: 10px;
+	color: #aaa;
+	font-family: tahoma, sans-serif;
+	cursor: pointer;
+}
+#calendarBox div.memo span.more:hover {
+	color: #000;
+	font-weight: bold;
+}
+#calendarBox div.memo div.gap3 { margin-top: 34px; }
+#calendarBox div.memo div.gap2 { margin-top: 18px; }
+#calendarBox div.memo div.lv5 { background-color: #da5d5d; }
+#calendarBox div.memo div.lv4 { background-color: #e57d7d; }
+#calendarBox div.memo div.lv3 { background-color: #ec9f9f; }
+#calendarBox div.memo div.lv2 { background-color: #ecb5b5; }
+#calendarBox div.memo div.lv1 { background-color: #ecdada; }
+#calendarMenu {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	width: 400px;
+	height: 30px;
+	text-align: right;
+	padding-right: 10px;
+}
+#calendarMenu strong {
+	font-family: "Trebuchet MS", tahoma, Dotum, sans-serif;
+	font-size: 16px;
+	vertical-align: middle;
+}
+#calendarMenu span.notLogin {
+	color: #e85133; 
+	font-family: Dotum, sans-serif; 
+	font-size: 11px;
+}
+#addPlanBox {
+	position: absolute;
+	cursor: move;
+	margin: auto;
+	top: 100px;
+	border: #5e5e5e 5px solid;
+	padding: 15px;
+	font-family: Dotum, sans-serif;
+	color: #888;
+	background: #fff url(images/background.planner.add.gif) no-repeat top left;
+}
+#addPlanBox div,
+#setMemorial div {
+	padding-top: 5px;
+}
+input.i {
+	border: #ddd 1px solid;
+	width: 60px;
+	vertical-align: middle;
+}
+input.sum {
+	width: 280px;
+}
+input.i:focus {
+	background-color: #f2f2f2;
+}
+#addPlanBox textarea,
+div.layerBox textarea {
+	width: 420px;
+	font-family: Dotum, sans-serif;
+	font-size: 11px;
+	color: #666;
+	vertical-align: top;
+	border: #ddd 1px solid;
+	padding: 5px;
+}
+div.close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+#addPlanBox select,
+#addPlanBox option,
+#setMemorial select,
+#setMemorial option {
+	font-size: 11px;
+	color: #666;
+}
+#memorialList {
+	margin-top: 10px;
+}
+div.layerBox {
+	position: absolute;
+	cursor: move;
+	margin: auto;
+	top: 80px;
+	border: #5e5e5e 5px solid;
+	padding: 10px;
+	width: 450px;
+	height: 500px;
+	overflow: auto;
+	color: #666;
+	background: #fff url(images/background.planner.add.gif) no-repeat top left;
+}
+div.layerBox li span {
+	font-family: Dotum, sans-serif;
+	color: #aaa;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+div.layerBox li div {
+	background-color: #f7f7f7;
+	border: #ddd 1px dotted;
+	padding: 5px;
+	margin: 5px 0px 5px 0px;
+}
+div.layerTitle {
+	padding: 5px;
+	border-bottom: #ddd 2px solid;
+	font-family: "Trebuchet MS", tahoma, Dotum, sans-serif;
+	font-size: 18px;
+}
+#setMemoTitle {
+	font-weight: bold;
+	color: #4e8e29;
+}
+#planTitle {
+	font-weight: bold;
+	color: #c93434;
+}
+#detailTitle strong {
+	color: #4c70ca;
+}
+
+/** Common define style - class */
+span.alert {
+	color: red;
+}
+span.b {
+	padding: 5px;
+	border-bottom: #ddd 3px solid;
+	font-family: Dotum, sans-serif;
+	font-weight: bold;
+	font-size: 11pt;
+	letter-spacing: -1px;
+}
+div.info {
+	background-color: #fdfeef;
+	border: #ddd 1px dotted;
+	padding: 10px;
+	margin: 10px 20px 10px 0px;
+}
+div.progressBar {
+	height: 10px;
+	border: #ddd 1px solid;
+	background-color: #96c390;
+	margin-bottom: 10px;
+}
+div.title1 {
+	font-size: 18pt;
+	letter-spacing: -1px;
+	font-weight: bold;
+	border-bottom: #ddd 2px solid;
+	padding: 7px;
+	font-family: Dotum, sans-serif;
+}
+div.title2 {
+	font-size: 16pt;
+	letter-spacing: -1px;
+	border-bottom: #ddd 1px solid;
+	padding: 5px;
+	font-family: Dotum, sans-serif;
+	font-weight: bold;
+}
+div.title3 {
+	font-size: 14pt;
+	letter-spacing: -1px;
+	border-bottom: #eee 1px solid;
+	padding: 3px;
+	font-family: Dotum, sans-serif;
+}

@@ -1,0 +1,109 @@
+<?php
+// 필요한 설정파일 불러오기
+include $_SERVER[DOCUMENT_ROOT]."/odprogram/odcommon/od_config.inc.php";
+include $_SERVER[DOCUMENT_ROOT]."/odprogram/odcommon/od_lib.inc.php";
+include $_SERVER[DOCUMENT_ROOT]."/odprogram/odcommon/od_function.inc.php";
+
+if(!$_GET[code]) {error_msgall('잘못된 접근입니다.','close');exit;}
+
+$que = "select * from odtProduct where code='".$_GET[code]."'";
+$res = mysql_query($que);
+$row = mysql_fetch_array($res);
+?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table width="560" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="9"></td>
+      </tr>
+    </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="20" height="45">&nbsp;</td>
+          <td width="260"><a href="sePop.html?code=<?=$_GET[code]?>"><img src="/images/popup_02.jpg" width="261" height="45" border=0></a></td>
+          <td><img src="/images/popup_01.jpg" width="260" height="45"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/images/popup_07.jpg" ></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="179" valign="top" background="/images/popup_04.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="11" height="179">&nbsp;</td>
+              <td width="537" valign="top" background="/images/popup_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="152" height="179" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td height="13"></td>
+                    </tr>
+                  </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="11" height="152">&nbsp;</td>
+                        <td><img src="/images/no_img2.gif"></td>
+                      </tr>
+                    </table></td>
+                  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="/images/popup_md.jpg" width="385" height="54"></td>
+                    </tr>
+                  </table>
+                    <table width="100%" border="0" cellspacing="5" cellpadding="5">
+                      <tr>
+                        <td valign="top" style="line-height:170%;padding-left:15px">이름 : 홍병국<br>
+                          닉네임 : 홍반장<br>
+                          특이사항 : 꼼꼼, 까칠, 성격급함 <br>
+                          목표 : 최상의 품질을 소비자에게 가장 싼 값으로...</td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+              <td>&nbsp;</td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td background="/images/popup_04.jpg"><table width="100%" border="0" cellspacing="10" cellpadding="10">
+            <tr>
+              <td><?=stripslashes($row[md_ment])?></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="1" bgcolor="#dedede"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height=40 align=right><a href="#none" onclick="self.close()"><img src="/images/btn_close00.gif" border=0></a></td>
+        </tr>
+      </table>
+			
+			</td>
+  </tr>
+</table>
+</body>
+</html>

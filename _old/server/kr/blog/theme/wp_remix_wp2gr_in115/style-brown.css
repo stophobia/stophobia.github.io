@@ -1,0 +1,433 @@
+
+body {
+	background: #443b34 url(img/body-bg.png) repeat;
+}
+img {
+	border: none;
+	background: none;
+}
+hr {
+	color: #fff;
+	border: none;
+	border-top: 1px dotted #D3D3D3;
+}
+blockquote{
+	background: url(img/quote.gif) no-repeat;
+	color: #666666;
+	}
+/*************************************
+	Links
+**************************************/
+a {
+	color: #fa7703;
+	}
+	
+a:hover{
+	color: #333;
+	}
+/*************************************
+	Headings
+**************************************/
+h1, h3 {
+	color: #443b34;
+	}
+h1 a, h3 a, h1 a:visited, h3 a:visited  {
+	color: #333;
+}
+h1 a:hover, h3 a:hover {
+	color: #bb0505;
+}
+h2 {
+	color: #000;
+}
+	
+h2 a, h2 a:visited  {
+	color: #666;
+}
+h2 a:hover {
+	color: #000000;
+	}
+h3 a, h3 a:visited {
+	color: #666;
+}
+#sidebar h2 {
+	color: #FFF;
+}
+#sidebar #popular h2 {
+	color: #FFF;
+}
+h6 {
+	color: #000;
+}
+/*************************************
+	Header
+**************************************/
+#header { 
+	background:url(img/headerbg.png) repeat-x;}
+	
+#header-in .title a {
+	color: #fff;
+}
+#header-in .title a:hover {
+	color: #FFF;
+}
+#header-in .description {
+	color: #FFF;
+}
+/*************************************
+	Subscribe form 
+**************************************/
+.subscribe {
+	background:url(img/subscribebg.png) bottom left no-repeat;
+	
+}
+	
+.subscribeform p { 
+	color:#fff; }
+	
+.subscribeform .input{
+	 background:url(img/sinputbg.png) no-repeat;
+	 border:none;} 
+.sbutton {
+	background:url(img/b_subscribebg.png) no-repeat;
+	border:none;
+	}
+
+
+  
+/*************************************
+	Top Search Form
+**************************************/
+/*Search box Rounded Corner start */
+#xsnazzy {background: transparent; }
+
+.xtop, .xbottom { background:transparent; }
+.xb2, .xb3, .xb4 {background:#443b34; border-left:1px solid #73685c; border-right:1px solid #73685c;}
+.xb1 {background:#73685c;}
+.xb2 {border-width:0 2px;}
+.xboxcontent {background:#443b34; border:0 solid #73685c; padding:5px; border-width:0 1px;}
+/*Search box Rounded Corner End */
+
+#searchform .s {
+	background: #fff;
+	color: #333;
+	border:1px solid #443b34;
+}
+
+ul.tablist { 	
+	color:#fffc9e;}
+ul.tablist li  { 
+	border-bottom:1px dotted #959595; 
+	color: #fffc9e;
+	background:url(img/bullet-arrow2.gif) no-repeat;
+	background-position:3px 8px;}
+ul.tablist li a { 
+	color: #fffc9e; }
+ul.tablist li a:hover 	{ 
+	color: #fff;}
+
+
+
+ 
+.searchform .s {
+	border: none;
+	background: #fff;
+	color: #333;
+	border:1px solid #443b34;
+}
+#nav li {
+	background: url(img/nav.png) top left no-repeat;
+	}
+#nav ul li:hover, #nav ul li.hover, #nav ul li.current_page_item {
+	background: url(img/nav-active.png) top left no-repeat;
+	}
+#nav ul li:hover a, #nav ul li.hover a, #nav ul li.current_page_item a {
+	color: #fa7703;	
+	background: url(img/nav-active.png) top right no-repeat;
+	}
+#nav ul li a {
+	color: #ffffff;
+	background: url(img/nav.png) top right no-repeat;
+	}
+#nav ul li a:hover {
+	color: #fa7703;
+	background: url(img/nav-active.png) top right no-repeat;
+	}
+
+/*************************************
+	Main Container
+**************************************/
+#container { 
+	background:url(img/container-cbg.gif) top left repeat-y;
+	border: 0px solid black;
+	}
+#container img	 { border:2px solid #333;}
+ 
+
+.container-top {
+	background:url(img/container-bg.gif) top left no-repeat;
+}
+.container-bottom {
+	background: url(img/container-bottom.gif) no-repeat;
+}
+/*************************************
+	Content
+**************************************/
+#content p img{
+	border: none;
+	}
+
+#content .post-meta-top {
+	color: #8E8F91;
+}
+#content .post-bottom {
+	border-top: 1px solid #DFE3E6;
+	color: #535353;
+}
+.post-bottom a {
+	color: #535353;
+}
+.cat span {
+	background: url(img/i_categories.png) 0px 3px no-repeat;
+}
+.comm {
+	background:url(img/comment.png) no-repeat;
+}
+ 
+.auth span {
+	background: url(img/i_author.png) 0px 1px no-repeat;
+}
+.nav-next	{ background:url(img/arrow-right.gif) no-repeat right; }
+.nav-previous { background:url(img/arrow-left.gif) no-repeat left; }
+
+/*************************************
+**************************************
+	Comments
+**************************************
+**************************************/
+
+.textarea { border:1px solid #ababab;}
+.Cbutton { 
+	border:none; 
+	background:#434343;
+	color:#fff;}
+
+/*	Headers	*/
+
+.comment-body {
+	background:url(img/quote.png) no-repeat left top;	
+}
+.comment-metadata {
+	background: #fff;
+	color: #ca5433;
+	border-top: 1px solid #ababab;
+}
+.comment-metadata a, .comment-metadata a:visited {
+	color: #333333;
+}
+.comment-metadata a:hover {
+	color: #FF8800;
+}
+.authorcomment {
+	}
+.authorcomment .comment-body {
+	border: none;}
+.authorcomment .comment-metadata {
+	background: #fff;
+	color: #333333;
+}
+.authorcomment .comment-metadata a {
+	color: #bb0505;
+}
+.authorcomment .comment-metadata a:hover {
+	color: #333;
+}
+
+/*	Comment Form	*/
+
+#commentform {
+}
+
+/*************************************
+	Sidebar
+**************************************/
+ #sidebar .advertise img {
+	border:none;
+}
+
+
+/*************************************
+	Popular Posts Section
+**************************************/
+ /*popular box Rounded Corner start */
+#pxsnazzy {background: transparent; }
+
+.pxtop, .pxbottom {  background:transparent; }
+.pxb2, .pxb3, .pxb4 {background:#443b34; border-left:1px solid #73685c; border-right:1px solid #73685c;}
+.pxb1 {background:#73685c;}
+.pxb2 {border-width:0 2px;}
+.pxboxcontent { background:#443b34; border:0 solid #73685c; padding:2px; border-width:0 1px;}
+/*popular box Rounded Corner End */
+
+#popular ul li ul {
+	border-top: 1px solid #9c9c9c;
+}
+#popular ul li ul li {
+	border-bottom: 1px dotted #9c9c9c;
+	background: url(img/bullet-arrow.gif) 5px 9px no-repeat;
+}
+#popular ul li ul li a, #popular ul li ul li a:visited {
+	color: #fffc9e;
+}
+#popular ul li ul li a:hover {
+	color:#fff;
+}
+
+/*************************************
+	Left Sidebar
+**************************************/
+#l_sidebar ul li ul {
+	border-top: 1px solid #9c9c9c;
+}
+#l_sidebar ul li ul li {
+	border-bottom: 1px dotted #9c9c9c;
+	background: url(img/bullet-arrow.gif) 5px 9px no-repeat;
+}
+#l_sidebar ul li ul li a, #l_sidebar ul li ul li a:visited {
+	color: #fffc9e;
+}
+#l_sidebar ul li ul li a:hover {
+	color:#fff;
+}
+#l_sidebar ul li ul li ul li {
+	border-bottom: 1px solid #EAF4FF; /*IE Bug Fix */
+	border-top: 1px dotted #9c9c9c;
+	background: none;
+}
+#l_sidebar ul li ul li ul li a, #l_sidebar ul li ul li ul li a:visited {
+	color: #fffc9e;
+}
+#l_sidebar ul li ul li ul {
+	border: none;
+}
+
+
+/*************************************
+	Right Sidebar
+**************************************/
+
+#r_sidebar ul li ul {
+	border-top: 1px solid #9c9c9c;
+}
+#r_sidebar ul li ul li {
+	border-bottom: 1px dotted #9c9c9c;
+	background: url(img/bullet-arrow.gif) 5px 9px no-repeat;
+}
+#r_sidebar ul li ul li a, #r_sidebar ul li ul li a:visited {
+	color: #fffc9e;
+}
+#r_sidebar ul li ul li a:hover {
+	color: #fff;
+}
+#r_sidebar ul li ul li ul li {
+	border-bottom: 1px solid #EAF4FF; /*IE Bug Fix */
+	border-top: 1px dotted #9c9c9c;
+	background: none;
+}
+#r_sidebar ul li ul li ul li a, #r_sidebar ul li ul li ul li a:visited {
+	color: #fffc9e;
+}
+#r_sidebar ul li ul li ul {
+	border: none;
+}
+#r_sidebar ul li ul li ul li a:hover {
+	color: #fffc9e;
+}
+
+/*************************************
+	Footer
+**************************************/
+#footer { 
+	color: #998b80;
+	}
+
+ .copyright a 	{ color: #998b80;}
+ .copyright a:hover {color: #fff;}
+		
+ ul#nav-footer li a 		{ color: #fff; text-decoration:none; }
+ ul#nav-footer li a:hover 	{ color: #fffc9e;   }
+ 
+ 
+  
+/*  Tabber  Style start -------------------- */
+ul.tabbernav li a
+{
+ border-bottom: none;
+ background: #443b34;
+}
+
+ul.tabbernav li a:link { color: #fffc9e; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #fff;
+ background: #18110c;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #30261e;
+ border-bottom: 1px solid #30261e;
+ color:#fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*---- tabbertab = the tab content---------------------*/
+.tabberlive .tabbertab {
+ border-top:0;
+ background:#30261e;
+}
+
+
+/*
+P.I.E. FLOAT CLEARING
+See http://www.positioniseverything.net/easyclearing.html 
+--------------------- */
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix {
+  display: inline-block; /* Fixes IE/Mac */
+}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */		
+
+
+
+/* If you wish to have Sidebar on left, Simple remove the code comment from below - /* */
+
+/*
+#container { 
+	background:#fff url(img/container-cbg-m.gif) top repeat-y;
+	}
+.container-top {
+	background:url(img/container-bg_m.gif) top left no-repeat;
+}
+.container-bottom {
+	background: url(img/container-bottom_m.gif) no-repeat;
+}
+*/

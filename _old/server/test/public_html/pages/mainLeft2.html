@@ -1,0 +1,150 @@
+<?
+$noticeTextTmp ="<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
+$i=0;
+$que08 = "select * from odtBoard where boardkind='1' order by wdate desc limit 6";
+$res08 = mysql_query($que08);
+while($row08 = mysql_fetch_array($res08)) {
+	$noticeTextTmp .="<tr>
+											<td width=\"14\"><img src=\"/img/icon_06.jpg\" width=\"14\" height=\"8\" /></td>
+                      <td><a href=\"/odprogram/odboard/odboardcount.php?board=1&page=1&serialnum=".$row08[serialnum]."\">".cut_str_short($row08[title],11,'..')."</a> 
+											".(++$i == 1 ? "<img src='/img/icon_07.jpg'>" : NULL)."</td>
+											</tr>
+											<tr>
+                      <td height=\"3\"></td>
+                     </tr>";
+
+}
+$noticeTextTmp .= "</table>";
+
+
+unset($arrayKey,$arrayVal);
+
+$arrayKey[] = "[MD_TITLE]";
+$arrayVal["[MD_TITLE]"] = "<img src=\"/odprogram/upfiles/design/left_md.jpg\" />";
+
+$arrayKey[] = "[MD_BOX_TOP]";
+$arrayVal["[MD_BOX_TOP]"] = "<img src=\"/odprogram/upfiles/design/left_md_box1.jpg\"  />";
+
+$arrayKey[] = "[MD_BOX_BG]";
+$arrayVal["[MD_BOX_BG]"] = "/odprogram/upfiles/design/left_md_box2.jpg";
+
+$arrayKey[] = "[MD_TEXT]";
+$arrayVal["[MD_TEXT]"] = stripslashes([md_ment]);
+
+$arrayKey[] = "[MD_BOX_BOTTOM]";
+$arrayVal["[MD_BOX_BOTTOM]"] = "<img src=\"/odprogram/upfiles/design/left_seller_box3.jpg\"  />";
+
+$arrayKey[] = "[SELLER_TITLE]";
+$arrayVal["[SELLER_TITLE]"] = "<img src=\"/odprogram/upfiles/design/left_seller.jpg\" />";
+
+$arrayKey[] = "[SELLER_BOX_TOP]";
+$arrayVal["[SELLER_BOX_TOP]"] = "<img src=\"/odprogram/upfiles/design/left_seller_box1.jpg\"  />";
+
+$arrayKey[] = "[SELLER_BOX_BG]";
+$arrayVal["[SELLER_BOX_BG]"] = "/odprogram/upfiles/design/left_seller_box2.jpg";
+
+$arrayKey[] = "[SELLER_TEXT]";
+$arrayVal["[SELLER_TEXT]"] = stripslashes([seller_ment]);
+
+$arrayKey[] = "[SELLER_BOX_BOTTOM]";
+$arrayVal["[SELLER_BOX_BOTTOM]"] = "<img src=\"/odprogram/upfiles/design/left_seller_box3.jpg\"  />";
+
+
+$arrayKey[] = "[NOTICE_TITLE]";
+$arrayVal["[NOTICE_TITLE]"] = "<a href=\"/odprogram/odboard/od_board.php?board=1\"><img src=\"/odprogram/upfiles/design/left_notice.jpg\" /></a>";
+
+$arrayKey[] = "[NOTICE_BOX_TOP]";
+$arrayVal["[NOTICE_BOX_TOP]"] = "<img src=\"/odprogram/upfiles/design/left_notice_box1.jpg\"  />";
+
+$arrayKey[] = "[NOTICE_BOX_BG]";
+$arrayVal["[NOTICE_BOX_BG]"] = "/odprogram/upfiles/design/left_notice_box2.jpg";
+
+$arrayKey[] = "[NOTICE_TEXT]";
+$arrayVal["[NOTICE_TEXT]"] = $noticeTextTmp;
+
+$arrayKey[] = "[NOTICE_BOX_BOTTOM]";
+$arrayVal["[NOTICE_BOX_BOTTOM]"] = "<img src=\"/odprogram/upfiles/design/left_notice_box3.jpg\"  />";
+
+$arrayKey[] = "[EVENT]";
+$arrayVal["[EVENT]"] = "<a href=\"/?Pid=u01b02\"><img src=\"/odprogram/upfiles/design/left_event.jpg\" /></a>";
+
+$arrayKey[] = "[PROPOLL]";
+$arrayVal["[PROPOLL]"] = "<a href=\"/?Pid=u01b01\"><img src=\"/odprogram/upfiles/design/left_poll.jpg\" /></a>";
+
+$arrayKey[] = "[EVENT]";
+$arrayVal["[EVENT]"] = "<a href=\"/?Pid=u01b02\"><img src=\"/odprogram/upfiles/design/left_event.jpg\" /></a>";
+
+$arrayKey[] = "[BANNER]";
+$arrayVal["[BANNER]"] = "<a href=\"/?Pid=u01b05\"><img src=\"/odprogram/upfiles/design/left_banner.jpg\" /></a>";
+
+$arrayKey[] = "[B2B]";
+$arrayVal["[B2B]"] = "<a href=\"/?Pid=u02b03\"><img src=\"/odprogram/upfiles/design/left_b2b.jpg\" /></a>";
+
+$arrayKey[] = "[CS]";
+$arrayVal["[CS]"] = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                            <tr>
+                              <td><img src=\"/img/cos_img_01.jpg\" width=\"180\" height=\"35\" /></td>
+                            </tr>
+                          </table>
+                            <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td height=\"39\" background=\"/img/cos_img_02.jpg\"><table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                                  <tr>
+                                    <td width=\"10\"></td>
+                                    <td class=\"price2\">".(trim(reset(explode("-",$row_company[tel]))) ? $row_company[tel] : substr($row_company[tel],1,10))."</td>
+                                  </tr>
+                                </table></td>
+                              </tr>
+                            </table>
+                            <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td height=\"4\"></td>
+                              </tr>
+                            </table>";
+
+$arrayKey[] = "[CSQNA]";
+$arrayVal["[CSQNA]"] = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td><div align=\"center\"><a href=\"/?Pid=u02b02\"><img src=\"/img/cos_img_bt.jpg\" width=\"119\" height=\"20\" border=0 /></a></div></td>
+                              </tr>
+                            </table>";
+
+
+$bankInfo = mysql_fetch_array(mysql_query("select * from odtBank"));
+$arrayKey[] = "[BANKINFO]";
+$arrayVal["[BANKINFO]"] = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td><img src=\"/img/bank_img_01.jpg\" width=\"180\" height=\"37\" /></td>
+                              </tr>
+                            </table>
+                            <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td height=\"42\" valign=\"top\" background=\"/img/bank_img_02.jpg\"><table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                                  <tr>
+                                    <td width=\"10\"></td>
+                                    <td>".($bankInfo[bankname] . " : " .$bankInfo[banknum])."<br />
+                                      예금주 : ".$bankInfo[name]."</td>
+                                  </tr>
+                                </table></td>
+                              </tr>
+                            </table>
+                            <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
+                              <tr>
+                                <td height=\"11\"></td>
+                              </tr>
+                            </table>";
+
+
+
+$contents = stripslashes(mysql_result(mysql_query("select sd_left from odtDesign2 limit 1"),0));
+
+for($i=0;$i<count($arrayKey);$i++) {
+	$contents = str_replace($arrayKey[$i],$arrayVal[$arrayKey[$i]],$contents);
+}
+
+$contentsTmp = explode("[IF_MAIN]",$contents);
+if(!$_GET['main'])  $contentsTmp[1] = "";
+$contents = implode("",$contentsTmp);
+
+echo $contents;
+?>

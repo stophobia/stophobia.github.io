@@ -1,0 +1,1430 @@
+<?
+function notice() {
+}
+
+function todayPrint() {
+
+}
+
+
+function weekPrint() {
+
+}
+
+function livePrint() {
+
+}
+function fivePrint() {
+
+}
+
+function threePrint() {
+}
+function od_bannerEvent() {
+}
+function jehu() {
+}
+function event() {
+}
+
+###################################################
+## 내가희망하는방송                              ##
+###################################################
+function poll2() {
+$startDate = date('Y-m')."-01";
+$endDate = date('Y-m-d',mktime(23,59,59,date("m")+1,0,date("Y")));
+$dateWhere = " and (pollRegidate >= '".$startDate."' and pollRegidate <= '".$endDate."')";
+?>
+
+			<table width="180" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td height="47" colspan="3"><a href="/?Pid=u01b01"><img src="/images/img_more_hope.gif" width="180" height="47" border="0"></a></td>
+        </tr>
+        <tr> 
+          <td width="10" background="images/m_l_tmbg.gif">&nbsp;</td>
+          <td><table width="160" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td><a href="/?Pid=u01b01"><img src="/images/img_hope_con.gif" width="160" height="226" border="0"></a></td>
+              </tr>
+              <tr> 
+                <td><table width="160" border="0" cellspacing="0" cellpadding="0">
+                    <?
+	$i = 0;
+	$proCode = 1;
+	$que = "select * from odtPoll2 where isReply !='1' and pollGood >= 3 ".$dateWhere."  order by pollGood desc, pollSNo desc,  pollRegidate  limit 3";
+	$res = mysql_query($que);
+	while($row = mysql_fetch_array($res)) {
+	?>
+                    <tr> 
+                      <td width="15"><img src="images/btn_0<?=++$i;?>.gif" width="13" height="13"></td>
+                      <td width="1"></td>
+                      <td width="110" class="main_poll"><a href="/?Pid=u01b01#poll_best"> 
+                        <?=cut_str_short($row[pollContent],11,'')?>
+                        </a></td>
+                      <td width="9" height="20"><img src="images/ico_up.gif" width="9" height="12"></td>
+                      <td ><font color="#FF3300" size="2" face="돋움"> 
+                        <?=$row[pollGood]?>
+                        </font></td>
+                    </tr>
+                    <tr bgcolor="#efefef"> 
+                      <td height="1" colspan="5"></td>
+                    </tr>
+                    <?
+	}
+	?>
+                  </table></td>
+              </tr>
+            </table></td>
+          <td width="10" background="images/m_r_tmbg.gif">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td><img src="images/m_l_tdownc.gif" width="10" height="9"></td>
+          <td background="images/m_l_tdownbg.gif"></td>
+          <td height="10"><img src="images/m_r_tdown.gif" width="10" height="9"></td>
+        </tr>
+      </table>
+<?
+}
+function cs() {
+}
+function onecut($code) {
+	$onecut = mysql_result(mysql_query("select onecut_img from odtProduct where code ='".$code."'"),0);
+
+	if($onecut) {
+		echo "<img src='".$onecut."' border=0>";
+	}
+}
+
+
+###################################################
+## 파자마토크                                    ##
+###################################################
+function pajama($code) {
+	global $row_product;
+	// 토요일 일요일, 그리고 평일 9시반 이전에는 채팅전이므로 안내이미지 출력
+	if($row_product[talkDisabled] || date('w') == 6 || date('w') == 0 || time() < strtotime(date('Y-m-d 09:30:00'))) {
+		echo "<img src='/images/talk_paja.jpg' border=0>";
+		echo "<script>function pajamaChatAjaxLoad() { return; }</script>";
+		return;
+	} 
+
+
+?>
+	<span id="pajamaChatAjax">
+	<table width=525 align=center border=0 cellpadding=0 cellspacing=0>
+		<tr>
+			<td height=75 align=right style="padding-right:15px"><img src="/images/pajatalk_top.gif" border=0></td>
+		</tr>
+		<tr>
+			<td height=1 bgcolor="e3e3e3"></td>
+		</tr>	
+		<tr>
+			<td width=525 align=center style="padding:8px 0 8px 0">모닝토크 불러오는 중...</td>
+		</tr>
+	</table>
+	
+	</span>
+
+<script>
+
+// 회원상세정보 출럭 Ajax 시작
+var selfID;
+
+function showInfo(id,name,divID) {
+
+	selfID = divID;
+
+	// 백그라운드로 DB 추출.
+	param = "id="+id+"&name="+name;
+	req = create_request();
+	req.open("POST", "/showUserInfo.php", true);
+	req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+	req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+	req.setRequestHeader("Pragma","no-cache");
+	req.send(param);
+	req.onreadystatechange = function () {
+		printHTML22();
+	}
+
+	document.getElementById(divID).style.display='';
+}
+function printHTML22() {
+	if (req.readyState == 4) {
+		if(req.status == 200) {
+			// 값이 있을때만 처리
+				resultText = req.responseText;
+				document.getElementById(selfID+"_1").innerHTML = resultText;
+		}
+	}
+}
+
+// 회원상세정보 출럭 Ajax 끝
+
+
+	function pajamaChatAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&code=<?=$code?>";
+		req = create_request();
+
+		req.open("POST", "/pages/etc/pajamaChatAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML4();
+		}
+
+	}
+
+	function printHTML4() {
+		if (req.readyState == 4 && req.status == 200) {
+//			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('pajamaChatAjax').innerHTML = req.responseText;
+//			}
+		}
+	}
+</script>
+
+<?
+}
+
+###################################################
+## 판매레포트                                    ##
+###################################################
+function report($code) {
+
+?>
+
+<table width="523" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/img/report_img_01.jpg"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="11"></td>
+        </tr>
+      </table>
+<?
+	# 첫번째 구매고객
+	$que1 = "select * from odtReport where reCode = '".$code."' order by reRegidate asc limit 1";
+	$res1 = mysql_query($que1);
+	$row1 = mysql_fetch_array($res1);
+
+	# 첫번째 토크 고객
+	$que2 = "select * from odtTt where ttProCode = '".$code."' and ttSNo != 0 and ttIsNotice = 'N' order by ttRegidate asc limit 1";
+	$res2 = mysql_query($que2);
+	$row2 = mysql_fetch_array($res2);
+?>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="/img/report_img_02.jpg"></td>
+				</tr>
+        <tr>
+          <td width="560" background="/img/report_img_03.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<?
+	$tmpCateCode = @mysql_result(mysql_query("select cateCode from odtProduct where code ='".$code."'"),0);
+?>
+						<tr>
+              <td width="27">&nbsp;</td>
+              <td width="200">첫번째 구매고객님 : <?=$row1[reID] ? (substr($row1[reID],0,$row1[reID]-3)."***") : "******";?></td>
+              <td width="60"><?=icon_level($row1[reLevel])?></td>
+              <td>( <?=$row1[reRegidate] ? date('Y.m.d H:i:s',strtotime($row1[reRegidate])) : "0000.00.00 00:00:00";?> )</td>
+            </tr>
+            <tr>
+              <td height="9" colspan="4"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td width="250">첫번째 상품토크 작성 고객님: <?=$row2[ttID] ? (substr($row2[ttID],0,$row2[ttID]-3)."***") : "******";?></td>
+              <td><?=icon_level(@mysql_result(mysql_query("select actionLevel from odtMember where id ='".$row2[ttID]."'"),0))?></td>
+              <td>( <?=$row2[ttRegidate] ? date('Y.m.d H:i:s',strtotime($row2[ttRegidate])) : "0000.00.00 00:00:00";?> )</td>
+            </tr>
+          </table></td>
+        </tr>
+				<tr>
+					<td><img src="/img/report_img_04.jpg"></td>
+				</tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="40">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/img/report_img_05.jpg"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="17"></td>
+        </tr>
+      </table>
+<?
+	$que1 = "select * from odtReport where reCode = '".$code."'";
+	$res1 = mysql_query($que1);
+	unset($max,$time);
+	while($row1 = mysql_fetch_array($res1)) {
+
+		if($row1[reTime] >= 0			&& $row1[reTime] <= 10*60) $time[10]++;
+		if($row1[reTime] > 10*60	&& $row1[reTime] <= 20*60) $time[20]++;
+		if($row1[reTime] > 20*60	&& $row1[reTime] <= 30*60) $time[30]++;
+		if($row1[reTime] > 30*60	&& $row1[reTime] <= 40*60) $time[40]++;
+		if($row1[reTime] > 40*60	&& $row1[reTime] <= 50*60) $time[50]++;
+		if($row1[reTime] > 50*60	&& $row1[reTime] <= 60*60) $time[60]++;
+		if($row1[reTime] > 60*60													 ) $time[70]++;
+
+		$time[total]++;
+		$max = max($max,$time[10],$time[20],$time[30],$time[40],$time[50],$time[60],$time[70]);
+	}
+
+?>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="48" height="90"></td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[10] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43"></td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[20] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43">&nbsp;</td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[30] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43">&nbsp;</td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[40] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43">&nbsp;</td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[50] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43">&nbsp;</td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[60] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td width="43">&nbsp;</td>
+          <td width="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="29" height="90" valign="bottom" background="/img/report_img_071.jpg"><table width="100%" height="<?=$time[70] / $max*90?>" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td background="/img/report_img_072.jpg"></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+					<td width=25></td>
+          <td width=75 height="21" align=center style='font-size:11px'>10분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>20분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>30분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>40분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>50분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>60분이내</td>
+          <td width=75 height="21" align=center style='font-size:11px'>60분이후</td>
+					<td width=25></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="40">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/img/report_img_06.jpg"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="17"></td>
+        </tr>
+      </table>
+
+<?
+	$que1 = "select * from odtReport where reCode = '".$code."'";
+	$res1 = mysql_query($que1);
+	unset($max,$time);
+	while($row1 = mysql_fetch_array($res1)) {
+
+		for($i=0;$i<=24;$i++) {
+			$tmp = $i < 10 ? "0".$i : $i;
+			if(strstr($row1[reRegidate]," ".$tmp.":")) $time[$tmp]++;
+			$max = max($max,$time[$tmp]);
+		}
+
+		$time[total]++;
+
+	}
+?>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" height="90">&nbsp;</td>
+										<td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="16" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+												<td height="<?=$time['00'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+											</tr>
+										</table></td>
+
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['01'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['02'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['03'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['04'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['05'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['06'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['07'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom"  background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['08'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['09'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['10'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['11'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom"  background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['12'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['13'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['14'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['15'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['16'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['17'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['18'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td height="<?=$time['19'] / $max*90?>"  background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['20'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['21'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['22'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+                    <td width="16" valign="bottom" background="/img/report_img_111.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time['23'] / $max*90?>" background="/img/report_img_112.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="5">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+					<td width=25></td>
+<?
+for($i=0;$i<24;$i++) {
+?>
+          <td width=16 height="22" style='font-size:11px'><?=$i?></td>
+<?
+}
+?>
+					<td width=20></td>
+				</tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="40">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/img/report_img_07.jpg"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="18"></td>
+        </tr>
+      </table>
+<?
+	$que1 = "select * from odtReport where reCode = '".$code."'";
+	$res1 = mysql_query($que1);
+	unset($max,$time);
+	while($row1 = mysql_fetch_array($res1)) {
+
+		$time[$row1[reLevel]]++;
+		$max = max($max,$time[$row1[reLevel]]);
+		$time[total]++;
+
+	}
+?>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="40" height="89">&nbsp;</td>
+										<td width="29" valign=bottom background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td height="<?=$time[1] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+											</tr>
+										</table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29" valign=bottom  background="/img/report_img_1511.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[2] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29"  valign=bottom background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[3] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29"  valign=bottom background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[4] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29"  valign=bottom background="/img/report_img_1511.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[5] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29" valign=bottom  background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[6] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29" valign=bottom  background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[7] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29" valign=bottom  background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[8] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29" valign=bottom  background="/img/report_img_1511.jpg"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[9] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="20">&nbsp;</td>
+                    <td width="29"  valign=bottom background="/img/report_img_1511.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td  height="<?=$time[10] / $max*90?>" background="/img/report_img_1512.jpg"></td>
+                      </tr>
+                    </table></td>
+          <td width="30">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="30" height="22">&nbsp;</td>
+<?
+for($i=1;$i<11;$i++) {
+?>
+          <td width=49 style='font-size:11px' align=center><?=$i?>등급</td>
+<?
+}
+?>
+          <td>&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<br>
+
+<?
+}
+
+###################################################
+## 실시간대화                                    ##
+###################################################
+function livetalk($code) {
+?>
+	<span id="liveChatAjax">
+	<table width=525 align=center border=0 cellpadding=0 cellspacing=0>
+		<tr>
+			<td height=75 align=right style="padding-right:15px"><img src="/images/livetalk_03.gif" border=0></td>
+		</tr>
+		<tr>
+			<td height=1 bgcolor="e3e3e3"></td>
+		</tr>	
+		<tr>
+			<td width=525 align=center style="padding:8px 0 8px 0">실시간 대화 불러오는 중...</td>
+		</tr>
+	</table>
+	
+	</span>
+
+<script>
+	function liveChatAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&code=<?=$code?>";
+		req = create_request();
+
+		req.open("POST", "/pages/etc/liveChatAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML4();
+		}
+
+	}
+
+	function printHTML4() {
+		if (req.readyState == 4 && req.status == 200) {
+//			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('liveChatAjax').innerHTML = req.responseText;
+//			}
+		}
+	}
+</script>
+
+<?
+}
+
+###################################################
+## 상품토크		                                   ##
+###################################################
+function talktalk($code) {
+	global $row_member,$array_adminid;
+
+	$que = "select * from odtTt where ttProCode = '".$code."'";
+	$res = mysql_query($que);
+	$row = mysql_fetch_array($res);
+
+	$row_product = mysql_fetch_array(mysql_query("select * from odtProduct where code ='".$code."'"));
+	
+?>
+<br>
+						<script>
+
+						function good(ttNo) {
+							hidden_frame.location.href='/pages/etc/talktalkResult.php?mode=good&ttNo='+ttNo;
+						}
+						function bad(ttNo) {
+							hidden_frame.location.href='/pages/etc/talktalkResult.php?mode=bad&ttNo='+ttNo;
+						}
+						function reply2View(no) {
+							obj = eval(document.getElementById('viewReply_'+no));
+							obj2	= eval(document.getElementById('reply_arrow_'+no));
+							if(obj.style.display == "") {
+								obj.style.display = "none";
+								obj2.src = String(obj2.src).replace('_down_','_up_');
+							} else {
+								obj.style.display = "";
+								obj2.src = String(obj2.src).replace('_up_','_down_');
+							}
+						}
+						function replyDel(ttNo) {
+							if(confirm('삭제하시겠습니까?')) hidden_frame.location.href="/pages/etc/talktalkPro.php?proMode=del&ttNo="+ttNo;
+						}
+
+						function frmCheckFun(frm) {
+
+							<?=!$row_member[id] ? "return false;" : NULL;?>
+
+							if(!frm.ttContent.value) {
+								alert('댓글을 입력하세요.');
+								frm.ttContent.focus();
+								return false;
+							}
+
+							return true;
+						}
+						</script>
+						<form name="eventFrm" action="/pages/etc/talktalkPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+						<input type="hidden" name="code" value="<?=$code?>">
+						<input type="hidden" name="ttNo" value="">
+						<input type="hidden" name="ttID" value="<?=$row_member[id]?>">
+						<input type="hidden" name="ttName" value="<?=$row_member[chatNickName]?>">
+						<input type="hidden" name="ttSNo" value="">
+						<input type="hidden" name="ttIsReply" value="0">
+						<input type="hidden" name="proMode" value="ins">
+
+
+
+
+																		<!--상품 토크-->
+																		<table width="645" border="0" cellspacing="0" cellpadding="0" class="smb3">
+																				<tr>
+																						<td width="126"><img src="/images/group/talk_title.jpg" width="126" height="30"></td>
+																						<td width="519" align="right" background="/images/group/talk_bg.jpg"><span class="green_12B"><?=$row_product[mainName] ? $row_product[mainName]  : $row_product[name] ;?></span>에 대한 토크를 나눠보아요!</td>
+																				</tr>
+																				<tr>
+																						<td height="10" colspan="2"> </td>
+																				</tr>
+																				<tr>
+																						
+<?
+if($row_member[id]) {
+?>
+
+																								<td colspan="2"><span class="spb15"><textarea name="ttContent" type="text" style="width:557px; height:84px;line-height:160%" class="input"></textarea>
+																								<input type="image" src="/images/group/btn_talk.gif" width="84" height="83" align="absmiddle"></span></td>
+<?
+} else {
+?>
+																								<td colspan="2" onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');"><span class="spb15"><textarea name="ttContent" type="text" style="width:557px; height:84px;line-height:160%" class="input" disabled>로그인 후 이용해주세요.</textarea><a href="#none">
+																								<img src="/images/group/btn_talk.gif" width="84" height="83" align="absmiddle" border=0></a></span></td>
+
+
+
+																							
+<?
+}
+?>
+
+																								
+																				</tr>
+																		</table>
+
+																		<?/*?><!-- <table width="645" border="0" cellspacing="0" cellpadding="0" class="smb20">
+																				<tr>
+																						<td ><img src="/images/group/social_tter.gif" width="111" height="21" align=absmiddle>
+																							<input name="username" type="text" style="width:150px; height:23px;line-height:160%" value="Twitter ID" class="input" onfocus="this.value=''"> 
+																							<input name="passwd" type="password" style="width:150px; height:23px;line-height:160%" value="PASSWORD" class="input" onfocus="this.value=''"> 
+																						
+																						</td>
+																				</tr>
+																				<tr>
+																						<td>
+																							※ <span  style='font-size:11px;font-family:돋움'>트위터 아이디/패스워드를 입력하시면 트위터에 함께 등록됩니다. 계정정보는 저장되지 않습니다.</span>
+																						</td>
+																				</tr>
+																		</table> --><!--img src="/images/group/social_metoday.gif" width="121" height="21"--><?*/?>
+																		<!--토크리스트-->
+
+
+						</form>
+
+
+<style>
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+</style>
+
+
+								<!-- 공지 시작 -->
+	<?
+	unset($denyID,$tmp);
+	$que = "select a.*,b.pic from odtTt as a, odtMember as b where a.ttProCode = '".$code."' and (a.ttIsNotice ='AN' or a.ttIsNotice='SN') and a.ttID = b.id order by ttIsNotice asc ";
+	$res = mysql_query($que);
+	$isNotice = @mysql_num_rows($res);
+	while($row = mysql_fetch_array($res)) {
+	?>
+
+
+									<table height=10><tr><td></td></tr></table>
+									<table width=645 border=0 cellpadding=0 cellspacing=0>
+										<tr>
+											<td width=645 style="border:1px solid #c0c0c0;padding:'5px 0 5px 0'" bgcolor="fafbe2" >
+											<table border=0 cellpadding=0 cellspacing=0>
+												<tr>
+													<td width=645><table width=100% border=0 cellpadding=0 cellspacing=0>
+														<tr>
+															<td align=center width=82 valign=top><img  width=70 height=70 src="<?=$row[pic] ? $row[pic] : ($row_member[id] == $row[ttID] ? "/images/group/talk_sumnail.gif\" onclick=\"location.href='/odprogram/odmembers/od_modify.php'\" style='cursor:hand'" : "/images/group/talk_sumnail.gif");?>" style="border:1px solid #b1b1b1"></td>
+															<td width=4 bgcolor="#dedede"></td>
+															<td width=550 style="padding-left:7px;" valign=top><table border=0 cellpadding=0 cellspacing=0>
+																<tr>
+																	<td style="poll2_name" height=30><span class="green_12B"><?=$row[ttName]?></span>&nbsp;&nbsp;&nbsp;(<?=date('m.d H:i',strtotime($row[ttRegidate]))?>)&nbsp;&nbsp;
+<?
+																		if(@array_key_exists($row_member[id],$array_adminid) == true) {
+																		?>
+																		<a href="#none" onclick="replyDel(<?=$row[ttNo]?>)"><img src="/images/group/talk_del.gif" align="absmiddle" border=0></a>
+																		<?
+																		}
+																		?>																	
+																	</td>
+																	<td align=right></td>
+																</tr>
+																<tr>
+																	<td width=550 height=1 colspan=2 background="/images/poll2_49.gif"></td>
+																</tr>
+																<tr>
+																	<td colspan=2 style="padding:5px 5px 5px 5px">
+																		<?=nl2br(stripslashes($row[ttContent]))?> 
+																		
+																	</td>
+																</tr>
+															</table>
+															</td>
+														</tr>
+													</table></td>
+												</tr>
+											</table>
+											</td>
+										</tr>
+									</table>
+									<table height=10><tr><td></td></tr></table>
+<?
+	}
+?>
+									<!-- 공지 끝 -->
+
+
+									<!-- 댓글 레이어 -->
+									<span id="inputBox" style="display:none">
+									<form name="form3" action="/pages/etc/talktalkPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun(this)" style="display:inline">
+									<input type="hidden" name="code" value="<?=$code?>">
+									<input type="hidden" name="ttID" value="<?=$row_member[id]?>">
+									<input type="hidden" name="ttName" size=10 value="<?=$row_member[chatNickName]?>">
+									<input type="hidden" name="ttSNo" value="">
+									<input type="hidden" name="ttIsReply" value="">
+									<input type="hidden" name="proMode" value="ins">
+									<div class="smtmb5"><textarea name="ttContent" style="width:473px; height:33px"  wrap='hard' class="input"></textarea> <input type="image" src="/images/group/talk_btn_submit.gif" width="62" height="33" align="absmiddle"></div>
+									</form>
+									</span>
+
+
+									<!-- 일반댓글 출력 -->
+									<span id='talktalkAjax'>
+											<table width=645 align=center border=0 cellspacing=0 cellpadding=0>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=1 background="/images/hope_49.gif"></td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=40 align=center><img src="/images/group/loading.gif" align=absmiddle> 데이터를 불러오고 있습니다. 잠시만 기다려 주십시요.</td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=1 background="/images/hope_49.gif"></td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+											</table>									
+									</span>
+
+
+	<script>
+	// 아작스 호출
+	function talktalkAjaxLoad(limit) {
+		// 백그라운드로 DB 추출.
+		param = "type=update&code=<?=$code?>&limit="+limit;
+		req = create_request();
+		req.open("POST", "/pages/etc/talktalkAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML2();
+		}
+
+	}
+
+	function printHTML2() {
+		if (req.readyState == 4 && req.status == 200) {
+			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('talktalkAjax').innerHTML = req.responseText;
+			}
+		}
+	}
+
+	</script>
+
+
+	<script>
+
+	inputBoxHtml = document.getElementById('inputBox').innerHTML;
+	var showNo;
+
+	function replyBoxShow() {
+		document.getElementById('inputBox').innerHTML = inputBoxHtml;
+	}
+
+	function replyBoxHidden() {
+		document.getElementById('inputBox').innerHTML = "";
+	}
+
+	function replyBoxChange(no) {
+		if(!showNo) {
+			replyBoxHidden();
+		} else if(showNo != no) {
+			obj = eval(document.getElementById('reply_'+showNo));
+			obj.innerHTML = "";
+		}
+	}
+
+	function showReply(no) {
+		replyBoxChange(no);		// 현재 열려있는 박스 삭제
+		showNo = no;					// 현재 열려있는 박스 넘버 저장
+
+		obj = eval(document.getElementById('reply_'+no));
+		obj.innerHTML = inputBoxHtml;
+
+		// 리플에 필요한 값 저장
+		frm = document.form3;
+		frm.ttSNo.value = no;
+		frm.proMode.value	=	"ins";
+		frm.ttIsReply.value = 1;
+
+	}
+	</script>
+
+<?
+}
+
+
+###################################################
+## 상품후기                                      ##
+###################################################
+function aftertalk($code) {
+	global $row_member;
+
+	$que = "select * from odtAfterTalk where afterProCode = '".$code."'";
+	$res = mysql_query($que);
+	$row = mysql_fetch_array($res);
+
+?>
+<br>
+						<script>
+
+						function good2(no) {
+							hidden_frame.location.href='/pages/etc/aftertalkResult.php?mode=good&afterNo='+no;
+						}
+						function bad2(no) {
+							hidden_frame.location.href='/pages/etc/aftertalkResult.php?mode=bad&afterNo='+no;
+						}
+						function reply2View2(no) {
+							obj = eval(document.getElementById('viewReply_'+no));
+							obj2	= eval(document.getElementById('reply_arrow_'+no));
+							if(obj.style.display == "") {
+								obj.style.display = "none";
+								obj2.src = String(obj2.src).replace('_down_','_up_');
+							} else {
+								obj.style.display = "";
+								obj2.src = String(obj2.src).replace('_up_','_down_');
+							}
+						}
+						function replyDel2(no) {
+							if(confirm('삭제하시겠습니까?')) hidden_frame.location.href="/pages/etc/aftertalkPro.php?proMode=del&afterNo="+no;
+						}
+
+						function frmCheckFun2(frm) {
+
+							<?=!$row_member[id] ? "return false;" : NULL;?>
+
+							if(!frm.afterContent.value) {
+								alert('댓글을 입력하세요.');
+								frm.afterContent.focus();
+								return false;
+							}
+
+							return true;
+						}
+						</script>
+						<form name="eventFrm2" action="/pages/etc/aftertalkPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun2(this)" style="display:inline">
+						<input type="hidden" name="code" value="<?=$code?>">
+						<input type="hidden" name="afterNo" value="">
+						<input type="hidden" name="afterID" value="<?=$row_member[id]?>">
+						<input type="hidden" name="afterName" value="<?=$row_member[name]?>">
+						<input type="hidden" name="afterSNo" value="">
+						<input type="hidden" name="afterIsReply" value="0">
+						<input type="hidden" name="proMode" value="ins">
+
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="436"><img src="/img/ripple_img_01.jpg" width="436" height="45" /></td>
+										<td valign="bottom" background="/img/talk_img_02.jpg">&nbsp;
+										</td>
+									</tr>
+								</table>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="4" background="/img/talk_img_03.jpg"></td>
+										</tr>
+									</table>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+<?
+if($row_member[id]) {
+?>
+											<td width="17" height="44" background="/img/talk_img_04.jpg">&nbsp;</td>
+											<td width="459" bgcolor="#f9f9f9"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 459px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="afterContent"></textarea></td>
+											<td width="3" bgcolor="#f9f9f9"></td>
+											<td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44" /></td>
+											<td width="13" background="/img/talk_img_06.jpg">&nbsp;</td>
+<?
+} else {
+?>
+											<td width="17" height="44" background="/img/talk_img_04.jpg">&nbsp;</td>
+											<td width="459" bgcolor="#f9f9f9"><textarea style="BORDER-BOTTOM: #9c9c9c 1px solid; BORDER-LEFT: #9c9c9c 1px solid; WIDTH: 459px; HEIGHT: 44px; BORDER-TOP: #9c9c9c 1px solid; BORDER-RIGHT: #9c9c9c 1px solid" name="afterContent"></textarea></td>
+											<td width="3" bgcolor="#f9f9f9"></td>
+											<td width="69" bgcolor="#f9f9f9"><input type="image" src="/img/talk_img_05.jpg" width="65" height="44"  onclick="loginConfirm('<?=urlencode($_SERVER[REQUEST_URI])?>');" /></td>
+											<td width="13" background="/img/talk_img_06.jpg">&nbsp;</td>
+<?
+}
+?>
+										</tr>
+									</table>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><img src="/img/ripple_img_02.jpg" width="560" height="44" /></td>
+										</tr>
+									</table></td>
+							</tr>
+						</table>
+
+						</form>
+
+
+<style>
+.poll2_name {
+	color:000000;
+}
+.poll2_good {
+	color:ff4e17;
+	font-weight:bold;
+}
+.poll2_bad {
+	color:666666;
+	font-weight:bold;
+}
+.poll2_date {
+	color:858679;
+	font-size:10px;
+	font-family:tahoma;
+}
+.replyreply {
+	color:FF8800;
+}
+.replyreply A{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:none;
+}
+.replyreply A:hover{
+	font-size:12px;
+	font-family:돋움;
+	color:FF8800;
+	text-decoration:underline;
+}
+</style>
+
+
+
+									<!-- 댓글 레이어 -->
+									<span id="inputBox2" style="display:none">
+									<form name="form2" action="/pages/etc/aftertalkPro.php" method="post" target="hidden_frame" onsubmit="return frmCheckFun2(this)" style="display:inline">
+									<input type="hidden" name="code" value="<?=$code?>">
+									<input type="hidden" name="afterID" value="<?=$row_member[id]?>">
+									<input type="hidden" name="afterName" size=10 value="<?=$row_member[name]?>">
+									<input type="hidden" name="afterSNo" value="">
+									<input type="hidden" name="afterIsReply" value="">
+									<input type="hidden" name="proMode" value="ins">
+									<table width=100% border=0 cellpadding=0 cellspacing=0>
+										<tr>
+											<td width=100%>
+												<input type="text"name="afterContent" style="width:97%;font-size:12px;border:1px solid #cccccc;" >
+											</td>
+											<td >
+												<input type="image" src="/images/poll2_10.gif" >
+											</td>
+										</tr>
+									</table>
+									</form>
+									</span>
+
+
+									<!-- 베스트 & 일반댓글 출력 -->
+									<span id='aftertalkAjax'>
+											<table width=520 align=center border=0 cellspacing=0 cellpadding=0>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=1 background="/images/hope_49.gif"></td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=40 align=center>상품후기를 불러오고 있습니다. 잠시만 기다려 주십시요.</td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+												<tr>
+													<td height=1 background="/images/hope_49.gif"></td>
+												</tr>
+												<tr>
+													<td height=5></td>
+												</tr>
+											</table>										
+									</span>
+
+
+
+	<script>
+	// 아작스 호출
+	function aftertalkAjaxLoad() {
+
+		// 백그라운드로 DB 추출.
+		param = "type=update&code=<?=$code?>";
+		req = create_request();
+		req.open("POST", "/pages/etc/aftertalkAjax.php", true);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		req.setRequestHeader("Cache-Control","no-cache, must-revalidate");
+		req.setRequestHeader("Pragma","no-cache");
+		req.send(param);
+		req.onreadystatechange = function () {
+			printHTML3();
+		}
+
+	}
+
+	function printHTML3() {
+		if (req.readyState == 4 && req.status == 200) {
+			if(!req.responseText.match('Bad Request')) { // 연결 불안정 메세지는 출력하지 않음.
+				document.getElementById('aftertalkAjax').innerHTML = req.responseText;
+			}
+		}
+	}
+
+	</script>
+
+
+<script>
+
+inputBoxHtml2 = document.getElementById('inputBox2').innerHTML;
+var showNo;
+
+function replyBoxShow2() {
+	document.getElementById('inputBox2').innerHTML = inputBoxHtml2;
+}
+
+function replyBoxHidden2() {
+	document.getElementById('inputBox2').innerHTML = "";
+}
+
+function replyBoxChange2(no) {
+	if(!showNo) {
+		replyBoxHidden2();
+	} else if(showNo != no) {
+		obj = eval(document.getElementById('reply_'+showNo));
+		obj.innerHTML = "";
+	}
+}
+
+
+function showReply2(no) {
+	replyBoxChange2(no);		// 현재 열려있는 박스 삭제
+	showNo = no;					// 현재 열려있는 박스 넘버 저장
+
+	obj = eval(document.getElementById('reply_'+no));
+	obj.innerHTML = inputBoxHtml2;
+
+	// 리플에 필요한 값 저장
+	frm = document.form2;
+	frm.afterSNo.value = no;
+	frm.proMode.value	=	"ins";
+	frm.afterIsReply.value = 1;
+
+}
+</script>
+
+<?
+}
+
+###################################################
+## 상품리스트                                    ##
+###################################################
+function familyProList($code) {
+	
+	echo "<table border=0 cellpadding=0 cellspacing=0 width=680 align=center>
+					<tr>
+						<td width=680><img src='/img/media_img_31.jpg' border=0></td>
+					</tr>
+					<tr>
+						<td><img src='/img/media_img_32.jpg'></td>
+					</tr>
+					
+					";
+
+	$res = mysql_query("select * from odtProduct where parent_code = '".$code."'  order by parent_code = code desc, name");
+	while($row = mysql_fetch_array($res)) {
+
+		# 상품 옵션
+		unset($optionPrice);
+		$optionTmp = trim(str_replace("|","",$row[optionName]));
+		if($optionTmp) {
+			$optionPrice .="			<td style='padding:0 5px 0 5px'>
+														<select name='optionValue[]' class='border' style='font-family:돋움체'>
+														<option value=''> 옵 &nbsp; 션 </option>
+														<option value=''>----------</option>";										
+			$optionNameArray	= explode("|",$row[optionName]);
+			$optionPriceArray = explode("|",$row[optionPrice]);
+
+
+			// 옵션 이름의 max 길이 추출
+			$optionLenMax=0;
+			for($oo=0;$oo<count($optionNameArray);$oo++) {
+				$euckrName = iconv("utf-8","euckr",$optionNameArray[$oo]);
+				$optionLenMax = strlen($euckrName) > $optionLenMax ? strlen($euckrName) : $optionLenMax;
+			}
+
+
+			for($oo=0;$oo<count($optionNameArray);$oo++) {
+				if($optionNameArray[$oo]) {
+					if($optionNameArray[$oo] == "----------") $optionPricePrint = "";
+					else if($optionPriceArray[$oo] < 1)				$optionPricePrint = "";
+					else																			$optionPricePrint = "(+".$optionPriceArray[$oo]."원)";
+
+					// 보기좋게 공백 추가
+					$gapTmp = $optionLenMax - strlen(iconv("utf-8","euckr",$optionNameArray[$oo]));
+					$optionNameTmp = $optionNameArray[$oo];
+					for($ee=0;$ee<($gapTmp+1);$ee++) $optionNameTmp .= "&nbsp;";
+					// 공백 추가 끝
+
+					$optionPrice .= "<option value='".$row[code]."|".$optionNameArray[$oo]."|".$optionPriceArray[$oo]."'>".$optionNameTmp.$optionPricePrint."</option>";
+				}
+			}
+			$optionPrice .= "</select></td>";
+		}
+
+?>
+					<tr>
+						<td style='padding:0 1 0 1'><table border=0 width=680 cellpadding=0 cellspacing=0>
+							<tr>
+								<td width=115 align=center><img src='<?=$row[prolist_img] ? $row[prolist_img] : $row[oldlist_img]?>'></td>
+<?
+	if(!$optionPrice) {
+?>
+								<td width=445 align=left><?=$row[name]?></td>
+<?
+	} else {
+?>
+								<td width=445><table border=0 cellpadding=0 cellspacing=0 width=445>
+									<tr>
+										<td width=100% align=left><?=$row[name]?></td>
+										<td align=right><?=$optionPrice?></td>
+									</tr>
+								</table></td>
+<?
+}
+?>
+
+<?
+	if($row[stock] < 1) {
+?>
+								<td width=120 align=center><span style='color:F76A00;font-weight:bold;'>(품절)</span></td>
+<?
+	} else {
+?>
+								<td width=120 align=center><span style='color:F76A00;font-weight:bold;'><?=number_format($row[price])?>원</span></td>
+<?
+	}
+?>
+
+							</tr>
+						</table></td>
+					</tr>
+					<tr>
+						<td><img src='/img/media_img_32.jpg'></td>
+					</tr>
+<?
+	}
+	echo "</table>";
+?>
+<br>
+
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/img/media_img_34.jpg" width="680" height="40" /></td>
+        </tr>
+      </table>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><div align="center"><img src="http://www.onedaynet.co.kr/images/cardevent.jpg" /></div></td>
+        </tr>
+      </table>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+
+<?
+}
+?>

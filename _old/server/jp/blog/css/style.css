@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/*
+DATE   : 2009.07.06
+AUTHOR : Park Hyunmyung
+*/
+/* Prevent from Error */
+* {
+	margin:0;
+	padding:0;
+}/* RESET */
+* {
+	list-style:none;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+	font-size:1em;
+	text-decoration:none;	
+	font:12px/1.6 Meiryo, CI, "Segoe UI", sans-serif;
+}
+/* DEFAULT */
+a {
+	color:#5b2;
+	text-decoration:none;
+}
+a:hover,
+a:focus,
+a:active {
+	color:#260;
+}
+h2 {
+	position:relative;
+	margin:0;
+	padding:0;
+}
+em {
+	font-style:normal;
+	font-weight:bold;
+	color:#888;
+}
+time {
+	margin:0;
+	padding:0;
+}
+.aid {
+	overflow:hidden;
+	text-indent:-99999em;
+}
+.cleardiv {
+	clear:both;
+	height:1px;
+	font-size:1px;
+}
+/* LAYOUT */
+/* --------------- body */
+body {
+	font:12px/1.6 Meiryo, "Segoe UI", sans-serif;
+	color:#333;
+}
+/* --------------- header */
+header {
+	position:relative;
+	float:left;
+	height:80px;
+	width:100%;
+}
+/* logo typography */
+#logo {
+	position:absolute;
+	top:10px;
+	left:0;
+	width:340px;
+	height:65px;
+	font-family: "Segoe UI", sans-serif;
+	overflow:hidden;
+	background:url(../images/bg_logo.gif) right bottom no-repeat;
+}
+#logo em {
+	display:block;
+	font-size:11px;
+	margin:12px 0 -28px;
+	color:#5b2;
+	font-weight:normal;
+}
+#logo strong {
+	line-height:42px;
+	font-size:36px;
+	color:#333;
+	font-weight:bold;
+}
+#logo strong span {
+	line-height:46px;
+	background:#333;
+	font-size:36px;
+	color:#eee;
+	font-weight:bold;
+}
+#today_me {
+	position:absolute;
+	top:100px;
+	left:5px;
+}
+#today_me img {
+	width:180px;
+	height:360px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+/* --------------- navigation */
+.prev-item {
+	position:absolute;
+	top:400px;
+	left:215px;
+}
+.next-item {
+	position:absolute;
+	top:400px;
+	left:960px;
+}
+/* --------------- content */
+#container {
+	position:relative;
+	width:980px;
+	height:520px;
+	margin:0 auto;
+	text-align:left;
+}
+#lst-container {
+	position:absolute;
+	width:710px;
+	height:455px;
+	top:80px;
+	left:240px;
+	overflow:hidden;
+	z-index:1;
+}
+.lst {
+	position:absolute;
+	top:0;
+	left:0;
+	width:10000px;
+	height:435px;
+	margin:20px 0 0;
+}
+.item {
+	position:relative;
+	float:left;
+	width:230px;
+	height:435px;
+	margin:0 0px 0 5px;
+	z-index:100;
+}
+/* --------------- content inner */
+h2 {
+	padding:10px 0 20px;
+	border-bottom:#5b2 5px solid;
+	font-size:18px;
+	font-weight:bold;
+}
+p.inner {
+	position:relative;
+	float:left;
+	height:300px;
+	padding:20px 10px 0 5px;
+}
+p.inner img.mark {
+	position:absolute;
+	top:-10px;
+	left:-5px;
+}
+p.inner img.picture {
+	position:absolute;
+	left:5px;
+	bottom:0;
+}
+/* --------------- footer */
+footer {
+	position:relative;
+	float:left;
+	width:100%;
+	padding:10px 0 0;
+	border-top:#ccc 1px solid;
+	text-align:center;
+}

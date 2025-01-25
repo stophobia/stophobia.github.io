@@ -1,0 +1,287 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+/* main */
+#index .contents .main {
+	position:relative;
+	float:left;
+	width:460px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_center.png) no-repeat;
+	margin:0 5px 10px;
+}
+#index .contents .main .separate {
+	position:relative;
+	float:left;
+	width:440px;
+	height:5px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_index_center_line.gif) no-repeat;
+	margin:5px 10px;
+}
+#index .contents .main .emergency {
+	position:relative;
+	float:left;
+	margin:10px;
+}
+#index .contents .main .news {
+	position:relative;
+	float:left;
+	width:450px;
+	margin:5px 5px 10px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_index_news.png) left top no-repeat;
+}
+#index .contents .main .news h2 {
+	position:relative;
+	margin:10px 10px 0;
+	background:url(http://image.mgame.jp/new_rpg/op7new/h2_index_news.gif) left top no-repeat;
+}
+#index .contents .main .news .more {
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:block;
+	width:56px;
+	height:22px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_more.gif) left top no-repeat;
+}
+#index .contents .main .news ul {
+	position:absolute;
+	top:6px;
+	left:120px;
+	width:270px;
+	height:20px;
+}
+#index .contents .main .news ul li {
+	margin:0 4px 0 0;
+}
+#index .contents .main .news ul li a.new {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) 0 0 no-repeat;
+}
+#index .contents .main .news ul li a.new:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) 0 -20px no-repeat;
+}
+#index .contents .main .news ul li a.notice {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -63px 0 no-repeat;
+}
+#index .contents .main .news ul li a.notice:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -63px -20px no-repeat;
+}
+#index .contents .main .news ul li a.event {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -126px 0 no-repeat;
+}
+#index .contents .main .news ul li a.event:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -126px -20px no-repeat;
+}
+#index .contents .main .news ul li a.maintenance {
+	display:block;
+	width:63px;
+	height:20px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -189px 0 no-repeat;
+}
+#index .contents .main .news ul li a.maintenance:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_news.gif) -189px -20px no-repeat;
+}
+#index .contents .main .news table {
+	width:430px;
+	margin:0 0 0 10px;
+	table-layout:fixed;
+}
+#index .contents .main .news table tr td {
+	height:25px;
+	xborder-top:1px #333 solid;
+	border-bottom:1px #333 solid;
+}
+#index .contents .main .news table tr.last-child td {
+	xborder-top:none;
+	border-bottom:1px #000 solid;
+}
+#index .contents .main .news table td.icon {
+	width:70px;
+	text-align:left;
+}
+#index .contents .main .news table td.day {
+	width:70px;
+	text-align:left;
+	color:#678;
+}
+#index .contents .main .news table td.title {
+	width:290px;
+	text-align:left;
+	margin:0 0 -1px;
+	padding:3px 0 0;
+}
+#index .contents .main .premium {
+	position:relative;
+	float:left;
+	width:440px;
+	height:280px;
+	margin:15px 0 10px 20px;
+	padding:22px 0 0 0px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_index_premium.jpg) left top no-repeat;
+}
+#index .contents .main .premium img {
+	margin:0 0 15px;
+}
+#index .contents .main .premium dl {
+	position:relative;
+	float:left;
+	width:205px;
+	height:130px;
+}
+#index .contents .main .premium dt {
+	position:absolute;
+	top:0;
+	right:0px;
+	width:105px;
+	height:40px;
+	text-align:center;
+}
+#index .contents .main .premium dd {
+	position:absolute;
+	top:35px;
+	right:15px;
+	width:80px;
+	height:40px;
+	font-size:10px;
+	
+}
+#index .contents .main .information {
+	position:relative;
+	float:left;
+	width:450px;
+	margin:5px 10px 0;
+	background:url(http://image.mgame.jp/new_rpg/op7new/h2_index_information.gif) left top no-repeat;
+}
+#index .contents .main .information .more {
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:block;
+	width:56px;
+	height:22px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn_index_more.gif) left top no-repeat;
+}
+#index .contents .main .information .banners {
+	position:relative;
+	float:left;
+	margin:10px 5px 0;
+}
+/* aside */
+#index .contents .aside {
+	position:relative;
+	float:left;
+	width:200px;
+	height:440px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_aside.png) no-repeat;
+	margin:0 0 10px;
+}
+#index .contents .aside a.gmblog {
+	position:relative;
+	display:block;
+	float:left;	
+	width:190px;
+	height:80px;
+	margin:-7px 0 0 5px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_gmblog.jpg) left bottom no-repeat;
+}
+#index .contents .aside a.gmblog:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_gmblog.jpg) left top no-repeat;
+}
+#index .contents .aside .ranking {
+	position:relative;
+	float:left;
+	width:190px;
+	height:190px;
+	margin:5px 0 0 5px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_ranking.gif) left bottom no-repeat;
+}
+#index .contents .aside .ranking ul {
+	position:relative;
+	width:190px;
+	height:42px;
+}
+#index .contents .aside .ranking ul li a.crew {
+	position:relative;
+	display:block;
+	float:left;
+	width:95px;
+	height:42px;
+	margin:0;
+}
+#index .contents .aside .ranking ul li a.crew:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_ranking.png) 0 0 no-repeat;
+}
+#index .contents .aside .ranking ul li a.clan {
+	position:relative;
+	display:block;
+	float:right;
+	width:95px;
+	height:42px;
+	margin:0;
+}
+#index .contents .aside .ranking ul li a.clan:hover {
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_ranking.png) -95px 0 no-repeat;
+}
+#index .contents .aside .ranking table {
+	position:absolute;
+	top:41px;
+	left:23px;
+	height:126px;
+	line-height:23px;
+}
+#index .contents .aside .ranking table td.mark {
+	width:22px;
+}
+#index .contents .aside .ranking table td.title {
+	width:90px;
+	padding:0 0 2px;
+	overflow:hidden;
+	vertical-align:bottom;
+}
+#index .contents .aside .ranking table td.level {
+	color:#678;
+	font-size:10px;
+	text-align:right;
+	vertical-align:bottom;
+	width:40px;
+}
+#index .contents .aside .ranking a.more {
+	display:block;
+	position:absolute;
+	right:5px;
+	bottom:5px;
+	width:50px;
+	height:15px;
+}
+#index .contents .aside .banners {
+	position:relative;
+	float:left;
+	width:190px;
+	margin:5px 0 5px 5px;
+	padding:8px 0 0;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_aside_banners.gif) top left no-repeat;
+}
+#index .contents .aside .banners img {
+	width:186px;
+	height:56px;
+	margin:0 0 5px 2px;
+}
+#index .contents {
+	position:relative;
+	float:left;
+}

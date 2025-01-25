@@ -1,0 +1,212 @@
+<?
+	if(!$row_member[id]) {
+		error_msgall("회원전용 페이지 입니다.","/odprogram/odlogon/od_login.php");
+		exit;
+	}
+?>
+<style type="text/css">
+<!--
+.style1 {
+	color: #85a8ff;
+	font-weight: bold;
+}
+.style2 {color: #ff6600}
+-->
+</style>
+		<script>
+			function openorderdelete(ordernum,mode) {
+				window.open('pwd.php?ordernum='+ordernum+'&mode='+mode,'del','width=330,height=142');
+			}
+			function momoutFun(frm) {
+				if(!frm.passwd.value) {
+					alert('비밀번호를 입력하세요.');
+					frm.passwd.focus();
+					return false;
+				}
+				if(!frm.jumin1.value || !frm.jumin2.value ) {
+					alert('주민번호를 입력하세요.');
+					frm.jumin1.focus();
+					return false;
+				}
+				if(!confirm('정말로 탈퇴하시겠습니까?')) return false;
+			}
+		</script>
+		
+		<iframe name="hidden_frame" src="about:blank" width=100 height=100 style="display:none"></iframe>
+
+
+
+					<!-- body 시작 -->
+
+ 			<form name="memoutFrm" method="post" action="/pages/u03/u03b08Pro.php" target="hidden_frame" style="display:inline" onsubmit="return momoutFun(this)">
+
+
+
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td valign="top">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td height="23"></td>
+                                      </tr>
+                                    </table>
+                                    <table width="716" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td><img src="/img/modify_img_60.jpg" width="83" height="32" /></td>
+                                              </tr>
+                                          </table>
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td valign="top"><table width="692" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                      <td><img src="/img/modify_img_61.jpg" width="417" height="38" /></td>
+                                                    </tr>
+                                                  </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td><img src="/img/modify_img_62.jpg" width="692" height="24" /></td>
+                                                      </tr>
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td background="/img/modify_img_63.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                          <tr>
+                                                            <td width="124"><img src="/img/modify_img_64.jpg" width="124" height="20" /></td>
+                                                            <td><table border="0" cellspacing="0" cellpadding="0"width="100%">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td width="10"></td>
+                                                                  <td width="10"><input class="gray" size="24" name="id" style='ime-mode:disabled;' readonly value="<?=$row_member[id]?>"/></td>
+                                                                  <td width="8">&nbsp;</td>
+                                                                  <td>탈퇴후에는 같은 아이디로 재가입 할 수 없습니다.</td>
+                                                                  </tr>
+                                                              </tbody>
+                                                            </table></td>
+                                                          </tr>
+                                                        </table></td>
+                                                      </tr>
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td><img src="/img/modify_img_65.jpg" width="692" height="12" /></td>
+                                                      </tr>
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td background="/img/modify_img_63.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                              <td width="124"><img src="/img/modify_img_67.jpg" width="124" height="20" /></td>
+                                                              <td><table border="0" cellspacing="0" cellpadding="0" 
+                                width="100%">
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td width="10"></td>
+                                                                      <td width="10"><input class="gray" type="password"  size="24" name="passwd" /></td>
+                                                                      <td width="8">&nbsp;</td>
+                                                                      <td>&nbsp;</td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                              </table></td>
+                                                            </tr>
+                                                        </table></td>
+                                                      </tr>
+                                                    </table>
+                                                    <!-- IPIN인증이 아닐경우에만 주민번호인증을 표시 -->
+<? 
+if ( !$row_member[kcb_virtualno] ) {
+echo "
+<table width='100%' border='0' cellspacing='0' cellpadding='0'>
+  <tr>
+	<td><img src='/img/modify_img_65.jpg' width='692' height='12' /></td>
+  </tr>
+</table>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'>
+  <tr>
+	<td background='/img/modify_img_63.jpg'><table width='100%' border='0' cellspacing='0' cellpadding='0'>
+		<tr>
+		  <td width='124'><img src='/img/modify_img_68.jpg' width='124' height='20' /></td>
+		  <td><table border='0' cellspacing='0' cellpadding='0' 
+width='100%'>
+			  <tbody>
+				<tr>
+				  <td width='10'></td>
+				  <td><input class='gray' style='width:80px' name='jumin1' maxlength='6'/> - <input class='gray' style='width:80px' type='password' size='8' name='jumin2' maxlength='7'/></td>
+				  <td width='8'>&nbsp;</td>
+				  <td>&nbsp;</td>
+				</tr>
+			  </tbody>
+		  </table></td>
+		</tr>
+	</table></td>
+  </tr>
+</table>";
+} ?>
+                                                   
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td><img src="/img/modify_img_66.jpg" width="692" height="21" /></td>
+                                                      </tr>
+                                                    </table></td>
+                                                </tr>
+                                              </table></td>
+                                            </tr>
+                                          </table>
+                                          </td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                              </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                  </tr>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td><div align="center"><input type="image" src="/img/member_img_title__16.jpg" width="75" height="30" /></div></td>
+                                  </tr>
+                                </table>
+
+			</form>
+					<!-- body 끝 -->
+h="7"/></td>
+                                                                      <td width="8">&nbsp;</td>
+                                                                      <td>&nbsp;</td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                              </table></td>
+                                                            </tr>
+                                                        </table></td>
+                                                      </tr>
+                                                    </table>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td><img src="/img/modify_img_66.jpg" width="692" height="21" /></td>
+                                                      </tr>
+                                                    </table></td>
+                                                </tr>
+                                              </table></td>
+                                            </tr>
+                                          </table>
+                                          </td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                              </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                  </tr>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td><div align="center"><input type="image" src="/img/member_img_title__16.jpg" width="75" height="30" /></div></td>
+                                  </tr>
+                                </table>
+
+			</form>
+					<!-- body 끝 -->

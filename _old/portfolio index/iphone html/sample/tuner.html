@@ -1,0 +1,88 @@
+<?php
+
+//require('webconfig.inc.php');
+
+	$iphone = true;
+
+	/*if (strstr($_SERVER["HTTP_USER_AGENT"], "iPhone") or strstr($_SERVER["HTTP_USER_AGENT"], "iPod") or isset($_GET["pass"]) )
+	{
+		$iphone = true;
+	}
+	else
+	{
+		header ("Location: http://onetrip.org/apps/?onetrip");
+	}*/
+
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>ModGuitars.com Tuner</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+	<meta name="viewport" content="width=320">
+	
+	<style type="text/css">
+		@import url(tuner.css);
+	</style>
+
+	<script type="text/javascript" src="tuner.js"></script>
+	<script type="application/x-javascript">
+	addEventListener("load", function()
+	{
+		setTimeout(hideAddressbar, 0);
+	}, false);
+	
+	function hideAddressbar()
+	{
+		window.scrollTo(0, 10);
+	}
+	
+	function soundLink(note)
+	{
+		type = switchState == 1 ? 'tone' : 'guitar';
+		return 'sounds/' + type + '-' + note + '.mp3';
+	}
+	
+	var switchState = 0;
+	
+	</script>
+
+</head>
+
+<body>
+	<div id="main">
+	
+	<div id="toolbar">
+	
+		<img src="images/logo.png" style="position: absolute; top: 5px; left: 8px" " onclick="document.location = 'http://www.modguitars.com'" />
+		
+		<img src="images/switch.png" style="position: absolute; top: 5px; left: 243px" />
+		<img id="flip" src="images/flipguitar.png" style="position: absolute; top: 5px; left: 243px" onclick="if (switchState == 0 ) { this.src = 'images/fliptone.png'; switchState = 1; } else { this.src = 'images/flipguitar.png'; switchState = 0; }" />
+		
+		<img src="images/notes.png" style="position: absolute; top: 66px; left: 22px" />		
+	
+	</div>
+	
+		<img src="images/strings.jpg" style="position: absolute; top: 84px; left: 0px" />		
+	
+		<div id="strings">
+			<div id="E1" onclick="document.location = soundLink('E1');"></div>
+			<div id="A" onclick="document.location = soundLink('A');"></div>
+			<div id="D" onclick="document.location = soundLink('D');" style="width: 54px"></div>
+			<div id="G" onclick="document.location = soundLink('G');;"></div>
+			<div id="B" onclick="document.location = soundLink('B');"></div>
+			<div id="E2" onclick="document.location = soundLink('E2');"  style="width: 54px"></div>
+		</div>
+		
+		<img src="images/link.gif" style="position: absolute; top:394px; left: 0px" onclick="document.location = 'http://www.modguitars.com'" />
+
+	</div><!-- main -->
+
+	
+</body>
+<script type="text/javascript">
+
+preloadImages();
+
+</script>
+</html>
