@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+/* 
+------------------------------------------------------------
+file name: naver.css
+Author: H.Park
+last updated: 2007.08.10
+
+======================= INDEX ===========================
+
+   1: Style Changing Setting
+   2: Browser-style reset
+   3: aid for non-CSS-compliant Browser
+   4: Background & Layout
+   5: Entry
+   6: Side Navigation
+      Common
+	  Search
+	  Category/Archive
+   7: Calendar
+   8: Footer
+
+============================================================
+*/
+
+/* 1: Style Changing Setting
+------------------------------------------------------------ */
+#styleSwitch {
+	position: absolute;
+	top: 20px;
+	right: 11px;
+	width: 200px;
+	text-align: center;
+	}
+#styleSwitch h2 {
+	color: #444;
+	font-weight: normal;
+	font-family: "Segoe UI", "Helvetica", sans-serif;
+	}
+#styleSwitch li {
+	display: inline;
+	padding-right: 2px !important;
+	padding /**/: 0;
+	}
+
+/* 2: Browser-style reset
+------------------------------------------------------------ */
+* {list-style: none; margin: 0; padding: 0; font-size: 100%;}
+body {
+	color: #333;
+	font: normal 75% "Segoe UI", "Helvetica", sans-serif;
+	line-height: 1.4;
+	/*\*/
+	letter-spacing: 0.1em;
+	/**/
+	}
+html:first-child body {font-size: 80%;}
+img, fieldset {border: none;}
+a {color: #333;}
+	/* Font Setting
+	----------------------------------------*/
+	#entry_103, #entry_100 {font-family: "Malgun Gothic", "Apple Gothic", sans-serif;}
+	#entry_102 {font-family: "Meiryo", "Hiragino Kaku Gothic Pro", sans-serif;}
+	#entry_101 {font-family: "Segoe UI", "Helvetica", sans-serif;}
+
+/* 3: aid for non-CSS-compliant Browser
+------------------------------------------------------------ */
+.aid {position: absolute; left: -9999px; overflow: hidden; width: 0;}
+
+/* 4: Background & Layout
+------------------------------------------------------------ */
+
+
+body {
+	background: #fff;
+	text-align: center;
+	}
+#container {
+	position: relative;
+	width: 810px;
+	margin: 0 auto;
+	text-align: left;
+	}
+#banner_header {
+	position: relative;
+	top: 10px;
+	width: 400px;
+	height: 50px;
+	background: none;
+	}
+#banner_header a {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 0px;
+	padding-top: 50px;
+	background: url(../images/naver/logo.gif) no-repeat top left;
+	}
+#banner_description {
+	position: absolute;
+	top: 60px;
+	right: 50px;
+	width: 460px;
+	color: #666;
+	text-align: right;
+	}
+#pagebody {
+	position: absolute;
+	top: 90px;
+	width: 750px;
+	}
+#contents, #menu {
+	position: relative;
+	padding-bottom: 20px;
+	}
+#contents {
+	top: 10px;
+	float: left;
+	width: 470px;
+	}
+#menu {
+	float: right;
+	width: 250px;
+	}
+
+/* 5: Entry
+------------------------------------------------------------ */
+.date_header {
+	position: relative;
+	top: 30px;
+	margin: 10px 0 0 75px;
+	color: #090;
+	font-weight: 900;
+	font-size: 120%;
+	line-height: 12px;
+	z-index: 2;
+	}
+.entry {
+	position: relative;
+	width: 470px !important;
+	width /**/: 470px;
+	margin: -5px 0 -10px 20px;
+	padding: 43px 0 0 0;
+	background: url(../images/naver/entry_bg.gif) no-repeat top left;
+	z-index: 1;
+	}
+.entry a {
+	font-weight: bold;
+	text-decoration: none;
+	}
+.entry_header {
+	padding: 3px 0 3px 15px;
+	border: none;
+	background: url(../images/naver/title.gif) no-repeat top left;
+	font-size: 116%;
+	text-indent: 10px;
+	}
+.entry_body {
+	padding: 5px 10px;
+	background: url(../images/naver/title_end.gif) no-repeat bottom left;
+	}
+.entry_body p {
+	margin: 1em 0;
+	}
+.entry_body blockquote {
+	margin: 1em;
+	padding-left: 10px;
+	border-left: 3px double #74ce70;
+	color: #666;
+	}
+.entry_body p.entry_footer {
+	padding: 3px 10px 0;
+	margin-bottom: 0px;
+	border: none;
+	font-size: 90%;
+	}
+
+/* 6: Side Navigation
+------------------------------------------------------------ */
+
+	/* Common
+	---------------------------------------------*/
+	.module_header {
+		padding: 10px 20px 0;
+		font-weight: bold;
+		font-size: 100%;
+		line-height: 14px;
+		letter-spacing:-1px;
+		}
+	.module_content {
+		padding: 5px 20px;
+		font-size: 90%;
+		}
+	.module {
+		margin: 0;
+		border: none;
+		}
+	/* Search
+	---------------------------------------------*/
+	.module_search {
+		position: absolute;
+		top: -20px;
+		left: -480px;
+		width: 730px;
+		height: 40px;
+		background: url(../images/naver/bg_search.gif) no-repeat top left;
+		color: #fff;
+		}
+	.module_search .module_content {
+		position: absolute;
+		top: 3px;
+		right: 10px;
+		background: none;
+		}
+	.module_search .module_header {
+		display: none;
+		}
+	.module_search .module_content input {
+		vertical-align: middle;
+		}
+	.module_search .module_content #search {
+		width: 110px;
+		border: 1px solid #559d48;
+		background: #fff;
+		}
+	
+	/* Category/Archive
+	---------------------------------------------*/
+	.module_categories, .module_archives {
+		background: url(../images/naver/list_top.gif) no-repeat top left;
+		}
+	.module_categories .module_content,
+	.module_archives .module_content {
+		margin-bottom: 10px;
+		background: url(../images/naver/list_bottom.gif) no-repeat bottom left;
+		}
+	.module_list {
+		border-top: none;
+		}
+	.module_list li {
+		border-bottom: none;
+		}
+	.module_list li a {
+		display: block;
+		margin: 0 !important;
+		.margin: 0 0 -8px 0;
+		margin /**/: 4px 0 -10px;
+		padding: 0 0 0 12px;
+		background: #fff url(../images/naver/marker.gif) no-repeat center left;
+		color: #333;
+		text-decoration: none;
+		}
+	.module_list li a:hover {
+		background: url(../images/naver/marker.gif) no-repeat center left;
+		color: #090;
+		}
+
+/* 7: Calendar
+------------------------------------------------------------ */
+#calendar {
+	height: 195px !important;
+	height /**/: 200px;
+	margin: 30px 0 0 0 !important;
+	margin /**/: 30px 0 10px 0;
+	padding-top: 10px !important;
+	padding-top /**/: 15px;
+	background: url(../images/naver/bg_calendar.gif) no-repeat top left;
+	text-align: center;
+	}
+#calendar table {
+	width: 90%;
+	margin: 0 auto;
+	font-size: 90%;
+	}
+#calendar th, #calendar td {
+	width: 10px;
+	padding: 3px;
+	text-align: center;
+	}
+#calendar th {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #e0e0e0 url(../images/naver/th_bg.gif) repeat-x bottom left;
+	font-weight: normal;
+	font-size: 0.9em;
+	}
+#calendar th#sun {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f00 url(../images/naver/th_sun_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar th#sat {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #00f url(../images/naver/th_sat_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar td {
+	border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff url(../images/naver/td_bg.gif) repeat-x bottom left;
+	}
+#calendar td a {
+	display: block;
+	width: 100%;
+	background-color: #75bf26;
+	color: #fff;
+	text-decoration: none;
+	}
+#calendar td a:hover {
+	background-color: #d4ed71;
+	color: #75bf26;
+	}
+
+/* 8: Footer
+------------------------------------------------------------ */
+#footer {
+	position: relative;
+	bottom: 0;
+	float: left;
+	width: 100%;
+	height: 75px;
+	padding: 0;
+	text-align: center;
+	}
+#footer a {
+	color: #444;
+	text-decoration: none;
+	}
+#footer a:hover {
+	color: #75bf26;
+	}
+#footer .module {
+	position: relative;
+	float: left;
+	margin: 10px 0 -10px 0;
+	padding: 0;
+	}
+.copyright {
+	position: relative;
+	float: left;
+	width: 100%;
+	border-top: 1px solid #aaa;
+	text-align: center;
+	}
+#footer .copyright a {
+	color: #039;
+	font-weight: bold;
+	text-decoration: none;
+	}

@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+/* 
+------------------------------------------------------------
+file name: yahoo.css
+Author: H.Park
+last updated: 2007.08.15
+
+======================= INDEX ===========================
+
+   1: Style Changing Setting
+   2: Browser-style reset
+   3: aid for non-CSS-compliant Browser
+   4: Background & Layout
+   5: Entry
+   6: Side Navigation
+      Common
+	  Search
+	  Category/Archive
+   7: Calendar
+   8: Footer
+
+============================================================
+*/
+
+/* 1: Style Changing Setting
+------------------------------------------------------------ */
+#styleSwitch {
+	position: absolute;
+	top: 20px;
+	right: -44px;
+	width: 200px;
+	text-align: center;
+	z-index: 3;
+	}
+#styleSwitch h2 {
+	color: #000;
+	font-weight: normal;
+	font-family: "Segoe UI", "Helvetica", sans-serif;
+	}
+#styleSwitch li {
+	display: inline;
+	padding-right: 2px !important;
+	padding /**/: 0;
+	}
+
+/* 2: Browser-style reset
+------------------------------------------------------------ */
+* {list-style: none; margin: 0; padding: 0; font-size: 100%;}
+body {
+	color: #333;
+	font: normal 75% "Segoe UI", "Helvetica", sans-serif;
+	line-height: 1.4;
+	/*\*/
+	letter-spacing: 0.1em;
+	/**/
+	}
+img, fieldset {border: none;}
+a {color: #333;}
+	/* Font Setting
+	----------------------------------------*/
+	#entry_103, #entry_100 {font-family: "Malgun Gothic", "Apple Gothic", sans-serif;}
+	#entry_102 {font-family: "Meiryo", "Hiragino Kaku Gothic Pro", sans-serif;}
+	#entry_101 {font-family: "Segoe UI", "Helvetica", sans-serif;}
+
+/* 3: aid for non-CSS-compliant Browser
+------------------------------------------------------------ */
+.aid {position: absolute; left: -9999px; overflow: hidden; width: 0;}
+
+/* 4: Background & Layout
+------------------------------------------------------------ */
+
+body {
+	background: #fff;
+	text-align: center;
+	}
+#container {
+	position: relative;
+	width: 700px;
+	margin: 0 auto;
+	text-align: left;
+	}
+#banner_header {
+	position: relative;
+	top: 10px;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	background: url(../images/yahoo/logo.jpg) no-repeat top center;
+	}
+#banner_header a {
+	display: block;
+	margin: 0 0 0 10px;
+	width: 240px !important;
+	width /**/: 240px;
+	height: 30px !important;
+	height /**/: 80px;
+	overflow: hidden;
+	text-indent: -9999px;
+	}
+#pagebody {
+	position: absolute;
+	top: 90px;
+	width: 700px;
+	}
+#contents, #menu {
+	position: relative;
+	padding: 0 0 20px 0;	
+	}
+#contents {
+	float: left;
+	width: 400px;
+	}
+#menu {
+	margin-top: -22px;
+	float: right;
+	width: 290px;
+	}
+
+/* 5: Entry
+------------------------------------------------------------ */
+.date_header {
+	position: relative;
+	top: 7px;
+	margin: 5px 0 0 10px;
+	font-weight: 900;
+	font-size: 120%;
+	color: #333;
+	line-height: 14px;
+	z-index: 2;
+	}
+.entry {
+	position: relative;
+	width: 400px;
+	margin-top: -10px;
+	padding: 40px 0 0 0;
+	background: url(../images/yahoo/entry_bg.gif) no-repeat top left;
+	z-index: 1;
+	}
+.entry_header {
+	margin: -20px 0 0 0;
+	padding: 3px 6px;
+	border-top: 1px solid #8e8e8e;
+	border-right: 1px solid #ababab;
+	border-left: 1px solid #ababab;
+	background: #fff;
+	color: #16387c;
+	font-size: 116%;
+	}
+.entry_body {
+	padding: 5px 0;
+	background: url(../images/yahoo/title_end.gif) no-repeat bottom left;
+	}
+.entry_body p {
+	margin: 1em 0;
+	padding: 0 10px;
+	}
+.entry_body blockquote {
+	margin: 2em;
+	padding: 0 10px;
+	border-left: 3px double #ddd;
+	color: #666;
+	}
+.entry_body p.entry_footer {
+	margin: 0 1px 0;
+	padding: 3px 10px 0;
+	border-top: #e0e0e0 1px solid;
+	font-size: 90%;
+	}
+.entry_body p.entry_footer a:link {
+	color: #16387c;
+	text-decoration: none;
+	}
+.entry_body p.entry_footer a:hover {
+	text-decoration: underline;
+	}
+
+/* 6: Side Navigation
+------------------------------------------------------------ */
+
+	/* Common
+	---------------------------------------------*/
+	.module_header {
+		height: 8px;
+		padding: 10px 30px 0;
+		font-weight: bold;
+		font-size: 100%;
+		line-height: 1.4em;
+		letter-spacing:-1px;
+		}
+	.module_content {
+		padding: 5px 20px;
+		margin: 10px 0;
+		font-size: 90%;
+		}
+	.module {
+		margin: 0;
+		border: none;
+		}
+
+	/* Search
+	---------------------------------------------*/
+	.module_search {
+		position: absolute;
+		top: -40px;
+		left: 0px;
+		width: 310px;
+		height: 30px;
+		background: none;
+		color: #000;
+		}
+	.module_search .module_content {
+		position: absolute;
+		top: 12px;
+		right: 110px;
+		width: 310px !important;
+		width /**/: 339px;
+		background: none;
+		}
+	.module_search .module_header {
+		display: none;
+		}
+	.module_search .module_content input {
+		vertical-align: middle;
+		}
+	.module_search .module_content #search {
+		width: 110px;
+		border: 1px solid #7c7c7c;
+		background: #fff;
+		}
+	
+	/* Category/Archive
+	---------------------------------------------*/
+	.module_categories, .module_archives {
+		background: url(../images/yahoo/list_top.gif) no-repeat top left;
+		}
+	.module_categories .module_content,
+	.module_archives .module_content {
+		background: url(../images/yahoo/list_end.gif) no-repeat bottom left;
+		}
+	.module_list {
+		border-top: 1px solid #ddd;
+		}
+	.module_list ol {
+		list-style-type: decimal;
+	}
+	.module_list li {
+		border: none;
+		}
+	.module_list li a {
+		display: block;
+		margin: 0 !important;
+		.margin: 0 0 -8px 0;
+		margin /**/: 4px 0 -10px;
+		padding: 1px 0 1px 3px !important;
+		.padding: 0 0 0 3px;
+		padding /**/: 0 0 0 3px;
+		color: #333;
+		text-decoration: none;
+		}
+	.module_list li a:hover {
+		color: #333;
+		text-decoration: underline;
+		}
+
+/* 7: Calendar
+------------------------------------------------------------ */
+#calendar {
+	height: 200px;
+	margin: 30px 0 0 0;
+	padding-top: 10px !important;
+	padding-top /**/: 12px;
+	background: url(../images/yahoo/bg_calendar.gif) no-repeat top left;
+	text-align: center;
+	}
+#calendar table {
+	width: 90%;
+	margin: 0 auto;
+	font-size: 90%;
+	}
+#calendar th, #calendar td {
+	padding: 3px;
+	width: 10px;
+	text-align: center;
+	}
+#calendar th {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #e0e0e0 url(../images/naver/th_bg.gif) repeat-x bottom left;
+	font-weight: normal;
+	font-size: 0.9em;
+	}
+#calendar th#sun {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f00 url(../images/naver/th_sun_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar th#sat {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #00f url(../images/naver/th_sat_bg.gif) repeat-x top left;
+	font-size: 0.75em;
+	}
+#calendar td {
+	border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff url(../images/naver/td_bg.gif) repeat-x bottom left;
+	}
+#calendar td a {
+	display: block;
+	width: 100%;
+	background-color: #75bf26;
+	color: #fff;
+	text-decoration: none;
+	}
+#calendar td a:hover {
+	background-color: #d4ed71;
+	color: #75bf26;
+	}
+
+/* 8: Footer
+------------------------------------------------------------ */
+#footer {
+	position: relative;
+	bottom: 0;
+	float: left;
+	width: 100%;
+	height: 65px;
+	padding: 0;
+	border-top: #ddd 1px solid;
+	color: #3a66a2;
+	text-align: center;
+	}
+#footer a {
+	color: #3a66a2;
+	text-decoration: none;
+	}
+#footer a:hover {
+	text-decoration: underline;
+	}
+#footer .module {
+	position: relative;
+	float: left;
+	margin: 10px 0 -15px;
+	padding: 0;
+	}
+.copyright {
+	position: relative;
+	float: left;
+	width: 100%;
+	text-align: center;
+	}
+#footer .copyright a {
+	color: #333;
+	}

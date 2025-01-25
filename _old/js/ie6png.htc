@@ -1,0 +1,43 @@
+/*
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<public:component xmlns="http://www.w3.org/1999/xhtml" xmlns:public="urn:HTMLComponent">
+<public:attach event="ondocumentready" onevent="yomotsuIePng();" />
+<!--
+*/
+
+/*====================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ Author : http://www.yomotsu.net
+ created: 2006/12/20
+ update : 2008/09/02
+ Licensed under the GNU Lesser General Public License version 2.1
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+====================================================================================================*/
+
+if (!window.XMLHttpRequest && ("\v"=="v")){
+	var e = document.getElementsByTagName("script"); 
+	for(var i=0; i<e.length; i++){
+		if(e[i].getAttribute("src").match("ie6png.htc")){
+			document.documentElement.addBehavior(e[i].getAttribute("src"));
+		}
+	}
+}
+
+var yomotsuIePng =  function(){
+	var img = document.images;
+	for (var i = 0; i < img.length; i++) {
+		if (img[i].src.lastIndexOf(".png") != -1){
+			if(((location + "").match(/:\/\/([^\/]*)\//g) + "" == img[i].src.match(/:\/\/([^\/]*)\//g) + "")){
+				var pngSrc = img[i].src;
+				var blankSrc = pngSrc.slice(0, pngSrc.lastIndexOf("/")+1) + "altpng.gif";
+				
+				img[i].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + pngSrc + "')";
+				img[i].src = blankSrc;
+			}
+		}
+	}
+}
+
+//--></public:component>

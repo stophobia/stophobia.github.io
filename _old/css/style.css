@@ -1,0 +1,238 @@
+@charset "UTF-8";
+/*
+DATE   : 2010.12.20
+AUTHOR : Park Hyunmyung
+*/
+/* Prevent from Error */
+* {
+	margin:0;
+	padding:0;
+}
+/* RESET */
+* {
+	list-style:none;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+	font-size:1em;
+	text-decoration:none;
+}
+/* DEFAULT */
+a {
+	color:#5b2;
+	text-decoration:none;
+}
+a:hover,
+a:focus,
+a:active {
+	color:#260;
+}
+h1 {
+	padding:0 0 0 10px;
+	color:#000;
+	font-size:24px;
+	font-weight:normal;
+}
+h2 {
+	display:none;
+}
+em {
+	font-style:normal;
+	font-weight:bold;
+	color:#888;
+}
+/* LAYOUT */
+/* --------------- body */
+html {
+	overflow:scroll;
+	overflow-x:hidden;
+}
+body {
+	padding-top:5px;
+	font-family:"Segoe UI", sans-serif;
+	font-size:10px;
+	line-height:1.4;
+	width:100%;
+	background-color:#fff;
+	color:#999;
+	text-shadow:#fff 0 1px 0;
+	z-index:1;
+}
+/* --------------- wrapper */
+#stophobia {
+	position:relative;
+	width:100%;
+	margin:0 auto;
+}
+/* --------------- header */
+header { 
+	position:relative;
+	display:block;
+	width:420px;
+	height:85px;
+	margin:0 auto;
+	padding:10px 0 0 80px;
+	background:url(../images/pic_logo.png) center left no-repeat;
+}
+#jobtitle {
+	line-height:14px;
+	padding:0 0 0 10px;
+	color:#888;
+	text-shadow:#eee 0 1px 0;
+}
+.tagxhtml {
+	position:absolute;
+	top:-15px;
+	right:70px;
+}
+.tagcss {
+	position:absolute;
+	top:-15px;
+	right:30px;
+}
+/* --------------- navigation */
+#navigation {
+	width:490px;
+	height:30px;
+	margin:0 auto;
+	padding:5px 35px;
+	line-height:28px;
+	font-weight:bold;
+}
+#navigation li {
+	float:left;
+}
+#navigation li a {
+	float:left;
+	padding:0 10px 0 0;
+	margin:0 5px 0 0;
+	text-decoration:none;
+}
+#navigation li a span {
+	float: left;
+	padding:1px 0 1px 10px;
+}
+#navigation li a:hover,
+#navigation li a:focus {
+	text-shadow:#ddd 0 1px 0;
+}
+#navigation li a:active {
+	text-shadow:#eee 0 1px 0;
+}
+#navigation li a:active span {
+	padding:2px 0 0 10px;
+}
+.logo #navigation li#nav-logo a,
+.website #navigation li#nav-website a,
+.website2 #navigation li#nav-website2 a,
+.profile #navigation li#nav-profile a {
+	cursor:default;
+	color:#260;
+	font-weight:bold;
+	text-shadow:#666 0 1px 2px;
+}
+.top_border {
+	height:5px;
+	background:url(../images/bg_top.gif) bottom left repeat-x;
+}
+.wrap {
+	overflow:hidden;
+	background:url(../images/bg_content.gif);
+}
+/* --------------- content */
+#content {
+	width:490px;
+	margin:0 auto;
+	padding:0 20px; 
+	overflow:hidden;
+	z-index:5;
+}
+/* --------------- footer */
+footer {
+	position:relative;
+	display:block;
+	padding:0 20px 20px;
+	text-align:center;
+	line-height:30px;
+	background:url(../images/bg_bottom.gif) top left repeat-x;
+	color: #888;
+	text-shadow:#ddd 0 1px 0; 
+	text-transform:uppercase;
+	font-size:9px;
+	font-weight:bold;
+	z-index:10;
+}
+/* PARTS */
+/* --------------- profile */
+#profile {
+	position:relative;
+	float:left;
+	width:450px;
+	overflow:hidden;
+	background:url(../images/bg_content.gif);
+}
+#profile h3 {
+	height:25px;
+	padding:10px 0 0 25px;
+	font-weight:normal;
+	color:#666;
+}
+#profile h3 strong {
+	display:block;
+	padding:2px 0 0;
+	color:#000;
+}
+#profile-personal,
+#profile-work {
+	width:224px;
+	float:left;
+	padding:0 0 10px;
+}
+#profile li ul {
+	padding:5px 0 0;
+}
+#profile li li {
+	padding:8px 0 0 15px;
+	color:#666;
+}
+#profile li li a {
+	display:block;
+	padding:2px 0 0 30px;
+	background-repeat: no-repeat;
+}
+#profile li li.name {
+	height:24px;
+	padding:10px 0 0 45px;
+	background:url(../images/ico_i.png) no-repeat 15px 6px;
+	font-size:11px;
+	font-weight:bold;
+}
+#profile li li.email a { 
+	height:24px;
+	background-image:url(../images/ico_mail.png);
+}
+#profile li li.tel a { 
+	height:24px;
+	background-image:url(../images/ico_tel.png);
+}
+#profile li li.url a { 
+	height:24px;
+	background-image:url(../images/ico_web.png);
+}
+#profile ul.link li a { 
+	height:24px;
+	background-image:url(../images/ico_link.png);
+}
+/* --------------- logo */
+#logo,#website,#website2 {
+	position:relative;
+	float:left;
+	width:450px;
+	overflow:hidden;
+	background:url(../images/bg_content.gif);
+}
+#logo li,#website li,#website2 li {
+	margin:20px 0;
+}
+/* --------------- website */

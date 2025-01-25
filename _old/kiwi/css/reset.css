@@ -1,0 +1,145 @@
+@charset "Shift-JIS";
+/* layout reset */
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	width:100%;
+	height:100%;
+	font: 12px/1.4 normal Meiryo, メイリオ, sans-serif;
+	color:#444;
+	background:#333 url(../images/bg_all.gif) left top repeat-x;
+}
+/* ie6 png */
+* html img,
+* html .png{
+position:relative;
+behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+this.src = "images/altpng.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+this.runtimeStyle.backgroundImage = "none")),this.pngSet=true)
+);
+}
+/* code reset */
+table {
+	border-spacing:0;
+	border-collapse:collapse;
+}
+img {
+	border:0;
+}
+fieldset, legend {
+	border:none;
+}
+input,textarea {
+	font: 12px/1.4 normal Meiryo, メイリオ, sans-serif;
+}
+a {
+	color:#440;
+	text-decoration:none;
+	cursor:pointer;
+}
+li {
+	list-style:none;
+}
+/* common reset */
+h1,h2,.aid {
+	position:absolute;
+	text-align:left;
+	text-indent:-99999em;
+	overflow:hidden;
+}
+.all {
+	position:relative;
+	width:950px;
+	height:100%;
+	margin:0 auto;
+}
+.more {
+	position:absolute;
+	display:block;
+	top:15px;
+	right:5px;
+	width:40px;
+	height:20px;
+}
+.menu li {
+	float:left;
+}
+/* ellipsis */
+.ellipsis {
+	white-space:nowrap;
+	overflow:hidden;
+	-o-text-overflow:ellipsis;
+	-ms-text-overflow:ellipsis;
+	width:100%;
+	text-overflow:ellipsis;
+	display:block;
+	position:relative;
+}
+.ellipsis .ellipsis-phantom {
+	position:absolute;
+}
+.ellipsis .ellipsis-phantom,
+.ellipsis .ellipsis-phantom * {
+	color:transparent !important;
+}
+.ellipsis window {
+	width:100%;
+	-moz-user-focus:normal;
+	-moz-user-select:text;
+}
+.ellipsis description {
+	-moz-user-focus:normal;
+	-moz-user-select:text;
+}
+/* scroll */
+.scrollgeneric {
+	position:absolute;
+	top:0;
+	left:0;
+	line-height:1px;
+	font-size:1px;
+}
+.hscrollerbase {
+	height: 10px;
+}
+.vscrollerbase,
+.vscrollerbarbeg,
+.vscrollerbarend,
+.vscrollerbasebeg,
+.vscrollerbaseend {
+	width: 10px;
+}
+.vscrollerbar {
+	padding: 5px 0;
+	z-index: 2;
+}
+.vscrollerbarbeg {
+	background: url(../images/vscroller.png) 0 -5px;
+}
+.vscrollerbarend {
+	height: 5px;
+	background: url(../images/vscroller.png);
+}
+.vscrollerbase {
+	background:#eee;
+}
+.vscrollerbasebeg {
+	height:5px;
+	background: url(../images/scrollbases.png) 0 -10px no-repeat;
+}
+.vscrollerbaseend {
+	height: 10px;
+	background: url(../images/scrollbases.png) 0 0 no-repeat;
+}
+/* carousel */
+#viewport{
+	overflow:hidden;
+}
+#viewport li{
+	float:left;
+	list-style:none;
+}
