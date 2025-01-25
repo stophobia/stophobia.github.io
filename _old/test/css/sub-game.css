@@ -1,0 +1,72 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+.left {
+	float:left;
+	width:420px;
+}
+.right {
+	float:right;
+	margin:0 0 30px;
+}
+/* game-story.html */
+#sub .sub_inner p.inner2 {
+	padding:20px;
+}
+/* game-movie.html */
+#sub .sub_inner .menus,
+#sub .sub_inner .menus dl,
+#sub .sub_inner .menus dt,
+#sub .sub_inner .menus dd {
+	position:relative;
+	float:left;
+}
+#sub .sub_inner .menus {
+	width:620px;
+	height:100%;
+	padding:10px;
+	border:1px #444 solid;
+}
+#sub .sub_inner .menus dl {
+	width:300px;
+	height:120px;
+	padding:5px;
+}
+#sub .sub_inner .menus dt {
+	width:150px;
+	height:100%;
+}
+#sub .sub_inner .menus dt a {
+	position:relative;
+	display:block;
+	width:150px;
+	margin:0;
+	padding:0;
+}
+#sub .sub_inner .menus dd {
+	width:140px;
+	height:100%;
+	padding:0 0 0 10px;
+}
+#sub .sub_inner .menus dd h4 {
+	padding:0 10px 15px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg_movie_line.gif) left bottom no-repeat;
+}
+#sub .sub_inner .menus dd span {
+	color:#888;
+}
+#sub .tutorial_flash {
+	position:relative;
+	float:left;
+	width:600px;
+	margin:0 20px;
+	padding:51px 45px 30px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg/bg_flashplayer.jpg) left top no-repeat;
+}

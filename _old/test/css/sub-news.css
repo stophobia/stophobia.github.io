@@ -1,0 +1,20 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+#sub .pagecontrol a.tolist {
+	display:block !important;
+	width:230px !important;
+	height:40px !important;
+	margin:0 auto 30px !important;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn/btn_tolist.gif) left bottom no-repeat !important;
+}
+#sub .pagecontrol a.tolist:hover {
+	background-position:left top !important;
+}

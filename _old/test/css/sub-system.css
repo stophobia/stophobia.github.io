@@ -1,0 +1,280 @@
+@charset "Shift-JIS";
+<?php header("Content-type: text/css");?>
+* {
+	margin:0;
+	padding:0;
+}
+* {
+	margin:0;
+	padding:0;
+}
+#sub img {
+	margin:0 0 20px;
+}
+#sub img.mark {
+	margin:0;
+}
+#sub .weapons {
+	float:left;
+	width:560px;
+	margin:10px 0 0;
+}
+#sub .weapons .weaponleft {
+	float:left;
+	width:200px;
+	padding:20px 0 0;
+}
+#sub .weapons .weaponright {
+	float:right;
+	width:360px;
+}
+#sub .weapons .weaponright th {
+	float:left;
+	width:64px;
+	text-align:center;
+}
+#sub .weapons .weaponright td {
+	float:left;
+	width:104px;
+	text-align:center;
+}
+#sub .weapons .weaponright td {
+	padding:0;
+}
+#sub .notice {
+	font-size:14px;
+	color:#fff;
+}
+#sub .title {
+	font-size:14px;
+	font-weight:bold;
+	margin:0 0 20px;
+}
+#sub .description {
+	margin:0 0 40px;
+	padding:10px 20px;
+	border:1px #444 solid;
+}
+#sub .tutorial_flash {
+	position:relative;
+	float:left;
+	width:600px;
+	margin:0 20px;
+	padding:51px 45px 30px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/bg/bg_flashplayer.jpg) left top no-repeat;
+}
+#sub .innerp div table.innertable3 {
+	margin:20px 0 0 45px;
+}
+#sub .innertable3 {
+	width:560px;
+	margin:0 0 0 10px;
+}
+#sub .innertable3center {
+	width:560px;
+	margin:-40px 0 20px 10px;
+	text-align:center;
+}
+#sub .innertable3center td.right_line {
+	width:160px;
+	border-right:1px #444 solid;
+}
+#sub .innertable3center td {
+	padding:5px 0;
+}
+#sub .innertable3center td img {
+	margin:5px 0;
+}
+#sub .mapnavi {
+	position:relative;
+	float:left;
+	width:640px;
+	height:50px;
+	margin:0 0 20px;
+	padding:0;
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_off.jpg) left top no-repeat;
+	overflow:hidden;
+}
+#sub .mapnavi a {
+	position:absolute;
+	display:block;
+	font-weight:bold;
+}
+#sub .mapnavi a.open {
+	top:0px;
+	left:250px;
+	width:160px;
+	height:40px;
+	background:url(http://image.mgame.jp/new_rpg/op7new/btn/btn_map_open.png) left top no-repeat;
+}
+#sub .mapnavi a.hide {
+	top:340px;
+	left:500px;
+	width:85px;
+	height:25px;
+}
+#sub .mapnavi .inner4 {
+	position:absolute;
+	top:60px;
+	left:30px;
+	width:586px;
+	height:270px;
+}
+#sub .mapnavi .inner4 a {
+	display:block;
+	position:absolute;
+	width:140px;
+	height:50px;
+}
+#sub .mapnavi .inner4 .link01 {
+	top:0px;
+	left:-10px;
+}
+#sub .mapnavi .inner4 .link02 {
+	top:0px;
+	left:137px;
+}
+#sub .mapnavi .inner4 .link03 {
+	top:0px;
+	left:283px;
+}
+#sub .mapnavi .inner4 .link04 {
+	top:0px;
+	left:429px;
+}
+#sub .mapnavi .inner4 .link05 {
+	top:55px;
+	left:-10px;
+}
+#sub .mapnavi .inner4 .link06 {
+	top:55px;
+	left:137px;
+}
+#sub .mapnavi .inner4 .link07 {
+	top:55px;
+	left:283px;
+}
+#sub .mapnavi .inner4 .link08 {
+	top:55px;
+	left:429px;
+}
+#sub .mapnavi .inner4 .link09 {
+	top:110px;
+	left:-10px;
+}
+#sub .mapnavi .inner4 .link10 {
+	top:110px;
+	left:137px;
+}
+#sub .mapnavi .inner4 .link11 {
+	top:110px;
+	left:283px;
+}
+#sub .mapnavi .inner4 .link12 {
+	top:110px;
+	left:429px;
+}
+#sub .mapnavi .inner4 .link13 {
+	top:165px;
+	left:-10px;
+}
+#sub .mapnavi .inner4 .link14 {
+	top:165px;
+	left:137px;
+}
+#sub .mapnavi .inner4 .link15 {
+	top:165px;
+	left:283px;
+}
+#sub .mapnavi .inner4 .link16 {
+	top:165px;
+	left:429px;
+}
+#sub .mapnavi .inner4 .link17 {
+	top:220px;
+	left:-10px;
+}
+#sub .mapnavi .inner4 .link18 {
+	top:220px;
+	left:137px;
+}
+#sub .mapnavi .inner4 .link19 {
+	top:220px;
+	left:283px;
+}
+#sub .mapnavi .inner4 .link01:hover,
+#sub .mapnavi .inner4 .link01.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -30px -60px no-repeat;
+}
+#sub .mapnavi .inner4 .link02:hover,
+#sub .mapnavi .inner4 .link02.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -177px -60px no-repeat;
+}
+#sub .mapnavi .inner4 .link03:hover,
+#sub .mapnavi .inner4 .link03.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -323px -60px no-repeat;
+}
+#sub .mapnavi .inner4 .link04:hover,
+#sub .mapnavi .inner4 .link04.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -469px -60px no-repeat;
+}
+#sub .mapnavi .inner4 .link05:hover,
+#sub .mapnavi .inner4 .link05.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -30px -115px no-repeat;
+}
+#sub .mapnavi .inner4 .link06:hover,
+#sub .mapnavi .inner4 .link06.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -177px -115px no-repeat;
+}
+#sub .mapnavi .inner4 .link07:hover,
+#sub .mapnavi .inner4 .link07.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -323px -115px no-repeat;
+}
+#sub .mapnavi .inner4 .link08:hover,
+#sub .mapnavi .inner4 .link08.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -469px -115px no-repeat;
+}
+#sub .mapnavi .inner4 .link09:hover,
+#sub .mapnavi .inner4 .link09.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -30px -170px no-repeat;
+}
+#sub .mapnavi .inner4 .link10:hover,
+#sub .mapnavi .inner4 .link10.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -177px -170px no-repeat;
+}
+#sub .mapnavi .inner4 .link11:hover,
+#sub .mapnavi .inner4 .link11.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -323px -170px no-repeat;
+}
+#sub .mapnavi .inner4 .link12:hover,
+#sub .mapnavi .inner4 .link12.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -469px -170px no-repeat;
+}
+#sub .mapnavi .inner4 .link13:hover,
+#sub .mapnavi .inner4 .link13.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -30px -225px no-repeat;
+}
+#sub .mapnavi .inner4 .link14:hover,
+#sub .mapnavi .inner4 .link14.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -177px -225px no-repeat;
+}
+#sub .mapnavi .inner4 .link15:hover,
+#sub .mapnavi .inner4 .link15.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -323px -225px no-repeat;
+}
+#sub .mapnavi .inner4 .link16:hover,
+#sub .mapnavi .inner4 .link16.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -469px -225px no-repeat;
+}
+#sub .mapnavi .inner4 .link17:hover,
+#sub .mapnavi .inner4 .link17.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -30px -280px no-repeat;
+}
+#sub .mapnavi .inner4 .link18:hover,
+#sub .mapnavi .inner4 .link18.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -177px -280px no-repeat;
+}
+#sub .mapnavi .inner4 .link19:hover,
+#sub .mapnavi .inner4 .link19.active {
+	background:url(http://image.mgame.jp/new_rpg/op7new/map/bg_nav_map_on.jpg) -323px -280px no-repeat;
+}

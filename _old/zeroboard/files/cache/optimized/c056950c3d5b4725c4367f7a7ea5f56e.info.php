@@ -1,0 +1,1 @@
+<?php $f=array();$f[]="./common/css/default.css";$f[]="./common/css/button.css";$f[]="./modules/install/tpl/css/install.css"; return $f; ?>

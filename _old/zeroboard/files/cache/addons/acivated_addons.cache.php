@@ -1,0 +1,1 @@
+<?php if(!defined("__ZBXE__")) exit(); $_m = Context::get('mid');  ?>
