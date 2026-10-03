@@ -1,1 +1,0 @@
-<?php $f=array();$f[]="./common/js/jquery.js";$f[]="./common/js/x.js";$f[]="./common/js/common.js";$f[]="./common/js/js_app.js";$f[]="./common/js/xml_handler.js";$f[]="./common/js/xml_js_filter.js"; return $f; ?>

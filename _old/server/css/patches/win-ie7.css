@@ -1,8 +1,0 @@
-/* slidedeck */
-#version_comparison .version .feature .description {position:relative;}
-#version_comparison .version .feature .description .wrap_1 {position:absolute;top:50%;}
-#version_comparison .version .feature .description .wrap_2 {position:relative;top:-50%;}
-#content_container #tweak_tip_1 {top:50px;left:490px;}
-#content_container #tweak_tip_2 {top:150px;left:685px;}
-#content_container #tweak_tip_3 {top:155px;left:465px;}
-#content_container #tweak_tip_4 {top:185px;left:550px;}

@@ -1,0 +1,12 @@
+{
+  "name": "FAIH - Financial AI Intelligence Hub",
+  "short_name": "FAIH",
+  "description": "Real-time AI, Quant & Finance intelligence aggregator",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

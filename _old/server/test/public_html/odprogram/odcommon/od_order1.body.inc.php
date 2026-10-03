@@ -1,1 +1,0 @@
-<body leftmargin='0' topmargin='0' onload="javascript:Enable_Flag(frmAGS_pay);">

@@ -1,1 +1,0 @@
-<?php if(!$p) echo '</div>'; ?>

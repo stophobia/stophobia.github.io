@@ -1,1 +1,0 @@
-function changeImage(filename) { mainimage.src = filename; }
