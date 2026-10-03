@@ -37,6 +37,7 @@ export type EventCategory =
   | 'tool'
   | 'job'
   | 'discussion'
+  | 'strategy'
 
 export type AreaTag = AreaId
 
