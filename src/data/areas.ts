@@ -45,7 +45,7 @@ export const AREAS: Area[] = [
     description: 'Banks, asset managers, hedge funds, FinTech, and financial AI adoption',
     color: '#10b981',
     gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-    tabs: ['feed', 'organizations', 'people', 'news', 'blog', 'regulation', 'videos', 'jobs'],
+    tabs: ['feed', 'organizations', 'people', 'news', 'blog', 'papers', 'regulation', 'videos', 'jobs'],
   },
   {
     id: 'market',
@@ -63,7 +63,7 @@ export const AREAS: Area[] = [
     description: 'Academic papers from arXiv, SSRN, NeurIPS, ICML, and more',
     color: '#ec4899',
     gradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
-    tabs: ['feed', 'papers', 'people', 'conferences', 'datasets', 'videos'],
+    tabs: ['feed', 'papers', 'people', 'blog', 'conferences', 'datasets', 'tools', 'videos'],
   },
   {
     id: 'community',
@@ -72,6 +72,6 @@ export const AREAS: Area[] = [
     description: 'Reddit, Hacker News, Stack Overflow, Discord, and YouTube',
     color: '#f97316',
     gradient: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
-    tabs: ['feed', 'news', 'blog', 'videos', 'podcasts', 'jobs'],
+    tabs: ['feed', 'news', 'blog', 'tools', 'videos', 'podcasts', 'jobs'],
   },
 ]
