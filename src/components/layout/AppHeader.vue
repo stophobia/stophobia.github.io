@@ -17,6 +17,10 @@
         <span class="material-symbols-outlined" aria-hidden="true">{{ area.icon }}</span>
         {{ area.label }}
       </RouterLink>
+      <RouterLink to="/favorites" class="chip">
+        <span class="material-symbols-outlined" aria-hidden="true">bookmarks</span>
+        Favorites
+      </RouterLink>
     </nav>
 
     <label class="search">
