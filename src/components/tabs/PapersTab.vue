@@ -4,7 +4,7 @@
       <h2 class="category-tab-title">📄 Research Papers</h2>
       <p class="category-tab-desc">Latest preprints and papers from arXiv, SSRN, NeurIPS, ICML, and more.</p>
     </div>
-    <FeedGrid :area-id="areaId" :override-categories="['paper']" />
+    <FeedGrid :area-id="areaId" :override-categories="['paper']" hide-filter />
   </div>
 </template>
 

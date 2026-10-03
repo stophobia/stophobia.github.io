@@ -6,7 +6,7 @@
         {{ src.icon }} {{ src.name }}
       </div>
     </div>
-    <FeedGrid :area-id="areaId" />
+    <FeedGrid :area-id="areaId" hide-filter />
   </div>
 </template>
 

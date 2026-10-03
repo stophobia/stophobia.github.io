@@ -47,7 +47,7 @@
 
     <!-- Releases -->
     <div v-if="activeSub === 'releases'">
-      <FeedGrid :area-id="areaId" :override-categories="['github_release']" />
+      <FeedGrid :area-id="areaId" :override-categories="['github_release']" hide-filter />
     </div>
 
     <!-- Tracked Repos -->

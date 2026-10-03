@@ -11,7 +11,7 @@
         <span class="vc-arrow">→</span>
       </a>
     </div>
-    <FeedGrid :area-id="areaId" />
+    <FeedGrid :area-id="areaId" hide-filter />
   </div>
 </template>
 

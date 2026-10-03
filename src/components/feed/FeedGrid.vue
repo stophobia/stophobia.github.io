@@ -1,7 +1,7 @@
 <template>
   <div class="feed-grid-wrap">
     <!-- Filter bar -->
-    <div class="filter-bar glass">
+    <div v-if="!hideFilter" class="filter-bar glass">
       <!-- Time range -->
       <div class="filter-group">
         <button
@@ -88,6 +88,7 @@ import type { AreaId } from '@/types'
 const props = defineProps<{
   areaId?: AreaId
   overrideCategories?: import('@/types').EventCategory[]
+  hideFilter?: boolean
 }>()
 
 const feedStore = useFeedStore()
