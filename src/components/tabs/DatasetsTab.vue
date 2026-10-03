@@ -22,14 +22,13 @@ import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
 const DATASETS = [
-  { name: 'FinanceBench', source: 'JPMorgan', url: 'https://github.com/patronasnetworks/financebench', desc: 'Financial Q&A benchmark', area: 'finance', tags: ['QA', 'LLM', 'finance'] },
-  { name: 'FNSPID', source: 'Kaggle', url: 'https://www.kaggle.com', desc: 'Financial News & Stock Price Integration', area: 'quant', tags: ['NLP', 'stocks', 'news'] },
+  { name: 'FinanceBench', source: 'Patronus AI', url: 'https://github.com/patronus-ai/financebench', desc: 'Financial Q&A benchmark', area: 'finance', tags: ['QA', 'LLM', 'finance'] },
+  { name: 'FNSPID', source: 'HuggingFace', url: 'https://huggingface.co/datasets/Zihan1004/FNSPID', desc: 'Financial News & Stock Price Integration', area: 'quant', tags: ['NLP', 'stocks', 'news'] },
   { name: 'HuggingFace Finance Datasets', source: 'HuggingFace', url: 'https://huggingface.co/datasets?search=finance', desc: 'Curated finance datasets', area: 'ai', tags: ['NLP', 'finance', 'LLM'] },
   { name: 'Awesome FinRL', source: 'GitHub', url: 'https://github.com/AI4Finance-Foundation/FinRL-Tutorials', desc: 'RL for finance tutorials', area: 'quant', tags: ['RL', 'trading', 'tutorial'] },
   { name: 'EDGAR', source: 'SEC', url: 'https://efts.sec.gov/LATEST/search-index?q=%22form-type%22%3A%2210-K%22', desc: 'SEC financial filings', area: 'finance', tags: ['SEC', '10-K', 'filings'] },
   { name: 'FRED Economic Data', source: 'St. Louis Fed', url: 'https://fred.stlouisfed.org', desc: 'US macroeconomic data', area: 'market', tags: ['macro', 'economic', 'time-series'] },
   { name: 'Quandl / Nasdaq Data Link', source: 'Nasdaq', url: 'https://data.nasdaq.com', desc: 'Financial and alternative data', area: 'quant', tags: ['market-data', 'alternative', 'quant'] },
-  { name: 'Papers with Code Datasets', source: 'PwC', url: 'https://paperswithcode.com/datasets', desc: 'ML benchmark datasets', area: 'research', tags: ['ML', 'benchmark', 'AI'] },
 ]
 </script>
 

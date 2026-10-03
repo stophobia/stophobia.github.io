@@ -13,7 +13,7 @@
         </div>
       </a>
     </div>
-    <FeedGrid :area-id="areaId" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['blog_post']" hide-filter />
   </div>
 </template>
 

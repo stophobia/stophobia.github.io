@@ -1,11 +1,19 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { FeedEvent, FilterState, SortMode, AreaId } from '@/types'
-import { fetchAllFeeds, RSS_FEEDS } from '@/services/rssCollector'
-import { fetchGitHubReleases, fetchTrendingRepos } from '@/services/githubService'
-import { fetchAllHuggingFace } from '@/services/huggingfaceService'
 
-const CACHE_TTL_MS = 15 * 60 * 1000 // 15 minutes
+// Generated at build time by scripts/collect.ts
+const FEED_URL = `${import.meta.env.BASE_URL}data/feed.json`
+
+// Topic filters from the spec, matched against title/summary/tags
+export const TOPICS: Record<string, RegExp> = {
+  LLM: /\b(LLMs?|language models?)\b/i,
+  Agent: /\bagent(s|ic)?\b/i,
+  RAG: /\b(RAG|retrieval[- ]augmented)\b/i,
+  MCP: /\b(MCP|model context protocol)\b/i,
+  RL: /\b(RL|RLHF|reinforcement learning)\b/i,
+  Trading: /\b(trading|backtest\w*|alpha|portfolio)\b/i,
+}
 
 export const useFeedStore = defineStore('feed', () => {
   const events = ref<FeedEvent[]>([])
@@ -15,7 +23,7 @@ export const useFeedStore = defineStore('feed', () => {
   const lastFetchedAt = ref<number | null>(null)
 
   const filter = ref<FilterState>({
-    timeRange: 'week',
+    timeRange: 'all',
     area: null,
     categories: [],
     tags: [],
@@ -56,20 +64,25 @@ export const useFeedStore = defineStore('feed', () => {
       result = result.filter((e) => filter.value.categories.includes(e.category))
     }
 
-    // Tag filter
+    // Topic filter
     if (filter.value.tags.length) {
-      result = result.filter((e) => filter.value.tags.some((t) => e.tags.includes(t)))
+      const topics = filter.value.tags.map((t) => TOPICS[t]).filter(Boolean)
+      result = result.filter((e) => {
+        const text = `${e.title} ${e.summary} ${e.tags.join(' ')}`
+        return topics.some((re) => re.test(text))
+      })
     }
 
     // Search query
-    if (filter.value.query.trim()) {
-      const q = filter.value.query.toLowerCase()
+    const q = filter.value.query.trim().toLowerCase()
+    if (q) {
       result = result.filter(
         (e) =>
           e.title.toLowerCase().includes(q) ||
           e.summary.toLowerCase().includes(q) ||
           (e.author?.toLowerCase().includes(q) ?? false) ||
-          (e.organization?.toLowerCase().includes(q) ?? false),
+          (e.organization?.toLowerCase().includes(q) ?? false) ||
+          e.tags.some((t) => t.toLowerCase().includes(q)),
       )
     }
 
@@ -96,13 +109,7 @@ export const useFeedStore = defineStore('feed', () => {
     return map
   })
 
-  function isCacheStale(): boolean {
-    if (!lastFetchedAt.value) return true
-    return Date.now() - lastFetchedAt.value > CACHE_TTL_MS
-  }
-
-  async function fetchFeeds(force = false) {
-    if (!force && !isCacheStale()) return
+  async function fetchFeeds() {
     if (isLoading.value || isRefreshing.value) return
 
     if (events.value.length === 0) {
@@ -113,28 +120,11 @@ export const useFeedStore = defineStore('feed', () => {
     error.value = null
 
     try {
-      const [rssEvents, ghReleases, ghTrending, hfEvents] = await Promise.allSettled([
-        fetchAllFeeds(RSS_FEEDS),
-        fetchGitHubReleases(),
-        fetchTrendingRepos(),
-        fetchAllHuggingFace(),
-      ])
-
-      const all: FeedEvent[] = []
-      if (rssEvents.status === 'fulfilled') all.push(...rssEvents.value)
-      if (ghReleases.status === 'fulfilled') all.push(...ghReleases.value)
-      if (ghTrending.status === 'fulfilled') all.push(...ghTrending.value)
-      if (hfEvents.status === 'fulfilled') all.push(...hfEvents.value)
-
-      // Deduplicate by id
-      const seen = new Set<string>()
-      events.value = all.filter((e) => {
-        if (seen.has(e.id)) return false
-        seen.add(e.id)
-        return true
-      }).sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-
-      lastFetchedAt.value = Date.now()
+      const resp = await fetch(FEED_URL, { cache: 'no-cache' })
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+      const data: { generatedAt: number; events: FeedEvent[] } = await resp.json()
+      events.value = data.events
+      lastFetchedAt.value = data.generatedAt
     } catch (e: unknown) {
       error.value = e instanceof Error ? e.message : 'Unknown error'
     } finally {

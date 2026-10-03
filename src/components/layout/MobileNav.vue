@@ -44,7 +44,7 @@ const currentArea = computed(() => route.params.areaId as string)
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  padding: 6px 10px;
+  padding: 6px 4px; /* six items must fit a 360px phone */
   border-radius: var(--radius-md);
   color: var(--text-muted);
   transition: all var(--transition-fast);

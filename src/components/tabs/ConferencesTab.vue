@@ -33,14 +33,14 @@ import { computed } from 'vue'
 import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
+// Update as editions are announced (dates checked 2026-10-03)
 const CONFERENCES = [
-  { name: 'NeurIPS 2025', fullName: 'Neural Information Processing Systems', year: 2025, date: 'Dec 2025', location: 'Vancouver, Canada', area: 'ai', url: 'https://neurips.cc', topics: ['deep-learning', 'LLM', 'RL'] },
-  { name: 'ICML 2025', fullName: 'International Conference on Machine Learning', year: 2025, date: 'Jul 2025', location: 'Vienna, Austria', area: 'ai', url: 'https://icml.cc', topics: ['ML', 'optimization', 'theory'] },
-  { name: 'ICLR 2026', fullName: 'International Conference on Learning Representations', year: 2026, date: 'May 2026', location: 'TBD', area: 'ai', url: 'https://iclr.cc', topics: ['representation-learning', 'deep-learning'] },
-  { name: 'ACL 2026', fullName: 'Association for Computational Linguistics', year: 2026, date: 'Aug 2026', location: 'TBD', area: 'research', url: 'https://aclweb.org', topics: ['NLP', 'LLM', 'linguistics'] },
-  { name: 'AAAI 2026', fullName: 'AAAI Conference on Artificial Intelligence', year: 2026, date: 'Feb 2026', location: 'Philadelphia, US', area: 'ai', url: 'https://aaai.org', topics: ['AI', 'reasoning', 'multi-agent'] },
-  { name: 'QuantMinds 2025', fullName: 'QuantMinds International', year: 2025, date: 'Nov 2025', location: 'London, UK', area: 'quant', url: 'https://quantminds.com', topics: ['quant-finance', 'derivatives', 'risk'] },
-  { name: 'RISK Live 2025', fullName: 'Risk Live London', year: 2025, date: 'Jun 2025', location: 'London, UK', area: 'finance', url: 'https://risk.net', topics: ['risk', 'regulation', 'finance'] },
+  { name: 'QuantMinds 2026', fullName: 'QuantMinds International', year: 2026, date: 'Nov 16–19, 2026', location: 'London, UK', area: 'quant', url: 'https://informaconnect.com/quantminds-international/', topics: ['quant-finance', 'derivatives', 'risk'] },
+  { name: 'NeurIPS 2026', fullName: 'Neural Information Processing Systems', year: 2026, date: 'Dec 6–12, 2026', location: 'Sydney, Australia', area: 'ai', url: 'https://neurips.cc', topics: ['deep-learning', 'LLM', 'RL'] },
+  { name: 'AAAI-27', fullName: 'AAAI Conference on Artificial Intelligence', year: 2027, date: 'Feb 16–23, 2027', location: 'Montréal, Canada', area: 'ai', url: 'https://aaai.org', topics: ['AI', 'reasoning', 'multi-agent'] },
+  { name: 'ICLR 2027', fullName: 'International Conference on Learning Representations', year: 2027, date: 'Apr 26–30, 2027', location: 'San Francisco, US', area: 'ai', url: 'https://iclr.cc', topics: ['representation-learning', 'deep-learning'] },
+  { name: 'ICML 2027', fullName: 'International Conference on Machine Learning', year: 2027, date: 'TBA', location: '', area: 'ai', url: 'https://icml.cc', topics: ['ML', 'optimization', 'theory'] },
+  { name: 'ACL 2027', fullName: 'Association for Computational Linguistics', year: 2027, date: 'Aug 17–22, 2027', location: 'Kyoto, Japan', area: 'research', url: 'https://2027.aclweb.org', topics: ['NLP', 'LLM', 'linguistics'] },
 ]
 
 const groupedConfs = computed(() => {

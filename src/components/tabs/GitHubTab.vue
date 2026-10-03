@@ -14,11 +14,7 @@
 
     <!-- Trending -->
     <div v-if="activeSub === 'trending'">
-      <div v-if="loading" class="gh-loading">
-        <div class="spinner"></div>
-        <span>Fetching trending repos…</span>
-      </div>
-      <div v-else class="gh-repos-grid">
+      <div class="gh-repos-grid">
         <a
           v-for="event in trendingEvents"
           :key="event.id"
@@ -73,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useFeedStore } from '@/stores/feedStore'
 import FeedGrid from '@/components/feed/FeedGrid.vue'
 import type { AreaId } from '@/types'
@@ -81,7 +77,6 @@ import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 const feedStore = useFeedStore()
 const activeSub = ref<'trending' | 'releases' | 'watched'>('trending')
-const loading = ref(false)
 
 const subTabs = [
   { id: 'trending' as const, icon: '🔥', label: 'Trending Repos' },
@@ -95,16 +90,18 @@ const WATCHED_REPOS = [
   { name: 'run-llama/llama_index', url: 'https://github.com/run-llama/llama_index', desc: 'Data framework for LLMs', tags: ['RAG', 'LLM', 'indexing'] },
   { name: 'vllm-project/vllm', url: 'https://github.com/vllm-project/vllm', desc: 'High-throughput LLM serving', tags: ['inference', 'LLM', 'performance'] },
   { name: 'microsoft/autogen', url: 'https://github.com/microsoft/autogen', desc: 'Multi-agent conversation framework', tags: ['agents', 'multi-agent'] },
-  { name: 'FinRL-Library/FinRL', url: 'https://github.com/FinRL-Library/FinRL', desc: 'Deep RL for finance', tags: ['RL', 'trading', 'quant'] },
+  { name: 'AI4Finance-Foundation/FinRL', url: 'https://github.com/AI4Finance-Foundation/FinRL', desc: 'Deep RL for finance', tags: ['RL', 'trading', 'quant'] },
   { name: 'microsoft/qlib', url: 'https://github.com/microsoft/qlib', desc: 'AI-oriented quantitative investment platform', tags: ['quant', 'AI', 'trading'] },
   { name: 'huggingface/transformers', url: 'https://github.com/huggingface/transformers', desc: 'State-of-the-art ML models', tags: ['LLM', 'transformers', 'ML'] },
-  { name: 'All-Hands-AI/OpenHands', url: 'https://github.com/All-Hands-AI/OpenHands', desc: 'Open platform for AI software agents', tags: ['agents', 'coding', 'AI'] },
+  { name: 'OpenHands/OpenHands', url: 'https://github.com/OpenHands/OpenHands', desc: 'Open platform for AI software agents', tags: ['agents', 'coding', 'AI'] },
   { name: 'ray-project/ray', url: 'https://github.com/ray-project/ray', desc: 'Distributed computing framework', tags: ['distributed', 'ML', 'scalability'] },
+  { name: 'ml-explore/mlx', url: 'https://github.com/ml-explore/mlx', desc: 'Array framework for Apple silicon', tags: ['Apple', 'ML', 'inference'] },
+  { name: 'feast-dev/feast', url: 'https://github.com/feast-dev/feast', desc: 'Open-source feature store', tags: ['MLOps', 'features', 'data'] },
 ]
 
 const trendingEvents = computed(() =>
   feedStore.events
-    .filter((e) => e.category === 'github_repo')
+    .filter((e) => e.source === 'GitHub Trending') // person repos are also github_repo
     .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
     .slice(0, 20),
 )
@@ -138,15 +135,6 @@ function relativeTime(iso: string): string {
 }
 .github-sub-tab:hover { color: var(--text-primary); border-color: var(--border-default); }
 .github-sub-tab.active { color: white; background: var(--bg-overlay); border-color: var(--border-strong); }
-
-.gh-loading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 24px;
-  color: var(--text-muted);
-  font-size: 13px;
-}
 
 .gh-repos-grid {
   display: grid;

@@ -3,8 +3,6 @@
    Design System & Global Styles
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
 /* ── Custom Properties ─────────────────────────────────── */
 :root {
   /* Background layers */
@@ -334,7 +332,7 @@ h3 { font-size: 1rem; font-weight: 600; }
 .fade-leave-to { opacity: 0; }
 
 /* ── Mobile ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) { /* same breakpoint as the mobile nav in App.vue */
   .main-content {
     height: calc(100dvh - var(--header-height) - var(--mobile-nav-height));
     padding-bottom: 0;

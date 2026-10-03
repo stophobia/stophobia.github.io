@@ -51,6 +51,7 @@ const orgTypes = [
   { value: 'asset_manager', label: 'Asset Mgr' },
   { value: 'research', label: 'Research' },
   { value: 'fintech', label: 'FinTech' },
+  { value: 'regulator', label: 'Regulator' },
 ]
 
 const filteredOrgs = computed(() => {

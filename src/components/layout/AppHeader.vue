@@ -27,7 +27,6 @@
           @keydown.escape="clearSearch"
           autocomplete="off"
         />
-        <kbd class="search-kbd" v-if="!searchFocused">⌘K</kbd>
       </div>
 
       <!-- Right actions -->
@@ -38,7 +37,7 @@
           <span>{{ feedStore.isRefreshing ? 'Updating…' : 'Live' }}</span>
         </div>
         <!-- Refresh -->
-        <button class="btn-icon" @click="feedStore.fetchFeeds(true)" title="Refresh feeds" id="refresh-btn">
+        <button class="btn-icon" @click="feedStore.fetchFeeds()" title="Refresh feeds" id="refresh-btn">
           <span :class="{ 'spin-icon': feedStore.isRefreshing }">↻</span>
         </button>
         <!-- GitHub link -->
@@ -60,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFeedStore } from '@/stores/feedStore'
 
@@ -79,10 +78,6 @@ function clearSearch() {
   searchQuery.value = ''
   searchFocused.value = false
 }
-
-watch(searchQuery, (val) => {
-  feedStore.setFilter({ query: val })
-})
 </script>
 
 <style scoped>
@@ -152,6 +147,7 @@ watch(searchQuery, (val) => {
 /* Search */
 .search-wrap {
   flex: 1;
+  min-width: 0; /* let the input shrink on phones instead of pushing the actions off-screen */
   max-width: 480px;
   display: flex;
   align-items: center;
@@ -177,6 +173,7 @@ watch(searchQuery, (val) => {
 
 .search-input {
   flex: 1;
+  min-width: 0;
   background: none;
   border: none;
   outline: none;
@@ -186,16 +183,6 @@ watch(searchQuery, (val) => {
 }
 
 .search-input::placeholder { color: var(--text-muted); }
-
-.search-kbd {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
-  border: 1px solid var(--border-default);
-  border-radius: 4px;
-  padding: 1px 5px;
-  flex-shrink: 0;
-}
 
 /* Actions */
 .header-actions {

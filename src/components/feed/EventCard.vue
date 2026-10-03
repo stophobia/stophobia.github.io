@@ -91,6 +91,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   tool: 'Tool',
   job: 'Job',
   discussion: 'Discussion',
+  strategy: 'Strategy',
 }
 
 const CATEGORY_BADGE_CLASS: Record<string, string> = {

@@ -2,7 +2,7 @@
   <div id="faih-app">
     <AppHeader />
     <div class="app-layout">
-      <SideNav class="side-nav-desktop" />
+      <SideNav />
       <main class="main-content" id="main-content">
         <RouterView v-slot="{ Component }">
           <Transition name="page" mode="out-in">
@@ -35,18 +35,12 @@ onMounted(() => feedStore.fetchFeeds())
   z-index: 1;
 }
 
-.side-nav-desktop {
-  display: flex;
-}
-
 .mobile-nav {
   display: none;
 }
 
+/* SideNav hides itself at the same breakpoint (scoped styles would override a rule here) */
 @media (max-width: 900px) {
-  .side-nav-desktop {
-    display: none;
-  }
   .mobile-nav {
     display: flex;
   }

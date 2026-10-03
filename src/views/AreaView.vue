@@ -39,6 +39,7 @@
           :key="currentTab"
           :area-id="areaId"
           :area="area"
+          :override-categories="TAB_CATEGORIES[currentTab]"
         />
       </Transition>
     </div>
@@ -53,7 +54,7 @@
 import { computed } from 'vue'
 import { AREAS, TABS } from '@/data/areas'
 import { useFeedStore } from '@/stores/feedStore'
-import type { AreaId, TabId } from '@/types'
+import type { AreaId, EventCategory, TabId } from '@/types'
 
 // Tab components
 import FeedTab from '@/components/tabs/FeedTab.vue'
@@ -67,9 +68,6 @@ import VideosTab from '@/components/tabs/VideosTab.vue'
 import PodcastsTab from '@/components/tabs/PodcastsTab.vue'
 import DatasetsTab from '@/components/tabs/DatasetsTab.vue'
 import ConferencesTab from '@/components/tabs/ConferencesTab.vue'
-import StrategiesTab from '@/components/tabs/StrategiesTab.vue'
-import ToolsTab from '@/components/tabs/ToolsTab.vue'
-import JobsTab from '@/components/tabs/JobsTab.vue'
 
 const props = defineProps<{
   areaId: AreaId
@@ -96,9 +94,14 @@ const TAB_COMPONENTS: Record<string, object> = {
   podcasts: PodcastsTab,
   datasets: DatasetsTab,
   conferences: ConferencesTab,
-  strategies: StrategiesTab,
-  tools: ToolsTab,
-  jobs: JobsTab,
+}
+
+// Tabs without their own component render FeedTab narrowed to these categories
+const TAB_CATEGORIES: Partial<Record<TabId, EventCategory[]>> = {
+  jobs: ['job'],
+  strategies: ['strategy'],
+  tools: ['tool'],
+  regulation: ['regulation'],
 }
 
 const tabComponent = computed(() => TAB_COMPONENTS[currentTab.value] || FeedTab)

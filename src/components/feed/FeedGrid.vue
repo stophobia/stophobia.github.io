@@ -30,8 +30,23 @@
         </button>
       </div>
 
+      <div class="filter-sep"></div>
+
+      <!-- Topics -->
+      <div class="filter-group">
+        <button
+          v-for="t in topics"
+          :key="t"
+          class="filter-btn"
+          :class="{ active: feedStore.filter.tags.includes(t) }"
+          @click="toggleTopic(t)"
+        >
+          {{ t }}
+        </button>
+      </div>
+
       <!-- Result count -->
-      <span class="filter-count">{{ displayEvents.length }} results</span>
+      <span class="filter-count">{{ baseEvents.length }} results</span>
     </div>
 
     <!-- Loading state -->
@@ -49,7 +64,7 @@
     <!-- Error state -->
     <div v-else-if="feedStore.error && displayEvents.length === 0" class="feed-empty">
       <span class="feed-empty-icon">⚠️</span>
-      <p>Failed to load feeds. <button class="btn-link" @click="feedStore.fetchFeeds(true)">Retry</button></p>
+      <p>Failed to load feeds. <button class="btn-link" @click="feedStore.fetchFeeds()">Retry</button></p>
     </div>
 
     <!-- Empty state -->
@@ -81,13 +96,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useFeedStore } from '@/stores/feedStore'
+import { useFeedStore, TOPICS } from '@/stores/feedStore'
 import EventCard from './EventCard.vue'
 import type { AreaId } from '@/types'
 
 const props = defineProps<{
   areaId?: AreaId
   overrideCategories?: import('@/types').EventCategory[]
+  source?: string
   hideFilter?: boolean
 }>()
 
@@ -104,7 +120,6 @@ const timeRanges = [
 
 const sortModes = [
   { value: 'latest' as const, label: '⏱ Latest' },
-  { value: 'trending' as const, label: '🔥 Trending' },
   { value: 'score' as const, label: '⭐ Top' },
 ]
 
@@ -116,6 +131,9 @@ const baseEvents = computed(() => {
   if (props.overrideCategories?.length) {
     result = result.filter((e) => props.overrideCategories!.includes(e.category))
   }
+  if (props.source) {
+    result = result.filter((e) => e.source === props.source)
+  }
   return result
 })
 
@@ -124,6 +142,12 @@ const hasMore = computed(() => displayEvents.value.length < baseEvents.value.len
 const remaining = computed(() => baseEvents.value.length - displayEvents.value.length)
 
 function showMore() { page.value++ }
+
+const topics = Object.keys(TOPICS)
+function toggleTopic(t: string) {
+  const tags = feedStore.filter.tags
+  feedStore.setFilter({ tags: tags.includes(t) ? tags.filter((x) => x !== t) : [...tags, t] })
+}
 </script>
 
 <style scoped>
@@ -148,6 +172,7 @@ function showMore() { page.value++ }
 
 .filter-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 

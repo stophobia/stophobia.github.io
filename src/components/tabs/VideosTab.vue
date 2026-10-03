@@ -11,7 +11,7 @@
         <span class="vc-arrow">→</span>
       </a>
     </div>
-    <FeedGrid :area-id="areaId" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['video']" hide-filter />
   </div>
 </template>
 

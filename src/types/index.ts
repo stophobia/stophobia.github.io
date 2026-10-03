@@ -63,6 +63,9 @@ export interface FeedEvent {
   stars?: number
   forks?: number
   citations?: number
+  // Entity links set by the collector (ontology: Person/Organization —published→ Event)
+  personId?: string
+  orgId?: string
 }
 
 export interface Person {
@@ -82,6 +85,9 @@ export interface Person {
     scholar?: string
     arxiv?: string
   }
+  // Collected into the person's timeline by scripts/collect.ts
+  blogFeed?: string
+  arxivAuthor?: string // exact name for an arXiv author query; only set when the name is unambiguous
   recentEvents?: FeedEvent[]
 }
 
@@ -99,7 +105,6 @@ export interface Organization {
     twitter?: string
     linkedin?: string
   }
-  rssFeeds?: string[]
   tags: string[]
   recentEvents?: FeedEvent[]
 }
@@ -135,4 +140,4 @@ export interface FilterState {
   query: string
 }
 
-export type SortMode = 'latest' | 'trending' | 'score'
+export type SortMode = 'latest' | 'score'

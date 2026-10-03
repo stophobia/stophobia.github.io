@@ -31,24 +31,40 @@
       </div>
     </div>
 
-    <!-- RSS Feeds -->
-    <div v-if="org.rssFeeds?.length" class="org-section">
-      <h2 class="section-title">RSS Feeds</h2>
+    <!-- People (Person —works at→ Organization) -->
+    <div v-if="people.length" class="org-section">
+      <h2 class="section-title">People</h2>
+      <div class="org-events-grid">
+        <PersonCard v-for="person in people" :key="person.id" :person="person" />
+      </div>
+    </div>
+
+    <!-- Feeds collected for this organization -->
+    <div v-if="feeds.length" class="org-section">
+      <h2 class="section-title">Feeds</h2>
       <div class="rss-feeds">
-        <a v-for="feed in org.rssFeeds" :key="feed" :href="feed" target="_blank" rel="noopener" class="rss-feed-link">
-          📡 {{ feed }}
+        <a v-for="feed in feeds" :key="feed.url" :href="feed.url" target="_blank" rel="noopener" class="rss-feed-link">
+          📡 {{ feed.source }}
         </a>
       </div>
     </div>
 
-    <!-- Related Events -->
+    <!-- Events published by the organization (feeds and GitHub) -->
     <div class="org-section">
-      <h2 class="section-title">Recent Events</h2>
+      <h2 class="section-title">Latest from {{ org.name }}</h2>
+      <div class="org-events-grid">
+        <EventCard v-for="event in ownEvents" :key="event.id" :event="event" />
+        <div v-if="ownEvents.length === 0" class="no-events">
+          <p>No events collected from {{ org.name }} yet</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related by topic -->
+    <div v-if="relatedEvents.length" class="org-section">
+      <h2 class="section-title">Related Events</h2>
       <div class="org-events-grid">
         <EventCard v-for="event in relatedEvents" :key="event.id" :event="event" />
-        <div v-if="relatedEvents.length === 0" class="no-events">
-          <p>No recent events found for {{ org.name }}</p>
-        </div>
       </div>
     </div>
   </div>
@@ -61,8 +77,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { ORGANIZATIONS } from '@/data/organizations'
+import { PEOPLE } from '@/data/people'
+import { RSS_FEEDS } from '@/data/feeds'
 import { useFeedStore } from '@/stores/feedStore'
 import EventCard from '@/components/feed/EventCard.vue'
+import PersonCard from '@/components/people/PersonCard.vue'
 
 const props = defineProps<{ id: string }>()
 const feedStore = useFeedStore()
@@ -76,22 +95,35 @@ const TYPE_LABELS: Record<string, string> = {
 }
 const TYPE_BADGE: Record<string, string> = {
   ai_company: 'badge-ai', hedge_fund: 'badge-quant', asset_manager: 'badge-finance',
-  bank: 'badge-finance', research: 'badge-research', fintech: 'badge-community',
+  bank: 'badge-finance', research: 'badge-research', fintech: 'badge-community', regulator: 'badge-market',
 }
 
 const typeLabel = computed(() => org.value ? TYPE_LABELS[org.value.type] || org.value.type : '')
 const typeBadgeClass = computed(() => org.value ? TYPE_BADGE[org.value.type] || 'badge-ai' : '')
 
+const people = computed(() => (org.value ? PEOPLE.filter((p) => p.organization.includes(org.value!.name)) : []))
+const feeds = computed(() => RSS_FEEDS.filter((f) => f.orgId === props.id))
+
+const ownEvents = computed(() => {
+  const gh = org.value?.links.github
+  return feedStore.events
+    .filter((e) => e.orgId === props.id || (gh && e.url.startsWith(`${gh}/`)))
+    .slice(0, 24)
+})
+
 const relatedEvents = computed(() => {
   if (!org.value) return []
   const name = org.value.name.toLowerCase()
+  const tags = org.value.tags.map((t) => t.toLowerCase())
+  const own = new Set(ownEvents.value.map((e) => e.id))
   return feedStore.events
     .filter((e) =>
-      (e.organization?.toLowerCase().includes(name)) ||
-      (e.source?.toLowerCase().includes(name)) ||
-      e.tags.some((t) => org.value!.tags.map((ot) => ot.toLowerCase()).includes(t.toLowerCase()))
+      !own.has(e.id) && (
+        (e.organization?.toLowerCase().includes(name)) ||
+        e.tags.some((t) => tags.includes(t.toLowerCase()))
+      ),
     )
-    .slice(0, 12)
+    .slice(0, 8)
 })
 </script>
 

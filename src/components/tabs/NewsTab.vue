@@ -1,12 +1,12 @@
 <template>
   <div class="news-tab">
     <div class="news-sources">
-      <div v-for="src in newsSources" :key="src.name" class="news-source-chip" @click="toggleSource(src.name)"
+      <button v-for="src in newsSources" :key="src.name" class="news-source-chip" @click="toggleSource(src.name)"
         :class="{ active: activeSource === src.name }">
         {{ src.icon }} {{ src.name }}
-      </div>
+      </button>
     </div>
-    <FeedGrid :area-id="areaId" :override-categories="['news']" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['news']" :source="activeSource ?? undefined" hide-filter />
   </div>
 </template>
 
@@ -16,9 +16,10 @@ import FeedGrid from '@/components/feed/FeedGrid.vue'
 import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 const activeSource = ref<string | null>(null)
+// names must match FeedEvent.source (src/services/rssCollector.ts)
 const newsSources = [
-  { name: 'Bloomberg', icon: '📊' }, { name: 'Reuters', icon: '📰' },
-  { name: 'Finextra', icon: '💳' }, { name: 'Hacker News', icon: '🔶' },
+  { name: 'Bloomberg Technology', icon: '📊' }, { name: 'Finextra', icon: '💳' },
+  { name: 'Hacker News', icon: '🔶' }, { name: 'FRED Blog', icon: '📈' }, { name: 'CoinDesk', icon: '🪙' },
 ]
 function toggleSource(name: string) { activeSource.value = activeSource.value === name ? null : name }
 </script>

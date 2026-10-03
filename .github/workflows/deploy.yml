@@ -20,6 +20,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -36,6 +37,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Collect feeds
+        run: npm run collect
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: npm run build

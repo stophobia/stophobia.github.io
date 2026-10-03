@@ -81,6 +81,10 @@ const lastUpdated = computed(() => {
   top: var(--header-height);
 }
 
+@media (max-width: 900px) {
+  .side-nav { display: none; } /* MobileNav takes over (App.vue) */
+}
+
 .nav-sections {
   flex: 1;
   padding: 8px 0;

@@ -84,7 +84,6 @@ export async function fetchTrendingModels(limit = 20): Promise<FeedEvent[]> {
     ].filter(Boolean).join(' · '),
     url: `https://huggingface.co/${m.id}`,
     author: m.author || m.id.split('/')[0],
-    authorAvatar: `https://huggingface.co/avatars/${m.author || m.id.split('/')[0]}`,
     organization: m.author || m.id.split('/')[0],
     organizationLogo: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg',
     category: 'tool',
