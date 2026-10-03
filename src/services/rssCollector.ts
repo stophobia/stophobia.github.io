@@ -110,7 +110,7 @@ export const RSS_FEEDS: RssFeedConfig[] = [
     url: 'https://quantocracy.com/feed',
     source: 'Quantocracy',
     area: ['quant'],
-    category: 'blog_post',
+    category: 'strategy',
     tags: ['quant', 'trading', 'systematic'],
   },
   // Community
@@ -161,7 +161,7 @@ function generateId(url: string, publishedAt: string): string {
 }
 
 export async function fetchRssFeed(config: RssFeedConfig): Promise<FeedEvent[]> {
-  const proxyUrl = `${RSS_PROXY}${encodeURIComponent(config.url)}&count=20`
+  const proxyUrl = `${RSS_PROXY}${encodeURIComponent(config.url)}`
   try {
     const resp = await fetch(proxyUrl)
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`)

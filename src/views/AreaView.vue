@@ -67,6 +67,9 @@ import VideosTab from '@/components/tabs/VideosTab.vue'
 import PodcastsTab from '@/components/tabs/PodcastsTab.vue'
 import DatasetsTab from '@/components/tabs/DatasetsTab.vue'
 import ConferencesTab from '@/components/tabs/ConferencesTab.vue'
+import StrategiesTab from '@/components/tabs/StrategiesTab.vue'
+import ToolsTab from '@/components/tabs/ToolsTab.vue'
+import JobsTab from '@/components/tabs/JobsTab.vue'
 
 const props = defineProps<{
   areaId: AreaId
@@ -93,6 +96,9 @@ const TAB_COMPONENTS: Record<string, object> = {
   podcasts: PodcastsTab,
   datasets: DatasetsTab,
   conferences: ConferencesTab,
+  strategies: StrategiesTab,
+  tools: ToolsTab,
+  jobs: JobsTab,
 }
 
 const tabComponent = computed(() => TAB_COMPONENTS[currentTab.value] || FeedTab)

@@ -6,7 +6,7 @@
         {{ src.icon }} {{ src.name }}
       </div>
     </div>
-    <FeedGrid :area-id="areaId" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['news']" hide-filter />
   </div>
 </template>
 
