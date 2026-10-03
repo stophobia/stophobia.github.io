@@ -1,23 +1,23 @@
 <template>
   <div class="people-tab">
-    <div class="tab-search">
+    <div>
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Search people..."
-        class="tab-search-input"
+        class="input tab-search-input"
         id="people-search"
       />
     </div>
-    <div class="people-grid">
+    <div class="card-grid">
       <PersonCard
         v-for="person in filteredPeople"
         :key="person.id"
         :person="person"
       />
     </div>
-    <div v-if="filteredPeople.length === 0" class="tab-empty">
-      <span>👤</span>
+    <div v-if="filteredPeople.length === 0" class="empty">
+      <span class="material-symbols-outlined empty-icon" aria-hidden="true">group</span>
       <p>No people found.</p>
     </div>
   </div>
@@ -49,40 +49,7 @@ const filteredPeople = computed(() => {
 </script>
 
 <style scoped>
-.people-tab { display: flex; flex-direction: column; gap: 16px; }
-
-.tab-search { }
-
-.tab-search-input {
-  width: 100%;
-  max-width: 360px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 9px 14px;
-  font-size: 13px;
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  outline: none;
-  transition: border-color var(--transition-fast);
-}
-.tab-search-input:focus { border-color: var(--accent-ai); }
-.tab-search-input::placeholder { color: var(--text-muted); }
-
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
-}
-
-.tab-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 48px;
-  color: var(--text-muted);
-  font-size: 32px;
-}
-.tab-empty p { font-size: 14px; }
+.people-tab { display: flex; flex-direction: column; gap: var(--space-md); }
+.tab-search-input { width: 100%; max-width: 20rem; }
+.empty-icon { font-size: var(--text-xl); }
 </style>

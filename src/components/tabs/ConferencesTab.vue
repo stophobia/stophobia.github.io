@@ -1,26 +1,26 @@
 <template>
   <div class="category-tab">
-    <h2 class="tab-section-title">🎤 Conferences & Events</h2>
+    <h2 class="section-title">Conferences & Events</h2>
     <div class="conf-year-groups">
       <div v-for="group in groupedConfs" :key="group.year">
         <h3 class="conf-year">{{ group.year }}</h3>
-        <div class="conf-grid">
+        <div class="card-grid">
           <div v-for="conf in group.confs" :key="conf.name" class="conf-card card">
             <div class="conf-header">
               <div>
                 <div class="conf-name">{{ conf.name }}</div>
-                <div class="conf-fullname">{{ conf.fullName }}</div>
+                <div class="muted">{{ conf.fullName }}</div>
               </div>
-              <span class="badge" :class="`badge-${conf.area}`">{{ conf.area }}</span>
+              <span class="badge">{{ conf.area }}</span>
             </div>
             <div class="conf-detail">
-              <span class="conf-date">📅 {{ conf.date }}</span>
-              <span v-if="conf.location" class="conf-loc">📍 {{ conf.location }}</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">calendar_today</span> {{ conf.date }}</span>
+              <span v-if="conf.location"><span class="material-symbols-outlined" aria-hidden="true">location_on</span> {{ conf.location }}</span>
             </div>
             <div class="conf-topics">
               <span v-for="t in conf.topics" :key="t" class="tag">{{ t }}</span>
             </div>
-            <a v-if="conf.url" :href="conf.url" target="_blank" rel="noopener" class="conf-link">Visit Website →</a>
+            <a v-if="conf.url" :href="conf.url" target="_blank" rel="noopener" class="conf-link">Website <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span></a>
           </div>
         </div>
       </div>
@@ -56,16 +56,15 @@ const groupedConfs = computed(() => {
 </script>
 
 <style scoped>
-.category-tab { display: flex; flex-direction: column; gap: 20px; }
-.tab-section-title { font-size: 18px; font-weight: 700; }
-.conf-year { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-.conf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.conf-card { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
-.conf-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-.conf-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
-.conf-fullname { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-.conf-detail { display: flex; gap: 12px; font-size: 12px; color: var(--text-secondary); flex-wrap: wrap; }
-.conf-topics { display: flex; gap: 4px; flex-wrap: wrap; }
-.conf-link { font-size: 12px; color: var(--accent-ai); font-weight: 500; margin-top: auto; }
+.category-tab { display: flex; flex-direction: column; gap: var(--space-md); }
+.conf-year-groups { display: flex; flex-direction: column; gap: var(--space-lg); }
+.conf-year { font-size: var(--text-md); margin-bottom: var(--space-xs); }
+.conf-card { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); }
+.conf-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-xs); }
+.conf-name { font-weight: var(--weight-bold); }
+.conf-detail { display: flex; gap: var(--space-sm); font-size: var(--text-sm); color: var(--ink-muted); flex-wrap: wrap; }
+.conf-detail > span, .conf-link { display: inline-flex; align-items: center; gap: var(--space-2xs); }
+.conf-topics { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
+.conf-link { font-size: var(--text-sm); color: var(--accent); font-weight: var(--weight-medium); margin-top: auto; }
 .conf-link:hover { text-decoration: underline; }
 </style>

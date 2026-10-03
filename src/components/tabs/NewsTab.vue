@@ -1,9 +1,9 @@
 <template>
   <div class="news-tab">
     <div class="news-sources">
-      <button v-for="src in newsSources" :key="src.name" class="news-source-chip" @click="toggleSource(src.name)"
-        :class="{ active: activeSource === src.name }">
-        {{ src.icon }} {{ src.name }}
+      <button v-for="name in newsSources" :key="name" class="chip" @click="toggleSource(name)"
+        :class="{ active: activeSource === name }">
+        {{ name }}
       </button>
     </div>
     <FeedGrid :area-id="areaId" :override-categories="['news']" :source="activeSource ?? undefined" hide-filter />
@@ -17,21 +17,11 @@ import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 const activeSource = ref<string | null>(null)
 // names must match FeedEvent.source (src/services/rssCollector.ts)
-const newsSources = [
-  { name: 'Bloomberg Technology', icon: '📊' }, { name: 'Finextra', icon: '💳' },
-  { name: 'Hacker News', icon: '🔶' }, { name: 'FRED Blog', icon: '📈' }, { name: 'CoinDesk', icon: '🪙' },
-]
+const newsSources = ['Bloomberg Technology', 'Finextra', 'Hacker News', 'FRED Blog', 'CoinDesk']
 function toggleSource(name: string) { activeSource.value = activeSource.value === name ? null : name }
 </script>
 
 <style scoped>
-.news-tab { display: flex; flex-direction: column; gap: 16px; }
-.news-sources { display: flex; gap: 8px; flex-wrap: wrap; }
-.news-source-chip {
-  padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500;
-  color: var(--text-muted); border: 1px solid var(--border-subtle); background: var(--bg-elevated);
-  cursor: pointer; transition: all var(--transition-fast);
-}
-.news-source-chip:hover { color: var(--text-primary); border-color: var(--border-default); }
-.news-source-chip.active { color: white; background: var(--accent-ai); border-color: var(--accent-ai); }
+.news-tab { display: flex; flex-direction: column; gap: var(--space-md); }
+.news-sources { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 </style>

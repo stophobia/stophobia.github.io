@@ -1,13 +1,13 @@
 <template>
   <div class="feed-grid-wrap">
     <!-- Filter bar -->
-    <div v-if="!hideFilter" class="filter-bar glass">
+    <div v-if="!hideFilter" class="filter-bar card">
       <!-- Time range -->
       <div class="filter-group">
         <button
           v-for="t in timeRanges"
           :key="t.value"
-          class="filter-btn"
+          class="chip"
           :class="{ active: feedStore.filter.timeRange === t.value }"
           @click="feedStore.setFilter({ timeRange: t.value })"
         >
@@ -22,10 +22,11 @@
         <button
           v-for="s in sortModes"
           :key="s.value"
-          class="filter-btn"
+          class="chip"
           :class="{ active: feedStore.sortMode === s.value }"
           @click="feedStore.setSortMode(s.value)"
         >
+          <span class="material-symbols-outlined" aria-hidden="true">{{ s.icon }}</span>
           {{ s.label }}
         </button>
       </div>
@@ -37,7 +38,7 @@
         <button
           v-for="t in topics"
           :key="t"
-          class="filter-btn"
+          class="chip"
           :class="{ active: feedStore.filter.tags.includes(t) }"
           @click="toggleTopic(t)"
         >
@@ -49,27 +50,14 @@
       <span class="filter-count">{{ baseEvents.length }} results</span>
     </div>
 
-    <!-- Loading state -->
-    <div v-if="feedStore.isLoading" class="feed-loading">
-      <div class="loading-grid">
-        <div v-for="n in 8" :key="n" class="skeleton-card">
-          <div class="skeleton" style="height:14px; width: 60%; margin-bottom: 8px"></div>
-          <div class="skeleton" style="height:18px; width: 95%; margin-bottom: 6px"></div>
-          <div class="skeleton" style="height:18px; width: 80%; margin-bottom: 12px"></div>
-          <div class="skeleton" style="height:12px; width: 45%"></div>
-        </div>
-      </div>
-    </div>
+    <p v-if="feedStore.isLoading" class="empty">Loading…</p>
 
-    <!-- Error state -->
-    <div v-else-if="feedStore.error && displayEvents.length === 0" class="feed-empty">
-      <span class="feed-empty-icon">⚠️</span>
-      <p>Failed to load feeds. <button class="btn-link" @click="feedStore.fetchFeeds()">Retry</button></p>
-    </div>
+    <p v-else-if="feedStore.error && displayEvents.length === 0" class="notice" role="status">
+      Failed to load feeds. <button class="retry" @click="feedStore.fetchFeeds()">Retry</button>
+    </p>
 
-    <!-- Empty state -->
-    <div v-else-if="displayEvents.length === 0" class="feed-empty">
-      <span class="feed-empty-icon">📭</span>
+    <div v-else-if="displayEvents.length === 0" class="empty">
+      <span class="material-symbols-outlined empty-icon" aria-hidden="true">inbox</span>
       <p>No events match your filters.</p>
       <button class="btn btn-ghost" @click="feedStore.setFilter({ timeRange: 'all', categories: [], tags: [], query: '' })">
         Clear filters
@@ -77,7 +65,7 @@
     </div>
 
     <!-- Feed grid -->
-    <div v-else class="feed-grid">
+    <div v-else class="card-grid">
       <EventCard
         v-for="event in displayEvents"
         :key="event.id"
@@ -87,8 +75,8 @@
 
     <!-- Load more -->
     <div v-if="hasMore" class="load-more-wrap">
-      <button class="btn btn-ghost load-more-btn" @click="showMore">
-        Load more <span class="load-more-count">{{ remaining }} remaining</span>
+      <button class="btn btn-ghost" @click="showMore">
+        Load more <span class="muted">{{ remaining }} remaining</span>
       </button>
     </div>
   </div>
@@ -119,8 +107,8 @@ const timeRanges = [
 ]
 
 const sortModes = [
-  { value: 'latest' as const, label: '⏱ Latest' },
-  { value: 'score' as const, label: '⭐ Top' },
+  { value: 'latest' as const, label: 'Latest', icon: 'schedule' },
+  { value: 'score' as const, label: 'Top', icon: 'star' },
 ]
 
 const baseEvents = computed(() => {
@@ -154,123 +142,48 @@ function toggleTopic(t: string) {
 .feed-grid-wrap {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
 }
 
-/* Filter bar */
 .filter-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: var(--radius-md);
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
   flex-wrap: wrap;
   position: sticky;
-  top: 8px;
+  top: var(--space-xs);
   z-index: 10;
 }
 
 .filter-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-}
-
-.filter-btn {
-  padding: 5px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  border: 1px solid transparent;
-  transition: all var(--transition-fast);
-}
-
-.filter-btn:hover {
-  color: var(--text-secondary);
-  background: var(--bg-hover);
-}
-
-.filter-btn.active {
-  color: var(--text-primary);
-  background: var(--bg-overlay);
-  border-color: var(--border-default);
+  gap: var(--space-3xs);
 }
 
 .filter-sep {
   width: 1px;
-  height: 20px;
-  background: var(--border-subtle);
-  margin: 0 4px;
+  height: 1.25rem;
+  background: var(--border);
 }
 
 .filter-count {
   margin-left: auto;
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
   font-variant-numeric: tabular-nums;
 }
 
-/* Grid */
-.feed-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 14px;
-}
+.empty-icon { font-size: var(--text-xl); }
 
-@media (max-width: 640px) {
-  .feed-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Loading */
-.loading-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 14px;
-}
-
-.skeleton-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px;
-}
-
-/* Empty / Error */
-.feed-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 60px 20px;
-  text-align: center;
-  color: var(--text-secondary);
-}
-
-.feed-empty-icon { font-size: 40px; }
-
-.btn-link {
-  color: var(--accent-ai);
-  font-weight: 500;
+.retry {
+  font-weight: var(--weight-medium);
   text-decoration: underline;
-  cursor: pointer;
 }
 
-/* Load more */
 .load-more-wrap {
   display: flex;
   justify-content: center;
-  padding: 12px 0;
-}
-
-.load-more-btn {
-  gap: 8px;
-}
-
-.load-more-count {
-  font-size: 11px;
-  color: var(--text-muted);
 }
 </style>

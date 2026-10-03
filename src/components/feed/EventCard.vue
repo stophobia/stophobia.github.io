@@ -4,7 +4,6 @@
     target="_blank"
     rel="noopener noreferrer"
     class="event-card card"
-    :class="`event-card--${event.category}`"
   >
     <!-- Thumbnail -->
     <div v-if="event.thumbnail" class="event-thumb">
@@ -26,7 +25,7 @@
           <span class="source-name">{{ event.source }}</span>
         </div>
         <!-- Category badge -->
-        <span class="badge" :class="categoryBadgeClass">{{ categoryLabel }}</span>
+        <span class="badge">{{ categoryLabel }}</span>
         <!-- Age -->
         <span class="event-age">{{ relativeTime }}</span>
       </div>
@@ -53,8 +52,8 @@
 
         <!-- Stars/Forks for GitHub -->
         <div v-if="event.stars !== undefined" class="event-stats">
-          <span>⭐ {{ formatNumber(event.stars) }}</span>
-          <span>🍴 {{ formatNumber(event.forks ?? 0) }}</span>
+          <span><span class="material-symbols-outlined" aria-hidden="true">star</span> {{ formatNumber(event.stars) }}</span>
+          <span><span class="material-symbols-outlined" aria-hidden="true">fork_right</span> {{ formatNumber(event.forks ?? 0) }}</span>
         </div>
 
         <!-- Tags -->
@@ -94,21 +93,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   strategy: 'Strategy',
 }
 
-const CATEGORY_BADGE_CLASS: Record<string, string> = {
-  paper: 'badge-paper',
-  github_release: 'badge-github',
-  github_repo: 'badge-github',
-  blog_post: 'badge-ai',
-  news: 'badge-news',
-  video: 'badge-video',
-  podcast: 'badge-quant',
-  regulation: 'badge-finance',
-  dataset: 'badge-research',
-  tool: 'badge-quant',
-}
-
 const categoryLabel = computed(() => CATEGORY_LABELS[props.event.category] || props.event.category)
-const categoryBadgeClass = computed(() => CATEGORY_BADGE_CLASS[props.event.category] || 'badge-ai')
 
 const relativeTime = computed(() => {
   const now = Date.now()
@@ -130,171 +115,93 @@ function formatNumber(n: number): string {
 .event-card {
   display: flex;
   flex-direction: column;
-  padding: 0;
   overflow: hidden;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  position: relative;
 }
 
-.event-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-md);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  pointer-events: none;
-}
-
-.event-card:hover::after { opacity: 1; }
-
-/* Category-based left accent */
-.event-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 12px;
-  bottom: 12px;
-  width: 2px;
-  border-radius: 2px;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.event-card:hover::before { opacity: 1; }
-
-.event-card--paper::before       { background: #c084fc; }
-.event-card--github_release::before { background: #94a3b8; }
-.event-card--github_repo::before { background: #94a3b8; }
-.event-card--blog_post::before   { background: #818cf8; }
-.event-card--news::before        { background: #fca5a5; }
-.event-card--video::before       { background: #f87171; }
-.event-card--regulation::before  { background: #34d399; }
-
-/* Thumbnail */
 .event-thumb {
-  width: 100%;
-  height: 140px;
-  overflow: hidden;
+  height: 8.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .event-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
 }
 
-.event-card:hover .event-thumb img { transform: scale(1.03); }
-
-/* Body */
 .event-body {
-  padding: 14px 16px;
+  padding: var(--space-sm) var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-xs);
   flex: 1;
 }
 
-/* Meta */
-.event-meta {
+.event-meta,
+.event-footer {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-xs);
   flex-wrap: wrap;
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
 }
 
-.event-source {
+.event-source,
+.event-author,
+.event-stats,
+.event-stats > span {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-2xs);
 }
+
+.event-stats { gap: var(--space-xs); }
 
 .source-logo {
-  width: 14px;
-  height: 14px;
-  border-radius: 3px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
 }
 
-.source-name {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 500;
-}
+.source-name { font-weight: var(--weight-medium); }
 
 .event-age {
-  font-size: 11px;
-  color: var(--text-muted);
   margin-left: auto;
   font-variant-numeric: tabular-nums;
-  flex-shrink: 0;
 }
 
-/* Title */
 .event-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.4;
+  font-size: var(--text-md);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: color var(--transition-fast);
 }
 
-.event-card:hover .event-title { color: #a5b4fc; }
+.event-card:hover .event-title { color: var(--accent); }
 
-/* Summary */
 .event-summary {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.5;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Footer */
-.event-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-
-.event-author {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
+.event-footer { margin-top: auto; }
 
 .author-avatar {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: var(--radius-full);
   object-fit: cover;
-}
-
-.author-name {
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-.event-stats {
-  display: flex;
-  gap: 8px;
-  font-size: 11px;
-  color: var(--text-muted);
 }
 
 .event-tags {
   display: flex;
-  gap: 4px;
+  gap: var(--space-2xs);
   flex-wrap: wrap;
   margin-left: auto;
 }

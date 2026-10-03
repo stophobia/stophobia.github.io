@@ -4,17 +4,18 @@
       <button
         v-for="sub in subTabs"
         :key="sub.id"
-        class="github-sub-tab"
+        class="chip"
         :class="{ active: activeSub === sub.id }"
         @click="activeSub = sub.id"
       >
-        {{ sub.icon }} {{ sub.label }}
+        <span class="material-symbols-outlined" aria-hidden="true">{{ sub.icon }}</span>
+        {{ sub.label }}
       </button>
     </div>
 
     <!-- Trending -->
     <div v-if="activeSub === 'trending'">
-      <div class="gh-repos-grid">
+      <div class="card-grid">
         <a
           v-for="event in trendingEvents"
           :key="event.id"
@@ -26,13 +27,13 @@
           <div class="gh-repo-header">
             <span class="gh-repo-name">{{ event.title }}</span>
             <div class="gh-repo-stats">
-              <span>⭐ {{ formatNumber(event.stars ?? 0) }}</span>
-              <span>🍴 {{ formatNumber(event.forks ?? 0) }}</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">star</span> {{ formatNumber(event.stars ?? 0) }}</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">fork_right</span> {{ formatNumber(event.forks ?? 0) }}</span>
             </div>
           </div>
-          <p class="gh-repo-desc">{{ event.summary }}</p>
+          <p class="gh-repo-desc muted">{{ event.summary }}</p>
           <div class="gh-repo-footer">
-            <span class="gh-age">{{ relativeTime(event.publishedAt) }}</span>
+            <span class="gh-age muted">{{ relativeTime(event.publishedAt) }}</span>
             <div class="gh-tags">
               <span v-for="tag in (event.tags || []).slice(2, 5)" :key="tag" class="tag">{{ tag }}</span>
             </div>
@@ -47,8 +48,8 @@
     </div>
 
     <!-- Tracked Repos -->
-    <div v-if="activeSub === 'watched'" class="gh-watched">
-      <div class="gh-watched-grid">
+    <div v-if="activeSub === 'watched'">
+      <div class="card-grid">
         <a
           v-for="repo in WATCHED_REPOS"
           :key="repo.url"
@@ -58,7 +59,7 @@
           class="gh-watch-item card"
         >
           <div class="gh-watch-name">{{ repo.name }}</div>
-          <div class="gh-watch-desc">{{ repo.desc }}</div>
+          <div class="muted">{{ repo.desc }}</div>
           <div class="gh-watch-tags">
             <span v-for="t in repo.tags" :key="t" class="tag">{{ t }}</span>
           </div>
@@ -79,9 +80,9 @@ const feedStore = useFeedStore()
 const activeSub = ref<'trending' | 'releases' | 'watched'>('trending')
 
 const subTabs = [
-  { id: 'trending' as const, icon: '🔥', label: 'Trending Repos' },
-  { id: 'releases' as const, icon: '🏷️', label: 'Releases' },
-  { id: 'watched' as const, icon: '👁️', label: 'Watched Projects' },
+  { id: 'trending' as const, icon: 'local_fire_department', label: 'Trending Repos' },
+  { id: 'releases' as const, icon: 'sell', label: 'Releases' },
+  { id: 'watched' as const, icon: 'visibility', label: 'Watched Projects' },
 ]
 
 const WATCHED_REPOS = [
@@ -119,104 +120,32 @@ function relativeTime(iso: string): string {
 </script>
 
 <style scoped>
-.github-tab { display: flex; flex-direction: column; gap: 16px; }
+.github-tab { display: flex; flex-direction: column; gap: var(--space-md); }
+.github-sub-tabs { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 
-.github-sub-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.gh-repo-card,
+.gh-watch-item { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); }
 
-.github-sub-tab {
-  padding: 7px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-elevated);
-  transition: all var(--transition-fast);
-}
-.github-sub-tab:hover { color: var(--text-primary); border-color: var(--border-default); }
-.github-sub-tab.active { color: white; background: var(--bg-overlay); border-color: var(--border-strong); }
+.gh-repo-header,
+.gh-repo-footer { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-xs); }
 
-.gh-repos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 12px;
-}
+/* Repo names are identifiers: mono makes owner/name easy to compare */
+.gh-repo-name,
+.gh-watch-name { font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--accent); }
+.gh-repo-name { flex: 1; overflow-wrap: anywhere; }
 
-.gh-repo-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 14px;
-}
-
-.gh-repo-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.gh-repo-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #818cf8;
-  font-family: var(--font-mono);
-  flex: 1;
-}
-
-.gh-repo-stats {
-  display: flex;
-  gap: 8px;
-  font-size: 11px;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
+.gh-repo-stats { display: flex; gap: var(--space-xs); font-size: var(--text-xs); color: var(--ink-muted); flex-shrink: 0; }
+.gh-repo-stats > span { display: flex; align-items: center; gap: var(--space-3xs); }
 
 .gh-repo-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.gh-repo-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
+.gh-age { white-space: nowrap; }
 
-.gh-age { font-size: 11px; color: var(--text-muted); }
-.gh-tags { display: flex; gap: 4px; flex-wrap: wrap; }
-
-/* Watched */
-.gh-watched-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 10px;
-}
-
-.gh-watch-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 14px;
-}
-
-.gh-watch-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: #818cf8;
-  font-family: var(--font-mono);
-}
-
-.gh-watch-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.gh-watch-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.gh-tags,
+.gh-watch-tags { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 </style>

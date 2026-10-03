@@ -28,7 +28,6 @@
           v-for="area in person.areas"
           :key="area"
           class="badge"
-          :class="`badge-${area}`"
         >{{ area }}</span>
       </div>
       <div class="person-links">
@@ -37,37 +36,41 @@
           :href="person.links.github"
           target="_blank"
           rel="noopener"
-          class="person-link"
+          class="btn-icon"
           @click.stop
           title="GitHub"
-        >🐙</a>
+          aria-label="GitHub"
+        ><span class="material-symbols-outlined" aria-hidden="true">code</span></a>
         <a
           v-if="person.links.twitter"
           :href="person.links.twitter"
           target="_blank"
           rel="noopener"
-          class="person-link"
+          class="btn-icon"
           @click.stop
           title="Twitter/X"
-        >𝕏</a>
+          aria-label="Twitter/X"
+        ><span class="material-symbols-outlined" aria-hidden="true">alternate_email</span></a>
         <a
           v-if="person.links.scholar"
           :href="person.links.scholar"
           target="_blank"
           rel="noopener"
-          class="person-link"
+          class="btn-icon"
           @click.stop
           title="Google Scholar"
-        >📚</a>
+          aria-label="Google Scholar"
+        ><span class="material-symbols-outlined" aria-hidden="true">school</span></a>
         <a
           v-if="person.links.website"
           :href="person.links.website"
           target="_blank"
           rel="noopener"
-          class="person-link"
+          class="btn-icon"
           @click.stop
           title="Website"
-        >🌐</a>
+          aria-label="Website"
+        ><span class="material-symbols-outlined" aria-hidden="true">language</span></a>
       </div>
     </div>
   </RouterLink>
@@ -84,62 +87,39 @@ const showFallback = ref(false)
 .person-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-  cursor: pointer;
+  gap: var(--space-sm);
+  padding: var(--space-md);
 }
 
-.person-header { display: flex; gap: 12px; align-items: flex-start; }
+.person-header { display: flex; gap: var(--space-sm); align-items: flex-start; }
 
-.person-avatar-wrap { flex-shrink: 0; }
-
-.person-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border-default);
+.person-avatar,
+.person-avatar-fallback {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
 }
+
+.person-avatar { object-fit: cover; }
 
 .person-avatar-fallback {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #06b6d4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
+  display: grid;
+  place-items: center;
+  background: var(--surface-sunken);
+  color: var(--ink-muted);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
 }
 
 .person-info { flex: 1; min-width: 0; }
-
-.person-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 2px;
-}
-
-.person-role {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.3;
-}
-
-.person-org {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
+.person-name { font-size: var(--text-md); }
+.person-role { font-size: var(--text-sm); }
+.person-org { font-size: var(--text-xs); color: var(--ink-muted); }
 
 .person-bio {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.5;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -153,14 +133,6 @@ const showFallback = ref(false)
   margin-top: auto;
 }
 
-.person-areas { display: flex; gap: 4px; flex-wrap: wrap; }
-
-.person-links { display: flex; gap: 8px; }
-
-.person-link {
-  font-size: 14px;
-  opacity: 0.6;
-  transition: opacity var(--transition-fast);
-}
-.person-link:hover { opacity: 1; }
+.person-areas,
+.person-links { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 </style>

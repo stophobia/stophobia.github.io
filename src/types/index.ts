@@ -114,8 +114,6 @@ export interface Area {
   label: string
   icon: string
   description: string
-  color: string
-  gradient: string
   tabs: TabId[]
 }
 

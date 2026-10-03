@@ -1,21 +1,21 @@
 <template>
   <div class="search-view">
-    <div class="search-header">
-      <h1 class="search-title">Search Results</h1>
-      <p class="search-query" v-if="query">
+    <div>
+      <h1 class="page-title">Search Results</h1>
+      <p class="muted" v-if="query">
         Showing results for <strong>"{{ query }}"</strong>
         — {{ feedStore.filtered.length }} events found
       </p>
     </div>
     <div v-if="people.length" class="search-group">
-      <h2 class="search-group-title">People</h2>
-      <div class="search-cards">
+      <h2 class="section-title">People</h2>
+      <div class="card-grid">
         <PersonCard v-for="p in people" :key="p.id" :person="p" />
       </div>
     </div>
     <div v-if="orgs.length" class="search-group">
-      <h2 class="search-group-title">Organizations</h2>
-      <div class="search-cards">
+      <h2 class="section-title">Organizations</h2>
+      <div class="card-grid">
         <OrgCard v-for="o in orgs" :key="o.id" :org="o" />
       </div>
     </div>
@@ -54,12 +54,6 @@ onUnmounted(() => feedStore.setFilter({ query: '' }))
 </script>
 
 <style scoped>
-.search-view { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
-.search-header { }
-.search-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-.search-query { font-size: 13px; color: var(--text-secondary); }
-.search-query strong { color: var(--text-primary); }
-.search-group { display: flex; flex-direction: column; gap: 12px; }
-.search-group-title { font-size: 16px; font-weight: 700; }
-.search-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.search-view { display: flex; flex-direction: column; gap: var(--space-lg); }
+.search-group { display: flex; flex-direction: column; gap: var(--space-sm); }
 </style>

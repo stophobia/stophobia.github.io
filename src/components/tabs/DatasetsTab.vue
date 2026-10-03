@@ -1,14 +1,14 @@
 <template>
   <div class="category-tab">
-    <h2 class="tab-section-title">📊 Datasets & Benchmarks</h2>
-    <div class="datasets-grid">
+    <h2 class="section-title">Datasets & Benchmarks</h2>
+    <div class="card-grid">
       <a v-for="ds in DATASETS" :key="ds.name" :href="ds.url" target="_blank" rel="noopener" class="dataset-card card">
         <div class="ds-header">
           <span class="ds-source">{{ ds.source }}</span>
-          <span class="badge" :class="`badge-${ds.area}`">{{ ds.area }}</span>
+          <span class="badge">{{ ds.area }}</span>
         </div>
         <div class="ds-name">{{ ds.name }}</div>
-        <div class="ds-desc">{{ ds.desc }}</div>
+        <div class="muted">{{ ds.desc }}</div>
         <div class="ds-tags">
           <span v-for="t in ds.tags" :key="t" class="tag">{{ t }}</span>
         </div>
@@ -33,13 +33,10 @@ const DATASETS = [
 </script>
 
 <style scoped>
-.category-tab { display: flex; flex-direction: column; gap: 16px; }
-.tab-section-title { font-size: 18px; font-weight: 700; }
-.datasets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.dataset-card { display: flex; flex-direction: column; gap: 8px; padding: 16px; }
+.category-tab { display: flex; flex-direction: column; gap: var(--space-md); }
+.dataset-card { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); }
 .ds-header { display: flex; align-items: center; justify-content: space-between; }
-.ds-source { font-size: 11px; color: var(--text-muted); font-weight: 500; }
-.ds-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
-.ds-desc { font-size: 12px; color: var(--text-secondary); }
-.ds-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.ds-source { font-size: var(--text-xs); color: var(--ink-muted); font-weight: var(--weight-medium); }
+.ds-name { font-weight: var(--weight-bold); }
+.ds-tags { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 </style>
