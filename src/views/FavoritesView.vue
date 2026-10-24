@@ -2,7 +2,6 @@
   <div class="favorites-view">
     <header class="fav-header">
       <h1 class="page-title">Favorites</h1>
-      <span v-if="favorites.length" class="badge">{{ favorites.length }}</span>
       <div v-if="favorites.length" class="fav-actions">
         <button class="btn btn-ghost" @click="openNewFolder()">
           <span class="material-symbols-outlined" aria-hidden="true">create_new_folder</span> New folder
