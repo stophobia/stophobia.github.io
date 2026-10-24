@@ -88,12 +88,18 @@
         <p v-if="urlTaken" class="notice">Another favorite already has this URL.</p>
         <label class="field">
           Folder
-          <input v-model="draft.folder" class="input" list="fav-folders" :placeholder="`Folder / Subfolder (empty = ${UNSORTED})`" />
+          <select v-model="draft.path" class="input">
+            <option v-for="[name, path] in folders" :key="name" :value="path">{{ name }}</option>
+            <option :value="[]">{{ UNSORTED }}</option>
+          </select>
         </label>
-        <datalist id="fav-folders"><option v-for="name in folders" :key="name" :value="name" /></datalist>
         <div class="dialog-actions">
-          <button type="button" class="btn btn-ghost" @click="editDialog?.close()">Cancel</button>
-          <button class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-ghost" @click="editDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> Cancel
+          </button>
+          <button class="btn btn-primary">
+            <span class="material-symbols-outlined" aria-hidden="true">check</span> Save
+          </button>
         </div>
       </form>
     </dialog>
@@ -103,8 +109,12 @@
         <h2 id="delete-title" class="dialog-title">Delete favorite?</h2>
         <p class="muted">“{{ target?.title }}” will be removed from Favorites.</p>
         <div class="dialog-actions">
-          <button type="button" class="btn btn-ghost" @click="deleteDialog?.close()">Cancel</button>
-          <button class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-ghost" @click="deleteDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> Cancel
+          </button>
+          <button class="btn btn-danger">
+            <span class="material-symbols-outlined" aria-hidden="true">delete</span> Delete
+          </button>
         </div>
       </form>
     </dialog>
@@ -128,7 +138,7 @@ const picker = ref<HTMLInputElement>()
 const editDialog = ref<HTMLDialogElement>()
 const deleteDialog = ref<HTMLDialogElement>()
 const target = ref<Favorite>()
-const draft = ref({ title: '', url: '', folder: '' })
+const draft = ref({ title: '', url: '', path: [] as string[] })
 
 function load(): Favorite[] {
   try {
@@ -219,13 +229,17 @@ function persist(list: Favorite[]): boolean {
   return true
 }
 
-// Folders are edited as one "Parent / Child" string, the same join the group headings use
-const folders = computed(() => [...new Set(favorites.value.map((f) => f.path.join(' / ')))].filter(Boolean).sort(byName))
+// Every folder in use as [label, path], labelled like the group headings, for the edit dialog's picker
+const folders = computed(() => {
+  const map = new Map(favorites.value.map((f) => [f.path.join(' / '), f.path]))
+  map.delete('') // Unsorted has its own fixed option
+  return [...map].sort(([a], [b]) => byName(a, b))
+})
 const urlTaken = computed(() => favorites.value.some((f) => f !== target.value && f.url === draft.value.url.trim()))
 
 function openEdit(f: Favorite) {
   target.value = f
-  draft.value = { title: f.title, url: f.url, folder: f.path.join(' / ') }
+  draft.value = { title: f.title, url: f.url, path: f.path }
   editDialog.value?.showModal()
 }
 
@@ -235,7 +249,7 @@ function saveEdit() {
   const edited = {
     title: draft.value.title.trim() || url,
     url,
-    path: draft.value.folder.split(' / ').map((s) => s.trim()).filter(Boolean),
+    path: draft.value.path,
   }
   persist(favorites.value.map((f) => (f === target.value ? edited : f)))
   editDialog.value?.close()
@@ -302,9 +316,9 @@ function clear() {
 .fav-tools { display: flex; font-size: var(--text-sm); }
 .fav-tools .btn-icon:hover { background: var(--border); }
 .fav-tools .fav-delete:hover { color: var(--tone-critical); }
-/* With a mouse the tools wait for hover or focus; on touch screens they always show */
+/* With a mouse the tools take no room until hover or focus; on touch screens they always show */
 @media (hover: hover) {
-  .fav-item:not(:hover, :focus-within) .fav-tools { opacity: 0; }
+  .fav-item:not(:hover, :focus-within) .fav-tools { display: none; }
 }
 .fav-title { flex: 1; font-size: var(--text-sm); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fav-host { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-muted); font-size: var(--text-xs); }
