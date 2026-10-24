@@ -26,20 +26,22 @@
         autocomplete="off"
         @keydown.escape="query = ''"
       />
-      <nav class="fav-cats" aria-label="Categories">
-        <button class="chip" :class="{ active: !category }" @click="category = ''">
-          All <span class="cat-count">{{ favorites.length }}</span>
-        </button>
-        <button
-          v-for="[name, count] in categories"
-          :key="name"
-          class="chip"
-          :class="{ active: category === name }"
-          @click="category = category === name ? '' : name"
-        >
-          {{ name }} <span class="cat-count">{{ count }}</span>
-        </button>
-      </nav>
+      <AppScroller class="cat-scroller">
+        <nav class="fav-cats" aria-label="Categories">
+          <button class="chip" :class="{ active: !category }" @click="category = ''">
+            All <span class="cat-count">{{ favorites.length }}</span>
+          </button>
+          <button
+            v-for="[name, count] in categories"
+            :key="name"
+            class="chip"
+            :class="{ active: category === name }"
+            @click="category = category === name ? '' : name"
+          >
+            {{ name }} <span class="cat-count">{{ count }}</span>
+          </button>
+        </nav>
+      </AppScroller>
 
       <p v-if="query.trim()" class="muted">{{ visible.length }} of {{ favorites.length }} match “{{ query.trim() }}”</p>
 
@@ -74,6 +76,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import AppScroller from '@/components/layout/AppScroller.vue'
 
 // path: folder names from the outermost in; [] = not in any folder
 interface Favorite { title: string; url: string; path: string[] }
@@ -181,11 +184,13 @@ function clear() {
 .favorites-view { display: flex; flex-direction: column; gap: var(--space-md); }
 .fav-header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-sm); }
 .fav-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs); margin-left: auto; }
-.fav-search { width: 100%; }
+.fav-actions .btn { font-size: var(--text-sm); }
+.fav-search { width: 100%; font-size: var(--text-sm); }
 .fav-search:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 .upload { cursor: pointer; }
 
-.fav-cats { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.cat-scroller { padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border); }
+.fav-cats { display: flex; gap: var(--space-2xs); }
 .cat-count { font-size: var(--text-xs); opacity: 0.7; }
 
 /* Category cards flow into as many columns as fit */
@@ -212,6 +217,6 @@ function clear() {
 }
 .fav-link:hover { background: var(--surface-sunken); }
 .fav-link:hover .fav-title { color: var(--accent); }
-.fav-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fav-title { flex: 1; font-size: var(--text-sm); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fav-host { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-muted); font-size: var(--text-xs); }
 </style>
