@@ -4,6 +4,9 @@
       <h1 class="page-title">Favorites</h1>
       <span v-if="favorites.length" class="badge">{{ favorites.length }}</span>
       <div v-if="favorites.length" class="fav-actions">
+        <button class="btn btn-ghost" @click="openNewFolder()">
+          <span class="material-symbols-outlined" aria-hidden="true">create_new_folder</span> New folder
+        </button>
         <button class="btn btn-ghost" @click="picker?.click()">
           <span class="material-symbols-outlined" aria-hidden="true">upload_file</span> Re-import
         </button>
@@ -53,11 +56,25 @@
         <section v-for="g in groups" :key="g.key" class="fav-group card">
           <h2 class="group-title">
             <span class="group-name">
-              <span v-for="(seg, i) in g.path.slice(0, -1)" :key="i" class="group-parent">{{ seg }} / </span>{{ g.path.at(-1) ?? UNSORTED }}
+              <span v-for="(seg, i) in g.path.slice(0, -1)" :key="i" class="group-parent"
+                ><button :title="`Rename or delete folder ${seg}`" @click="openRename(g.path.slice(0, i + 1))">{{ seg }}</button> / </span
+              >{{ g.path.at(-1) ?? UNSORTED }}
+            </span>
+            <span v-if="g.path.length" class="fav-tools">
+              <button class="btn-icon" title="New subfolder" :aria-label="`New subfolder in ${g.key}`" @click="openNewFolder(g.path)">
+                <span class="material-symbols-outlined" aria-hidden="true">create_new_folder</span>
+              </button>
+              <button class="btn-icon" title="Rename folder" :aria-label="`Rename folder ${g.key}`" @click="openRename(g.path)">
+                <span class="material-symbols-outlined" aria-hidden="true">edit</span>
+              </button>
+              <button class="btn-icon fav-delete" title="Delete folder" :aria-label="`Delete folder ${g.key}`" @click="openDropFolder(g.path)">
+                <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+              </button>
             </span>
             <span class="badge">{{ g.items.length }}</span>
           </h2>
-          <ul class="fav-list">
+          <p v-if="!g.items.length" class="fav-empty muted">Empty. Use Edit on a favorite to move it here.</p>
+          <ul v-else class="fav-list">
             <li v-for="f in g.items" :key="f.url" class="fav-item">
               <a :href="f.url" :title="f.url" target="_blank" rel="noopener" class="fav-link">
                 <span class="fav-title">{{ f.title }}</span>
@@ -123,6 +140,62 @@
       </form>
     </dialog>
 
+    <dialog ref="newDialog" class="dialog card" aria-labelledby="new-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="addFolder">
+        <h2 id="new-title" class="dialog-title">New folder</h2>
+        <label class="field">Name <input v-model="folderName" class="input" required pattern=".*\S.*" /></label>
+        <label class="field">
+          Inside
+          <select v-model="folder" class="input">
+            <option :value="[]">Top level</option>
+            <option v-for="[name, path] in folders" :key="name" :value="path">{{ name }}</option>
+          </select>
+        </label>
+        <p v-if="folderTaken" class="notice">This folder already exists.</p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" @click="newDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> Cancel
+          </button>
+          <button class="btn btn-primary">
+            <span class="material-symbols-outlined" aria-hidden="true">check</span> Create
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog ref="renameDialog" class="dialog card" aria-labelledby="rename-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="renameFolder">
+        <h2 id="rename-title" class="dialog-title">Rename folder</h2>
+        <label class="field">Name <input v-model="folderName" class="input" required pattern=".*\S.*" /></label>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost dialog-aside" @click="renameDialog?.close(); openDropFolder(folder)">
+            <span class="material-symbols-outlined" aria-hidden="true">delete</span> Delete
+          </button>
+          <button type="button" class="btn btn-ghost" @click="renameDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> Cancel
+          </button>
+          <button class="btn btn-primary">
+            <span class="material-symbols-outlined" aria-hidden="true">check</span> Save
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog ref="dropDialog" class="dialog card" aria-labelledby="drop-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="removeFolder">
+        <h2 id="drop-title" class="dialog-title">Delete folder?</h2>
+        <p class="muted">“{{ folder.join(' / ') }}” and its {{ folderSize }} favorites, subfolders included, will be removed from Favorites.</p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" @click="dropDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> Cancel
+          </button>
+          <button class="btn btn-danger">
+            <span class="material-symbols-outlined" aria-hidden="true">delete</span> Delete
+          </button>
+        </div>
+      </form>
+    </dialog>
+
     <dialog ref="sanitizeDialog" class="dialog card" aria-labelledby="sanitize-title" closedby="any">
       <form class="dialog-form" @submit.prevent="removeDead">
         <h2 id="sanitize-title" class="dialog-title">
@@ -162,8 +235,12 @@ import AppScroller from '@/components/layout/AppScroller.vue'
 interface Favorite { title: string; url: string; path: string[] }
 
 const KEY = 'favorites'
+const FOLDERS_KEY = 'favorite-folders'
 const UNSORTED = 'Unsorted'
-const favorites = ref<Favorite[]>(load())
+// entries saved before folders were kept have no path
+const favorites = ref<Favorite[]>(load(KEY).map((f: Favorite) => ({ ...f, path: f.path ?? [] })))
+// Folders made here; the rest exist only through the favorites in them, so these are what lets a folder stay empty
+const madeFolders = ref<string[][]>(load(FOLDERS_KEY))
 const error = ref('')
 const query = ref('')
 const category = ref('')
@@ -173,10 +250,9 @@ const deleteDialog = ref<HTMLDialogElement>()
 const target = ref<Favorite>()
 const draft = ref({ title: '', url: '', path: [] as string[] })
 
-function load(): Favorite[] {
+function load(key: string) {
   try {
-    // entries saved before folders were kept have no path
-    return JSON.parse(localStorage.getItem(KEY) || '[]').map((f: Favorite) => ({ ...f, path: f.path ?? [] }))
+    return JSON.parse(localStorage.getItem(key) || '[]')
   } catch {
     return []
   }
@@ -187,28 +263,29 @@ const topOf = (f: Favorite) => f.path[0] ?? UNSORTED
 const host = (url: string) => url.replace(/^https?:\/\/(www\.)?/i, '').split(/[/?#]/)[0]
 
 const categories = computed(() => {
-  const counts = new Map<string, number>()
+  const counts = new Map<string, number>(madeFolders.value.map((p) => [p[0], 0]))
   for (const f of favorites.value) counts.set(topOf(f), (counts.get(topOf(f)) ?? 0) + 1)
   return [...counts].sort(([a], [b]) => (a === UNSORTED ? 1 : b === UNSORTED ? -1 : byName(a, b)))
 })
 
-const visible = computed(() => {
+// Whether something under top-level folder top, searchable by texts, passes the category and search filters
+function shown(top: string, texts: string[]) {
   const q = query.value.trim().toLowerCase()
-  return favorites.value.filter(
-    (f) =>
-      (!category.value || topOf(f) === category.value) &&
-      (!q || [f.title, f.url, ...f.path].some((s) => s.toLowerCase().includes(q))),
-  )
-})
+  return (!category.value || top === category.value) && (!q || texts.some((s) => s.toLowerCase().includes(q)))
+}
+
+const visible = computed(() => favorites.value.filter((f) => shown(topOf(f), [f.title, f.url, ...f.path])))
 
 // One section per folder; a subfolder sorts right after its parent, Unsorted goes last
 const groups = computed(() => {
   const map = new Map<string, { key: string; path: string[]; items: Favorite[] }>()
-  for (const f of visible.value) {
-    const key = f.path.join(' / ')
-    if (!map.has(key)) map.set(key, { key, path: f.path, items: [] })
-    map.get(key)!.items.push(f)
+  const group = (path: string[]) => {
+    const key = path.join(' / ')
+    if (!map.has(key)) map.set(key, { key, path, items: [] })
+    return map.get(key)!
   }
+  for (const f of visible.value) group(f.path).items.push(f)
+  for (const p of madeFolders.value) if (shown(p[0], p)) group(p) // shows it even while empty
   for (const g of map.values()) g.items.sort((a, b) => byName(a.title, b.title))
   return [...map.values()].sort((a, b) => (!a.key ? 1 : !b.key ? -1 : byName(a.key, b.key)))
 })
@@ -244,28 +321,33 @@ async function onFile(e: Event) {
   }
   const seen = new Set<string>()
   const unique = links.filter((f) => !seen.has(f.url) && seen.add(f.url))
-  if (!persist(unique)) return
+  if (!persist(unique, [])) return // the file replaces everything, empty folders made here included
   query.value = ''
   category.value = ''
 }
 
 // Saves and shows the list; false when the browser refuses to store it
-function persist(list: Favorite[]): boolean {
+function persist(list: Favorite[], made = madeFolders.value): boolean {
   try {
     localStorage.setItem(KEY, JSON.stringify(list))
+    localStorage.setItem(FOLDERS_KEY, JSON.stringify(made))
   } catch {
     error.value = 'Could not save bookmarks in this browser.'
     return false
   }
   error.value = ''
   favorites.value = list
+  madeFolders.value = made
+  if (!categories.value.some(([name]) => name === category.value)) category.value = '' // its folder is gone
   return true
 }
 
-// Every folder in use as [label, path], labelled like the group headings, for the edit dialog's picker
+// Every folder, parents included, as [label, path], labelled like the group headings, for the dialogs' pickers
 const folders = computed(() => {
-  const map = new Map(favorites.value.map((f) => [f.path.join(' / '), f.path]))
-  map.delete('') // Unsorted has its own fixed option
+  const map = new Map<string, string[]>()
+  for (const p of [...favorites.value.map((f) => f.path), ...madeFolders.value]) {
+    for (let i = 1; i <= p.length; i++) map.set(p.slice(0, i).join(' / '), p.slice(0, i))
+  }
   return [...map].sort(([a], [b]) => byName(a, b))
 })
 const urlTaken = computed(() => favorites.value.some((f) => f !== target.value && f.url === draft.value.url.trim()))
@@ -296,6 +378,64 @@ function openDelete(f: Favorite) {
 function remove() {
   persist(favorites.value.filter((f) => f !== target.value))
   deleteDialog.value?.close()
+}
+
+const newDialog = ref<HTMLDialogElement>()
+const renameDialog = ref<HTMLDialogElement>()
+const dropDialog = ref<HTMLDialogElement>()
+const folder = ref<string[]>([]) // the folder acted on; for a new folder, its parent
+const folderName = ref('')
+// True when p is the folder at path or one of its subfolders
+const isIn = (p: string[], path: string[]) => path.every((seg, i) => p[i] === seg)
+const folderSize = computed(() => favorites.value.filter((f) => isIn(f.path, folder.value)).length)
+const folderTaken = computed(() => {
+  const key = [...folder.value, folderName.value.trim()].join(' / ')
+  return folders.value.some(([name]) => name === key)
+})
+
+function openNewFolder(parent: string[] = []) {
+  folder.value = parent
+  folderName.value = ''
+  newDialog.value?.showModal()
+}
+
+function addFolder() {
+  if (folderTaken.value) return
+  const path = [...folder.value, folderName.value.trim()]
+  if (persist(favorites.value, [...madeFolders.value, path])) category.value &&= path[0] // keeps it in view
+  newDialog.value?.close()
+}
+
+function openRename(path: string[]) {
+  folder.value = path
+  folderName.value = path.at(-1)!
+  renameDialog.value?.showModal()
+}
+
+// Renaming to a sibling's name merges the two folders
+function renameFolder() {
+  const path = folder.value
+  const depth = path.length - 1
+  const name = folderName.value.trim()
+  const follow = depth === 0 && category.value === path[0]
+  const rename = (p: string[]) => (isIn(p, path) ? p.map((s, i) => (i === depth ? name : s)) : p)
+  if (persist(favorites.value.map((f) => ({ ...f, path: rename(f.path) })), madeFolders.value.map(rename)) && follow) {
+    category.value = name
+  }
+  renameDialog.value?.close()
+}
+
+function openDropFolder(path: string[]) {
+  folder.value = path
+  dropDialog.value?.showModal()
+}
+
+function removeFolder() {
+  persist(
+    favorites.value.filter((f) => !isIn(f.path, folder.value)),
+    madeFolders.value.filter((p) => !isIn(p, folder.value)),
+  )
+  dropDialog.value?.close()
 }
 
 const sanitizeDialog = ref<HTMLDialogElement>()
@@ -350,7 +490,9 @@ function removeDead() {
 
 function clear() {
   localStorage.removeItem(KEY)
+  localStorage.removeItem(FOLDERS_KEY)
   favorites.value = []
+  madeFolders.value = []
   query.value = ''
   category.value = ''
 }
@@ -381,9 +523,11 @@ function clear() {
   border-bottom: 1px solid var(--border);
   font-size: var(--text-md);
 }
-.group-name { min-width: 0; overflow-wrap: anywhere; }
+.group-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .group-parent { color: var(--ink-muted); font-weight: var(--weight-medium); }
+.group-parent button:hover { color: var(--accent); text-decoration: underline; }
 
+.fav-empty { padding: var(--space-xs) var(--space-md) 0; }
 .fav-list { list-style: none; margin: 0; padding: var(--space-2xs) 0 0; }
 .fav-item { display: flex; align-items: center; padding-right: var(--space-xs); }
 .fav-item:hover { background: var(--surface-sunken); }
@@ -401,7 +545,8 @@ function clear() {
 .fav-tools .fav-delete:hover { color: var(--tone-critical); }
 /* With a mouse the tools take no room until hover or focus; on touch screens they always show */
 @media (hover: hover) {
-  .fav-item:not(:hover, :focus-within) .fav-tools { display: none; }
+  .fav-item:not(:hover, :focus-within) .fav-tools,
+  .group-title:not(:hover, :focus-within) .fav-tools { display: none; }
 }
 .fav-title { flex: 1; font-size: var(--text-sm); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fav-host { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-muted); font-size: var(--text-xs); }
@@ -414,6 +559,7 @@ function clear() {
 .field { display: flex; flex-direction: column; gap: var(--space-2xs); font-size: var(--text-sm); color: var(--ink-muted); }
 .field .input { color: var(--ink); }
 .dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-xs); margin-top: var(--space-xs); }
+.dialog-aside { margin-right: auto; }
 .btn-danger { background: var(--tone-critical); color: var(--ink-inverted); }
 .btn-danger:hover { filter: brightness(0.9); }
 
