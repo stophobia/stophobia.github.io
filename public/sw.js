@@ -1,6 +1,6 @@
 // Network-first cache: always fresh when online, last copy when offline.
 // ponytail: old hashed assets stay in the cache; bump CACHE to purge if it ever matters.
-const CACHE = 'faih-v1'
+const CACHE = 'stophobia-v1'
 
 self.addEventListener('install', () => self.skipWaiting())
 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()))

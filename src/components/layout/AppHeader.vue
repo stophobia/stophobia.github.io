@@ -1,8 +1,8 @@
 <template>
   <header class="app-bar">
     <RouterLink to="/" class="brand">
-      <span class="brand-mark">F</span>
-      <span>FAIH</span>
+      <span class="brand-mark">S</span>
+      <span>Stophobia</span>
     </RouterLink>
 
     <!-- Areas: the menu -->

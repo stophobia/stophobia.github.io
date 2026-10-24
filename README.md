@@ -1,4 +1,4 @@
-# FAIH — Financial AI Intelligence Hub
+# Stophobia — Financial AI Intelligence Hub
 
 Static Vue 3 + Vite site served from GitHub Pages at https://stophobia.github.io.
 
