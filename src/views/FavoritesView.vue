@@ -54,11 +54,19 @@
             <span class="badge">{{ g.items.length }}</span>
           </h2>
           <ul class="fav-list">
-            <li v-for="f in g.items" :key="f.url">
+            <li v-for="f in g.items" :key="f.url" class="fav-item">
               <a :href="f.url" :title="f.url" target="_blank" rel="noopener" class="fav-link">
                 <span class="fav-title">{{ f.title }}</span>
                 <span class="fav-host">{{ host(f.url) }}</span>
               </a>
+              <span class="fav-tools">
+                <button class="btn-icon" title="Edit" :aria-label="`Edit ${f.title}`" @click="openEdit(f)">
+                  <span class="material-symbols-outlined" aria-hidden="true">edit</span>
+                </button>
+                <button class="btn-icon fav-delete" title="Delete" :aria-label="`Delete ${f.title}`" @click="openDelete(f)">
+                  <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+                </button>
+              </span>
             </li>
           </ul>
         </section>
@@ -71,6 +79,35 @@
       Import bookmarks exported from Chrome or Firefox (.html)
       <input type="file" accept=".html,.htm,text/html" @change="onFile" />
     </label>
+
+    <dialog ref="editDialog" class="dialog card" aria-labelledby="edit-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="saveEdit">
+        <h2 id="edit-title" class="dialog-title">Edit favorite</h2>
+        <label class="field">Title <input v-model="draft.title" class="input" required /></label>
+        <label class="field">URL <input v-model="draft.url" class="input" type="url" pattern="https?://.+" required /></label>
+        <p v-if="urlTaken" class="notice">Another favorite already has this URL.</p>
+        <label class="field">
+          Folder
+          <input v-model="draft.folder" class="input" list="fav-folders" :placeholder="`Folder / Subfolder (empty = ${UNSORTED})`" />
+        </label>
+        <datalist id="fav-folders"><option v-for="name in folders" :key="name" :value="name" /></datalist>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" @click="editDialog?.close()">Cancel</button>
+          <button class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog ref="deleteDialog" class="dialog card" aria-labelledby="delete-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="remove">
+        <h2 id="delete-title" class="dialog-title">Delete favorite?</h2>
+        <p class="muted">“{{ target?.title }}” will be removed from Favorites.</p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" @click="deleteDialog?.close()">Cancel</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </form>
+    </dialog>
   </div>
 </template>
 
@@ -88,6 +125,10 @@ const error = ref('')
 const query = ref('')
 const category = ref('')
 const picker = ref<HTMLInputElement>()
+const editDialog = ref<HTMLDialogElement>()
+const deleteDialog = ref<HTMLDialogElement>()
+const target = ref<Favorite>()
+const draft = ref({ title: '', url: '', folder: '' })
 
 function load(): Favorite[] {
   try {
@@ -160,16 +201,54 @@ async function onFile(e: Event) {
   }
   const seen = new Set<string>()
   const unique = links.filter((f) => !seen.has(f.url) && seen.add(f.url))
-  try {
-    localStorage.setItem(KEY, JSON.stringify(unique))
-  } catch {
-    error.value = 'Could not save bookmarks in this browser.'
-    return
-  }
-  error.value = ''
+  if (!persist(unique)) return
   query.value = ''
   category.value = ''
-  favorites.value = unique
+}
+
+// Saves and shows the list; false when the browser refuses to store it
+function persist(list: Favorite[]): boolean {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(list))
+  } catch {
+    error.value = 'Could not save bookmarks in this browser.'
+    return false
+  }
+  error.value = ''
+  favorites.value = list
+  return true
+}
+
+// Folders are edited as one "Parent / Child" string, the same join the group headings use
+const folders = computed(() => [...new Set(favorites.value.map((f) => f.path.join(' / ')))].filter(Boolean).sort(byName))
+const urlTaken = computed(() => favorites.value.some((f) => f !== target.value && f.url === draft.value.url.trim()))
+
+function openEdit(f: Favorite) {
+  target.value = f
+  draft.value = { title: f.title, url: f.url, folder: f.path.join(' / ') }
+  editDialog.value?.showModal()
+}
+
+function saveEdit() {
+  if (urlTaken.value) return
+  const url = draft.value.url.trim()
+  const edited = {
+    title: draft.value.title.trim() || url,
+    url,
+    path: draft.value.folder.split(' / ').map((s) => s.trim()).filter(Boolean),
+  }
+  persist(favorites.value.map((f) => (f === target.value ? edited : f)))
+  editDialog.value?.close()
+}
+
+function openDelete(f: Favorite) {
+  target.value = f
+  deleteDialog.value?.showModal()
+}
+
+function remove() {
+  persist(favorites.value.filter((f) => f !== target.value))
+  deleteDialog.value?.close()
 }
 
 function clear() {
@@ -209,14 +288,35 @@ function clear() {
 .group-parent { color: var(--ink-muted); font-weight: var(--weight-medium); }
 
 .fav-list { list-style: none; margin: 0; padding: var(--space-2xs) 0 0; }
+.fav-item { display: flex; align-items: center; padding-right: var(--space-xs); }
+.fav-item:hover { background: var(--surface-sunken); }
 .fav-link {
   display: flex;
+  flex: 1;
+  min-width: 0;
   align-items: baseline;
   gap: var(--space-xs);
-  padding: var(--space-2xs) var(--space-md);
+  padding: var(--space-2xs) var(--space-xs) var(--space-2xs) var(--space-md);
 }
-.fav-link:hover { background: var(--surface-sunken); }
 .fav-link:hover .fav-title { color: var(--accent); }
+.fav-tools { display: flex; font-size: var(--text-sm); }
+.fav-tools .btn-icon:hover { background: var(--border); }
+.fav-tools .fav-delete:hover { color: var(--tone-critical); }
+/* With a mouse the tools wait for hover or focus; on touch screens they always show */
+@media (hover: hover) {
+  .fav-item:not(:hover, :focus-within) .fav-tools { opacity: 0; }
+}
 .fav-title { flex: 1; font-size: var(--text-sm); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fav-host { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-muted); font-size: var(--text-xs); }
+
+/* The global reset zeroes margins, so the modal is re-centred here */
+.dialog { margin: auto; width: min(28rem, 100% - 2 * var(--space-md)); padding: var(--space-lg); color: var(--ink); }
+.dialog::backdrop { background: var(--backdrop); }
+.dialog-form { display: flex; flex-direction: column; gap: var(--space-sm); }
+.dialog-title { font-size: var(--text-lg); }
+.field { display: flex; flex-direction: column; gap: var(--space-2xs); font-size: var(--text-sm); color: var(--ink-muted); }
+.field .input { color: var(--ink); }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-xs); margin-top: var(--space-xs); }
+.btn-danger { background: var(--tone-critical); color: var(--ink-inverted); }
+.btn-danger:hover { filter: brightness(0.9); }
 </style>
