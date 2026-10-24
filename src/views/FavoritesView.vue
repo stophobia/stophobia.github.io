@@ -7,6 +7,10 @@
         <button class="btn btn-ghost" @click="picker?.click()">
           <span class="material-symbols-outlined" aria-hidden="true">upload_file</span> Re-import
         </button>
+        <button class="btn btn-ghost" :disabled="!!scan" @click="sanitize">
+          <span class="material-symbols-outlined" aria-hidden="true">link_off</span>
+          {{ scan ? `Checking ${scan.done}/${scan.total}` : 'Sanitize' }}
+        </button>
         <button class="btn btn-ghost" @click="clear">
           <span class="material-symbols-outlined" aria-hidden="true">delete</span> Clear
         </button>
@@ -114,6 +118,35 @@
           </button>
           <button class="btn btn-danger">
             <span class="material-symbols-outlined" aria-hidden="true">delete</span> Delete
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog ref="sanitizeDialog" class="dialog card" aria-labelledby="sanitize-title" closedby="any">
+      <form class="dialog-form" @submit.prevent="removeDead">
+        <h2 id="sanitize-title" class="dialog-title">
+          {{ dead.length ? `${dead.length} sites did not respond` : 'Every site responded' }}
+        </h2>
+        <template v-if="dead.length">
+          <p class="muted">Checked from this browser, so a site behind a VPN or blocked by an extension shows up here too. Untick any to keep.</p>
+          <ul class="dead-list">
+            <li v-for="f in dead" :key="f.url">
+              <label class="dead-item" :title="f.url">
+                <input v-model="doomed" type="checkbox" :value="f.url" />
+                <span class="fav-title">{{ f.title }}</span>
+                <span class="fav-host">{{ host(f.url) }}</span>
+              </label>
+            </li>
+          </ul>
+        </template>
+        <p v-if="skipped" class="muted">{{ skipped }} http:// links can't be checked from an https page and were kept.</p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" @click="sanitizeDialog?.close()">
+            <span class="material-symbols-outlined" aria-hidden="true">close</span> {{ dead.length ? 'Cancel' : 'Close' }}
+          </button>
+          <button v-if="dead.length" class="btn btn-danger" :disabled="!doomed.length">
+            <span class="material-symbols-outlined" aria-hidden="true">delete</span> Delete {{ doomed.length }}
           </button>
         </div>
       </form>
@@ -265,6 +298,56 @@ function remove() {
   deleteDialog.value?.close()
 }
 
+const sanitizeDialog = ref<HTMLDialogElement>()
+const scan = ref<{ done: number; total: number }>()
+const dead = ref<Favorite[]>([])
+const doomed = ref<string[]>([]) // URLs ticked for removal
+const skipped = ref(0)
+
+// Cross-origin responses are hidden, but an opaque no-cors request still settles once the server answers;
+// it rejects only on DNS, connection, TLS or timeout failure. So a 404 page counts as reachable.
+async function reachable(url: string) {
+  try {
+    await fetch(url, { method: 'HEAD', mode: 'no-cors', signal: AbortSignal.timeout(10_000) })
+    return true
+  } catch {
+    return false
+  }
+}
+
+async function sanitize() {
+  if (!navigator.onLine) {
+    error.value = 'You are offline, so every site would look unreachable.'
+    return
+  }
+  // An https page may not fetch http:// URLs (mixed content), so those can't be tested
+  const list = favorites.value.filter((f) => /^https:/i.test(f.url))
+  skipped.value = favorites.value.length - list.length
+  scan.value = { done: 0, total: list.length }
+  const found: Favorite[] = []
+  let next = 0
+  // ponytail: 8 probes at a time; raise it if big lists feel slow
+  await Promise.all(
+    Array.from({ length: 8 }, async () => {
+      while (next < list.length) {
+        const f = list[next++]
+        if (!(await reachable(f.url))) found.push(f)
+        scan.value!.done++
+      }
+    }),
+  )
+  scan.value = undefined
+  dead.value = found.sort((a, b) => byName(a.title, b.title))
+  doomed.value = found.map((f) => f.url)
+  sanitizeDialog.value?.showModal()
+}
+
+function removeDead() {
+  const drop = new Set(doomed.value)
+  persist(favorites.value.filter((f) => !drop.has(f.url)))
+  sanitizeDialog.value?.close()
+}
+
 function clear() {
   localStorage.removeItem(KEY)
   favorites.value = []
@@ -333,4 +416,7 @@ function clear() {
 .dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-xs); margin-top: var(--space-xs); }
 .btn-danger { background: var(--tone-critical); color: var(--ink-inverted); }
 .btn-danger:hover { filter: brightness(0.9); }
+
+.dead-list { list-style: none; margin: 0; padding: 0; max-height: 50vh; overflow-y: auto; }
+.dead-item { display: flex; align-items: baseline; gap: var(--space-xs); padding: var(--space-2xs) 0; color: var(--ink); cursor: pointer; }
 </style>

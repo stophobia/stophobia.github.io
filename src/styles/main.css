@@ -118,6 +118,7 @@ a.card:hover { border-color: var(--border-strong); }
 
 .btn-ghost { border-color: var(--border-strong); }
 .btn-ghost:hover { background: var(--surface-sunken); }
+.btn:disabled { opacity: 0.6; cursor: default; }
 
 .btn-icon {
   display: inline-flex;
