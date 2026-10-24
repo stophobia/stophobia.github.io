@@ -8,19 +8,21 @@
       <span class="muted">{{ areaEventCount }} events</span>
     </header>
 
-    <nav class="tab-nav" role="tablist">
-      <RouterLink
-        v-for="tabId in area.tabs"
-        :key="tabId"
-        :to="`/area/${area.id}/${tabId}`"
-        class="chip"
-        role="tab"
-        :id="`tab-${tabId}`"
-      >
-        <span class="material-symbols-outlined" aria-hidden="true">{{ TABS[tabId]?.icon }}</span>
-        {{ TABS[tabId]?.label }}
-      </RouterLink>
-    </nav>
+    <AppScroller class="tab-scroller">
+      <nav class="tab-nav" role="tablist">
+        <RouterLink
+          v-for="tabId in area.tabs"
+          :key="tabId"
+          :to="`/area/${area.id}/${tabId}`"
+          class="chip"
+          role="tab"
+          :id="`tab-${tabId}`"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{{ TABS[tabId]?.icon }}</span>
+          {{ TABS[tabId]?.label }}
+        </RouterLink>
+      </nav>
+    </AppScroller>
 
     <div role="tabpanel">
       <component
@@ -38,6 +40,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import AppScroller from '@/components/layout/AppScroller.vue'
 import { AREAS, TABS } from '@/data/areas'
 import { useFeedStore } from '@/stores/feedStore'
 import type { AreaId, EventCategory, TabId } from '@/types'
@@ -104,11 +107,13 @@ const tabComponent = computed(() => TAB_COMPONENTS[currentTab.value] || FeedTab)
   flex-wrap: wrap;
 }
 
-.tab-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2xs);
+.tab-scroller {
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border);
+}
+
+.tab-nav {
+  display: flex;
+  gap: var(--space-2xs);
 }
 </style>

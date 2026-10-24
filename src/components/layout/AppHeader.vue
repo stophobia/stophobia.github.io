@@ -6,22 +6,24 @@
     </RouterLink>
 
     <!-- Areas: the menu -->
-    <nav class="area-nav">
-      <RouterLink
-        v-for="area in AREAS"
-        :key="area.id"
-        :to="`/area/${area.id}/${area.tabs[0]}`"
-        class="chip"
-        :class="{ active: route.params.areaId === area.id }"
-      >
-        <span class="material-symbols-outlined" aria-hidden="true">{{ area.icon }}</span>
-        {{ area.label }}
-      </RouterLink>
-      <RouterLink to="/favorites" class="chip">
-        <span class="material-symbols-outlined" aria-hidden="true">bookmarks</span>
-        Favorites
-      </RouterLink>
-    </nav>
+    <AppScroller class="area-scroller">
+      <nav class="area-nav">
+        <RouterLink
+          v-for="area in AREAS"
+          :key="area.id"
+          :to="`/area/${area.id}/${area.tabs[0]}`"
+          class="chip"
+          :class="{ active: route.params.areaId === area.id }"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{{ area.icon }}</span>
+          {{ area.label }}
+        </RouterLink>
+        <RouterLink to="/favorites" class="chip">
+          <span class="material-symbols-outlined" aria-hidden="true">bookmarks</span>
+          Favorites
+        </RouterLink>
+      </nav>
+    </AppScroller>
 
     <label class="search">
       <span class="material-symbols-outlined" aria-hidden="true">search</span>
@@ -60,6 +62,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import AppScroller from '@/components/layout/AppScroller.vue'
 import { AREAS } from '@/data/areas'
 import { useFeedStore } from '@/stores/feedStore'
 
@@ -113,10 +116,11 @@ const lastUpdated = computed(() => {
   color: var(--ink-inverted);
 }
 
+/* Takes the rest of the row; below 16rem it gets a row of its own */
+.area-scroller { flex: 1 1 16rem; }
+
 .area-nav {
-  flex: 1;
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-2xs);
 }
 
