@@ -543,6 +543,8 @@ function clear() {
 .fav-tools { display: flex; font-size: var(--text-sm); }
 .fav-tools .btn-icon:hover { background: var(--border); }
 .fav-tools .fav-delete:hover { color: var(--tone-critical); }
+/* The icon buttons are taller than the heading's line; this lets them overlap its padding so hover doesn't grow it */
+.group-title .fav-tools { margin-block: calc(-1 * var(--space-2xs)); }
 /* With a mouse the tools take no room until hover or focus; on touch screens they always show */
 @media (hover: hover) {
   .fav-item:not(:hover, :focus-within) .fav-tools,
