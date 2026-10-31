@@ -1,16 +1,36 @@
 <template>
   <div class="github-tab">
-    <div class="github-sub-tabs">
-      <button
-        v-for="sub in subTabs"
-        :key="sub.id"
-        class="chip"
-        :class="{ active: activeSub === sub.id }"
-        @click="activeSub = sub.id"
-      >
-        <span class="material-symbols-outlined" aria-hidden="true">{{ sub.icon }}</span>
-        {{ sub.label }}
-      </button>
+    <!-- Releases are feed events: the sub-tabs lead FeedGrid's own filter bar -->
+    <FeedGrid v-if="activeSub === 'releases'" :area-id="areaId" :override-categories="['github_release']">
+      <div class="filter-group">
+        <button
+          v-for="sub in subTabs"
+          :key="sub.id"
+          class="chip"
+          :class="{ active: activeSub === sub.id }"
+          @click="activeSub = sub.id"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{{ sub.icon }}</span>
+          {{ sub.label }}
+        </button>
+      </div>
+      <div class="filter-sep"></div>
+    </FeedGrid>
+
+    <div v-else class="filter-bar card">
+      <div class="filter-group">
+        <button
+          v-for="sub in subTabs"
+          :key="sub.id"
+          class="chip"
+          :class="{ active: activeSub === sub.id }"
+          @click="activeSub = sub.id"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{{ sub.icon }}</span>
+          {{ sub.label }}
+        </button>
+      </div>
+      <span class="filter-count">{{ activeSub === 'trending' ? trendingEvents.length : WATCHED_REPOS.length }} results</span>
     </div>
 
     <!-- Trending -->
@@ -40,11 +60,6 @@
           </div>
         </a>
       </div>
-    </div>
-
-    <!-- Releases -->
-    <div v-if="activeSub === 'releases'">
-      <FeedGrid :area-id="areaId" :override-categories="['github_release']" hide-filter />
     </div>
 
     <!-- Tracked Repos -->
@@ -121,7 +136,6 @@ function relativeTime(iso: string): string {
 
 <style scoped>
 .github-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.github-sub-tabs { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 
 .gh-repo-card,
 .gh-watch-item { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); }

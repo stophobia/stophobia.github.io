@@ -10,7 +10,7 @@
         <span class="material-symbols-outlined vc-arrow" aria-hidden="true">open_in_new</span>
       </a>
     </div>
-    <FeedGrid :area-id="areaId" :override-categories="['video']" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['video']" />
   </div>
 </template>
 

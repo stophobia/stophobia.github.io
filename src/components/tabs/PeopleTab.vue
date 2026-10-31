@@ -1,13 +1,14 @@
 <template>
   <div class="people-tab">
-    <div>
+    <div class="filter-bar card">
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Search people..."
-        class="input tab-search-input"
+        class="input"
         id="people-search"
       />
+      <span class="filter-count">{{ filteredPeople.length }} results</span>
     </div>
     <div class="card-grid">
       <PersonCard
@@ -50,6 +51,5 @@ const filteredPeople = computed(() => {
 
 <style scoped>
 .people-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.tab-search-input { width: 100%; max-width: 20rem; }
 .empty-icon { font-size: var(--text-xl); }
 </style>

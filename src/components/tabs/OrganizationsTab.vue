@@ -1,14 +1,15 @@
 <template>
   <div class="orgs-tab">
-    <div class="orgs-filter-bar">
+    <div class="filter-bar card">
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Search organizations..."
-        class="input tab-search-input"
+        class="input"
         id="orgs-search"
       />
-      <div class="orgs-type-filters">
+      <div class="filter-sep"></div>
+      <div class="filter-group">
         <button
           v-for="type in orgTypes"
           :key="type.value"
@@ -19,6 +20,7 @@
           {{ type.label }}
         </button>
       </div>
+      <span class="filter-count">{{ filteredOrgs.length }} results</span>
     </div>
     <div class="card-grid">
       <OrgCard
@@ -74,8 +76,5 @@ const filteredOrgs = computed(() => {
 
 <style scoped>
 .orgs-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.orgs-filter-bar { display: flex; flex-direction: column; gap: var(--space-xs); }
-.tab-search-input { width: 100%; max-width: 20rem; }
-.orgs-type-filters { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
 .empty-icon { font-size: var(--text-xl); }
 </style>

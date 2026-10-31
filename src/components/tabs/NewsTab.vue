@@ -1,12 +1,15 @@
 <template>
-  <div class="news-tab">
-    <div class="news-sources">
-      <button v-for="name in newsSources" :key="name" class="chip" @click="toggleSource(name)"
-        :class="{ active: activeSource === name }">
-        {{ name }}
-      </button>
-    </div>
-    <FeedGrid :area-id="areaId" :override-categories="['news']" :source="activeSource ?? undefined" hide-filter />
+  <!-- A wrapper, so AreaView's override-categories can't fall through onto FeedGrid -->
+  <div>
+    <FeedGrid :area-id="areaId" :override-categories="['news']" :source="activeSource ?? undefined">
+      <div class="filter-group">
+        <button v-for="name in newsSources" :key="name" class="chip" @click="toggleSource(name)"
+          :class="{ active: activeSource === name }">
+          {{ name }}
+        </button>
+      </div>
+      <div class="filter-sep"></div>
+    </FeedGrid>
   </div>
 </template>
 
@@ -20,8 +23,3 @@ const activeSource = ref<string | null>(null)
 const newsSources = ['Bloomberg Technology', 'Finextra', 'Hacker News', 'FRED Blog', 'CoinDesk']
 function toggleSource(name: string) { activeSource.value = activeSource.value === name ? null : name }
 </script>
-
-<style scoped>
-.news-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.news-sources { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
-</style>

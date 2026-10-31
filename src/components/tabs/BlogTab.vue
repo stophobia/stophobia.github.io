@@ -10,7 +10,7 @@
         <div class="muted">{{ b.desc }}</div>
       </a>
     </div>
-    <FeedGrid :area-id="areaId" :override-categories="['blog_post']" hide-filter />
+    <FeedGrid :area-id="areaId" :override-categories="['blog_post']" />
   </div>
 </template>
 

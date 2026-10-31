@@ -1,7 +1,9 @@
 <template>
   <div class="feed-grid-wrap">
-    <!-- Filter bar -->
-    <div v-if="!hideFilter" class="filter-bar card">
+    <!-- Filter bar; a tab's own filters come first, through the slot -->
+    <div class="filter-bar card">
+      <slot />
+
       <!-- Time range -->
       <div class="filter-group">
         <button
@@ -92,7 +94,6 @@ const props = defineProps<{
   areaId?: AreaId
   overrideCategories?: import('@/types').EventCategory[]
   source?: string
-  hideFilter?: boolean
 }>()
 
 const feedStore = useFeedStore()
@@ -143,36 +144,6 @@ function toggleTopic(t: string) {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-}
-
-.filter-bar {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
-  flex-wrap: wrap;
-  position: sticky;
-  top: var(--space-xs);
-  z-index: 10;
-}
-
-.filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3xs);
-}
-
-.filter-sep {
-  width: 1px;
-  height: 1.25rem;
-  background: var(--border);
-}
-
-.filter-count {
-  margin-left: auto;
-  font-size: var(--text-xs);
-  color: var(--ink-muted);
-  font-variant-numeric: tabular-nums;
 }
 
 .empty-icon { font-size: var(--text-xl); }
