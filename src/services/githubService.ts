@@ -121,6 +121,7 @@ export async function fetchTrendingRepos(): Promise<FeedEvent[]> {
     publishedAt: repo.pushed_at,
     source: 'GitHub Trending',
     sourceLogo: 'https://github.githubassets.com/favicons/favicon.svg',
+    score: repo.stargazers_count, // Top sort ranks trending by stars
     stars: repo.stargazers_count,
     forks: repo.forks_count,
   }))

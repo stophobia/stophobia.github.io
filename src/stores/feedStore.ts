@@ -5,7 +5,7 @@ import type { FeedEvent, FilterState, SortMode, AreaId } from '@/types'
 // Generated at build time by scripts/collect.ts
 const FEED_URL = `${import.meta.env.BASE_URL}data/feed.json`
 
-// Topic filters from the spec, matched against title/summary/tags
+// Default topic filters, matched against title/summary/tags; these patterns also catch synonyms
 export const TOPICS: Record<string, RegExp> = {
   LLM: /\b(LLMs?|language models?)\b/i,
   Agent: /\bagent(s|ic)?\b/i,
@@ -14,6 +14,29 @@ export const TOPICS: Record<string, RegExp> = {
   RL: /\b(RL|RLHF|reinforcement learning)\b/i,
   Trading: /\b(trading|backtest\w*|alpha|portfolio)\b/i,
 }
+
+// A topic added in the editor matches as a whole word
+const topicPattern = (name: string) =>
+  Object.hasOwn(TOPICS, name) ? TOPICS[name] : new RegExp(`(?<!\\w)${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\w)`, 'i')
+
+const TOPICS_KEY = 'topics'
+function loadTopics(): string[] {
+  try {
+    const list = JSON.parse(localStorage.getItem(TOPICS_KEY) || 'null')
+    return Array.isArray(list) ? list : Object.keys(TOPICS)
+  } catch {
+    return Object.keys(TOPICS)
+  }
+}
+
+// True when one of fields contains query, ignoring case; a blank query matches anything
+export function matches(query: string, fields: (string | undefined)[]) {
+  const q = query.trim().toLowerCase()
+  return !q || fields.some((f) => f?.toLowerCase().includes(q))
+}
+
+// What a search looks through in an event
+export const eventFields = (e: FeedEvent) => [e.title, e.summary, e.source, e.author, e.organization, ...e.tags]
 
 export const useFeedStore = defineStore('feed', () => {
   const events = ref<FeedEvent[]>([])
@@ -31,6 +54,19 @@ export const useFeedStore = defineStore('feed', () => {
   })
 
   const sortMode = ref<SortMode>('latest')
+
+  // The filter bar shows topics; the editor saves savedTopics, which the next fetchFeeds brings in
+  const topics = ref(loadTopics())
+  const savedTopics = ref(topics.value)
+
+  function saveTopics(list: string[]) {
+    savedTopics.value = list
+    try {
+      localStorage.setItem(TOPICS_KEY, JSON.stringify(list))
+    } catch {
+      // ponytail: storage blocked (private window); the edit still applies for this visit
+    }
+  }
 
   function setFilter(partial: Partial<FilterState>) {
     filter.value = { ...filter.value, ...partial }
@@ -66,24 +102,16 @@ export const useFeedStore = defineStore('feed', () => {
 
     // Topic filter
     if (filter.value.tags.length) {
-      const topics = filter.value.tags.map((t) => TOPICS[t]).filter(Boolean)
+      const patterns = filter.value.tags.map(topicPattern)
       result = result.filter((e) => {
         const text = `${e.title} ${e.summary} ${e.tags.join(' ')}`
-        return topics.some((re) => re.test(text))
+        return patterns.some((re) => re.test(text))
       })
     }
 
     // Search query
-    const q = filter.value.query.trim().toLowerCase()
-    if (q) {
-      result = result.filter(
-        (e) =>
-          e.title.toLowerCase().includes(q) ||
-          e.summary.toLowerCase().includes(q) ||
-          (e.author?.toLowerCase().includes(q) ?? false) ||
-          (e.organization?.toLowerCase().includes(q) ?? false) ||
-          e.tags.some((t) => t.toLowerCase().includes(q)),
-      )
+    if (filter.value.query.trim()) {
+      result = result.filter((e) => matches(filter.value.query, eventFields(e)))
     }
 
     // Sort
@@ -125,6 +153,8 @@ export const useFeedStore = defineStore('feed', () => {
       const data: { generatedAt: number; events: FeedEvent[] } = await resp.json()
       events.value = data.events
       lastFetchedAt.value = data.generatedAt
+      topics.value = savedTopics.value
+      setFilter({ tags: filter.value.tags.filter((t) => topics.value.includes(t)) })
     } catch (e: unknown) {
       error.value = e instanceof Error ? e.message : 'Unknown error'
     } finally {
@@ -141,10 +171,13 @@ export const useFeedStore = defineStore('feed', () => {
     lastFetchedAt,
     filter,
     sortMode,
+    topics,
+    savedTopics,
     filtered,
     byArea,
     setFilter,
     setSortMode,
+    saveTopics,
     fetchFeeds,
   }
 })

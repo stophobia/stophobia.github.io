@@ -1,6 +1,6 @@
 <template>
   <div class="category-tab">
-    <h2 class="section-title">Conferences & Events</h2>
+    <FilterBar v-model="query" :count="shown.length" placeholder="Search conferences…" />
     <div class="conf-year-groups">
       <div v-for="group in groupedConfs" :key="group.year">
         <h3 class="conf-year">{{ group.year }}</h3>
@@ -29,7 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import FilterBar from '@/components/layout/FilterBar.vue'
+import { matches } from '@/stores/feedStore'
 import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
@@ -43,9 +45,14 @@ const CONFERENCES = [
   { name: 'ACL 2027', fullName: 'Association for Computational Linguistics', year: 2027, date: 'Aug 17–22, 2027', location: 'Kyoto, Japan', area: 'research', url: 'https://2027.aclweb.org', topics: ['NLP', 'LLM', 'linguistics'] },
 ]
 
+const query = ref('')
+const shown = computed(() =>
+  CONFERENCES.filter((c) => matches(query.value, [c.name, c.fullName, c.location, c.area, ...c.topics])),
+)
+
 const groupedConfs = computed(() => {
   const map: Record<number, typeof CONFERENCES> = {}
-  for (const c of CONFERENCES) {
+  for (const c of shown.value) {
     if (!map[c.year]) map[c.year] = []
     map[c.year].push(c)
   }

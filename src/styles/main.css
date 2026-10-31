@@ -153,17 +153,23 @@ a.card:hover { border-color: var(--border-strong); }
   background: var(--surface);
 }
 
-/* ── Filter bar: every tab's sub-menu ──────────────────── */
-/* Groups of chips split by .filter-sep, the result count last */
+/* ── Filter bar: every tab's sub-menu (FilterBar.vue) ──── */
+/* Rows of chip groups split by .filter-sep */
 .filter-bar {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: var(--space-xs);
   padding: var(--space-xs) var(--space-sm);
-  flex-wrap: wrap;
   position: sticky;
   top: var(--space-xs);
   z-index: 10;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
 }
 
 .filter-group {
@@ -191,6 +197,17 @@ a.card:hover { border-color: var(--border-strong); }
   color: var(--ink-muted);
   font-variant-numeric: tabular-nums;
 }
+
+/* ── Dialog: a modal <dialog> holding a .dialog-form ───── */
+/* The global reset zeroes margins, so the modal is re-centred here */
+.dialog { margin: auto; width: min(28rem, 100% - 2 * var(--space-md)); padding: var(--space-lg); color: var(--ink); }
+.dialog::backdrop { background: var(--backdrop); }
+.dialog-form { display: flex; flex-direction: column; gap: var(--space-sm); }
+.dialog-title { font-size: var(--text-lg); }
+.field { display: flex; flex-direction: column; gap: var(--space-2xs); font-size: var(--text-sm); color: var(--ink-muted); }
+.field .input { color: var(--ink); }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-xs); margin-top: var(--space-xs); }
+.dialog-aside { margin-right: auto; }
 
 /* ── Labels ────────────────────────────────────────────── */
 .badge {

@@ -1,14 +1,6 @@
 <template>
   <div class="orgs-tab">
-    <div class="filter-bar card">
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search organizations..."
-        class="input"
-        id="orgs-search"
-      />
-      <div class="filter-sep"></div>
+    <FilterBar v-model="searchQuery" :count="filteredOrgs.length" placeholder="Search organizations…">
       <div class="filter-group">
         <button
           v-for="type in orgTypes"
@@ -20,8 +12,7 @@
           {{ type.label }}
         </button>
       </div>
-      <span class="filter-count">{{ filteredOrgs.length }} results</span>
-    </div>
+    </FilterBar>
     <div class="card-grid">
       <OrgCard
         v-for="org in filteredOrgs"
@@ -38,6 +29,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import FilterBar from '@/components/layout/FilterBar.vue'
 import OrgCard from '@/components/organizations/OrgCard.vue'
 import { ORGANIZATIONS } from '@/data/organizations'
 import type { AreaId } from '@/types'

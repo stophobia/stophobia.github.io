@@ -1,15 +1,6 @@
 <template>
   <div class="people-tab">
-    <div class="filter-bar card">
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search people..."
-        class="input"
-        id="people-search"
-      />
-      <span class="filter-count">{{ filteredPeople.length }} results</span>
-    </div>
+    <FilterBar v-model="searchQuery" :count="filteredPeople.length" placeholder="Search people…" />
     <div class="card-grid">
       <PersonCard
         v-for="person in filteredPeople"
@@ -26,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import FilterBar from '@/components/layout/FilterBar.vue'
 import PersonCard from '@/components/people/PersonCard.vue'
 import { PEOPLE } from '@/data/people'
 import type { AreaId } from '@/types'

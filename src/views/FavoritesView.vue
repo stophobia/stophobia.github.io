@@ -552,15 +552,6 @@ function clear() {
 .fav-title { flex: 1; font-size: var(--text-sm); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fav-host { flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-muted); font-size: var(--text-xs); }
 
-/* The global reset zeroes margins, so the modal is re-centred here */
-.dialog { margin: auto; width: min(28rem, 100% - 2 * var(--space-md)); padding: var(--space-lg); color: var(--ink); }
-.dialog::backdrop { background: var(--backdrop); }
-.dialog-form { display: flex; flex-direction: column; gap: var(--space-sm); }
-.dialog-title { font-size: var(--text-lg); }
-.field { display: flex; flex-direction: column; gap: var(--space-2xs); font-size: var(--text-sm); color: var(--ink-muted); }
-.field .input { color: var(--ink); }
-.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-xs); margin-top: var(--space-xs); }
-.dialog-aside { margin-right: auto; }
 .btn-danger { background: var(--tone-critical); color: var(--ink-inverted); }
 .btn-danger:hover { filter: brightness(0.9); }
 

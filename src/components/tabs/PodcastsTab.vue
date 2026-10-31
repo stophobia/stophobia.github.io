@@ -1,33 +1,31 @@
 <template>
   <div class="category-tab">
-    <h2 class="section-title">Podcasts</h2>
-    <div class="card-grid">
-      <a v-for="p in PODCASTS" :key="p.name" :href="p.url" target="_blank" rel="noopener" class="podcast-card card">
-        <div class="pc-name">{{ p.name }}</div>
-        <div class="muted">{{ p.host }}</div>
-        <div class="pc-desc">{{ p.desc }}</div>
-      </a>
-    </div>
+    <FilterBar v-model="query" :count="shown.length" placeholder="Search podcasts…" />
+    <ChannelGrid :channels="shown" />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { AreaId } from '@/types'
+import { computed, ref } from 'vue'
+import FilterBar from '@/components/layout/FilterBar.vue'
+import ChannelGrid from '@/components/feed/ChannelGrid.vue'
+import { matches } from '@/stores/feedStore'
+import type { AreaId, Channel } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
-const PODCASTS = [
-  { name: 'Lex Fridman Podcast', host: 'Lex Fridman', url: 'https://lexfridman.com/podcast', desc: 'Conversations with AI researchers & founders' },
-  { name: 'Dwarkesh Podcast', host: 'Dwarkesh Patel', url: 'https://www.dwarkeshpatel.com', desc: 'AI, science, and economic history' },
-  { name: 'Latent Space', host: 'swyx & Alessio', url: 'https://www.latent.space', desc: 'AI engineering & research podcast' },
-  { name: 'The TWIML AI Podcast', host: 'Sam Charrington', url: 'https://twimlai.com/podcast', desc: 'ML research interviews' },
-  { name: 'Acquired', host: 'Ben & David', url: 'https://www.acquired.fm', desc: 'Tech company deep dives' },
-  { name: 'Odd Lots', host: 'Bloomberg', url: 'https://www.bloomberg.com/odd-lots', desc: 'Finance & macro economics' },
+const PODCASTS: Channel[] = [
+  { name: 'Lex Fridman Podcast', url: 'https://lexfridman.com/podcast', desc: 'Lex Fridman — Conversations with AI researchers & founders', area: 'ai' },
+  { name: 'Dwarkesh Podcast', url: 'https://www.dwarkeshpatel.com', desc: 'Dwarkesh Patel — AI, science, and economic history', area: 'ai' },
+  { name: 'Latent Space', url: 'https://www.latent.space', desc: 'swyx & Alessio — AI engineering & research podcast', area: 'ai' },
+  { name: 'The TWIML AI Podcast', url: 'https://twimlai.com/podcast', desc: 'Sam Charrington — ML research interviews', area: 'ai' },
+  { name: 'Acquired', url: 'https://www.acquired.fm', desc: 'Ben & David — Tech company deep dives', area: 'finance' },
+  { name: 'Odd Lots', url: 'https://www.bloomberg.com/odd-lots', desc: 'Bloomberg — Finance & macro economics', area: 'market' },
 ]
+
+const query = ref('')
+const shown = computed(() => PODCASTS.filter((p) => matches(query.value, [p.name, p.desc, p.area])))
 </script>
 
 <style scoped>
 .category-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.podcast-card { padding: var(--space-sm) var(--space-md); }
-.pc-name { font-weight: var(--weight-bold); }
-.pc-desc { font-size: var(--text-sm); margin-top: var(--space-2xs); }
 </style>

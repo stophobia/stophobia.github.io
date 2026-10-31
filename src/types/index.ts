@@ -123,6 +123,14 @@ export interface Tab {
   icon: string
 }
 
+// A site or channel to follow, listed on the Blog, Videos and Podcasts tabs
+export interface Channel {
+  name: string
+  url: string
+  desc: string
+  area: AreaId
+}
+
 export interface SearchResult {
   events: FeedEvent[]
   people: Person[]

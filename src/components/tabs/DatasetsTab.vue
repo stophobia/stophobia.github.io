@@ -1,8 +1,8 @@
 <template>
   <div class="category-tab">
-    <h2 class="section-title">Datasets & Benchmarks</h2>
+    <FilterBar v-model="query" :count="shown.length" placeholder="Search datasets…" />
     <div class="card-grid">
-      <a v-for="ds in DATASETS" :key="ds.name" :href="ds.url" target="_blank" rel="noopener" class="dataset-card card">
+      <a v-for="ds in shown" :key="ds.name" :href="ds.url" target="_blank" rel="noopener" class="dataset-card card">
         <div class="ds-header">
           <span class="ds-source">{{ ds.source }}</span>
           <span class="badge">{{ ds.area }}</span>
@@ -18,6 +18,9 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import FilterBar from '@/components/layout/FilterBar.vue'
+import { matches } from '@/stores/feedStore'
 import type { AreaId } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
@@ -30,6 +33,9 @@ const DATASETS = [
   { name: 'FRED Economic Data', source: 'St. Louis Fed', url: 'https://fred.stlouisfed.org', desc: 'US macroeconomic data', area: 'market', tags: ['macro', 'economic', 'time-series'] },
   { name: 'Quandl / Nasdaq Data Link', source: 'Nasdaq', url: 'https://data.nasdaq.com', desc: 'Financial and alternative data', area: 'quant', tags: ['market-data', 'alternative', 'quant'] },
 ]
+
+const query = ref('')
+const shown = computed(() => DATASETS.filter((d) => matches(query.value, [d.name, d.source, d.desc, d.area, ...d.tags])))
 </script>
 
 <style scoped>
