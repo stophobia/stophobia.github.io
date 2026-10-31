@@ -123,7 +123,7 @@ export interface Tab {
   icon: string
 }
 
-// A site or channel to follow, listed on the Blog, Videos and Podcasts tabs
+// A site, channel or event to follow, listed on the Blog, Videos, Podcasts and Conferences tabs
 export interface Channel {
   name: string
   url: string

@@ -1,77 +1,32 @@
 <template>
   <div class="category-tab">
     <FilterBar v-model="query" :count="shown.length" placeholder="Search conferences…" />
-    <div class="conf-year-groups">
-      <div v-for="group in groupedConfs" :key="group.year">
-        <h3 class="conf-year">{{ group.year }}</h3>
-        <div class="card-grid">
-          <div v-for="conf in group.confs" :key="conf.name" class="conf-card card">
-            <div class="conf-header">
-              <div>
-                <div class="conf-name">{{ conf.name }}</div>
-                <div class="muted">{{ conf.fullName }}</div>
-              </div>
-              <span class="badge">{{ conf.area }}</span>
-            </div>
-            <div class="conf-detail">
-              <span><span class="material-symbols-outlined" aria-hidden="true">calendar_today</span> {{ conf.date }}</span>
-              <span v-if="conf.location"><span class="material-symbols-outlined" aria-hidden="true">location_on</span> {{ conf.location }}</span>
-            </div>
-            <div class="conf-topics">
-              <span v-for="t in conf.topics" :key="t" class="tag">{{ t }}</span>
-            </div>
-            <a v-if="conf.url" :href="conf.url" target="_blank" rel="noopener" class="conf-link">Website <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ChannelGrid :channels="shown" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import FilterBar from '@/components/layout/FilterBar.vue'
+import ChannelGrid from '@/components/feed/ChannelGrid.vue'
 import { matches } from '@/stores/feedStore'
-import type { AreaId } from '@/types'
+import type { AreaId, Channel } from '@/types'
 defineProps<{ areaId: AreaId }>()
 
-// Update as editions are announced (dates checked 2026-10-03)
-const CONFERENCES = [
-  { name: 'QuantMinds 2026', fullName: 'QuantMinds International', year: 2026, date: 'Nov 16–19, 2026', location: 'London, UK', area: 'quant', url: 'https://informaconnect.com/quantminds-international/', topics: ['quant-finance', 'derivatives', 'risk'] },
-  { name: 'NeurIPS 2026', fullName: 'Neural Information Processing Systems', year: 2026, date: 'Dec 6–12, 2026', location: 'Sydney, Australia', area: 'ai', url: 'https://neurips.cc', topics: ['deep-learning', 'LLM', 'RL'] },
-  { name: 'AAAI-27', fullName: 'AAAI Conference on Artificial Intelligence', year: 2027, date: 'Feb 16–23, 2027', location: 'Montréal, Canada', area: 'ai', url: 'https://aaai.org', topics: ['AI', 'reasoning', 'multi-agent'] },
-  { name: 'ICLR 2027', fullName: 'International Conference on Learning Representations', year: 2027, date: 'Apr 26–30, 2027', location: 'San Francisco, US', area: 'ai', url: 'https://iclr.cc', topics: ['representation-learning', 'deep-learning'] },
-  { name: 'ICML 2027', fullName: 'International Conference on Machine Learning', year: 2027, date: 'TBA', location: '', area: 'ai', url: 'https://icml.cc', topics: ['ML', 'optimization', 'theory'] },
-  { name: 'ACL 2027', fullName: 'Association for Computational Linguistics', year: 2027, date: 'Aug 17–22, 2027', location: 'Kyoto, Japan', area: 'research', url: 'https://2027.aclweb.org', topics: ['NLP', 'LLM', 'linguistics'] },
+// In date order; update as editions are announced (dates checked 2026-10-03)
+const CONFERENCES: Channel[] = [
+  { name: 'QuantMinds 2026', url: 'https://informaconnect.com/quantminds-international/', desc: 'QuantMinds International — Nov 16–19, 2026 · London, UK', area: 'quant' },
+  { name: 'NeurIPS 2026', url: 'https://neurips.cc', desc: 'Neural Information Processing Systems — Dec 6–12, 2026 · Sydney, Australia', area: 'ai' },
+  { name: 'AAAI-27', url: 'https://aaai.org', desc: 'AAAI Conference on Artificial Intelligence — Feb 16–23, 2027 · Montréal, Canada', area: 'ai' },
+  { name: 'ICLR 2027', url: 'https://iclr.cc', desc: 'International Conference on Learning Representations — Apr 26–30, 2027 · San Francisco, US', area: 'ai' },
+  { name: 'ICML 2027', url: 'https://icml.cc', desc: 'International Conference on Machine Learning — dates TBA', area: 'ai' },
+  { name: 'ACL 2027', url: 'https://2027.aclweb.org', desc: 'Association for Computational Linguistics — Aug 17–22, 2027 · Kyoto, Japan', area: 'research' },
 ]
 
 const query = ref('')
-const shown = computed(() =>
-  CONFERENCES.filter((c) => matches(query.value, [c.name, c.fullName, c.location, c.area, ...c.topics])),
-)
-
-const groupedConfs = computed(() => {
-  const map: Record<number, typeof CONFERENCES> = {}
-  for (const c of shown.value) {
-    if (!map[c.year]) map[c.year] = []
-    map[c.year].push(c)
-  }
-  return Object.entries(map)
-    .sort(([a], [b]) => Number(a) - Number(b))
-    .map(([year, confs]) => ({ year: Number(year), confs }))
-})
+const shown = computed(() => CONFERENCES.filter((c) => matches(query.value, [c.name, c.desc, c.area])))
 </script>
 
 <style scoped>
 .category-tab { display: flex; flex-direction: column; gap: var(--space-md); }
-.conf-year-groups { display: flex; flex-direction: column; gap: var(--space-lg); }
-.conf-year { font-size: var(--text-md); margin-bottom: var(--space-xs); }
-.conf-card { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); }
-.conf-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-xs); }
-.conf-name { font-weight: var(--weight-bold); }
-.conf-detail { display: flex; gap: var(--space-sm); font-size: var(--text-sm); color: var(--ink-muted); flex-wrap: wrap; }
-.conf-detail > span, .conf-link { display: inline-flex; align-items: center; gap: var(--space-2xs); }
-.conf-topics { display: flex; gap: var(--space-2xs); flex-wrap: wrap; }
-.conf-link { font-size: var(--text-sm); color: var(--accent); font-weight: var(--weight-medium); margin-top: auto; }
-.conf-link:hover { text-decoration: underline; }
 </style>
